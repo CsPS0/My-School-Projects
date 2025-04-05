@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karácsonyi Varázs</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+    <header>
+        <div class="snow-animation"></div>
+        <div class="countdown-container" id="countdown"></div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html" class="active">Főoldal</a></li>
+                <li><a href="stories.html">Történetek</a></li>
+                <li><a href="recipes.html">Receptek</a></li>
+                <li><a href="about.html">About Christmas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Karácsonyi Varázs</h1>
+            <p class="hero-subtitle">Fedezze fel velünk az ünnep varázsát!</p>
+        </section>
+        <section class="content-grid">
+            <article class="intro">
+                <h2>Üdvözöljük a Karácsonyi Varázs oldalán!</h2>
+                <p>Fedezze fel velünk a karácsony varázsát, ossza meg történeteit, és merüljön el az ünnepi hangulatban.</p>
+                <div class="feature-buttons">
+                    <a href="stories.html" class="btn">Történetek</a>
+                    <a href="recipes.html" class="btn">Receptek</a>
+                </div>
+            </article>
+            <aside class="highlights">
+                <h3>Kiemelt tartalmak</h3>
+                <ul>
+                    <li>Legújabb karácsonyi történetek</li>
+                    <li>Ünnepi receptek</li>
+                    <li>Dekorációs ötletek</li>
+                </ul>
+                <div class="newsletter-signup">
+                    <h4>Iratkozzon fel hírlevelünkre!</h4>
+                    <form id="subscribe-form">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <button type="submit">Feliratkozás</button>
+                    </form>                      
+                </div>
+            </aside>
+        </section>
+        <section id="christmas-history" class="content-section">
+            <h2>A karácsony történelme</h2>
+            <div class="story">
+                <p>A karácsony az évszázadok során alakult ki, gyökerei a pogány téli napfordulós ünnepekig és a keresztény vallási hagyományokig nyúlnak vissza. Az ókori Rómában a Saturnalia ünnep, a germán népek téli napfordulós ünnepe mind hatással volt a mai karácsony kialakulására.</p>
+                <p>A 4. században kezdték el Jézus Krisztus születésnapját december 25-én ünnepelni, amely fokozatosan vált a mai értelemben vett karácsonyi ünneppé. A középkorban a vallásos hagyományok mellett egyre fontosabbá váltak a világi elemek is.</p>
+            </div>
+        </section>
+        <section class="content-section">
+            <h2>Ki az a Mikulás?</h2>
+            <div class="story">
+                <p>A Mikulás alakja Szent Miklós püspökből alakult ki, aki a 4. században élt Myra városában és ismert volt nagylelkűségéről. A legenda szerint titokban pénzt adott a szegény családoknak, ezzel védve a gyerekeket.</p>
+                <p>Az idők során a Szent Miklós-i hagyomány átalakult, és a mai Mikulás képe a 19. században kezdett kialakulni, elsősorban az Egyesült Államokban, ahol Clement Clarke Moore verse és Thomas Nast illusztrációi meghatározó szerepet játszottak a mai Télapó-kép formálásában.</p>
+            </div>
+        </section>
+        <section class="content-section">
+            <h2>Ünnepi szokások</h2>
+            <div class="story">
+                <p>Minden kultúrának megvannak a maga egyedi karácsonyi hagyományai. Magyarországon a klasszikus karácsonyeste a családi együttlétet, az ajándékozást és a közös étkezést jelenti. A karácsonyfát általában december 24-én díszítik fel, és alá kerülnek az ajándékok.</p>
+                <p>Sok család ragaszkodik a hagyományos ételekhez, mint a halászlé, a bejgli, a töltött káposzta. Az adventi időszakban egyre népszerűbbek a karácsonyi vásárok, a mézes sütemény sütése, és a közösségi programok.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Készítette: Solti Csongor Péter</p>
+            <p>&copy; 2024 Karácsonyi Varázs</p>
+            <div class="social-links">
+                <a href="https://yoursit.ee/csps" aria-label="YourSitee" target="_blank">YourSitee</a>
+                <a href="https://steamcommunity.com/id/chonya/" aria-label="Steam" target="_blank">Steam</a>
+                <a href="https://github.com/CsPS0" aria-label="Github" target="_blank">Github</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../JS/email-index.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

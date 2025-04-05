@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karácsonyi Történetek</title>
+    <link rel="stylesheet" href="/forras/CSS/main.css">
+</head>
+<body>
+    <header>
+        <div class="snow-animation"></div>
+        <div class="countdown-container" id="countdown"></div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="../index.html">Főoldal</a></li>
+                <li><a href="../stories.html" class="active">Történetek</a></li>
+                <li><a href="../recipes.html">Receptek</a></li>
+                <li><a href="../about.html">About Christmas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <section class="story-content">
+            <h2>Az első karácsony a barátnőmmel</h2>
+            <article class="story">
+                <p>Az év legszebb időszaka elérkezett, és bár a hó már hetek óta hullott, a karácsonyi varázs egyre erősebben ölelte át a várost. Szenteste reggelén, ahogy az égre néztem, minden fehér volt, mintha a világ egy hatalmas, puha takaró alatt pihent volna. Különös érzés fogott el, mert nem csupán a karácsony közeledett, hanem az első közös ünnepünk is a barátnőmmel, Annával. Azóta, hogy tavasszal összejöttünk, rengeteg szép pillanatot éltünk meg együtt, de most egy olyan alkalom volt előttünk, ami mindent felülírt: az első közös karácsony.</p>
+                <p>Mikor reggel felkeltem, már izgatottan vártam, hogy találkozzunk. Anna még nem volt nálam, de tudtam, hogy a családja is karácsonyi vacsorát készít, amit meghívásomra szívesen megosztottak volna velem is. Azonban mindketten úgy éreztük, hogy idén az ünnepeket saját magunk számára kell megélnünk, különleges, csak ránk jellemző módon.</p>
+                <p>Reggel, mikor felhívtam, hogy megbeszéljük a napot, hangja tele volt izgalommal. „Mi lenne, ha csinálnánk egy közös reggelit?” kérdezte, és már hallottam, ahogy hangosan nevet. Tudtam, hogy ő is ugyanolyan lelkes, mint én.</p>
+                <p>A reggelit közösen készítettük el: narancslé, friss tojásrántotta, mézeskalács és egy nagy bögre forró csokoládé. A konyha tele volt illatokkal, és Anna mellett minden pillanat egy kis ünneppé vált. Miután a reggelit elfogyasztottuk, az volt az első dolog, hogy kicseréltük az ajándékainkat. Anna egy apró, de nagyon szép fém nyakláncot adott nekem, amire a szívemet formáló medál volt akasztva. Én egy könyvet hoztam neki, ami rólunk szólt. Együtt válogattuk ki a legjobb pillanatokból azokat, amik mindkettőnk számára fontosak voltak. Mivel mindketten szeretjük a történeteket, ezt a közönséges ajándékozás helyett különleges módon oldottuk meg.</p>
+                <p>Délután kimentünk a városba, ahol a karácsonyi piac hangulata minden sarkon megérintett. A fények, a gyertyák, a kis faházak mind arról meséltek, hogy itt a szeretet és a család ideje. Mikor kézenfogva sétáltunk, minden egyes pillanata tele volt boldogsággal, és még a hideg sem volt számottevő. Beültünk egy kis kávézóba, ahol egy forró csokit kortyolgattunk, és miközben az ablakon keresztül figyeltük a hóesést, egymás szemébe néztünk, és tudtuk, hogy ez az este számunkra örökre emlékezetes lesz.</p>
+                <p>Végül este, miután visszatértünk a lakásomra, egy kis karácsonyi filmet néztünk, miközben egymás mellett pihentünk a kanapén. A fények halványan világítottak a fenyőfán, és a szoba tele volt azzal a meleg érzéssel, amit csak egy közösen megélt ünnep adhat. A film végén mindketten elcsendesedtünk, és csendben élveztük a pillanatot. Az első közös karácsonyunk tele volt apró, de különleges részletekkel, és bár nem voltak nagy, grandiózus ajándékok vagy rendezvények, a szeretet és a törődés mindent felülmúlt.</p>
+                <p>„Szeretem, hogy ezt így együtt csináltuk,” mondta Anna, miközben rám mosolygott.</p>
+                <p>„Én is,” válaszoltam, miközben a kezét szorosan megfogtam. „Ez volt az egyik legszebb karácsony.”</p>
+                <p>És abban a pillanatban tudtam, hogy bármi is történjen a jövőben, ez az ünnep örökre velünk marad, mint a kezdet, a szeretet ünnepe, amit együtt ünnepeltünk.</p>
+            </article>
+        </section>
+        <section class="content-grid centered-story-submit">
+            <aside class="story-submit">
+                <h3>Küldd el te is a történeted!</h3>
+                <p>Osszd meg velünk a legszebb karácsonyi élményeidet.</p>
+                <form id="story-form">
+                    <input type="text" placeholder="Neved" required>
+                    <textarea placeholder="Írd le a történeted" required></textarea>
+                    <button type="submit" class="btn">Küldés</button>
+                </form>
+            </aside>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Készítette: Solti Csongor Péter</p>
+            <p>&copy; 2024 Karácsonyi Varázs</p>
+            <div class="social-links">
+                <a href="https://yoursit.ee/csps" aria-label="YourSitee" target="_blank">YourSitee</a>
+                <a href="https://steamcommunity.com/id/chonya/" aria-label="Steam" target="_blank">Steam</a>
+                <a href="https://github.com/CsPS0" aria-label="Github" target="_blank">Github</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../JS/email.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

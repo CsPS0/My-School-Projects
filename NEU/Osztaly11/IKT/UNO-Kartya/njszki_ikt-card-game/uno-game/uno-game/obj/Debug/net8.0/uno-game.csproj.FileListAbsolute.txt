@@ -1,0 +1,14 @@
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\bin\Debug\net8.0\uno-game.exe
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\bin\Debug\net8.0\uno-game.deps.json
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\bin\Debug\net8.0\uno-game.runtimeconfig.json
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\bin\Debug\net8.0\uno-game.dll
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\bin\Debug\net8.0\uno-game.pdb
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.AssemblyInfo.cs
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.dll
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\refint\uno-game.dll
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.pdb
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\uno-game.genruntimeconfig.cache
+E:\REPOS\SCHOOL\ikt-card_game\njszki_ikt-card-game\uno-game\uno-game\obj\Debug\net8.0\ref\uno-game.dll

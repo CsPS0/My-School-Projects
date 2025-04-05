@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karácsonyi Történetek</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+    <header>
+        <div class="snow-animation"></div>
+        <div class="countdown-container" id="countdown"></div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html">Főoldal</a></li>
+                <li><a href="stories.html" class="active">Történetek</a></li>
+                <li><a href="recipes.html">Receptek</a></li>
+                <li><a href="about.html">About Christmas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <section class="hero">
+            <h1>Karácsonyi Történetek</h1>
+            <p class="hero-subtitle">Oszd meg a te ünnepi élményeidet!</p>
+        </section>
+        <section class="content-section">
+            <h2>Kedvenc karácsonyi történeteink</h2>
+            <div class="story-cards">
+                <div class="story-card">
+                    <img src="../images/story1.png" alt="Karácsonyi történet 1">
+                    <h3>Az első karácsony a barátnőmmel</h3>
+                    <p>Egy igazán meghitt és emlékezetes ünnep a barátnőmmel.</p>
+                    <a href="./stories/story1.html" class="btn">Elolvasom</a>
+                </div>
+                <div class="story-card">
+                    <img src="../images/story2.png" alt="Karácsonyi történet 2">
+                    <h3>A legcukibb ajándék!</h3>
+                    <p>Gyermekkori emlékek a nagyi házánál töltött karácsonyi ajándékomról.</p>
+                    <a href="./stories/story2.html" class="btn">Elolvasom</a>
+                </div>
+                <div class="story-card">
+                    <img src="../images/story3.png" alt="Karácsonyi történet 3">
+                    <h3>Télapó és a boxmecs</h3>
+                    <p>Egy karácsony, amikor a mikulás megverésének örömét tapasztaltuk meg.</p>
+                    <a href="./stories/story3.html" class="btn">Elolvasom</a>
+                </div>
+            </div>
+        </section>
+        <section class="content-grid centered-story-submit">
+            <aside class="story-submit">
+                <h3>Küldd el te is a történeted!</h3>
+                <p>Osszd meg velünk a legszebb karácsonyi élményeidet.</p>
+                <form id="story-form">
+                    <input type="text" name="name" placeholder="Neved" required>
+                    <input type="email" name="from_email" placeholder="Email címed" required>
+                    <textarea name="story" placeholder="Írd le a történeted" required></textarea>
+                    <button type="submit" class="btn">Küldés</button>
+                </form>
+            </aside>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Készítette: Solti Csongor Péter</p>
+            <p>&copy; 2024 Karácsonyi Varázs</p>
+            <div class="social-links">
+                <a href="https://yoursit.ee/csps" aria-label="YourSitee" target="_blank">YourSitee</a>
+                <a href="https://steamcommunity.com/id/chonya/" aria-label="Steam" target="_blank">Steam</a>
+                <a href="https://github.com/CsPS0" aria-label="Github" target="_blank">Github</a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../JS/email.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

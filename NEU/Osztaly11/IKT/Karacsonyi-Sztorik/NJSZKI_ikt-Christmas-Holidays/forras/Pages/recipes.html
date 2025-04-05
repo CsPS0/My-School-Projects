@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karácsonyi Receptek</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+<body>
+    <header>
+        <div class="snow-animation"></div>
+        <div class="countdown-container" id="countdown"></div>
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html">Főoldal</a></li>
+                <li><a href="stories.html">Történetek</a></li>
+                <li><a href="recipes.html" class="active">Receptek</a></li>
+                <li><a href="about.html">About Christmas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Karácsonyi Receptek</h1>
+            <p class="hero-subtitle">Készítsd el a legfinomabb ünnepi finomságokat!</p>
+        </section>
+        <section class="content-section">
+            <h2 style="text-align: center;">Ünnepi receptek</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Minden</button>
+                <button class="filter-btn" data-filter="soup">Levesek</button>
+                <button class="filter-btn" data-filter="main">Főételek</button>
+                <button class="filter-btn" data-filter="dessert">Édességek</button>
+            </div>
+            <div class="recipe-cards">
+                <div class="card" data-category="soup">
+                    <img src="../images/halaszle.webp" alt="halaszle.webp" draggable="false">
+                    <h3>Magyaros halászlé</h3>
+                    <a href="./recipes/soups/soup1.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="main">
+                    <img src="../images/kaposzta.webp" alt="kaposzta.webp" draggable="false">
+                    <h3>Lusta asszony káposztája</h3>
+                    <a href="./recipes/primary/primary1.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="dessert">
+                    <img src="../images/bejgli.webp" alt="bejgli.webp" draggable="false">
+                    <h3>Mákos - diós bejgli</h3>
+                    <a href="./recipes/sweets/sweet1.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="soup">
+                    <img src="../images/sutotokkremleves.webp" alt="sutotokkremleves.webp" draggable="false">
+                    <h3>Sütőtökkrémleves</h3>
+                    <a href="./recipes/soups/soup2.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="main">
+                    <img src="../images/pulykasult.webp" alt="pulykasult.webp" draggable="false">
+                    <h3>Pulykasült gesztenyemártással</h3>
+                    <a href="./recipes/primary/primary2.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="dessert">
+                    <img src="../images/mezeskalacs.webp" alt="mezeskalacs.webp" draggable="false">
+                    <h3>Ünnepi mézeskalács</h3>
+                    <a href="./recipes/sweets/sweet2.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="soup">
+                    <img src="../images/tyukhusleves.webp" alt="tyukhusleves.webp" draggable="false">
+                    <h3>Újházi-tyúkhúsleves</h3>
+                    <a href="./recipes/soups/soup3.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="main">
+                    <img src="../images/ponty.webp" alt="ponty.webp" draggable="false">
+                    <h3>Fokhagymás ponty</h3>
+                    <a href="./recipes/primary/primary3.html" class="btn">Recept megtekintése</a>
+                </div>
+                <div class="card" data-category="dessert">
+                    <img src="../images/zserbo.webp" alt="zserbo.webp" draggable="false">
+                    <h3>Zserbó</h3>
+                    <a href="./recipes/sweets/sweet3.html" class="btn">Recept megtekintése</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Készítette: Solti Csongor Péter</p>
+            <p>&copy; 2024 Karácsonyi Varázs</p>
+            <div class="social-links">
+                <a href="https://yoursit.ee/csps" aria-label="YourSitee" target="_blank">YourSitee</a>
+                <a href="https://steamcommunity.com/id/chonya/" aria-label="Steam" target="_blank">Steam</a>
+                <a href="https://github.com/CsPS0" aria-label="Github" target="_blank">Github</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../JS/main.js"></script>
+</body>
+</html>
