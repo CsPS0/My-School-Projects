@@ -1,0 +1,32 @@
+Adatbázis:
+- Adatbázis tervezés (Nobel-díj)
+- Adatbázis tervezés EK diagram segítségével
+- ER modell átalakítása relációs adatbázissá
+- Adatbázis tervezés (Nobel-díj) (EK diagram tervezés)
+- Adatbázis tervezés 2. (Úszó VB)
+
+Asztali:
+- OOP több projektes feladatok
+- Íjászat órai
+- Íjászat HF
+- OOP több projektes feladatok (Városok)
+
+Web:
+- Függvény gyakorlás
+- JS Form
+
+Digitális Kultúra:
+- Excel 1. - Alapismeretek áttekintése
+- Excel 2. - Diagramok
+- Excel 3. - Összetett feladat
+- Excel 4. - Dátum és időkezelés
+- Excel 5. - Lángos
+- Excel 6. - Városok
+- Access 1. - Alapismeretek áttekintése
+- Access 2. - Logikai műveletek a lekérdezésekben
+
+Docker:
+- pdf normálisam feltörni
+
+IKT:
+- PPT-t

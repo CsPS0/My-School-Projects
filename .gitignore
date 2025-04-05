@@ -24,11 +24,4 @@ secret.txt
 
 *.bak
 
-*.txt
-
-*.pdf
-
-*.webp
-*.jpg
-
 *.vs
