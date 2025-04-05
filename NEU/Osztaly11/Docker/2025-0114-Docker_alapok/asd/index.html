@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWebsite</title>
+    <style>
+        h1:first-child {
+            color: blue;
+            font-style: italic;
+            text-align: center;
+        }
+
+        h1:nth-child(2) {
+            color: blue;
+            text-decoration: dotted;
+            text-align: center;
+        }
+
+        h1:nth-child(3) {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Solti Csongor Péter</h1>
+    <h1>Budapesti Műszaki Szakképzési Centrum Neumann János Informatikai Technikum</h1>
+    <h1 id="current-date"></h1>
+    <script>
+        const today = new Date();
+        const formattedDate = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+        document.getElementById('current-date').textContent = formattedDate;
+    </script>
+</body>
+</html>
