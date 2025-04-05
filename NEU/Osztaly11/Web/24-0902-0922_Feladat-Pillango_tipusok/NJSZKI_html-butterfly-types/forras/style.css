@@ -1,0 +1,84 @@
+body {
+    background-image: url(../forras/images/butterfly_bg.jpg);
+    width: 500px;
+}
+
+ol {
+    width: 300px;
+    position: absolute;
+    inset: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ol > li:nth-child(odd) {
+    background-color: #ddd5c7;
+}
+
+ol > li:nth-child(2) {
+    background-color: #cbd4e1;
+}
+
+ol > li {
+    list-style-type: none;
+    border: 2px solid black;
+    margin-bottom: 6px;
+    padding: 20px;
+    font-variant-caps: small-caps;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+ol > li * {
+    font-size: initial;
+    font-weight: normal;
+    font-variant-caps: initial;
+}
+
+ol span {
+    font-style: italic;
+    color: brown;
+}
+
+div {
+    display: none;
+}
+
+ol > li > ul > li > ul > li:nth-child(7)  {
+    background-color: lightskyblue;
+}
+
+ol > li > ul > li > ul > li > ul > li:nth-child(5){
+    background-color: lightcoral;
+}
+
+ol > li > ul > li > ul > li:nth-child(7):hover div {
+    display: inline-block;
+    background-color: white;
+    border: 2px solid lightskyblue;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    position: absolute;
+    height: 80px;
+}
+
+ol > li > ul > li > ul > li > ul > li:nth-child(5):hover div {
+    display: inline-block;
+    background-color: white;
+    border: 2px solid lightcoral;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    position: absolute;
+    margin-left: 25px;
+    height: 100px;
+}
+
+div:nth-child(1) {
+    height: 80px;
+}
+
+div:nth-child(2) {
+    height: 100px;
+}
