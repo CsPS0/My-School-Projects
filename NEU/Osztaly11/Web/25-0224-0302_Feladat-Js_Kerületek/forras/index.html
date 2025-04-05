@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerületek</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/districts.js" defer></script>
+    <script src="src/js/main.js" defer></script>
+    <script src="src/js/listeners.js" defer></script>
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <header>
+        <h1>Budapest Kerületei</h1>
+    </header>
+    <main>
+        <div id="controls-wrapper">
+            <div>
+                <select id="selected-district">
+                    <option value="">Válassz...</option>
+                    <option value="1">I. kerület - Budavár</option>
+                    <option value="2">II. kerület</option>
+                    <option value="3">III. kerület - Óbuda-Békásmegyer</option>
+                    <option value="4">IV. kerület - Újpest</option>
+                    <option value="5">V. kerület - Belváros-Lipótváros</option>
+                    <option value="6">VI. kerület - Terézváros</option>
+                    <option value="7">VII. kerület - Erzsébetváros</option>
+                    <option value="8">VIII. kerület - Józsefváros</option>
+                    <option value="9">IX. kerület - Ferencváros</option>
+                    <option value="10">X. kerület - Kőbánya</option>
+                    <option value="11">XI. kerület - Újbuda</option>
+                    <option value="12">XII. kerület - Hegyvidék</option>
+                    <option value="13">XIII. kerület</option>
+                    <option value="14">XIV. kerület - Zugló</option>
+                    <option value="15">XV. kerület</option>
+                    <option value="16">XVI. kerület</option>
+                    <option value="17">XVII. kerület - Rákosmente</option>
+                    <option value="18">XVIII. kerület - Pestszentlőrinc-Pestszentimre</option>
+                    <option value="19">XIX. kerület - Kispest</option>
+                    <option value="20">XX. kerület - Pesterzsébet</option>
+                    <option value="21">XXI. kerület - Csepel</option>
+                    <option value="22">XXII. kerület - Budafok-Tétény</option>
+                    <option value="23">XXIII. kerület - Soroksár</option>
+                </select>
+                <button id="add-district">Kerület hozzáadása</button>
+            </div>
+            <div>
+                <button id="clear-all">Összes törlése</button>
+                <button id="clear-random">Random törlése</button>
+            </div>
+        </div>
+        <div id="districts">
+        </div>
+    </main>
+</body>
+</html>

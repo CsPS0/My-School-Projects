@@ -1,0 +1,177 @@
+:root {
+    --background-color: #fff7ed;
+    --red: #d6001c;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: var(--red);
+    background-image: url(../images/snowflakes.png);
+    background-size: contain;
+    background-repeat: repeat;
+    padding: 10px 20px;
+}
+
+nav h1 {
+    font-weight: bold;
+    margin: 0;
+    flex: 1;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    align-self: center;
+}
+
+header {
+    background-image: url(../images/presents.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-inline: 30px;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    filter: drop-shadow(1px 1px 3px black);
+}
+
+header p {
+    font-size: 1.2em;
+    color: white;
+    filter: drop-shadow(1px 1px 3px black);
+}
+
+button {
+    background-color: var(--red);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    bottom: 10px;
+}
+
+button:hover {
+    background-color: #a50016;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px;
+}
+
+.card:nth-child(1) {
+    background-image: url(../images/gingerbread-men.png);
+    aspect-ratio: 1 / 1;
+}
+
+.card:nth-child(2) {
+    background-image: url(../images/santa-chocolate.png);
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+}
+
+.card:nth-child(3) {
+    background-image: url(../images/christmas-candy.png);
+    aspect-ratio: 1 / 1;
+}
+
+.card:nth-child(4) {
+    background-image: url(../images/cupcake.png);
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+}
+
+.card-layout {
+    display: block;
+    margin-top: auto;
+    background-color: var(--background-color);
+}
+
+.card-layout h3 {
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+aside:nth-child(1) {
+    float: left;
+
+    img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+aside:nth-child(2) {
+    float: right;
+}
+
+footer {
+    background-color: var(--red);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media screen and (max-width: 650px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 30px 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}

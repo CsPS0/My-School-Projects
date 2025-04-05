@@ -1,0 +1,62 @@
+.brian {
+    z-index: 5;
+    transform: translate(62vw, 28vw);
+    animation: move-brian 2s ease-in-out 1s 1 forwards;
+}
+
+.meg {
+    z-index: 3;
+    transform: translate(63vw, 18vw);
+    animation: move-meg 1s ease-in-out 6s 1 forwards;
+}
+
+.peter {
+    z-index: 6;
+    transform: translate(17vw, 10vw);
+    animation: pulse-peter 0.5s linear 7s 3 alternate;
+}
+
+.lois {
+    z-index: 2;
+    transform: translate(40vw, 12vw);
+}
+
+.chris {
+    z-index: 1;
+    transform: translate(45vw, 15vw);
+}
+
+.stewie {
+    z-index: 4;
+    transform: translate(45vw, 29vw) rotateY(180deg);
+}
+
+.subtitle:has(.brian-quote) {
+    animation: appear 5s linear 1s;
+}
+
+.subtitle:has(.meg-quote) {
+    animation: appear 1s linear 6s;
+}
+
+.subtitle:has(.peter-quote) {
+    animation: appear 2s linear 7s;
+}
+
+@keyframes move-brian {
+    to {
+        transform: translate(55vw, 28vw);
+    }
+}
+
+@keyframes move-meg {
+    to {
+        transform: translate(62vw, 18vw);
+    }
+}
+
+@keyframes pulse-peter {
+    to {
+        transform: scale(1.1);
+    }
+}

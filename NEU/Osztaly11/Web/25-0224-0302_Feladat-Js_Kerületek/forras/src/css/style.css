@@ -1,0 +1,103 @@
+header {
+    background-image: url('../images/header.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h1 {
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+main {
+    padding: 0.5rem;
+}
+
+select {
+    border: 2px solid var(--main-color);
+    border-radius: 0.5rem;
+    padding-block: 0.1rem;
+    padding-inline: 0.5rem;
+}
+
+button {
+    color: white;
+    border: none;
+    padding-block: 0.3rem;
+    padding-inline: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+img {
+    width: 100%;
+    align-self: center;
+}
+
+@media screen and (width >= 950px) {
+    main {
+        width: 80%;
+        margin-inline: auto;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+:root {
+    --main-color: rgb(185, 61, 54);
+}
+
+h1 {
+    background-color: var(--main-color);
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+}
+
+button {
+    background-color: var(--main-color);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(205, 61, 54);
+}
+
+#controls-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 950px) {
+    #controls-wrapper {
+        flex-direction: row;
+    }
+}
+
+#controls-wrapper div {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+#districts {
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+}

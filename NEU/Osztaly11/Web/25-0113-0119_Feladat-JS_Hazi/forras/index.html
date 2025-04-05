@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Alapok</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="tablink" onclick="openPage('Home', this, '#8B4513')" id="defaultOpen">Egyszerű feladatok</button>
+            <button class="tablink" onclick="openPage('News', this, '#8B4513')">Komplex feladatok</button>
+        </div>
+    </nav>
+    <div id="Home" class="tabcontent">
+        <h2>Egyszerű feladatok</h2>
+        <div id="consoleContainerHome" class="consoleContainer">
+            <div id="consoleOutputHome" class="consoleOutput"></div>
+        </div>
+        <script src="./JS/console.js"></script>
+        <script>
+            rewireLoggingToElement(
+                () => document.getElementById("consoleOutputHome"),
+                () => document.getElementById("consoleContainerHome"),
+                true
+            );
+        </script>
+        <script src="./JS/basic.js"></script>
+    </div>
+    <div id="News" class="tabcontent">
+        <h2>Komplex feladatok</h2>
+        <div id="consoleContainerNews" class="consoleContainer">
+            <div id="consoleOutputNews" class="consoleOutput"></div>
+        </div>
+        <script src="./JS/console.js"></script>
+        <script>
+            rewireLoggingToElement(
+                () => document.getElementById("consoleOutputNews"),
+                () => document.getElementById("consoleContainerNews"),
+                true
+            );
+        </script>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a target="_blank" href="https://github.com/CsPS0">GitHub</a>
+                <a target="_blank" href="https://steamcommunity.com/id/chonya/">Steam</a>
+                <a target="_blank" href="https://yoursit.ee/csps">YourSit</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 CsPS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="./JS/w3fpt.js"></script>
+</body>
+</html>

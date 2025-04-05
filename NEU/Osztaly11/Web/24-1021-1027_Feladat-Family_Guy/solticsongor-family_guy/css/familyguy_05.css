@@ -1,0 +1,71 @@
+.chris {
+    z-index: 1;
+    transform: translate(53vw, 15vw);
+    animation: move-chris 2s ease-in-out 1s 1 forwards;
+}
+
+.lois {
+    z-index: 2;
+    transform: translate(40vw, 12vw);
+    animation: turn-lois 6s ease-in-out 6s 1 forwards;
+}
+
+.stewie {
+    z-index: 4;
+    transform: translate(53vw, 29vw);
+    animation: move-stewie 6s ease-in-out 12s 1 forwards;
+}
+
+.peter {
+    z-index: 6;
+    transform: translate(17vw, 10vw);
+}
+
+.meg {
+    z-index: 3;
+    transform: translate(63vw, 18vw);
+}
+
+.brian {
+    z-index: 5;
+    transform: translate(62vw, 28vw);
+}
+
+.subtitle:has(.chris-quote) {
+    animation: appear 5s linear 1s;
+}
+
+.subtitle:has(.lois-quote) {
+    animation: appear 6s linear 6s;
+}
+
+.subtitle:has(.stewie-quote) {
+    animation: appear 6s linear 12s;
+}
+
+@keyframes move-chris {
+    to {
+        transform: translate(45vw, 15vw);
+    }
+}
+
+@keyframes turn-lois {
+    10% {
+        transform: rotateY(180deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    60% {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes move-stewie {
+    10% {
+        transform: translate(53vw, 29vw) rotateY(180deg);
+    }
+    100% {
+        transform: translate(45vw, 29vw) rotateY(180deg);
+    }
+}

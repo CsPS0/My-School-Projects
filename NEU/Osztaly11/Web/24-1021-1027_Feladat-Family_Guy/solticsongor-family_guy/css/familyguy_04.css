@@ -1,0 +1,31 @@
+.boat {
+    z-index: 2;
+    transform: translate(-120%, 15vw);
+}
+
+.explosion {
+    z-index: 3;
+    transform: translate(10vw, 4vw) scale(0);
+    animation: explode 0.1s linear 1.3s 1 forwards;
+}
+
+.boat {
+    transform: rotateY(180deg);
+    animation: move 0.3s linear 1s 1 forwards;
+}
+
+.subtitle {
+    animation: appear 4s linear 1.3s;
+}
+
+@keyframes move {
+    to {
+        transform: translate(20vw, 15vw) rotateY(180deg);
+    }
+}
+
+@keyframes explode {
+    to {
+        transform: scale(1);
+    }
+}
