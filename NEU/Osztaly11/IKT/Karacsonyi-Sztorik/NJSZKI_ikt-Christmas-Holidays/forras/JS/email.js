@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const EMAILJS_USER_ID = '4OBCX1dlx8-UfEGAm';
-    const EMAILJS_SERVICE_ID = 'service_7l419tm';
-    const EMAILJS_TEMPLATE_ID = 'template_v4g9u8g';
+    const EMAILJS_USER_ID = 'API-KEY';
+    const EMAILJS_SERVICE_ID = 'API-KEY';
+    const EMAILJS_TEMPLATE_ID = 'API-KEY';
 
     const form = document.getElementById('story-form');
     

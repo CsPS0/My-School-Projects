@@ -1,5 +1,5 @@
 // Initialize EmailJS
-emailjs.init("4OBCX1dlx8-UfEGAm");  // A fenti EmailJS felhasználói ID-t használd
+emailjs.init("API-KEY");  // A fenti EmailJS felhasználói ID-t használd
 
 // Form küldés kezelése
 document.getElementById("subscribe-form").addEventListener("submit", function(event) {
@@ -12,7 +12,7 @@ var formData = {
 };
 
 // Email küldése
-emailjs.send('service_7l419tm', 'template_snm1yi9', formData)
+emailjs.send('API-KEY', 'API-KEY', formData)
     .then(function(response) {
         alert('Feliratkozás sikeres!');
     }, function(error) {
