@@ -37,34 +37,13 @@ function createButton(text, onClick, color = "indigo") {
     return button
 }
 
-let createCard
-createCard = function(title, content, buttonText, buttonAction) {
-    const kartya = document.createElement("div")
-    kartya.classList.add("bg-white", "rounded-lg", "shadow-md", "p-6", "mb-6")
-    const kcim = document.createElement("h3")
-    kcim.textContent = title
-    kcim.classList.add("text-xl", "font-semibold", "text-gray-800", "mb-3")
-    const ktartalom = document.createElement("div")
-    ktartalom.classList.add("text-gray-700", "mb-4")
-    if (typeof content === "string") {
-        ktartalom.textContent = content
-    }
-    else {
-        ktartalom.appendChild(content)
-    }
-    const kgomb = createButton(buttonText, buttonAction)
-    kartya.append(kcim, ktartalom, kgomb)
-    return kartya
-}
-
 const kepek = [
     {id: 1, image: "./img/kep1.png"},
     {id: 2, image: "./img/kep2.webp"},
     {id: 3, image: "./img/kep3.webp"}
 ];
 
-let createGalleryItem
-createGalleryItem = function(imageSrc, caption) {
+function createGalleryItem (imageSrc, caption) {
     const galeria = document.createElement("div")
     galeria.classList.add("overflow-hidden", "rounded-lg", "shadow-md")
     const kepDiv = document.createElement("div")
@@ -80,28 +59,136 @@ createGalleryItem = function(imageSrc, caption) {
     return galeria;
 };
 
-/*
-const galleryContainer = document.getElementById("gallery");
-for (let i = 0; i < kepek.length; i++) {
-    const kepelem = kepek[i];
-    const newGalleryItem = createGalleryItem(kepelem.image, "Képaláírás " + kepelem.id);
-    galleryContainer.appendChild(newGalleryItem);
+function createBox(width, height, color) {
+    const box = document.createElement("div");
+    box.style.width = `${width}px`;
+    box.style.height = `${height}px`;
+    box.style.backgroundColor = color;
+    box.classList.add("rounded", "m-2", "shadow-md", "transition", "duration-300", "hover:scale-105");
+    return box;
 }
-*/
 
-let createList
-createList = function(items, ordered = "false") {
-    if (ordered === "true") {
-        const lista = document.createElement("ul")
-        lista.classList.add("list-decimal", "ml-6")
-    }
-    else {
-        const lista = document.createElement("ol")
-        lista.classList.add("list-disc", "ml-6")
+const createCard = function(title, content) {
+    const card = document.createElement("div");
+    card.className = "bg-white rounded-lg shadow-md p-4 mb-4";
+    const h2 = document.createElement("h2");
+    h2.className = "text-lg font-semibold mb-2";
+    h2.textContent = title;
+    const p = document.createElement("p");
+    p.className = "text-gray-600";
+    p.textContent = content;
+    card.append(h2, p);
+    return card;
+};
+
+let createList = function(items, ordered = false) {
+    const list = ordered ? document.createElement("ol") : document.createElement("ul");
+    list.classList.add(ordered ? "list-decimal" : "list-disc", "ml-6");
+    items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+    return list;
+};
+
+const createColorCard = (color, name) => {
+    const card = document.createElement("div");
+    card.className = `w-full h-20 rounded-lg flex items-center justify-center mb-2 text-white font-bold ${color}`;
+    card.textContent = name;
+
+    card.addEventListener("mouseover", () => {
+        card.classList.add("shadow-lg", "transform", "scale-105");
+    });
+
+    card.addEventListener("mouseout", () => {
+        card.classList.remove("shadow-lg", "transform", "scale-105");
+    });
+
+    return card;
+};
+
+const createWeatherIcon = (type, description) => {
+    const container = document.createElement("div");
+    container.className = "flex flex-col items-center justify-center p-4";
+
+    const iconDiv = document.createElement("div");
+    iconDiv.className = "text-4xl mb-2";
+
+    switch (type) {
+        case "sun":
+            iconDiv.textContent = "☀️"; break;
+        case "cloud":
+            iconDiv.textContent = "☁️"; break;
+        case "rain":
+            iconDiv.textContent = "🌧️"; break;
+        case "snow":
+            iconDiv.textContent = "❄️"; break;
+        default:
+            iconDiv.textContent = "🌈";
     }
 
-    for (let i = 0; i < items; i++) {
-        const elem = document.createElement("li")
-        elem.textContent = 
-    }
-}
+    const descSpan = document.createElement("span");
+    descSpan.textContent = description;
+    descSpan.className = "text-gray-700";
+
+    container.append(iconDiv, descSpan);
+    return container;
+};
+
+const createStatBar = (label, percentage) => {
+    const container = document.createElement("div");
+    container.className = "mb-4";
+
+    const labelDiv = document.createElement("div");
+    labelDiv.className = "flex justify-between mb-1";
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = label;
+    nameSpan.className = "text-gray-700";
+
+    const percentSpan = document.createElement("span");
+    percentSpan.textContent = `${percentage}%`;
+    percentSpan.className = "text-gray-700";
+
+    labelDiv.append(nameSpan, percentSpan);
+
+    const barContainer = document.createElement("div");
+    barContainer.className = "w-full bg-gray-200 rounded-full h-2.5";
+
+    const bar = document.createElement("div");
+    bar.className = "bg-indigo-600 h-2.5 rounded-full";
+    bar.style.width = `${percentage}%`;
+
+    barContainer.appendChild(bar);
+    container.append(labelDiv, barContainer);
+    return container;
+};
+
+(function() {
+    document.addEventListener("DOMContentLoaded", () => {
+        const main = document.querySelector("main");
+        main.classList.add("p-6", "space-y-6");
+
+        main.appendChild(createCard("Welcome!", "Ez egy kártya példa function expression-nel."));
+        main.appendChild(createCard("Hello CsPS!", "Ez a projekt gyönyörű!"));
+
+        const fruits = ["Alma", "Banán", "Cseresznye"];
+        main.appendChild(createList(fruits));
+
+        main.appendChild(createBox(100, 100, "teal"));
+        main.appendChild(createBox(150, 80, "orange"));
+
+        const button = createButton("Kattints rám!", () => alert("Szép munka!"));
+        main.appendChild(button);
+
+        main.appendChild(createColorCard("bg-red-500", "Veszély"));
+        main.appendChild(createColorCard("bg-green-600", "Biztonság"));
+
+        main.appendChild(createWeatherIcon("sun", "Napos idő"));
+        main.appendChild(createWeatherIcon("rain", "Esős idő"));
+
+        main.appendChild(createStatBar("JavaScript", 90));
+        main.appendChild(createStatBar("Tailwind CSS", 75));
+    });
+})();
