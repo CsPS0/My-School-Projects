@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsPS-ijaszat", "CsPS-ijaszat\CsPS-ijaszat.csproj", "{7C66C87C-E4B0-4B1B-9DAA-39A4A3529C29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ijaszatLib", "ijaszatLib\ijaszatLib.csproj", "{3247092C-C853-453D-BFDC-181351944532}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C66C87C-E4B0-4B1B-9DAA-39A4A3529C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C66C87C-E4B0-4B1B-9DAA-39A4A3529C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C66C87C-E4B0-4B1B-9DAA-39A4A3529C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C66C87C-E4B0-4B1B-9DAA-39A4A3529C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3247092C-C853-453D-BFDC-181351944532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3247092C-C853-453D-BFDC-181351944532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3247092C-C853-453D-BFDC-181351944532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3247092C-C853-453D-BFDC-181351944532}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F08F1D5E-99B6-4155-9947-B6FBFB8E792F}
+	EndGlobalSection
+EndGlobal

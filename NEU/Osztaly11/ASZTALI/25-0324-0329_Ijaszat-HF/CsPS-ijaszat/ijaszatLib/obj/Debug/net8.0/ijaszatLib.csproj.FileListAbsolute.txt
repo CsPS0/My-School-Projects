@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\bin\Debug\net8.0\ijaszatLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\bin\Debug\net8.0\ijaszatLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\bin\Debug\net8.0\ijaszatLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\refint\ijaszatLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ijaszatLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_Ijaszat-HF\CsPS-ijaszat\ijaszatLib\obj\Debug\net8.0\ref\ijaszatLib.dll

@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\bin\Debug\net8.0\Hegyek-lib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\bin\Debug\net8.0\Hegyek-lib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\bin\Debug\net8.0\Hegyek-lib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\refint\Hegyek-lib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\Hegyek-lib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0317-0323_OOP-tobb-projektes-feladatok\Hegyek_CsPS\Hegyek-lib\obj\Debug\net8.0\ref\Hegyek-lib.dll

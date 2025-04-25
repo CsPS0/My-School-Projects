@@ -7,9 +7,8 @@ Adatbázis:
 - Adatbázis tervezés 3. (Földgáz)
 
 Asztali:
-- OOP több projektes feladatok
-- Íjászat órai
-- Íjászat HF
+- OOP több projektes feladatok ~ külön emailben
+- Íjászat órai ~ külön emailben
 - OOP több projektes feladatok (Városok)
 - OOP több projektes feladatok (Gépkocsik)
 - OOP több projektes feladatok (Sorozatok)
@@ -18,7 +17,7 @@ Asztali:
 - Ultrabalaton
 
 Web:
-- Évfolyam dolgozatra gyakorló
+- Évfolyam dolgozatra gyakorló ~ majdnem
 
 Digitális Kultúra:
 - Excel 1. - Alapismeretek áttekintése

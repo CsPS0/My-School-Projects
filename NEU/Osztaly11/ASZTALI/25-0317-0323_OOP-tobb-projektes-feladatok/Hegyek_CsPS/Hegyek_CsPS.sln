@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hegyek_CsPS", "Hegyek_CsPS\Hegyek_CsPS.csproj", "{81DC0DD1-D1A4-42D0-AF0B-A7A6A0905952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hegyek-lib", "Hegyek-lib\Hegyek-lib.csproj", "{8E8968C7-672A-4E61-89C8-525173FA2492}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81DC0DD1-D1A4-42D0-AF0B-A7A6A0905952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DC0DD1-D1A4-42D0-AF0B-A7A6A0905952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DC0DD1-D1A4-42D0-AF0B-A7A6A0905952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DC0DD1-D1A4-42D0-AF0B-A7A6A0905952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8968C7-672A-4E61-89C8-525173FA2492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8968C7-672A-4E61-89C8-525173FA2492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8968C7-672A-4E61-89C8-525173FA2492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8968C7-672A-4E61-89C8-525173FA2492}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0097E94-2C53-4D57-8B8F-2979DDC76A0F}
+	EndGlobalSection
+EndGlobal
