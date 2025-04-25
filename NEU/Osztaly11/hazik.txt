@@ -18,7 +18,6 @@ Asztali:
 - Ultrabalaton
 
 Web:
-- Függvény gyakorlás
 - JS Form
 - Gyakorlás
 - Évfolyam dolgozatra gyakorló
