@@ -7,8 +7,6 @@ Adatbázis:
 - Adatbázis tervezés 3. (Földgáz)
 
 Asztali:
-- OOP több projektes feladatok ~ külön emailben
-- Íjászat órai ~ külön emailben
 
 Web:
 - Évfolyam dolgozatra gyakorló ~ majdnem
