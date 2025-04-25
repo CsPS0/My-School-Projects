@@ -18,8 +18,6 @@ Asztali:
 - Ultrabalaton
 
 Web:
-- JS Form
-- Gyakorlás
 - Évfolyam dolgozatra gyakorló
 
 Digitális Kultúra:
