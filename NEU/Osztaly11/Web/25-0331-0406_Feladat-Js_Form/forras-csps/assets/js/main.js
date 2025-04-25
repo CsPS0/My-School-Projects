@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("inventory-form");
     const tableBody = document.getElementById("inventory-table-body");
     const peopleSelect = document.getElementById("szemelyek");
-
+    const errorDialog = document.querySelector("dialog");
+    peopleSelect.innerHTML = '<option value="">Válassza ki a személyt...</option>';
     people.forEach(person => {
         const option = document.createElement("option");
         option.value = person;
@@ -32,22 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const qty = parseInt(form.darabszam.value);
         const person = form.szemelyek.value;
         const date = form.datum.value;
-        const quality = form.quality.value;
+        const quality = document.querySelector('input[name="quality"]:checked')?.value;
 
-        if (!name || !qty || !person || !date || !quality) {
-            alert("Minden mezőt ki kell tölteni!");
+        if (!name || isNaN(qty) || !person || !date || !quality) {
+            errorDialog.showModal();
             return false;
         }
-        if (qty < 1) {
-            alert("A darabszámnak nagyobbnak kell lennie 0-nál!");
+        
+        if (qty <= 0) {
+            errorDialog.showModal();
             return false;
         }
+        
         if (!people.includes(person)) {
-            alert("A 'Bejegyezte' mező értéke nem helyes!");
+            errorDialog.showModal();
             return false;
         }
+        
         if (date.length !== 10) {
-            alert("A dátumnak helyes formátumban kell lennie!");
+            errorDialog.showModal();
             return false;
         }
 
@@ -59,11 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (validateForm()) {
             const newItem = {
-                name: form.nev.value,
+                name: form.nev.value.trim(),
                 qty: parseInt(form.darabszam.value),
                 person: form.szemelyek.value,
                 date: form.datum.value,
-                quality: form.quality.value,
+                quality: document.querySelector('input[name="quality"]:checked').value,
             };
             items.push(newItem);
             renderItems();

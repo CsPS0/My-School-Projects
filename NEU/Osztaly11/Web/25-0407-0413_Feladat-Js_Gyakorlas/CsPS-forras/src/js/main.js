@@ -1,9 +1,14 @@
+"use strict";
+
 const form = document.getElementById('slangForm');
 const wordInput = document.getElementById('word');
 const definitionInput = document.getElementById('definition');
 const exampleInput = document.getElementById('example');
 const yearInput = document.getElementById('year');
 const tableBody = document.querySelector('table tbody');
+
+const currentYear = new Date().getFullYear();
+yearInput.setAttribute('max', currentYear);
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -12,7 +17,7 @@ form.addEventListener('submit', function (e) {
         word: wordInput.value,
         definition: definitionInput.value,
         example: exampleInput.value || null,
-        year: new Number(yearInput.value).getFullYear(),
+        year: parseInt(yearInput.value),
     };
 
     slangs.push(newSlang);
@@ -24,7 +29,6 @@ function updateTable() {
     tableBody.textContent = '';
     slangs.forEach(slang => {
         const row = document.createElement('tr');
-        
         
         const wordCell = document.createElement('td');
         wordCell.textContent = slang.word;

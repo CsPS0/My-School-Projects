@@ -24,33 +24,24 @@
         <form id="inventory-form">
             <label for="nev">Megnevezés:</label>
             <input type="text" name="nev" id="nev" required>
-
             <label for="darabszam">Darabszám:</label>
             <input type="number" name="darabszam" id="darabszam" required min="1">
-
-            <label for="szemelyek">Válassza ki a személy...</label>
+            <label for="szemelyek">Bejegyezte:</label>
             <select name="szemelyek" id="szemelyek" required>
-                <option value="1">Kiss Lajos</option>
-                <option value="2">Molnár Judit</option>
-                <option value="3">Gimesi Anna</option>
-                <option value="4">Zentai Álmos</option>
-                <option value="5">Disznóhús János</option>
-                <option value="6">Gyermeked Gronk</option>
-                <option value="7">Duke Dénes</option>
+                <option value="">Válassza ki a személyt...</option>
             </select>
             <label for="datum">Dátum:</label>
             <input type="date" name="datum" id="datum" required>
-
             <fieldset>
                 <legend>Állapot:</legend>
                 <label>
-                    <input type="radio" name="quality" value="Nagyon jó" checked> Nagyon jó
+                    <input type="radio" name="quality" value="Nagyon jó"> Nagyon jó
                 </label>
                 <label>
                     <input type="radio" name="quality" value="Jó"> Jó
                 </label>
                 <label>
-                    <input type="radio" name="quality" value="Közepes"> Közepes
+                    <input type="radio" name="quality" value="Közepes" checked> Közepes
                 </label>
                 <label>
                     <input type="radio" name="quality" value="Rossz"> Rossz

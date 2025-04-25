@@ -40,6 +40,7 @@ form {
 form div {
     display: grid;
     grid-template-columns: subgrid;
+    grid-column: 1 / -1;
 }
 
 label {
@@ -48,11 +49,11 @@ label {
 
 input, textarea {
     padding: 0.2rem;
-    resize: none;
 }
 
 textarea {
     height: 4rem;
+    resize: none;
 }
 
 section {
@@ -81,6 +82,7 @@ th, td {
 caption {
     margin-top: 0.5rem;
     font-style: italic;
+    caption-side: bottom;
 }
 
 form button[type="submit"] {
@@ -107,7 +109,7 @@ form button[type="submit"]:hover {
 }
 
 table tbody tr:nth-child(even) {
-    background-color: rgba(var(--main-color), 0.1);
+    background-color: rgba(236, 0, 63, 0.1);
 }
 
 table th, table td {
