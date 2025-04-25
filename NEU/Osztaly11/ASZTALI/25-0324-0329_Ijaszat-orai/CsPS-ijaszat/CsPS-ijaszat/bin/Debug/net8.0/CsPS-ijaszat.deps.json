@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CsPS-ijaszat/1.0.0": {
+        "dependencies": {
+          "ijaszLib": "1.0.0"
+        },
+        "runtime": {
+          "CsPS-ijaszat.dll": {}
+        }
+      },
+      "ijaszLib/1.0.0": {
+        "runtime": {
+          "ijaszLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CsPS-ijaszat/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ijaszLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
