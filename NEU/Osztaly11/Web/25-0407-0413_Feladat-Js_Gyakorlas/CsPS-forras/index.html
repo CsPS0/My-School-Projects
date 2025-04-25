@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szleng kifejezések</title>
+    <link rel="stylesheet" href="src/assets/style.css">
+    <script src="src/js/data.js" defer></script>
+    <script src="src/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Szleng kifejezések</h1>
+    </header>
+    <main>
+        <form id="slangForm">
+            <div>
+                <label for="word">Kifejezés:</label>
+                <input type="text" name="word" id="word" maxlength="50" required>
+            </div>
+            <div>
+                <label for="definition">Jelentés:</label>
+                <textarea name="definition" id="definition" minlength="10" required rows="4"></textarea>
+            </div>
+            <div>
+                <label for="example">Példa:</label>
+                <textarea name="example" id="example" rows="4"></textarea>
+            </div>
+            <div>
+                <label for="year">Év:</label>
+                <input type="number" name="year" id="year" required min="2000" max="2025">
+            </div>
+            <button type="submit">Hozzáadás</button>
+        </form>
+        <section>
+            <h2>Kifejezések</h2>
+            <table>
+                <caption>Internet szleng</caption>
+                <thead>
+                    <tr>
+                        <th>Kifejezés</th>
+                        <th>Jelentés</th>
+                        <th>Év</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- A kifejezések itt jelennek meg -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p style="color: white; text-decoration: none; visibility: visible; cursor: default; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-stretch: expanded; font-language-override: unset; text-shadow: 2cm; text-rendering: optimizeLegibility;">Készítette:
+            <a style="color: white; text-decoration: none; visibility: visible; cursor: default; font-style: oblique; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-stretch: expanded; font-language-override: unset; text-shadow: 2cm; text-rendering: optimizeLegibility;" target="_blank"href="https://yoursit.ee/csps">
+                Solti Csongor Péter
+            </a>
+        </p>
+    </footer>
+</body>
+</html>

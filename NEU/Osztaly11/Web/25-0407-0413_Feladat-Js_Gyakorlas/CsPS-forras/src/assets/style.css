@@ -1,0 +1,119 @@
+:root {
+    --main-color: #ec003f;
+}
+
+* {
+    padding: 0; margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    flex-grow: 1;
+    max-width: 1300px;
+}
+
+header, footer {
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+form div {
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+label {
+    text-align: center;
+}
+
+input, textarea {
+    padding: 0.2rem;
+    resize: none;
+}
+
+textarea {
+    height: 4rem;
+}
+
+section {
+    margin-block: 1.5rem;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--main-color);
+    color: white;
+}
+
+th, td {
+    padding: 0.3rem;
+}
+
+caption {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+form button[type="submit"] {
+    grid-column: 2;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s linear;
+}
+
+form button[type="submit"]:hover {
+    transform: scale(1.05);
+}
+
+.tag {
+    background-color: var(--main-color);
+    padding-block: 0.2rem;
+    padding-inline: 0.5rem;
+    border-radius: 0.3rem;
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(var(--main-color), 0.1);
+}
+
+table th, table td {
+    text-align: center;
+}
+
+table th {
+    font-weight: bold;
+}

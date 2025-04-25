@@ -4,16 +4,24 @@ Adatbázis:
 - ER modell átalakítása relációs adatbázissá
 - Adatbázis tervezés (Nobel-díj) (EK diagram tervezés)
 - Adatbázis tervezés 2. (Úszó VB)
+- Adatbázis tervezés 3. (Földgáz)
 
 Asztali:
 - OOP több projektes feladatok
 - Íjászat órai
 - Íjászat HF
 - OOP több projektes feladatok (Városok)
+- OOP több projektes feladatok (Gépkocsik)
+- OOP több projektes feladatok (Sorozatok)
+- ACB kosárliga
+- Darts statisztika
+- Ultrabalaton
 
 Web:
 - Függvény gyakorlás
 - JS Form
+- Gyakorlás
+- Évfolyam dolgozatra gyakorló
 
 Digitális Kultúra:
 - Excel 1. - Alapismeretek áttekintése
@@ -24,9 +32,11 @@ Digitális Kultúra:
 - Excel 6. - Városok
 - Access 1. - Alapismeretek áttekintése
 - Access 2. - Logikai műveletek a lekérdezésekben
+- Access 3. - Szövegmező és dátum, idő kezelése
+- Access 4. - Többtáblás lekérdezések, aggregáló függvények
+- Access 5. - Allekérdezés
+- Access 6. - Null értékek kezelése, összetett lekérdezések
 
-Docker:
-- pdf normálisam feltörni
+Docker: ?
 
-IKT:
-- PPT-t
+IKT: ?
