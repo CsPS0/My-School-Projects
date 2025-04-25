@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CsPS-kosarliga/1.0.0": {
+        "dependencies": {
+          "kosarligaLib": "1.0.0"
+        },
+        "runtime": {
+          "CsPS-kosarliga.dll": {}
+        }
+      },
+      "kosarligaLib/1.0.0": {
+        "runtime": {
+          "kosarligaLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CsPS-kosarliga/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "kosarligaLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\bin\Debug\net8.0\SorozatokLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\bin\Debug\net8.0\SorozatokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\bin\Debug\net8.0\SorozatokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\refint\SorozatokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\SorozatokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-sorozatok\CsPS-sorozatok\SorozatokLib\obj\Debug\net8.0\ref\SorozatokLib.dll

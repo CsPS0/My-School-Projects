@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CsPS-sorozatok/1.0.0": {
+        "dependencies": {
+          "SorozatokLib": "1.0.0"
+        },
+        "runtime": {
+          "CsPS-sorozatok.dll": {}
+        }
+      },
+      "SorozatokLib/1.0.0": {
+        "runtime": {
+          "SorozatokLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CsPS-sorozatok/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SorozatokLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

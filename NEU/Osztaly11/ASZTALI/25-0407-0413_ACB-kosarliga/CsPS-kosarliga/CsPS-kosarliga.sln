@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsPS-kosarliga", "CsPS-kosarliga\CsPS-kosarliga.csproj", "{27CEB0B2-D97B-4056-8A24-5813C2E7CA18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kosarligaLib", "kosarligaLib\kosarligaLib.csproj", "{1BD463BC-FD91-4EF3-BE13-B2357E9042EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27CEB0B2-D97B-4056-8A24-5813C2E7CA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27CEB0B2-D97B-4056-8A24-5813C2E7CA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27CEB0B2-D97B-4056-8A24-5813C2E7CA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27CEB0B2-D97B-4056-8A24-5813C2E7CA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD463BC-FD91-4EF3-BE13-B2357E9042EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD463BC-FD91-4EF3-BE13-B2357E9042EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD463BC-FD91-4EF3-BE13-B2357E9042EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD463BC-FD91-4EF3-BE13-B2357E9042EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {503CBDA4-88A1-4D9C-8E20-775BBB57E3D8}
+	EndGlobalSection
+EndGlobal
