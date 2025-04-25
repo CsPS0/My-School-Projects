@@ -1,0 +1,7 @@
+AAR327;Balogh Gyula;2600 Vác Szent Imre u. 3.;Opel;Corsa;1100
+BDY344;Kiss Margit;1203 Budapest Ady Endre út 106.;Opel;Omega;2000
+DRT429;Láng András;1058 Budapest Petőfi Sándor u. 28.;Opel;Corsa;1100
+GTD903;Somos Róbert;7400 Kaposvár Petőfi S. u.17.;Opel;Astra;1400
+KBI643;Gábor Sándor;8230 Balatonfüred Erzsébet tér 6.;Opel;Corsa;1100
+QMM386;Elek Tivadar;1048 Budapest Vas Gereben u. 8.;Opel;Astra;1600
+RDB921;Kovács Barbara;1072 Budapest Dohány u. 37.;Opel;Astra;1300

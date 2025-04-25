@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\bin\Debug\net8.0\GepkocsiLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\bin\Debug\net8.0\GepkocsiLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\bin\Debug\net8.0\GepkocsiLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\refint\GepkocsiLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\GepkocsiLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0331-0406_OOP-gepkocsik\CsPS-gepkocsik\GepkocsiLib\obj\Debug\net8.0\ref\GepkocsiLib.dll

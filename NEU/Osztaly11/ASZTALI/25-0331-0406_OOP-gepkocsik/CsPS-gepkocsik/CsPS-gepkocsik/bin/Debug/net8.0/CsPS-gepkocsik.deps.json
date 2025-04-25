@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CsPS-gepkocsik/1.0.0": {
+        "dependencies": {
+          "GepkocsiLib": "1.0.0"
+        },
+        "runtime": {
+          "CsPS-gepkocsik.dll": {}
+        }
+      },
+      "GepkocsiLib/1.0.0": {
+        "runtime": {
+          "GepkocsiLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CsPS-gepkocsik/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GepkocsiLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
