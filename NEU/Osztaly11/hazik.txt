@@ -9,7 +9,6 @@ Adatbázis:
 Asztali:
 - OOP több projektes feladatok ~ külön emailben
 - Íjászat órai ~ külön emailben
-- OOP több projektes feladatok (Városok)
 - OOP több projektes feladatok (Gépkocsik)
 - OOP több projektes feladatok (Sorozatok)
 - ACB kosárliga

@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\bin\Debug\net8.0\VarosokLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\bin\Debug\net8.0\VarosokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\bin\Debug\net8.0\VarosokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\refint\VarosokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\VarosokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0324-0329_OOP-varosok\csps-varosok\VarosokLib\obj\Debug\net8.0\ref\VarosokLib.dll
