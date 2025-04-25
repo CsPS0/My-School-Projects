@@ -9,7 +9,6 @@ Adatbázis:
 Asztali:
 - OOP több projektes feladatok ~ külön emailben
 - Íjászat órai ~ külön emailben
-- ACB kosárliga
 - Darts statisztika
 - Ultrabalaton
 
