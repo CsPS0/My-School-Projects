@@ -1,0 +1,42 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.no-gap img {
+    margin-bottom: -4px;
+}
+
+.navbar-nav .nav-link {
+    color: black !important;
+}
+
+.navbar-nav .nav-item.show .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    text-decoration: none;
+}
+
+.container-fluid {
+    margin-top: 20px;
+}
+
+.container-fluid .col {
+    margin-bottom: 20px;
+}
+
+.container-fluid img {
+    width: 100%;
+    height: auto;
+}
+
+.navbar-brand > img {
+    height: 60px;
+}
+
+body {
+    cursor: url('/html/hazifeladat/cursor.png'), auto;
+}

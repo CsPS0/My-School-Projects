@@ -1,0 +1,20 @@
+.banner-container{
+    margin: 0 auto;
+}
+
+.banner-mister-biszt{
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+}
+
+.nav-container{
+    background-color: #F343;
+}
+
+.links{
+    background-color: blueviolet;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}

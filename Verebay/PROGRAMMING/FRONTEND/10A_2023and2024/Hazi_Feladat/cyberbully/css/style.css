@@ -1,0 +1,139 @@
+@font-face {
+    font-family: HackedFont;
+    src: url(/custom_fonts/Hacked-KerX.ttf);
+}
+
+body {
+    background-color: black;
+    color: white;
+    margin: 0;
+    font-family: monospace;
+}
+
+h1 {
+    font-family: HackedFont;
+    color: white;
+    margin-bottom: 20px;
+}
+
+h3, p, a, li {
+    font-family: monospace;
+    color: #EEEEEE;
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+    margin: 20px;
+    display: block;
+}
+
+nav, footer {
+    background-color: #FD7014;
+}
+
+.header {
+    background-image: url("/kepek/pexels-sora-shimazaki-5926391.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.header h1, .header p {
+    text-align: center;
+}
+
+.text-placeholder {
+    background-color: #393E46;
+    padding: 100px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.text-placeholder2 {
+    background-color: #222831;
+    padding: 100px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.text-placeholder3 {
+    background-color: #222831;
+    padding: 10px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.szoveg-jobb {
+    text-align: right;
+}
+
+.szoveg-bal {
+    text-align: left;
+}
+
+.kep-jobb {
+    float: right;
+}
+
+.kep-bal {
+    float: left;
+}
+
+#Menu1, #Menu3, #Menu5 {
+    background-color: #393E46;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#Menu2, #Menu4 {
+    background-color: #222831;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar-nav {
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 50px 20px;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-item {
+        flex: 1 1 50%;
+        text-align: center;
+    }
+
+    #Menu1, #Menu2, #Menu3, #Menu4, #Menu5 {
+        flex-direction: column;
+    }
+
+    .text-placeholder {
+        padding: 10px;
+    }
+}

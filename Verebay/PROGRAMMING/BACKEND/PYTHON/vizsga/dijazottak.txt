@@ -1,0 +1,120 @@
+1901;Sully Prudhomme;Franciaország
+1902;Theodor Mommsen;Németország
+1903;Björnstjerne Björnson;Norvégia
+1904;Frédéric Mistral;Franciaország
+1904;José Echegaray y Eizaguirre;Spanyolország
+1905;Henryk Sienkiewicz;Lengyelország
+1906;Giosue Carducci;Olaszország
+1907;Rudyard Kipling;Nagy-Britannia
+1908;Rudolf Eucken;Németország
+1909;Selma Lagerlöf;Svédország
+1910;Paul Heyse;Németország
+1911;Maurice Maeterlinck gróf;Belgium
+1912;Gerhart Hauptmann;Németország
+1913;Rabindranath Tagore;India
+1915;Romain Rolland;Franciaország
+1916;Verner von Heidenstam;Svédország
+1917;Karl Adolph Gjellerup;Dánia
+1917;Henrik Pontoppidan;Dánia
+1919;Carl Spitteler;Svájc
+1920;Knut Hamsun;Norvégia
+1921;Anatole France;Franciaország
+1922;Jacinto Benavente;Spanyolország
+1923;William Butler Yeats;Írország
+1924;Wladyslaw Reymont;Lengyelország
+1925;George Bernard Shaw;Írország
+1926;Grazia Deledda;Olaszország
+1927;Henri Bergson;Franciaország
+1928;Sigrid Undset;Norvégia
+1929;Thomas Mann;Németország
+1930;Sinclair Lewis;Egyesült Államok
+1931;Erik Axel Karlfeldt;Svédország
+1932;John Galsworthy;Nagy-Britannia
+1933;Ivan Alekszejevics Bunyin;Olaszország
+1934;Luigi Pirandello;Olaszország
+1936;Eugene O Neill;Egyesült Államok
+1937;Roger Martin du Gard;Franciaország
+1938;Pearl S. Buck;Egyesült Államok
+1939;Frans Eemil Sillanpää;Finnország
+1944;Johannes Vilhelm Jensen;Dánia
+1945;Gabriela Mistral;Chile
+1946;Hermann Hesse;Németország
+1947;André Gide;Franciaország
+1948;Thomas Stearns Eliot;Nagy-Britannia
+1949;William Faulkner;Egyesült Államok
+1950;Bertrand Russell;Nagy-Britannia
+1951;Pär Lagerkvist;Svédország
+1952;Francois Mauriac;Franciaország
+1953;Sir Winston Churchill;Nagy-Britannia
+1954;Ernest Hemingway;Egyesült Államok
+1955;Halldór Laxness;Izland
+1956;Juan Ramón Jiménez;Spanyolország
+1957;Albert Camus;Franciaország
+1958;Borisz Paszternak;Olaszország
+1959;Salvatore Quasimodo;Olaszország
+1960;Saint-John Perse;Franciaország
+1961;Ivo Andric;Jugoszlávia
+1962;John Steinbeck;Egyesült Államok
+1963;Jorgosz Szeferisz;Görögország
+1964;Jean-Paul Sartre;Franciaország
+1965;Mihail Solohov;Olaszország
+1966;Sömuel Joszéf Agnon;Izrael
+1966;Nelly Sachs;Németország
+1967;Miguel Ángel Asturias;Guatemala
+1968;Kavabata Jaszunari;Japán
+1969;Samuel Beckett;Írország
+1970;Alekszandr Iszajevics Szolzsenyicin;Olaszország
+1971;Pablo Neruda;Chile
+1972;Heinrich Böll;Németország
+1973;Patrick White;Ausztrália
+1974;Harry Martinson;Svédország
+1974;Eyvind Johnson;Svédország
+1975;Eugenio Montale;Olaszország
+1976;Saul Bellow;Kanada
+1977;Vicente Aleixandre;Spanyolország
+1978;Isaac Bashevis Singer;Egyesült Államok
+1979;Odisszeasz Elitisz;Görögország
+1980;Czeslaw Milosz;Lengyelország
+1981;Elias Canetti;Nagy-Britannia
+1982;Gabriel García Márquez;Kolumbia
+1983;William Golding;Nagy-Britannia
+1984;Jaroslav Seifert;Csehszlovákia
+1985;Claude Simon;Franciaország
+1986;Wole Soyinka;Nigéria
+1987;Joszif Alekszandrovics Brodszkij;Olaszország
+1988;Nagíb Mahfúz;Egyiptom
+1989;Camilo José Cela;Spanyolország
+1990;Octavio Paz;Mexikó
+1991;Nadine Gordimer;Dél-afrikai Köztársaság
+1992;Derek Walcott;Saint Lucia
+1993;Toni Morrison;Egyesült Államok
+1994;Óe Kendzaburó;Japán
+1995;Seamus Heaney;Írország
+1996;Wislawa Szymborska;Lengyelország
+1997;Dario Fo;Olaszország
+1998;José Saramago;Portugália
+1999;Günter Grass;Németország
+2000;Kao Hszing-csien;Kína
+2001;Vidiadhar Surajprasad Naipaul;Trinidad és Tobago
+2002;Kertész Imre;Magyarország
+2003;John Maxwell Coetzee;Dél-afrikai Köztársaság
+2004;Elfriede Jelinek;Ausztria
+2005;Harold Pinter;Nagy-Britannia
+2006;Orhan Pamuk;Törökország
+2007;Doris Lessing;Egyesült Királyság
+2008;Jean-Marie Gustave Le Clézio;Franciaország
+2009;Herta Müller;Németország
+2010;Mario Vargas Llosa;Peru
+2011;Tomas Tranströmer;Svédország
+2012;Mo Jen;Kína
+2013;Alice Munro;Kanada
+2014;Patrick Modiano;Franciaország
+2015;Szvetlana Alekszijevics;Fehéroroszország
+2016;Bob Dylan;Amerikai Egyesült Államok
+2017;Kazuo Ishiguro;Japán
+2018;Olga Tokarczuk;Lengyelország
+2019;Peter Handke;Ausztria
+2020;Louise Glück;Egyesült Államok
+2021;Abdulrazak Gurnah;Zanzibár
+2022;Annie Ernaux;Franciaország
+2023;Jon Fosse;Norvégia

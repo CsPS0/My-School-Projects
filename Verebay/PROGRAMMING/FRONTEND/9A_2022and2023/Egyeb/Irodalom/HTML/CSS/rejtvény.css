@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(181, 125, 22);
+    color: brown;
+}
+h1{
+    text-align: center;
+}
+p{
+    font-size: larger;
+    text-align: justify;
+    font-size: 150%;
+    margin-left: 10px;
+    margin-right: 10px;
+}

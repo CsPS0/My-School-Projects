@@ -1,0 +1,3 @@
+v1: a kép nagyjából jó, de a szöveg kicsúszik, nincs logo
+v2: nincs kép, de szöveg jó lehetne
+v3: lekerekített.....

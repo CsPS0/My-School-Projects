@@ -1,0 +1,23 @@
+body {
+    background-color: bisque;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+}
+
+h2 {
+    color: cadetblue;
+    text-align: right;
+}
+
+.elso {
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.masodik {
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

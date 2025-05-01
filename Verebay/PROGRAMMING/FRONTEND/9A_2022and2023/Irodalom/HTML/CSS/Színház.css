@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(181, 125, 22);
+    color: brown;
+}
+h1{
+    text-align: center;
+}
+p{
+    font-size: larger;
+}
+img{
+    width: 60%;
+}

@@ -1,0 +1,230 @@
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    width: auto;
+}
+
+body{
+    padding: 40px;
+}
+
+h3{
+    text-align: center;
+}
+
+.felso-kep{
+    position: relative;
+}
+
+.felso-kep img{
+    width: 100%;
+    height: auto;
+}
+
+.macska-cim{
+    font-weight: 600;
+    text-align: start;
+}
+
+.macska-kep-bal{
+    width: 300px;
+    height: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.macska-kep-jobb{
+    float: right;
+    width: 300px;
+    height: auto;
+    padding-bottom: 60px;
+    padding-top: 20px;
+}
+
+.text-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 60%;
+}
+
+.text-overlay p{
+    text-align: center;
+    font-size: larger;
+}
+
+.navbar{
+    background-color: #8A2BE1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-link{
+    color: white;
+    text-align: center;
+}
+
+.nav-item {
+    text-align: center;
+}
+
+.content-section{
+    background-color: #FFFCCF;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.content-box{
+    background-color: #8A2BE1;
+    color: white;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+    min-height: 300px;
+    object-fit: fill;
+    padding-bottom: 100px;
+}
+
+.content-box2{
+    background-color: #8A2BE1;
+    color: white;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+    min-height: 300px;
+    object-fit: fill;
+    padding-bottom: 100px;
+}
+
+.content-box img{
+    float: left;
+    margin-right: 20px;
+}
+
+.content-box2 img{
+    float: right;
+    margin-left: 20px;
+}
+
+.btn-link {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #ffffff;
+}
+
+.content-box .btn-link {
+    bottom: 20px;
+    left: 20px;
+}
+
+.content-box2 .btn-link {
+    bottom: 20px;
+    left: 20px;
+}
+
+.footer{
+    background-color: #8A2BE1;
+    color: #ffffff;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top img {
+    width: 40px;
+    height: 40px;
+}
+
+body.scrollable .back-to-top {
+    display: block;
+}
+
+.back-to-top:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    #kep-response-eltun {
+        display: none;
+    }
+
+    .text-overlay {
+        max-width: 80%;
+    }
+
+    .macska-kep-bal,
+    .macska-kep-jobb {
+        width: 200px;
+    }
+
+    .content-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .content-box,
+    .content-box2 {
+        padding: 10px;
+        min-height: 250px;
+    }
+
+    .content-box img,
+    .content-box2 img {
+        width: 150px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-box,
+    .content-box2 {
+        padding: 5px;
+        min-height: 200px;
+    }
+
+    .content-box img,
+    .content-box2 img {
+        width: 100px;
+    }
+}

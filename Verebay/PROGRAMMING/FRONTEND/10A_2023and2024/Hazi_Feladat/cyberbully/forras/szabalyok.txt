@@ -1,0 +1,15 @@
+Kötelező:
+- Bootstrap 5
+- bootstrap bundle csomagok
+
+Kepek:
+- Pexels.com
+
+Forras:
+- https://kek-vonal.hu/hogyan-reagalj-az-online-bantalmazasra/
+- https://kek-vonal.hu/online-bantalmazas-stop-mondj-nemet-a-cyberbullyingra/
+- https://kek-vonal.hu/online-biztonsag-es-mentalis-egeszseg-online-bullying/
+- https://kek-vonal.hu/hogyan-reagalj-az-online-bantalmazasra/
+- https://www.unicef.org/end-violence/how-to-stop-cyberbullying
+- https://megoldaskozpont.com/csalad-es-gyermek/pozitiv-pedagogia/pedagoguskent-az-iskolai-bantalmazas-ellen/
+- https://hu.wikipedia.org/wiki/Cyberbullying

@@ -1,0 +1,28 @@
+h1 {
+    text-align: center;
+}
+
+a {
+    color: orange;
+}
+
+ul li {
+    color: red;
+}
+
+#logo {
+    width: 150px;
+}
+
+#elso {
+    font-weight: bold;
+}
+
+#pt {
+    display: block;
+    margin: 0 auto;
+}
+
+#s {
+    color: green;
+}
