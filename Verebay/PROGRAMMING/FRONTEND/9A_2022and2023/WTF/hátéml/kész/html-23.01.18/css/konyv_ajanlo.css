@@ -1,0 +1,35 @@
+body{
+    background-image: url(../kepek/konyv_hatter.jpg);
+    background-size: 500px;
+}
+
+img{
+    width: 30%;
+    float: left;
+    margin: 0px 20px 20px;
+}
+
+#tartalom{
+    background-color: #CA8;
+    width: 50%;
+    margin: 30px auto;
+    color: #432;
+}
+
+.kozepre{
+    text-align: center;
+}
+
+.konyv{
+    background-color: #eca;
+    border: 2px solid #432;
+    box-shadow: 5px 5px #432;
+    margin: 20px 40px;
+    border-radius: 10px;
+}
+
+.leiras{
+    clear: both;
+    margin: 0px 20px;
+    text-align: center;
+}
