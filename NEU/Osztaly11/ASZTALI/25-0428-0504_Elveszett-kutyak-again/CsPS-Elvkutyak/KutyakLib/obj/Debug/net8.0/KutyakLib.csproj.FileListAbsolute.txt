@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\bin\Debug\net8.0\KutyakLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\bin\Debug\net8.0\KutyakLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\bin\Debug\net8.0\KutyakLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\refint\KutyakLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\KutyakLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Elveszett-kutyak-again\CsPS-Elvkutyak\KutyakLib\obj\Debug\net8.0\ref\KutyakLib.dll

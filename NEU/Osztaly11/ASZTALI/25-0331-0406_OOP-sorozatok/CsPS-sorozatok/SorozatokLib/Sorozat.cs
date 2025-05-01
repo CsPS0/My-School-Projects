@@ -27,6 +27,4 @@ namespace SorozatokLib
             return rend;
         }
     }
-
-    
 }

@@ -1,0 +1,5 @@
+azonosító	név	ár
+A	húsimádó	1410
+B	tésztás	1290
+C	diétás	1380
+D	vegetáriánus	1330

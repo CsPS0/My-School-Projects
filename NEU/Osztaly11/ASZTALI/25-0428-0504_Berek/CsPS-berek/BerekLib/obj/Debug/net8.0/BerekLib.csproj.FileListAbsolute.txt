@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\bin\Debug\net8.0\BerekLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\bin\Debug\net8.0\BerekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\bin\Debug\net8.0\BerekLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\refint\BerekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\BerekLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0428-0504_Berek\CsPS-berek\BerekLib\obj\Debug\net8.0\ref\BerekLib.dll

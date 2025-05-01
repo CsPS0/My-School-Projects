@@ -1,0 +1,7 @@
+id	név	kiszállásidíj
+1	víz	3000
+2	gáz	4000
+3	villany	2500
+4	dugulás	5000
+5	klíma	2500
+6	üveg	2800

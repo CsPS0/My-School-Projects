@@ -1,0 +1,198 @@
+id	név	irszám	település	cím
+1	Papp Noé	3334	Alsóváros	Kőbánya dűlő 56
+2	Bodnár Hanna	5017	Nagyfalu	Kőrös utca 23
+3	Juhász Denisz	4010	Kisfalu	Csillag utca 57
+4	Nagy Noel	4010	Kisfalu	Lívia utca 66
+5	Katona Lara	3333	Alsóváros	Csárda utca 38
+6	Mezei Fanni	3380	Felsőváros	Nagypostavölgyi út 7
+7	Farkas Zalán	5017	Nagyfalu	Örs utca 39
+8	Fodor Mátyás	3380	Felsőváros	Kassák Lajos utca 32
+9	Varga Boldizsár	4010	Kisfalu	Kaptató utca 57
+10	Molnár Nimród	3334	Alsóváros	Pellérdi út 42
+11	Simon Dominik	3380	Felsőváros	Kassák Lajos utca 43
+12	Molnár Benjámin	3334	Alsóváros	Munkád út 28
+13	Csonka János	3380	Felsőváros	Regina utca 52
+14	Illés Dominik	5017	Nagyfalu	Thököly út 23
+15	Szabó Lara	3334	Alsóváros	Jászai Mari utca 62
+16	Varga Adél	3379	Felsőváros	Gerbera utca 18
+17	Balog Levente	3380	Felsőváros	Nagypostavölgyi út 35
+18	Orbán Boglárka	3333	Alsóváros	Felsőgyükési út 43
+19	Kocsis Hanga	5017	Nagyfalu	Thököly út 16
+20	Kiss-Kender Flóra	3334	Alsóváros	Ybl Miklós utca 61
+21	Oláh Hanna	3380	Felsőváros	Mókus utca 58
+22	Szabó Milán	4010	Kisfalu	Lívia utca 58
+23	Németh Kamilla	3380	Felsőváros	Vajda János utca 61
+24	Molnár-Balogh Gergő	3334	Alsóváros	Rákos Lajos utca 33
+25	Németh Dániel	5017	Nagyfalu	Támfa köz 66
+26	Szabó Liza	5017	Nagyfalu	Csorba Győző utca 45
+27	Bakos Vince	4012	Kisfalu	Zerge utca 28
+28	Kovács Emma	3333	Alsóváros	Bokály dűlő 58
+29	Balogh Attila	3334	Alsóváros	Opris Péter tér 31
+30	Balogh Letícia	3379	Felsőváros	Görgey Artúr utca 4
+31	Oláh Liliána	5017	Nagyfalu	Zsolt utca 50
+32	Kiss Róbert	5017	Nagyfalu	Zsinkó István utca 55
+33	Somogyi Benedek	4012	Kisfalu	Veterán utca 7
+34	Balog Gergő	3333	Alsóváros	Csárda utca 34
+35	Kovács Boglárka	4010	Kisfalu	Fazekas Mihály utca 27
+36	Papp Dorottya	3380	Felsőváros	Tüke utca 9
+37	Kovács Olivér	4010	Kisfalu	Juhász Gyula tér 30
+38	Pap Levente	3333	Alsóváros	Diósi út 58
+39	Kovács Lajos	3333	Alsóváros	Felsőgyükési út 13
+40	Dudás Ádám	4010	Kisfalu	Enyezd út 43
+41	Horváth Donát	4010	Kisfalu	Csillag utca 4
+42	Sipos Zsófia	5017	Nagyfalu	Lahti utca 44
+43	Hajdu Máté	5017	Nagyfalu	Kút utca 3
+44	Horváth Zalán Hunor	3379	Felsőváros	Dombos utca 46
+45	Szabó Máté	4010	Kisfalu	Bessenyei utca 10
+46	Szabó Eszter	4010	Kisfalu	József utca 17
+47	Molnár Olivér	5017	Nagyfalu	Kőrös utca 16
+48	Tóth Dániel	4010	Kisfalu	Határőr utca 32
+49	Farkas Boglárka	3334	Alsóváros	Sport utca 25
+50	Fehér Márk	4012	Kisfalu	Turini utca 4
+51	Nagy Zétény	5017	Nagyfalu	Kőrös utca 14
+52	Németh Eszter	3333	Alsóváros	Bokály dűlő 24
+53	Somogyi Ferenc	5017	Nagyfalu	Harangöntő utca 33
+54	Molnár Kristóf	3334	Alsóváros	Flórián utca 48
+55	Molnár Amira	3334	Alsóváros	Pósa Lajos utca 13
+56	Gulyás Noel Benedek	5017	Nagyfalu	Tinódi utca 66
+57	Boros Júlia	5017	Nagyfalu	Harangöntő utca 1
+58	Budai Kamilla	5017	Nagyfalu	Rezeda dűlő 37
+59	Németh Léna	3380	Felsőváros	Salakhegyi út 15
+60	Pál Gréta	3334	Alsóváros	Kéméndi sor 53
+61	Bakos Vencel	3380	Felsőváros	Kassák Lajos utca 59
+62	Barna Mihály	5017	Nagyfalu	Harangöntő utca 64
+63	Varga Dániel	3334	Alsóváros	Pellérdi út 21
+64	Tóth Ármin	3379	Felsőváros	Görgey Artúr utca 15
+65	Nagy Eszter	3380	Felsőváros	Verseny utca 43
+66	Nagy Norbert	5017	Nagyfalu	Zsinkó István utca 64
+67	Horváth Soma	5017	Nagyfalu	Rezeda dűlő 39
+68	Horváth Izabella	3379	Felsőváros	Barackos köz 48
+69	Orbán Natália	4010	Kisfalu	Lívia utca 64
+70	Szabó Máté	4010	Kisfalu	Forbát Alfréd utca 58/C
+71	Farkas Boglárka	5017	Nagyfalu	Kis utca 23
+72	Major Laura	4010	Kisfalu	Keszeg sor 52
+73	Kovács Áron	5017	Nagyfalu	Pelikán dűlő 43
+74	Kovács Zsolt	5017	Nagyfalu	Mécses utca 8
+75	Németh Márk	5017	Nagyfalu	Kis utca 62
+76	Biró Máté	3379	Felsőváros	Eperfás út 21
+77	Papp Bendegúz	4010	Kisfalu	Határőr utca 52
+78	Tóth Hanna	3380	Felsőváros	Kassák Lajos utca 31
+79	Rácz Olivér	3379	Felsőváros	Éger köz 44
+80	Deák Diána	4010	Kisfalu	József utca 17
+81	Tóth Brájen	5017	Nagyfalu	Kút utca 37
+82	Takács Olivér	4010	Kisfalu	József utca 3
+83	Papp Péter	5017	Nagyfalu	Kodolányi János utca 50
+84	Horváth Alex	3380	Felsőváros	Kishegyi dűlő 36
+85	Lakatos Zoltán	5017	Nagyfalu	Kút utca 50
+86	Szabó Fanni	3334	Alsóváros	Kolónia utca 28
+87	Kovács Dominik	5017	Nagyfalu	Kodolányi János utca 26
+88	Szőke Fanni	3334	Alsóváros	Munkád út 31
+89	Nagy Laura	4012	Kisfalu	Veterán utca 58
+90	Tóth Dorottya	5017	Nagyfalu	Stiglicfogdosó 51
+91	Rácz Simon	3379	Felsőváros	Eperfás út 59
+92	Németh Kristóf	5017	Nagyfalu	Stiglicfogdosó 20
+93	Nagy Máté Péter	3379	Felsőváros	Hordós dűlő 60
+94	Molnár Levente	4010	Kisfalu	Krúdy Gyula utca 37
+95	Nagy Áron	5017	Nagyfalu	Kodolányi János utca 52
+96	Juhász Milán	3333	Alsóváros	Csárda utca 12
+97	Kerekes Milán	3334	Alsóváros	Munkád út 16
+98	Rácz Lujza	3333	Alsóváros	Bokály dűlő 40
+99	Lakatos Ádám	3334	Alsóváros	Pósa Lajos utca 9
+100	Lakatos Martin	3334	Alsóváros	Munkád út 65
+101	Fehér Erik	3379	Felsőváros	Hordós dűlő 4
+102	Fodor Noel	3334	Alsóváros	Mátyás Flórián tér 23
+103	Fekete Kristóf	5017	Nagyfalu	Thököly út 10
+104	Kocsis-Nagy Bálint	4010	Kisfalu	Kaptató utca 16
+105	Vass-Kereki Bella	3333	Alsóváros	Dohány utca 20
+106	Fábián-Ötvös Kamilla	5017	Nagyfalu	Stiglicfogdosó 38
+107	Horváth Lilien	3334	Alsóváros	Naspolya utca 24
+108	Fekete Boróka	3334	Alsóváros	Rákos Lajos utca 6
+109	Magyar Zalán	5017	Nagyfalu	Pelikán dűlő 5
+110	Gál Péter	3380	Felsőváros	Verseny utca 33
+111	Hegedüs Tamara	4010	Kisfalu	Feketerigó utca 28
+112	Pásztor Hanna	4012	Kisfalu	Turini utca 17
+113	Tóth Marcell	4012	Kisfalu	Turini utca 28
+114	Balogh Dalma	3333	Alsóváros	Diósi út 58
+115	Kiss Denisz	5017	Nagyfalu	Támfa köz 51
+116	Varga Péter	3334	Alsóváros	Sport utca 10
+117	Németh Levente	3380	Felsőváros	Vajda János utca 62
+118	Balogh-Tóth Lara	5017	Nagyfalu	Örs utca 33
+119	Fehér Olivér Tamás	3379	Felsőváros	Hamvas utca 60
+120	Szabó Amira	4010	Kisfalu	Erdész utca 38
+121	Horváth Dorottya	5017	Nagyfalu	Pelikán dűlő 28
+122	Katona Zita	5017	Nagyfalu	Szántó Kovács János utca 9
+123	Hegedűs Dominik	4010	Kisfalu	Enyezd út 54
+124	Veres Kevin	5017	Nagyfalu	Kőrös utca 35
+125	Nagy Péter	3379	Felsőváros	Cseralja utca 26
+126	Kovács Janka	3334	Alsóváros	Gyár utca 9
+127	Szabó Dániel	4010	Kisfalu	Bajor utca 11
+128	Szabó Benett	3379	Felsőváros	Hamvas utca 18/A
+129	Lengyel Eszter	3334	Alsóváros	Sellő utca 36
+130	Orbán Alex	3333	Alsóváros	Fagyal utca 66
+131	Orbán Réka	3379	Felsőváros	Éger köz 36
+132	Molnár Fanni	3334	Alsóváros	Hal tér 20
+133	Nagy Dorka	3380	Felsőváros	Rakéta utca 27
+134	Lakatos Benett	3380	Felsőváros	Verseny utca 24
+135	Nagy Milán	3333	Alsóváros	Felsőgyükési út 12
+136	Nagy Márton	3334	Alsóváros	Kolónia utca 49
+137	Papp Dániel	3334	Alsóváros	Sport utca 51
+138	Szabó Zoltán	4010	Kisfalu	Juhász Gyula tér 8
+139	Szücs Panna	5017	Nagyfalu	Örs utca 31
+140	Tóth Zente	3379	Felsőváros	Eperfás út 16
+141	Varga-Takács Botond	3379	Felsőváros	Cseralja utca 56
+142	Hegedüs Nikolasz	3333	Alsóváros	Bokály dűlő 45
+143	Somogyi Botond	4010	Kisfalu	Ezis utca 50
+144	Sándor Natasa Éva	4010	Kisfalu	Erdész utca 16
+145	Németh Réka	3334	Alsóváros	Pellérdi út 60
+146	Szabó Dorina	5017	Nagyfalu	Stiglicfogdosó 2
+147	Simon Barnabás	4012	Kisfalu	Zerge utca 18
+148	Váradi Csenge	3334	Alsóváros	Sport utca 4
+149	Nagy Marcell Márk	3380	Felsőváros	Rakéta utca 36
+150	Kiss Zsófia	3380	Felsőváros	Mókus utca 22
+151	Gál Balázs	3380	Felsőváros	Verseny utca 51
+152	Tóth Sára	4010	Kisfalu	József utca 40
+153	Szabó Nimród	4012	Kisfalu	Pajtás utca 12
+154	Horváth Ádám	3334	Alsóváros	Szajkó utca 52
+155	Fekete Norbert	3334	Alsóváros	Opris Péter tér 43
+156	Faragó Laura	5017	Nagyfalu	Thököly út 44
+157	Horváth Vilmos	3333	Alsóváros	Bokály dűlő 30
+158	Németh Botond	3379	Felsőváros	Gerbera utca 1
+159	Kiss Noé	5017	Nagyfalu	Pelikán dűlő 28
+160	Juhász Levente	3380	Felsőváros	Verseny utca 57
+161	Takács Kamilla	3380	Felsőváros	Kassák Lajos utca 33
+162	Orosz Gergő	5017	Nagyfalu	Harangöntő utca 28
+163	Horváth Sára	3379	Felsőváros	Eperfás út 48
+164	Farkas Hunor	4010	Kisfalu	Hőgyes Endre utca 54
+165	Sándor Balázs	3334	Alsóváros	Sellő utca 9
+166	Sipos Gergely	4010	Kisfalu	Bessenyei utca 8
+167	Juhász Boróka	5017	Nagyfalu	Szántó Kovács János utca 16
+168	Pál Lili	4012	Kisfalu	Turini utca 41
+169	Kiss Natália	3380	Felsőváros	Vadkörte utca 58
+170	Jónás Noel	3379	Felsőváros	Dombos utca 16
+171	Kocsis Milla	3379	Felsőváros	Eperfás út 59
+172	Nagy Szofi	5017	Nagyfalu	Mécses utca 46
+173	Takács Panna Éva	5017	Nagyfalu	Kodolányi János utca 36
+174	Varga Vilmos	4010	Kisfalu	Bessenyei utca 25
+175	Németh Dávid	3333	Alsóváros	Bajmi köz 42
+176	Török Barnabás	3333	Alsóváros	Csárda utca 12
+177	Kiss Tamás	4012	Kisfalu	Zerge utca 59
+178	Varga Barbara	3379	Felsőváros	Cseralja utca 54
+179	Kocsis Bence	5017	Nagyfalu	Kőrös utca 53
+180	Nagy Enikő	3379	Felsőváros	Görgey Artúr utca 45
+181	Pintér Lujza	3334	Alsóváros	Kőbánya dűlő 55
+182	Szabó Mirella	5017	Nagyfalu	Stiglicfogdosó 32
+183	Molnár Áron	5017	Nagyfalu	Szántó Kovács János utca 23
+184	Nagy Zsolt	4012	Kisfalu	Zerge utca 15
+185	Varga Hanna	3334	Alsóváros	Szajkó utca 48
+186	Németh Alexander	3379	Felsőváros	Gránátalma utca 58
+187	Szabó Benedek	3334	Alsóváros	Kőbánya dűlő 44
+188	Horváth Zétény	3379	Felsőváros	Éger köz 31
+189	Németh Olivér	4010	Kisfalu	Krúdy Gyula utca 54
+190	Németh Ábel	3333	Alsóváros	Dohány utca 63
+191	Orbán Lilien	3379	Felsőváros	Barackos köz 20
+192	Mészáros Tamás	3379	Felsőváros	Bajnok utca 16
+193	Vörös Boglárka	5017	Nagyfalu	Kút utca 43
+194	Jónás István	3334	Alsóváros	Hal tér 29
+195	Kis Bence	5017	Nagyfalu	Thököly út 48
+196	Németh Natasa	3334	Alsóváros	Mécsvirág utca 34
+197	Faragó Soma	3334	Alsóváros	Pellérdi út 28
