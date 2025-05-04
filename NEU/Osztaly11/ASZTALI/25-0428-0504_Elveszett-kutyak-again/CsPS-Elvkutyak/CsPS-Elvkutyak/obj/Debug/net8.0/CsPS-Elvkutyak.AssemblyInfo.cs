@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CsPS-Elvkutyak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c1a5bdc72a6e2317c055d33d44d324700ee4764")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7068c082a2c95314a99cee8c08428dea2a23d15b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CsPS-Elvkutyak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CsPS-Elvkutyak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

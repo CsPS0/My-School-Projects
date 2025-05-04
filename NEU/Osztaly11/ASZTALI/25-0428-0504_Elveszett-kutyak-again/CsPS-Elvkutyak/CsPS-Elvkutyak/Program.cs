@@ -14,7 +14,7 @@ Console.Write("2. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Lista azokról a kutyákról, melyek 2020.12.31-én elvesztek:" +
     $"\n\t" +
-    $"{kutyak.Elveszettek()}");
+    $"{kutyak.Elveszettek}");
 
 // 3. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -34,7 +34,7 @@ Console.Write("5. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Ezek a kutyanevek szerepelnek többször: " +
     $"\n\t" +
-    $"{kutyak.TobbszorosNevek()}");
+    $"{kutyak.TobbszorosNevek}");
 
 // 6. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -48,7 +48,7 @@ Console.Write("7. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Ezekből a Budapesti kerületekből történt bejelentések száma:" +
     $"\n\t" +
-    $"{kutyak.KeruletiStatisztika()}");
+    $"{kutyak.KeruletiStatisztika}");
 
 // 8. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -56,7 +56,7 @@ Console.Write("8. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Bejelentések száma melyből legalább 5 kutya fajtánként:" +
     $"\n\t" +
-    $"{kutyak.FajtakLegalabb5Kutya()}");
+    $"{kutyak.FajtakLegalabb5Kutya}");
 
 // 9. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -70,7 +70,7 @@ Console.Write("10. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Helyenként ennyi kan, szuka, n.a. volt bejelentve:" +
     $"\n\t" +
-    $"{kutyak.HelyNemStatisztika()}");
+    $"{kutyak.HelyNemStatisztika}");
 
 // 11. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -78,7 +78,7 @@ Console.Write("11. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Fajonként ezekről a településekről tűntek el az adott fajtájú kutyák:" +
     $"\n\t" +
-    $"{kutyak.FajtaHelyek()}");
+    $"{kutyak.FajtaHelyek}");
 
 // 12. feladat
 Console.ForegroundColor = ConsoleColor.Red;
@@ -86,4 +86,4 @@ Console.Write("12. feladat: ");
 Console.ResetColor();
 Console.WriteLine($"Ezeket a neveket adták, ezeknek a fajtáknak:" +
     $"\n\t" +
-    $"{kutyak.NevFajtak()}");
+    $"{kutyak.NevFajtak}");
