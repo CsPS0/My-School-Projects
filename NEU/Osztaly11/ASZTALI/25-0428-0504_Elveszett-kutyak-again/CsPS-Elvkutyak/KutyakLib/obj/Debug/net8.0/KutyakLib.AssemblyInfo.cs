@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KutyakLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7068c082a2c95314a99cee8c08428dea2a23d15b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+651a2124af3e0596bf59bfd893b4e58b9afa2632")]
 [assembly: System.Reflection.AssemblyProductAttribute("KutyakLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KutyakLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
