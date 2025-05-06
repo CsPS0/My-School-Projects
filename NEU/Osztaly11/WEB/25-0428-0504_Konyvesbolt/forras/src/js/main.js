@@ -31,36 +31,27 @@ const stores = [
     'Margit'
 ];
 
-// 12. feladat: sum függvény
 function sum(array) {
     return array.reduce((total, current) => total + current, 0);
 }
 
-// 13. feladat: displayCard függvény
 function displayCard(day, store) {
-    // Kártya lekérése
     const card = document.getElementById('card');
     
-    // Hidden osztály eltávolítása
     card.classList.remove('hidden');
     
-    // Középre igazítás inline stílussal
     card.style.margin = '0 auto';
     
-    // Kép beállítása
     const cardImg = card.querySelector('img');
     cardImg.src = `src/images/${store}.jpg`;
     
-    // Card-body elem kiürítése
     const cardBody = document.getElementById('card-body');
     cardBody.innerHTML = '';
     
-    // H3 létrehozása
     const heading = document.createElement('h3');
     heading.textContent = store;
     heading.style.marginBottom = '0.5rem';
     
-    // Adatok lekérése és megjelenítése
     let storeData;
     switch (store) {
         case 'Belváros':
@@ -77,34 +68,26 @@ function displayCard(day, store) {
             break;
     }
     
-    // Napi forgalom bekezdés
     const dayParagraph = document.createElement('p');
     dayParagraph.textContent = `Napi forgalom: ${storeData[day-1].toLocaleString()} Ft`;
     
-    // Havi forgalom bekezdés
     const monthParagraph = document.createElement('p');
     monthParagraph.textContent = `Havi forgalom: ${sum(storeData).toLocaleString()} Ft`;
     
-    // Elemek hozzáadása a card-body-hoz
     cardBody.appendChild(heading);
     cardBody.appendChild(dayParagraph);
     cardBody.appendChild(monthParagraph);
 }
 
-// 14. feladat: Űrlap eseménykezelő
 document.querySelector('form').addEventListener('submit', function(event) {
-    // Alapértelmezett művelet letiltása
     event.preventDefault();
     
-    // Adatok lekérése
     const day = document.getElementById('day').value;
     const store = document.getElementById('store').value;
     
-    // Validálás
     if (!stores.includes(store)) {
         return;
     }
     
-    // Kártya megjelenítése
     displayCard(day, store);
 });
