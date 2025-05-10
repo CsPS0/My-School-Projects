@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <title>IDE Tips & Tricks</title>
+</head>
+<body>
+    <header>
+        <div class="carousel-container">
+            <div class="carousel-slide active" style="background-image: url('/api/placeholder/1200/300');">
+                <div class="carousel-caption">
+                    <h2>Master Your IDE</h2>
+                    <p>Become more productive with essential shortcuts</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('/api/placeholder/1200/300');">
+                <div class="carousel-caption">
+                    <h2>Debug Like a Pro</h2>
+                    <p>Learn advanced debugging techniques</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('/api/placeholder/1200/300');">
+                <div class="carousel-caption">
+                    <h2>Customize Your Workflow</h2>
+                    <p>Personalize your IDE for maximum efficiency</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('/api/placeholder/1200/300');">
+                <div class="carousel-caption">
+                    <h2>Essential Extensions</h2>
+                    <p>Discover must-have plugins for your development needs</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">IDE Tips & Tricks</a>
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">IDE Basics</a></li>
+                <li><a href="#">Productivity</a></li>
+                <li><a href="#">Debugging</a></li>
+                <li><a href="#">Extensions</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h1>Software Development IDE Tips & Tricks</h1>
+        <p>Welcome to your ultimate resource for boosting productivity in your favorite Integrated Development Environment. Whether you're a beginner or experienced developer, our tips and tricks will help you code more efficiently.</p>
+        <section class="faq-container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> What are the essential keyboard shortcuts that every developer should know?
+                </div>
+                <div class="faq-answer">
+                    <p>Mastering keyboard shortcuts is one of the fastest ways to improve productivity. Some universal shortcuts across most IDEs include:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>Ctrl+S (Save)</li>
+                        <li>Ctrl+Z/Y (Undo/Redo)</li>
+                        <li>Ctrl+C/V/X (Copy/Paste/Cut)</li>
+                        <li>Ctrl+F (Find)</li>
+                        <li>Ctrl+H (Find and Replace)</li>
+                        <li>Alt+Tab (Switch between applications)</li>
+                        <li>Ctrl+/ (Comment/Uncomment code)</li>
+                        <li>F5 (Run/Debug)</li>
+                        <li>Shift+Alt+F (Format code)</li>
+                        <li>Ctrl+D (Duplicate line)</li>
+                    </ul>
+                    <p>IDE-specific shortcuts like IntelliJ's Alt+Enter for quick fixes or VS Code's Ctrl+Shift+P for command palette are also worth learning.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> How do I effectively use code snippets to speed up development?
+                </div>
+                <div class="faq-answer">
+                    <p>Code snippets are reusable code templates that help avoid repetitive typing:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>Learn built-in snippets in your IDE (like typing "for" and pressing tab)</li>
+                        <li>Create custom snippets for your frequent code patterns</li>
+                        <li>Use snippet extensions/plugins for your specific programming language</li>
+                        <li>Organize snippets by category for easier access</li>
+                        <li>Use placeholders in snippets to quickly fill in variable names</li>
+                        <li>Share useful snippets with your team for consistency</li>
+                    </ul>
+                    <p>Most modern IDEs allow you to export/import snippet collections for easy sharing.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> What are the best debugging techniques in modern IDEs?
+                </div>
+                <div class="faq-answer">
+                    <p>Effective debugging is crucial for efficient development:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>Set breakpoints at strategic locations to pause execution</li>
+                        <li>Use conditional breakpoints for complex scenarios</li>
+                        <li>Inspect variables and their values during runtime</li>
+                        <li>Step through code execution (Step Over, Step Into, Step Out)</li>
+                        <li>Use watch expressions to monitor specific variables</li>
+                        <li>Utilize the call stack to understand the execution flow</li>
+                        <li>Take advantage of the immediate/evaluation window to test expressions</li>
+                        <li>Use breakpoint hit counts for bugs that occur after specific iterations</li>
+                        <li>Learn to use memory and performance profiling tools</li>
+                    </ul>
+                    <p>Modern IDEs also offer remote debugging and time-travel debugging for more complex scenarios.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> How can I customize my IDE for maximum productivity?
+                </div>
+                <div class="faq-answer">
+                    <p>Personalization can significantly improve your workflow:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>Choose a color theme that reduces eye strain (dark themes are popular)</li>
+                        <li>Install extensions/plugins specific to your tech stack</li>
+                        <li>Configure code formatting settings to match your team's style guide</li>
+                        <li>Set up project-specific configurations</li>
+                        <li>Customize the layout of panels and toolbars</li>
+                        <li>Configure code completion preferences</li>
+                        <li>Set up file associations correctly</li>
+                        <li>Use split views for comparing files</li>
+                        <li>Configure auto-save settings</li>
+                        <li>Create custom keymaps/keyboard shortcuts</li>
+                    </ul>
+                    <p>Most IDEs allow saving settings to the cloud or as configuration files that can be shared across devices.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> What are the best code navigation techniques in IDEs?
+                </div>
+                <div class="faq-answer">
+                    <p>Efficient code navigation saves tremendous time:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>Use "Go to Definition" (typically F12 or Ctrl+click)</li>
+                        <li>Navigate through the file structure view</li>
+                        <li>Use "Find Usages" to see where functions/variables are used</li>
+                        <li>Navigate forward/backward through your position history</li>
+                        <li>Use bookmarks for important code sections</li>
+                        <li>Jump to specific line numbers</li>
+                        <li>Use breadcrumbs navigation for context</li>
+                        <li>Navigate by typing class or file names (Ctrl+N, Ctrl+Shift+N in many IDEs)</li>
+                        <li>Use "Go to Symbol" for quick navigation to methods/functions</li>
+                        <li>Utilize "Recent Files" feature</li>
+                    </ul>
+                    <p>Advanced IDEs also offer semantic navigation based on code relationships rather than just text.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <i class="fas fa-plus-circle"></i> How do I effectively integrate version control systems with my IDE?
+                </div>
+                <div class="faq-answer">
+                    <p>Modern IDEs offer powerful integration with Git and other VCS:</p>
+                    <ul style="list-style-type: disc;">
+                        <li>View file changes directly in the editor gutter</li>
+                        <li>Commit, push, and pull without leaving the IDE</li>
+                        <li>Resolve merge conflicts with visual diff tools</li>
+                        <li>Browse commit history and blame information</li>
+                        <li>Create and switch branches</li>
+                        <li>Stage partial changes (hunks) within files</li>
+                        <li>Run Git commands from the integrated terminal</li>
+                        <li>Use built-in pull request creation and review tools</li>
+                        <li>Configure automatic actions before commit (linting, formatting)</li>
+                        <li>Set up integration with GitHub/GitLab/Bitbucket</li>
+                    </ul>
+                    <p>Learning these integrations eliminates the need to context-switch between multiple applications.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                Created by: CsPS
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://store.steampowered.com/" target="_blank" title="Steam"><i class="fab fa-steam"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+:root {
+--dark-brown: #2d1e12;
+--medium-brown: #5c4033;
+--light-brown: #8b7355;
+--accent-brown: #a0522d;
+--text-light: #f5f5dc;
+--text-dark: #333;
+--bg-dark: #1a1a1a;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+padding: 0;
+background-color: var(--bg-dark);
+color: var(--text-light);
+}
+
+/* Header Styles */
+header {
+background-color: var(--dark-brown);
+padding: 0;
+position: relative;
+height: 300px;
+overflow: hidden;
+}
+
+.carousel-container {
+width: 100%;
+height: 100%;
+position: relative;
+}
+
+.carousel-slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+display: flex;
+align-items: center;
+justify-content: center;
+background-size: cover;
+background-position: center;
+}
+
+.carousel-slide.active {
+opacity: 1;
+}
+
+.carousel-caption {
+background-color: rgba(45, 30, 18, 0.7);
+padding: 20px;
+border-radius: 8px;
+max-width: 80%;
+text-align: center;
+}
+
+.carousel-caption h2 {
+margin: 0;
+font-size: 2rem;
+color: var(--text-light);
+}
+
+.carousel-caption p {
+margin-top: 10px;
+font-size: 1.2rem;
+color: var(--text-light);
+}
+
+/* Navbar Styles */
+nav {
+background-color: var(--medium-brown);
+padding: 0;
+}
+
+.nav-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 20px;
+max-width: 1200px;
+margin: 0 auto;
+height: 60px;
+}
+
+.logo {
+font-size: 1.5rem;
+font-weight: bold;
+color: var(--text-light);
+text-decoration: none;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+margin: 0;
+padding: 0;
+}
+
+.nav-links li {
+margin: 0 15px;
+}
+
+.nav-links a {
+color: var(--text-light);
+text-decoration: none;
+font-size: 1.1rem;
+transition: color 0.3s;
+}
+
+.nav-links a:hover {
+color: var(--accent-brown);
+}
+
+.hamburger {
+display: none;
+cursor: pointer;
+background: none;
+border: none;
+color: var(--text-light);
+font-size: 1.5rem;
+}
+
+/* Main Content Styles */
+main {
+max-width: 1200px;
+margin: 20px auto;
+padding: 20px;
+background-color: rgba(45, 30, 18, 0.3);
+border-radius: 8px;
+min-height: calc(100vh - 460px);
+}
+
+/* FAQ Styles */
+.faq-container {
+margin-top: 30px;
+}
+
+.faq-item {
+margin-bottom: 20px;
+border-bottom: 1px solid var(--light-brown);
+padding-bottom: 20px;
+}
+
+.faq-question {
+font-size: 1.2rem;
+color: var(--accent-brown);
+margin-bottom: 10px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.faq-answer {
+line-height: 1.6;
+display: none;
+}
+
+.faq-answer.active {
+display: block;
+}
+
+.faq-answer ul {
+padding-left: 20px;
+}
+
+/* Footer Styles */
+footer {
+background-color: var(--dark-brown);
+color: var(--text-light);
+text-align: center;
+padding: 20px;
+margin-top: 20px;
+}
+
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.social-links a {
+color: var(--text-light);
+margin: 0 10px;
+font-size: 1.5rem;
+transition: color 0.3s;
+}
+
+.social-links a:hover {
+color: var(--accent-brown);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--medium-brown);
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links li {
+    margin: 10px 20px;
+}
+
+.hamburger {
+    display: block;
+}
+
+header {
+    height: 200px;
+}
+
+.carousel-caption h2 {
+    font-size: 1.5rem;
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+}
+
+.footer-content {
+    flex-direction: column;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+}
