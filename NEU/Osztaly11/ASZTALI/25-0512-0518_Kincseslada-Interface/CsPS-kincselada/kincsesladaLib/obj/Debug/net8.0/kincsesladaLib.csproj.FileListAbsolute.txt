@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\bin\Debug\net8.0\kincsesladaLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\bin\Debug\net8.0\kincsesladaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\bin\Debug\net8.0\kincsesladaLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\refint\kincsesladaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\kincsesladaLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0512-0518_Kincseslada-Interface\CsPS-kincselada\kincsesladaLib\obj\Debug\net8.0\ref\kincsesladaLib.dll

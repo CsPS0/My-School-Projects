@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsPS-kincselada", "CsPS-kincselada\CsPS-kincselada.csproj", "{C29B20A4-3CB9-44DF-8EA9-66179C9730D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kincsesladaLib", "kincsesladaLib\kincsesladaLib.csproj", "{A91E32D0-7B2B-46FE-BBC0-28F7A906151B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C29B20A4-3CB9-44DF-8EA9-66179C9730D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29B20A4-3CB9-44DF-8EA9-66179C9730D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29B20A4-3CB9-44DF-8EA9-66179C9730D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29B20A4-3CB9-44DF-8EA9-66179C9730D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91E32D0-7B2B-46FE-BBC0-28F7A906151B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91E32D0-7B2B-46FE-BBC0-28F7A906151B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91E32D0-7B2B-46FE-BBC0-28F7A906151B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91E32D0-7B2B-46FE-BBC0-28F7A906151B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3E5FA19-C766-4F9C-9577-88FA7ABF57DD}
+	EndGlobalSection
+EndGlobal
