@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsPS-nyovenygyujtes", "CsPS-nyovenygyujtes\CsPS-nyovenygyujtes.csproj", "{6065D17A-2A23-4F5F-9577-80B8428C6FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "novenygyujtesLib", "novenygyujtesLib\novenygyujtesLib.csproj", "{CF9F1CE7-8E68-4946-BDF1-FC5015A3967E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6065D17A-2A23-4F5F-9577-80B8428C6FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6065D17A-2A23-4F5F-9577-80B8428C6FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6065D17A-2A23-4F5F-9577-80B8428C6FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6065D17A-2A23-4F5F-9577-80B8428C6FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9F1CE7-8E68-4946-BDF1-FC5015A3967E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9F1CE7-8E68-4946-BDF1-FC5015A3967E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9F1CE7-8E68-4946-BDF1-FC5015A3967E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9F1CE7-8E68-4946-BDF1-FC5015A3967E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E680B44B-1986-4420-97C5-710F026EED01}
+	EndGlobalSection
+EndGlobal

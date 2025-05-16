@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CsPS-kincselada")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e60be96ba54fc31db471236a8d9418abc4aa2b69")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0ba4963c32b60b350a921b0b5655558a78a5625")]
 [assembly: System.Reflection.AssemblyProductAttribute("CsPS-kincselada")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CsPS-kincselada")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

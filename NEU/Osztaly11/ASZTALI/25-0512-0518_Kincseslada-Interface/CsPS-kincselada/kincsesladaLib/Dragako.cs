@@ -2,11 +2,11 @@
 {
     public class Dragako : IComparable<Dragako>, IKincs
     {
-        private string tipus;
+        private readonly string tipus;
         public int Nagysag { get; set; }
 
         public string Nev => tipus;
-        public string Leiras => $"Egy gyönyörű {MeretToString()} {tipus}";
+        public string Leiras => $"Egy gyönyörű {MeretToString()} {tipus}.";
         public string Tipus => tipus;
         public int Ertek => SzamolErtek();
 
@@ -44,7 +44,7 @@
         {
             string[] dragakovek = ["zafír", "smaragd", "gyémánt"];
             this.tipus = dragakovek[tipus % 3];
-            this.Nagysag = Math.Clamp(nagysag, 1, 3);
+            Nagysag = Math.Clamp(nagysag, 1, 3);
         }
 
         public override string ToString()
@@ -55,7 +55,7 @@
         public int CompareTo(Dragako? other)
         {
             if (other == null) return 1;
-            return this.Ertek.CompareTo(other.Ertek);
+            return Ertek.CompareTo(other.Ertek);
         }
     }
 }

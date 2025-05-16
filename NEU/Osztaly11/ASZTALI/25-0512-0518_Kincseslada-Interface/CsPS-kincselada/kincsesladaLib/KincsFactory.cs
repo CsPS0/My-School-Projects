@@ -2,27 +2,22 @@
 {
     public class KincsFactory
     {
-        private Random random;
-
-        public KincsFactory()
-        {
-            random = new Random();
-        }
+        readonly Random random = new();
 
         public IKincs Create()
         {
-            int kincsType = random.Next(2);
+            int kincsTipus = random.Next(2);
 
-            if (kincsType == 0)
+            if (kincsTipus == 0)
             {
-                int ermeType = random.Next(3);
-                return new Erme(ermeType);
+                int ermeTipus = random.Next(3);
+                return new Erme(ermeTipus);
             }
             else
             {
-                int dragakoType = random.Next(3);
-                int dragakoSize = random.Next(1, 4);
-                return new Dragako(dragakoType, dragakoSize);
+                int dragakoTipus = random.Next(3);
+                int dragakoMeret = random.Next(1, 4);
+                return new Dragako(dragakoTipus, dragakoMeret);
             }
         }
     }

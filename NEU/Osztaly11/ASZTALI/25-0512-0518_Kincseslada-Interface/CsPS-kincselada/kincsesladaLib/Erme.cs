@@ -4,7 +4,7 @@
     {
         private string tipus { get; set; }
         public string Nev => "érme";
-        public string Leiras => $"Egy csillogó {tipus}érme";
+        public string Leiras => $"Egy csillogó {tipus}érme.";
         public string Tipus => tipus;
         public Erme(int tipus)
         {
@@ -21,7 +21,7 @@
         public int CompareTo(Erme? other)
         {
             if (other == null) return 1;
-            return this.Ertek.CompareTo(other.Ertek);
+            return Ertek.CompareTo(other.Ertek);
         }
     }
 }
