@@ -9,11 +9,9 @@ CREATE TABLE `fajok` (
   `faj_nev` VARCHAR(30)
 );
 
-CREATE TABLE `hajo_osztalyok` (
-  `osztaly_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `osztaly_nev` VARCHAR(20) NOT NULL,
-  `szerep_id` INT NOT NULL,
-  CONSTRAINT `pk_osztaly` PRIMARY KEY (`osztaly_id`)
+CREATE TABLE `hajo_szerepek` (
+  `szerep_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `szerep_nev` VARCHAR(50)
 );
 
 CREATE TABLE `urhajok` (
