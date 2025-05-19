@@ -1,0 +1,14 @@
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\bin\Debug\net8.0\Feladatok.exe
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\bin\Debug\net8.0\Feladatok.deps.json
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\bin\Debug\net8.0\Feladatok.runtimeconfig.json
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\bin\Debug\net8.0\Feladatok.dll
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\bin\Debug\net8.0\Feladatok.pdb
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.GeneratedMSBuildEditorConfig.editorconfig
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.AssemblyInfoInputs.cache
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.AssemblyInfo.cs
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.csproj.CoreCompileInputs.cache
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.dll
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\refint\Feladatok.dll
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.pdb
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\Feladatok.genruntimeconfig.cache
+E:\2024_09_03-Szaknap\01_asztali_diakoknak\Projecto\Feladatok\Feladatok\obj\Debug\net8.0\ref\Feladatok.dll

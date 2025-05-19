@@ -1,0 +1,15 @@
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\bin\Debug\net8.0\for_fuggveny_neu.exe
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\bin\Debug\net8.0\for_fuggveny_neu.deps.json
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\bin\Debug\net8.0\for_fuggveny_neu.runtimeconfig.json
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\bin\Debug\net8.0\for_fuggveny_neu.dll
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\bin\Debug\net8.0\for_fuggveny_neu.pdb
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.GeneratedMSBuildEditorConfig.editorconfig
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.AssemblyInfoInputs.cache
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.AssemblyInfo.cs
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.csproj.CoreCompileInputs.cache
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.sourcelink.json
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.dll
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\refint\for_fuggveny_neu.dll
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.pdb
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\for_fuggveny_neu.genruntimeconfig.cache
+e:\REPOS\cs-for\NJSZKI_cs-For\for_fuggveny_neu\for_fuggveny_neu\obj\Debug\net8.0\ref\for_fuggveny_neu.dll
