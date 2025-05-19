@@ -1,0 +1,10 @@
+Az előző programozási tételek feladatsor számok tömbjére oldd meg:
+
+- Add meg, hogy volt-e 0 a beolvasott számok között!
+- Add meg, hogy hányadik érték az első negatív szám! Amennyiben nincs ilyen, akkor írd ki, hogy nem található negatív érték a generált számok között!
+- Add meg %-os formátumban, hogy a beolvasott értékeknek hány százaléka pozitív!
+- Add meg az utolsó olyan elemet, ami az átlagnál kisebb!
+
+A nevekre:
+- Van-e a keresztneveddel megegyező nevű diák? Ha igen, hányadik?
+- Válaszd ki az első Szabó-t! keresd meg az utolsót is!

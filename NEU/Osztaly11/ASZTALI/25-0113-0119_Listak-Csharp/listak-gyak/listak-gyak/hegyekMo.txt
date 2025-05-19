@@ -1,0 +1,100 @@
+Ágasvár;789
+Bálvány;956
+Büszkés-hegy;952
+Cserepes-kő;823
+Csikorgó;778
+Csóványos;938
+Darázs-hegy;834
+Esztea-fő;797
+Fekete-Sár-bérc;930
+Felső-Borovnyák (2);932
+Felső-Borovnyák (1);945
+Fodor-hegy;931
+Füstös-kő-bérc;912
+Galya-tető;964
+Galya-vár;837
+Gergely-hegy;783
+Győr-hegy;831
+Hangyás-bérc (1);863
+Hangyás-bérc (2);854
+Hármas-határ-hegy;795
+Három-kő;904
+Hegyes-kő;792
+Hermanház-tető;884
+Hidas-bérc;971
+Hosszú-bérc;820
+Huta-bérc;920
+Írott-kő;882
+Ispán-hegy;912
+Istállós-kő;958
+Kékes;1014
+Kerek-hegy;827
+Kerek-hegy;790
+Kerek-réti-fő;880
+Kis-Átal-kő;787
+Kis-kő;787
+Kis-kő-hát;939
+Kis-Sár-bérc;925
+Kis-Sas-kő;830
+Kis-tanya;916
+Kis-Virágos-hegy;868
+Korom-bérc;825
+Kőris-hegy;944
+Kőrös-bérc;956
+Köves-orom;787
+Közép-bérc (1);807
+Közép-bérc (2);804
+Kukocsó-hegy;941
+Kút-hegy;878
+Küllő-hegy;899
+Leány-hegy;892
+Legyendi-galya;936
+Magos-fa;916
+Messzelátó;855
+Mogyorós-orom;838
+Muzsla;806
+Nagy-Átal-kő;823
+Nagy-Csipkés-tető;869
+Nagy-Csipkés-tető (3);843
+Nagy-Dél (1);821
+Nagy-Dél (2);799
+Nagy-Dél (3);787
+Nagy-Hárs;840
+Nagy-Hideg-hegy;864
+Nagy-Inóc;826
+Nagy-Kopasz;903
+Nagy-kő-hát (1);946
+Nagy-kő-hát (2);936
+Nagy-Kőris;822
+Nagy-Milic;895
+Nyárju-hegy (1);889
+Nyárju-hegy (2);885
+Nyesett-vár;813
+Őr-kő (2);855
+Őr-kő (1);880
+Pes-kő;857
+Péter hegyese;960
+Piszkés-tető;944
+Pogányvár;823
+Remete-hegy;894
+Sándor-hegy;870
+Sas-kő;898
+Semmi-bérc;906
+Som-tető;783
+Szilvási-kő;961
+Tányéros-töbör;958
+Tar-kő;950
+Teréz-hegy;792
+Tót-hegyes;814
+Tölgyes-bérc;799
+Vadkert-tető;834
+Vargai-Kurta-bérc (1);821
+Vargai-Kurta-bérc (2);819
+Varsa-tető;871
+Veres-Sár-bérc;912
+Virágos-sár (2);950
+Virágos-Sár-hegy;955
+Zsérci-Nagy-Dél (1);879
+Zsérci-Nagy-Dél (2);877
+Zsérci-Nagy-Dél (3);859
+Zsérci-Nagy-Dél (4);850
