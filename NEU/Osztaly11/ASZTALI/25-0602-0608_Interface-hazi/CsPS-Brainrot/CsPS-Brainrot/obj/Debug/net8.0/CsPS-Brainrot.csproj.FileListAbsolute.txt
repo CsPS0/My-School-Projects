@@ -1,0 +1,5 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.sourcelink.json
