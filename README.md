@@ -1,27 +1,53 @@
 # School Projects Repository
 
-Welcome to the School Projects Repository!
-In this repository, you will find all of the user's school projects, organized and maintained for easy access and reference.
+Welcome to my School Projects Repository!
+This repository contains my comprehensive collection of school projects, assignments, and learning materials from BMSZC Neumann János Szakközépiskola.
 
-## About
+## Repository Structure
 
-This repository serves as a central hub for all school-related programming and development projects created by the user. Projects may include assignments, exercises, personal learning experiments, and collaborative works completed during the user's studies.
+The repository is organized into two main sections:
 
-## Contents
+### NEU (Neumann)
+Organized by school years (11-13) and subjects:
+- **ADATBAZIS** - Database related projects and assignments
+- **ASZTALI** - Desktop application development
+- **DOCKER** - Docker-related coursework
+- **IKT** - ICT projects
+- **WEB** - Web development projects
+- **OTHER** - Additional subjects (English, Literature, German, etc.)
 
-- Programming assignments
-- Software development exercises
-- Coding experiments
-- Group projects
-- Documentation and resources related to schoolwork
+### Verebay
+Additional resources and materials:
+- **Cisco** - Networking materials and practice tests
+- **Office365** - Documentation and office suite related work
+- **PROGRAMMING**
+  - Backend (C# and Python projects)
+  - Frontend (Web development projects)
 
-## Structure
+### docs (Temporary)
+This directory contains the source files for the project's GitHub Pages website:
+- Available at: https://csps0.github.io/My-School-Projects/index.html
+- Features guides and resources for IDE mastery and development workflow optimization
+- Includes sections on:
+  - IDE basics and productivity tips
+  - Debugging techniques
+  - Essential extensions
+  - Custom workflow optimization
 
-Projects are organized by subject, course, or project type for clarity. Each project may have its own folder containing source code documentation, and any necessary assets.
+## Project Types
+
+This repository includes:
+- Programming assignments and exercises
+- Database design and management projects
+- Web development projects
+- Docker and containerization work
+- Network engineering materials
+- Documentation and learning resources
 
 ## Usage
 
-Feel free to explore the repository to review, learn from, or contribute to the various school projects.
+Each project folder contains its own source code, documentation, and necessary resources. Feel free to explore the repository to review or learn from the various school projects.
+
 If you have any questions or suggestions, please open an issue or submit a pull request.
 
 ---
