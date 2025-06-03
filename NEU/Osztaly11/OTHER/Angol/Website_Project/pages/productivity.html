@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <title>Productivity - Tips & Tricks</title>
+</head>
+<body>
+    <header>
+        <div class="carousel-container">
+            <div class="carousel-slide active" style="background-image: url(../IMG/IDE.png);">
+                <div class="carousel-caption">
+                    <h2>Master Your IDE</h2>
+                    <p>Become more productive with essential shortcuts</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url(../IMG/DEBUG.png);">
+                <div class="carousel-caption">
+                    <h2>Debug Like a Pro</h2>
+                    <p>Learn advanced debugging techniques</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url(../IMG/CUSTOMIZE.png);">
+                <div class="carousel-caption">
+                    <h2>Customize Your Workflow</h2>
+                    <p>Personalize your IDE for maximum efficiency</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url(../IMG/EXTENSIONS.png);">
+                <div class="carousel-caption">
+                    <h2>Essential Extensions</h2>
+                    <p>Discover must-have plugins for your development needs</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="ide-basics.html">IDE Basics</a></li>
+                <li><a href="productivity.html">Productivity</a></li>
+                <li><a href="extensions.html">Extensions</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+            <a href="../index.html" class="logo">IDE Tips & Tricks</a>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+    <main>
+        <section class="content-section">
+            <h2>Essential Keyboard Shortcuts</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3><i class="fas fa-keyboard"></i> Navigation</h3>
+                    <ul>
+                        <li>Ctrl + P: Quick file open</li>
+                        <li>Ctrl + G: Go to line</li>
+                        <li>Ctrl + Tab: Switch between files</li>
+                        <li>Alt + ←/→: Navigate back/forward</li>
+                        <li>Ctrl + Shift + O: Go to symbol</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item">
+                    <h3><i class="fas fa-edit"></i> Editing</h3>
+                    <ul>
+                        <li>Ctrl + D: Select next occurrence</li>
+                        <li>Alt + ↑/↓: Move line up/down</li>
+                        <li>Ctrl + /: Toggle comment</li>
+                        <li>Ctrl + Space: Trigger suggestions</li>
+                        <li>Shift + Alt + F: Format document</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item">
+                    <h3><i class="fas fa-search"></i> Search</h3>
+                    <ul>
+                        <li>Ctrl + F: Find in file</li>
+                        <li>Ctrl + H: Replace in file</li>
+                        <li>Ctrl + Shift + F: Find in files</li>
+                        <li>F3 / Shift + F3: Find next/previous</li>
+                        <li>Alt + Enter: Select all occurrences</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item">
+                    <h3><i class="fas fa-code"></i> Code Actions</h3>
+                    <ul>
+                        <li>F12: Go to definition</li>
+                        <li>Alt + F12: Peek definition</li>
+                        <li>F2: Rename symbol</li>
+                        <li>Ctrl + .: Quick fixes</li>
+                        <li>Ctrl + K + C: Add line comment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Time-Saving Techniques</h2>
+            <div class="tips-list">
+                <div class="tip">
+                    <h3><i class="fas fa-clock"></i> Code Snippets</h3>
+                    <p>Create and use code snippets for frequently used code patterns. Most IDEs allow you to define custom snippets with placeholders.</p>
+                </div>
+                
+                <div class="tip">
+                    <h3><i class="fas fa-magic"></i> Quick Fixes</h3>
+                    <p>Learn to use your IDE's quick fix suggestions (usually accessible via Ctrl + . or Alt + Enter) to automatically fix common issues.</p>
+                </div>
+
+                <div class="tip">
+                    <h3><i class="fas fa-columns"></i> Split Editor</h3>
+                    <p>Use split editor views to work with multiple files side by side, especially useful when implementing interfaces or comparing code.</p>
+                </div>
+
+                <div class="tip">
+                    <h3><i class="fas fa-tasks"></i> Task Automation</h3>
+                    <p>Set up task runners and build configurations to automate repetitive development tasks like building, testing, and deployment.</p>
+                </div>
+                <div class="tip">
+                    <h3><i class="fas fa-keyboard"></i> Custom Key Bindings</h3>
+                    <p>Create personalized keyboard shortcuts for frequently used commands to speed up your workflow.</p>
+                </div>
+                <div class="tip">
+                    <h3><i class="fas fa-terminal"></i> Integrated Terminal</h3>
+                    <p>Utilize the built-in terminal for quick command execution without leaving your IDE.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Workspace Organization</h2>
+            <div class="tips-list">
+                <div class="tip">
+                    <h3><i class="fas fa-folder-tree"></i> Project Structure</h3>
+                    <p>Maintain a clean project structure with meaningful folder names and file organization to quickly locate files.</p>
+                </div>
+
+                <div class="tip">
+                    <h3><i class="fas fa-bookmark"></i> Bookmarks</h3>
+                    <p>Use bookmarks to quickly jump between important locations in your codebase.</p>
+                </div>
+
+                <div class="tip">
+                    <h3><i class="fas fa-window-maximize"></i> Window Management</h3>
+                    <p>Learn to effectively use multiple windows, tabs, and split views to maximize screen real estate.</p>
+                </div>
+
+                <div class="tip">
+                    <h3><i class="fas fa-sync"></i> Workspace Sync</h3>
+                    <p>Use workspace/settings sync features to maintain consistent development environments across different machines.</p>
+                </div>
+                <div class="tip">
+                    <h3><i class="fas fa-tags"></i> Project Tags</h3>
+                    <p>Use workspace tags and labels to organize and quickly switch between different projects or contexts.</p>
+                </div>
+                <div class="tip">
+                    <h3><i class="fas fa-sitemap"></i> Custom Views</h3>
+                    <p>Create and save custom workspace layouts for different types of development tasks.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: contact@idetips.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +1 234 567 890</p>
+            </div>
+            <div class="copyright">
+                Created by: CsPS
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/CsPS0" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://steamcommunity.com/id/chonya/" target="_blank" title="Steam"><i class="fab fa-steam"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

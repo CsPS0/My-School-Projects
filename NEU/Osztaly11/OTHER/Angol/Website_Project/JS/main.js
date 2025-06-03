@@ -1,59 +1,92 @@
 "use strict"
 
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
     
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     }
-
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('nav') && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        
+        // Update icon
+        if (body.classList.contains('light-theme')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'dark');
         }
     });
 
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Mobile menu functionality
+    const hamburger = document.getElementById('hamburger-menu');
+    const navContainer = document.querySelector('.nav-links-container');
     
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            const icon = this.querySelector('i');
-            
-            answer.classList.toggle('active');
-            
-            if (answer.classList.contains('active')) {
-                icon.classList.remove('fa-plus-circle');
-                icon.classList.add('fa-minus-circle');
-            } else {
-                icon.classList.remove('fa-minus-circle');
-                icon.classList.add('fa-plus-circle');
-            }
-        });
+    hamburger.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+        const isExpanded = navContainer.classList.contains('active');
+        hamburger.setAttribute('aria-expanded', isExpanded);
     });
 
-    let currentSlide = 0;
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navContainer.contains(e.target)) {
+            navContainer.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', false);
+        }
+    });
+
+    // Carousel functionality
     const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
     
-    if (slides.length > 0) {
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            
-            slides[index].classList.add('active');
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        setInterval(nextSlide, 5000);
-        
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
     }
+    
+    // Change slide every 5 seconds
+    if (slides.length > 0) {
+        setInterval(nextSlide, 5000);
+    }
+
+    // FAQ functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    function toggleFAQ(question) {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('i');
+        
+        answer.classList.toggle('active');
+        
+        if (answer.classList.contains('active')) {
+            icon.classList.remove('fa-plus-circle');
+            icon.classList.add('fa-minus-circle');
+        } else {
+            icon.classList.remove('fa-minus-circle');
+            icon.classList.add('fa-plus-circle');
+        }
+    }
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => toggleFAQ(question));
+    });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -67,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         behavior: 'smooth'
                     });
                     
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
+                    if (navContainer.classList.contains('active')) {
+                        navContainer.classList.remove('active');
                     }
                 }
             }
