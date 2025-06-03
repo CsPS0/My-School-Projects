@@ -7,8 +7,8 @@ This repository contains my comprehensive collection of school projects, assignm
 
 The repository is organized into two main sections:
 
-### NEU (Neumann)
-Organized by school years (11-13) and subjects:
+### NEU ([Neumann János Informatikai Technikum](https://neumann.bmszc.hu/))
+Organized by school years (11~~-13~~) and subjects:
 - **ADATBAZIS** - Database related projects and assignments
 - **ASZTALI** - Desktop application development
 - **DOCKER** - Docker-related coursework
@@ -16,8 +16,8 @@ Organized by school years (11-13) and subjects:
 - **WEB** - Web development projects
 - **OTHER** - Additional subjects (English, Literature, German, etc.)
 
-### Verebay
-Additional resources and materials:
+### Verebay ([Verebély László Informatikai Technikum](https://verebelyszki.hu/))
+Materials from my previous school (9-10):
 - **Cisco** - Networking materials and practice tests
 - **Office365** - Documentation and office suite related work
 - **PROGRAMMING**
