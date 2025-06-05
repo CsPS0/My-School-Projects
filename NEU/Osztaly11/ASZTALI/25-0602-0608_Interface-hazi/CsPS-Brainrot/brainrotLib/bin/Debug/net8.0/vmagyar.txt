@@ -1,0 +1,8 @@
+nev;leiras;datum;megjelenites;politika;offenziv
+SzigMagyarPéter;Vigyázzz! A tiszapárt megalkatója és elnöke, a meglát egy fideszes narancsot, kegyetlenül elpúsztítja és felfogja számolni a felcsúti végbélnyúlvány báránykáit.;2025.03.30;A;1;I
+SzigMarika;Vigyázzz! Egy különleges öregasszony, aki nem jár templomba, mert a templom jár hozzá.;2025.01.15;B;0;I
+Palócleves;Vigyázzz! Palóckodik a palócleves!;2025.05.22;C;0;N
+SzigMáv;Vigyázzz! A magyar államvasutak legjobbja, nem késik és nem siet, mégis ki nem hiszi ezt el?;2025.02.28;D;1;N
+SzigMatom;Vigyázzz! Ez nem egy természetes atombomba, ennek az ereje kb. 40K tonna egyenértékű!;2025.04.17;E;0;I
+Szigmosogatógép;Vigyázzz! Ez nem csak egy egyszerű mosogatógép, ez a konyhák bajnoka.;2025.06.01;F;0;N
+SzájerAirFryer;Olaj nélkül is letud csúszni a csatornafedélen. Hú milyen melegre sütötte ezt a kolbászt is! Hamarosan csatlakozik az Orbánkormányhoz, hogy legyőzzék SzigMagyarPétert.;2025.04.09;G;1;N

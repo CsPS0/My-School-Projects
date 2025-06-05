@@ -17,3 +17,6 @@ E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.pdb
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.genruntimeconfig.cache
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\ref\CsPS-Brainrot.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\animals.txt
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\toilets.txt
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\vmagyar.txt

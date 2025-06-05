@@ -1,0 +1,58 @@
+nev;leiras;datum;megjelenites;mix;veszelyesseg
+Tralalero Tralala;Un squalo atletico con tre gambe e scarpe Nike blu, capace di correre a velocità sovrumane e saltare lunghe distanze;2025.01.15;;squalo-scarpe;8
+Bombardiro Crocodilo;Un ibrido tra un coccodrillo e un bombardiere della Seconda Guerra Mondiale, con la testa di un coccodrillo e il corpo di un aereo militare;2024.12.20;;coccodrillo-aereo;10
+Tung Tung Tung Tung Tung Tung Tung Tung Tung Sahur;Un oggetto di legno antropomorfo che assomiglia a una mazza indiana o un tamburo bedug con una mazza da baseball;2025.02.10;;tamburo-mazza;4
+Lirilì Larilà;Un ibrido cactus-elefante bipede che indossa sandali, con una lunga proboscide spinosa;2025.03.05;;cactus-elefante;6
+Boneca Ambalabu;Una bambola di pezza vivente con tentacoli di polpo e un cappello a forma di fungo;2025.01.25;;bambola-polpo;3
+Brr Brr Patapim;Una scimmia nasica con enormi piedi umani e un cappello da chef;2024.11.15;;scimmia-piedi;2
+Chimpanzini Bananini;Uno scimpanzé fatto interamente di banane con occhiali da sole;2025.04.20;;scimpanze-banana;1
+Bombombini Gusini;Un pinguino con missili al posto delle ali e un casco da aviatore;2025.02.28;;pinguino-missile;9
+Capuccino Assassino;Una tazza di cappuccino con braccia da ninja e shuriken fatti di chicchi di caffè;2024.12.05;;caffe-ninja;7
+Trippi Troppi;Un ippopotamo psichedelico con ali di farfalla arcobaleno;2025.05.15;;ippopotamo-farfalla;5
+Frigo Camelo;Un cammello fatto di elettrodomestici con un frigorifero come gobba;2025.03.20;;cammello-frigo;3
+La Vaca Saturno Saturnita;Una mucca spaziale con gli anelli di Saturno intorno alla pancia;2025.01.30;;mucca-saturno;4
+Ballerina Cappucina;Una ballerina con una tazza di cappuccino al posto della testa che indossa un tutù;2025.04.10;;ballerina-caffe;2
+U Din Din Din Din Dun Ma Din Din Din Dun;Un dinosauro musicale che suona una batteria fatta di frutta;2024.11.25;;dino-musica;3
+Trulimero Trulicina;Una tartaruga con guscio di cristallo e zampe di ballerina;2025.05.25;;tartaruga-ballerina;1
+Girafa Celeste;Una giraffa con il collo fatto di nuvole e stelle;2025.02.15;;giraffa-cielo;2
+Bobrito Bandito;Un castoro bandito con sombrero e poncho fatto di legno;2024.12.10;;castoro-bandito;4
+Ta Ta Ta Ta Ta Ta Ta Ta Ta Ta Ta Sahur;Un tamburo guerriero con braccia di spada laser;2025.03.15;;tamburo-spada;8
+Pot Hotspot;Una pentola con ali di fenice e fiamme blu;2025.04.25;;pentola-fenice;7
+Frulli Frulla;Un frullatore vivente con tentacoli di frutta tropicale;2024.11.20;;frullatore-frutta;2
+Brri Brri Bicus Dicus Bombicus;Un ibisco esplosivo con petali di dinamite;2025.01.05;;fiore-bomba;9
+Tric Trac Baraboom;Un treno fantasma con ruote di fuochi d'artificio;2025.03.30;;treno-fuochi;8
+Cocofanto Elefanto;Un elefante fatto di noci di cocco con proboscide spruzzante acqua di cocco;2025.02.05;;elefante-cocco;3
+Burbaloni Lulilolli;Un palloncino vivente che mangia lollipop e sputa bolle;2024.12.15;;pallone-lollipop;1
+Orangutini Ananasini;Un orangutan fatto di ananas con braccia di liana;2025.05.05;;orango-ananas;2
+Garamararamararaman dan Madudungdung tak tuntung perkuntung;Un drago indonesiano che suona gamelan con la coda;2025.01.20;;drago-musica;5
+Il Cacto Hipopotamo;Un ippopotamo coperto di spine di cactus che spara acqua;2025.04.15;;ippopotamo-cactus;6
+Blueberrinni Octopussini;Un polpo fatto di mirtilli con tentacoli che producono succo;2025.03.10;;polpo-mirtillo;1
+Glorbo Fruttodrillo;Un coccodrillo fatto di frutta tropicale assortita;2024.11.30;;coccodrillo-frutta;3
+Rhino Toasterino;Un rinoceronte con un tostapane al posto del corno;2025.02.20;;rino-tostapane;5
+Zibra Zubra Zibralini;Una zebra con strisce che cambiano colore come un arcobaleno;2025.05.10;;zebra-arcobaleno;2
+Graipussi Medussi;Una medusa fatta di uva che fluttua nell'aria;2024.12.25;;medusa-uva;1
+Tigrrullini Watermellini;Una tigre fatta di anguria con strisce di semi neri;2025.04.05;;tigre-anguria;3
+Tracotucotulu Delapeladustuz;Un tucano con becco di cristallo che mangia stelle cadenti;2025.01.10;;tucano-cristallo;4
+Gorillo Watermellondrillo;Un gorilla fatto di anguria con muscoli di polpa rossa;2025.03.25;;gorilla-anguria;3
+Bananita Dolfinita;Un delfino fatto di banane che nuota nell'aria;2024.11.10;;delfino-banana;1
+Tigroligre Frutonni;Una tigre-leone ibrido fatto di frutta esotica;2025.05.20;;tigre-leone-frutta;4
+Ballerino Lololo;Un ballerino con testa di lollipop che danza eternamente;2025.02.25;;ballerino-lollipop;1
+Crocodildo Penisini;Un coccodrillo con squame di caramelle gommose;2025.04.30;;cocco-caramella;4
+Makakini Bananini;Una scimmia macaco fatta interamente di banane mature;2024.12.30;;macaco-banana;1
+Matteooooooooooooo;Un gatto infinito che si allunga all'infinito;2025.01.15;;gatto-infinito;7
+Špijuniro Golubiro;Un piccione spia con occhiali da sole e valigetta segreta;2025.03.15;;piccione-spia;3
+Elephantuchi Bananuchi;Un elefante-banana ibrido che spruzza frullati dalla proboscide;2025.05.30;;elefante-banana;2
+Crocodillo Ananasinno;Un coccodrillo fatto di ananas con denti di foglie taglienti;2024.11.05;;cocco-ananas;4
+Penguino Cocosino;Un pinguino fatto di noci di cocco che scivola su ghiaccio di cocco;2025.02.01;;pinguino-cocco;2
+Bobrelli Bananelli;Un castoro fatto di banane che costruisce dighe di frutta;2025.04.01;;castoro-banana;1
+Bulliccinni Bananini;Un bulldog fatto di banane con collare di bucce;2025.01.25;;bulldog-banana;2
+Pandaccini Bananini;Un panda fatto di banane che mangia bambù di zucchero;2025.03.05;;panda-banana;1
+Torrtuginni Dragonfrutinni;Una tartaruga con guscio di dragon fruit e zampe di kiwi;2024.12.01;;tartaruga-frutta;1
+Gorillini Bananini;Un gorilla fatto di banane con muscoli di bucce;2025.05.01;;gorilla-banana;2
+Ecco Cavallo Virtuoso;Un cavallo olografico che galoppa su tasti di pianoforte;2025.02.10;;cavallo-musica;3
+Flamingulli-gulli-gulli;Un fenicottero fatto di gomma da masticare rosa;2025.04.15;;fenicottero-gomma;1
+Capybarelli Bananalelli;Un capibara fatto di banane che rilassa in una vasca di frullato;2024.11.15;;capibara-banana;1
+Tob Tobi Tob Tobi Tob;Un robot fatto di strumenti musicali che suona se stesso;2025.03.10;;robot-musica;3
+Sigma Boy;Un lupo alfa fatto di proteine in polvere e pre-workout;2025.05.15;;lupo-fitness;6
+La Esok Sikola;Una scuola che cammina con gambe di matite e tetto di libri;2024.12.15;;scuola-mobile;3
+Chai Maestro;Un maestro di tè che fluttua in una tazza di chai infinita;2025.01.30;;te-maestro;2

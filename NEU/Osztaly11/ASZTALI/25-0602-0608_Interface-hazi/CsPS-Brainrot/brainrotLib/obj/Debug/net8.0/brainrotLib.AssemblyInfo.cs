@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("brainrotLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b26eeccc78c1abf2050f248a9facd681633eb5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a03e657d77c53d2555af31300e143139c2fddd13")]
 [assembly: System.Reflection.AssemblyProductAttribute("brainrotLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("brainrotLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

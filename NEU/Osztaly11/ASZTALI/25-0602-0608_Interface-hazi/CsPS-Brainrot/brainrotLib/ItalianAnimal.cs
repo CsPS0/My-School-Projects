@@ -5,7 +5,7 @@
         public string Nev { get; }
         public string Leiras { get; }
         public DateTime Datum { get; }
-        public char Megjelenites => throw new NotSupportedException("Túl sok állat van, ezért a Megjelenites tulajdonság le van tiltva!");
+        public char Megjelenites => Mix.Length > 0 ? Mix[0] : 'X';
         public string Mix { get; }
         public int Veszelyesseg { get; }
 
