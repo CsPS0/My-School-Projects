@@ -1,28 +1,26 @@
 ﻿namespace brainrotLib
 {
-    public class SkibidiToilet : IComparable<SkibidiToilet>, IBrainrot
+    public class SkibidiToilet : IBrainrot
     {
-        public string Nev { get; }
+        private string _nev;
+        public string Nev => _nev + " Skibidi Toilet";
         public string Leiras { get; }
-        public string Ritkasag { get; }
-        public int Ismertseg { get; }
+        public DateTime Datum { get; }
         public char Megjelenites { get; }
-        public SkibidiToilet(string nev, string leiras, string ritkasag, int ismerteg, char megjelenites)
+        public string Gyakorisag { get; }
+
+        public SkibidiToilet(string nev, string leiras, DateTime datum, char megjelenites, string gyakorisag)
         {
-            Nev = nev;
+            _nev = nev;
             Leiras = leiras;
-            Ritkasag = ritkasag;
-            Ismertseg = ismerteg;
+            Datum = datum;
             Megjelenites = megjelenites;
+            Gyakorisag = gyakorisag;
         }
+
         public override string ToString()
         {
             return Leiras;
-        }
-        public int CompareTo(SkibidiToilet? other)
-        {
-            if (other == null) return 1;
-            return Ismertseg.CompareTo(other.Ismertseg);
         }
     }
 }

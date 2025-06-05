@@ -1,36 +1,41 @@
 ﻿using brainrotLib;
 
-Console.Write("Adja meg a terület méretét (N): ");
-Console.ForegroundColor = ConsoleColor.Yellow;
-int n = int.Parse(Console.ReadLine() ?? "10");
-Console.ResetColor();
-
-BrainrotFactory factory = new BrainrotFactory();
-
-List<IBrainrot> novenyLista = new List<IBrainrot>();
-IBrainrot[,] terulet = new IBrainrot[n, n];
-
-for (int i = 0; i < n; i++)
+namespace CsPS_Brainrot
 {
-    for (int j = 0; j < n; j++)
+    internal class Program
     {
-        terulet[i, j] = factory.Create();
-        novenyLista.Add(terulet[i, j]);
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== BRAINROT PROGRAM ===");
+            Console.WriteLine();
+
+            var factory = new BrainrotFactory();
+            var output = new BrainrotOutput(factory);
+
+            Console.Write("Add meg a mátrix méretét (N): ");
+            if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
+            {
+                n = 5;
+                Console.WriteLine($"Érvénytelen méret, alapértelmezett {n}x{n} mátrix használata.");
+            }
+
+            output.CreateMatrix(n);
+
+            output.DisplayMatrix();
+
+            // 3.Feladat
+            Console.WriteLine("=== STATISZTIKÁK ===");
+            output.DisplayTotalCount();
+            Console.WriteLine();
+
+            // 4.Feladat
+            output.DisplayGroupByName();
+
+            // 5.Feladat
+            output.DisplayGroupByType();
+
+            // 6.Feladat
+            output.DisplayMostAndLeastCommon();
+        }
     }
 }
-
-Console.WriteLine();
-
-Console.WriteLine($"A terület növényei (kód alapján):");
-
-for (int i = 0; i < n; i++)
-{
-    Console.Write("\t");
-    for (int j = 0; j < n; j++)
-    {
-        Console.Write(terulet[i, j].Megjelenites);
-    }
-    Console.WriteLine();
-}
-
-Console.WriteLine();

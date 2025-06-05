@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CsPS-Brainrot/1.0.0": {
+        "dependencies": {
+          "brainrotLib": "1.0.0"
+        },
+        "runtime": {
+          "CsPS-Brainrot.dll": {}
+        }
+      },
+      "brainrotLib/1.0.0": {
+        "runtime": {
+          "brainrotLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CsPS-Brainrot/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "brainrotLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

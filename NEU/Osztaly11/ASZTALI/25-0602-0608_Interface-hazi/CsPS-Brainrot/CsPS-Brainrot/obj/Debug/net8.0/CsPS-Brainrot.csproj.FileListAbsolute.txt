@@ -3,3 +3,17 @@ E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.AssemblyInfo.cs
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.csproj.CoreCompileInputs.cache
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\CsPS-Brainrot.exe
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\CsPS-Brainrot.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\CsPS-Brainrot.runtimeconfig.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\CsPS-Brainrot.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\CsPS-Brainrot.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\brainrotLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\bin\Debug\net8.0\brainrotLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.csproj.AssemblyReference.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Bra.AD82360B.Up2Date
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\refint\CsPS-Brainrot.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\CsPS-Brainrot.genruntimeconfig.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly11\ASZTALI\25-0602-0608_Interface-hazi\CsPS-Brainrot\CsPS-Brainrot\obj\Debug\net8.0\ref\CsPS-Brainrot.dll

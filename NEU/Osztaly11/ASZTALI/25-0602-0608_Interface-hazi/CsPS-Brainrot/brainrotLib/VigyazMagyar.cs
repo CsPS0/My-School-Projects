@@ -1,29 +1,34 @@
-﻿namespace brainrotLib
+﻿using System.Text;
+
+namespace brainrotLib
 {
-    public class VigyazMagyar : IComparable<VigyazMagyar>, IBrainrot
+    public class VigyazMagyar : IBrainrot
     {
+        static VigyazMagyar()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+        }
+
         public string Nev { get; }
         public string Leiras { get; }
-        public string Ritkasag { get; }
-        public int Ismertseg { get; }
+        public DateTime Datum { get; }
         public char Megjelenites { get; }
-        string offenziv { get; }
-        public string Veszelyesseg()
-        {
-            return offenziv;
-        }
-        public VigyazMagyar(string nev, string leiras, string ritkasag, int ismerteg, char megjelenites)
+        public bool PolitikaE { get; }
+        public char Offenziv { get; }
+
+        public VigyazMagyar(string nev, string leiras, DateTime datum, char megjelenites, bool politikaE, char offenziv)
         {
             Nev = nev;
             Leiras = leiras;
-            Ritkasag = ritkasag;
-            Ismertseg = ismerteg;
+            Datum = datum;
             Megjelenites = megjelenites;
+            PolitikaE = politikaE;
+            Offenziv = offenziv;
         }
-        public int CompareTo(VigyazMagyar? other)
+
+        public override string ToString()
         {
-            if (other == null) return 1;
-            return Ismertseg.CompareTo(other.Ismertseg);
+            return $"{Nev}: {Leiras} (Politika: {(PolitikaE ? "igen" : "nem")}, Offenzív: {Offenziv})";
         }
     }
 }

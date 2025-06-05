@@ -1,33 +1,26 @@
 ﻿namespace brainrotLib
 {
-    public class ItalianAnimal : IComparable<ItalianAnimal>, IBrainrot
+    public class ItalianAnimal : IBrainrot
     {
         public string Nev { get; }
         public string Leiras { get; }
-        public string Ritkasag { get; }
-        public int Ismertseg { get; }
-        public char Megjelenites { get; }
-        string veszelyesseg { get; }
-        public string Veszelyesseg()
-        {
-            return veszelyesseg;
-        }
-        public ItalianAnimal(string nev, string leiras, string ritkasag, int ismerteg, char megjelenites)
+        public DateTime Datum { get; }
+        public char Megjelenites => throw new NotSupportedException("Túl sok állat van, ezért a Megjelenites tulajdonság le van tiltva!");
+        public string Mix { get; }
+        public int Veszelyesseg { get; }
+
+        public ItalianAnimal(string nev, string leiras, DateTime datum, string mix, int veszelyesseg)
         {
             Nev = nev;
             Leiras = leiras;
-            Ritkasag = ritkasag;
-            Ismertseg = ismerteg;
-            Megjelenites = megjelenites;
+            Datum = datum;
+            Mix = mix;
+            Veszelyesseg = veszelyesseg;
         }
+
         public override string ToString()
         {
             return Leiras;
-        }
-        public int CompareTo(ItalianAnimal? other)
-        {
-            if (other == null) return 1;
-            return Ismertseg.CompareTo(other.Ismertseg);
         }
     }
 }
