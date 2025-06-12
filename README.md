@@ -12,7 +12,7 @@ Organized by school years (11~~-13~~) and subjects:
 - **ADATBAZIS** - Database related projects and assignments
 - **ASZTALI** - Desktop application development
 - **DOCKER** - Docker-related coursework
-- **IKT** - ICT projects
+- **IKT** - Group projects
 - **WEB** - Web development projects
 - **OTHER** - Additional subjects (English, Literature, German, etc.)
 
@@ -53,5 +53,4 @@ If you have any questions or suggestions, please open an issue or submit a pull 
 ---
 
 **Maintained by:**
-Csongor Péter Solti
-BMSZC Neumann János Szakközépiskola
+CsPS
