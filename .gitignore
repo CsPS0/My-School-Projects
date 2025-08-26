@@ -7,6 +7,10 @@ out/
 *.tmp
 *.bak
 *.swp
+generate_file_list.py
+generate_robocopy_commands.py
+get_file_dates.py
+skipped_files.txt
 
 .DS_Store      # macOS
 Thumbs.db      # Windows
