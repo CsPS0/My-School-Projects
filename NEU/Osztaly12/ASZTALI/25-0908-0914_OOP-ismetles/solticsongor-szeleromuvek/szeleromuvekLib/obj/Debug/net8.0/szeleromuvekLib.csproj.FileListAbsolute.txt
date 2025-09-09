@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\bin\Debug\net8.0\szeleromuvekLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\bin\Debug\net8.0\szeleromuvekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\bin\Debug\net8.0\szeleromuvekLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\refint\szeleromuvekLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\szeleromuvekLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0908-0914_OOP-ismetles\solticsongor-szeleromuvek\szeleromuvekLib\obj\Debug\net8.0\ref\szeleromuvekLib.dll

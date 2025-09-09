@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "solticsongor-szeleromuvek/1.0.0": {
+        "dependencies": {
+          "szeleromuvekLib": "1.0.0"
+        },
+        "runtime": {
+          "solticsongor-szeleromuvek.dll": {}
+        }
+      },
+      "szeleromuvekLib/1.0.0": {
+        "runtime": {
+          "szeleromuvekLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "solticsongor-szeleromuvek/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "szeleromuvekLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
