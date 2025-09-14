@@ -6,11 +6,9 @@ namespace szeleromuvekLib
 
         public Szeleromuvek(IEnumerable<string> sorok)
         {
+            foreach (var i in sorok)
             {
-                foreach (var i in sorok)
-                {
-                    szeleromuvek.Add(new Szeleromu(i));
-                }
+                szeleromuvek.Add(new Szeleromu(i));
             }
         }
 

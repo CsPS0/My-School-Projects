@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\bin\Debug\net8.0\konyvkiadasLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\bin\Debug\net8.0\konyvkiadasLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\bin\Debug\net8.0\konyvkiadasLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\refint\konyvkiadasLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\konyvkiadasLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-0915-0921_Konyvkiadas\solticsongor-konyvkiadas\konyvkiadasLib\obj\Debug\net8.0\ref\konyvkiadasLib.dll
