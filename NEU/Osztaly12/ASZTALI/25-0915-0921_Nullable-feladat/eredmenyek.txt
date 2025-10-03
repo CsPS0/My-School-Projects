@@ -1,0 +1,11 @@
+Balogh Emese;35
+Bolgár Kristóf;50
+Horváth Boldizsár;85
+Kiss Beáta;100
+Major Anna;75
+Nagy Bálint;75
+Németh Roland;65
+Orosz Anna;80
+Vass Zoltán;0
+Farkas Csaba;100
+Nagy Sára;100

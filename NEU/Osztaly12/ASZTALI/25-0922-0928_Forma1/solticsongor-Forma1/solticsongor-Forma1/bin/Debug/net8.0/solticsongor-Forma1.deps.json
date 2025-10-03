@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "solticsongor-Forma1/1.0.0": {
+        "dependencies": {
+          "formaLib": "1.0.0"
+        },
+        "runtime": {
+          "solticsongor-Forma1.dll": {}
+        }
+      },
+      "formaLib/1.0.0": {
+        "runtime": {
+          "formaLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "solticsongor-Forma1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "formaLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

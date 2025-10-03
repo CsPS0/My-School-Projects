@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "solticsongor-TestKiertekeles/1.0.0": {
+        "dependencies": {
+          "nullableLib": "1.0.0"
+        },
+        "runtime": {
+          "solticsongor-TestKiertekeles.dll": {}
+        }
+      },
+      "nullableLib/1.0.0": {
+        "runtime": {
+          "nullableLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "solticsongor-TestKiertekeles/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "nullableLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-Jegyzokonyv", "solticsongor-Jegyzokonyv\solticsongor-Jegyzokonyv.csproj", "{931A23AB-19D2-41CA-8A87-80161DAB3253}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{931A23AB-19D2-41CA-8A87-80161DAB3253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931A23AB-19D2-41CA-8A87-80161DAB3253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931A23AB-19D2-41CA-8A87-80161DAB3253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931A23AB-19D2-41CA-8A87-80161DAB3253}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

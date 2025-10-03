@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("solticsongor-konyvkiadas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19f91ba78a616e941909368780c0739f3b49bff9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f9ca688ff1ab5803a474db562c777a2ecb35468")]
 [assembly: System.Reflection.AssemblyProductAttribute("solticsongor-konyvkiadas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("solticsongor-konyvkiadas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
