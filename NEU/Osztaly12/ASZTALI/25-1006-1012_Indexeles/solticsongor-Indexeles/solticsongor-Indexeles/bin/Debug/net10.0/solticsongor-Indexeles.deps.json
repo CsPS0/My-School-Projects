@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "solticsongor-Indexeles/1.0.0": {
+        "dependencies": {
+          "IskolaLib": "1.0.0"
+        },
+        "runtime": {
+          "solticsongor-Indexeles.dll": {}
+        }
+      },
+      "IskolaLib/1.0.0": {
+        "runtime": {
+          "IskolaLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "solticsongor-Indexeles/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IskolaLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

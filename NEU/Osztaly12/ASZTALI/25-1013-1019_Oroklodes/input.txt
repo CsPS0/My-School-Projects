@@ -1,0 +1,7 @@
+6
+tejcsokoládé;40;kakaómassza;cukor
+étcsokoládé;81;kakaómassza;vaj;cukor;prémium
+tejcsokoládé;70;kakaómassza;cukor;prémium
+tejcsokoládé;30;kakaómassza;cukor
+étcsokoládé;55;kakaómassza;vaj;cukor
+kamucsokoládé;-5;bármi

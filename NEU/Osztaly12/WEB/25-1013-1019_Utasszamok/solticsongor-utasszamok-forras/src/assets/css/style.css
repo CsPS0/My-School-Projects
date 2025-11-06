@@ -1,0 +1,138 @@
+@layer reset, base, utilities, components;
+
+:root {
+	--tram: #d3312c;
+	--tram-text: white;
+}
+
+@layer base {
+	header {
+		padding: 2rem;
+		text-align: center;
+		background-color: var(--tram);
+		color: var(--tram-text);
+	}
+
+	main {
+		width: 95%;
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+
+	section {
+		margin-block: 1.5rem;
+		border: .25rem solid var(--tram);
+		padding-bottom: 0.5rem;
+	}
+
+	h2 {
+		padding: 0.5rem;
+		margin-bottom: 0.5rem;
+		background-color: var(--tram);
+		color: var(--tram-text);
+	}
+
+	section > :is(div, ul, form) {
+		padding: 0.5rem;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	form {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	input,
+	select {
+		padding: 0.1rem;
+	}
+
+	@media screen and (width >= 950px) {
+		form {
+			grid-template-columns: auto 1fr;
+			max-width: 500px;
+			margin-inline: auto;
+
+			button[type="submit"] {
+				grid-column: span 2;
+			}
+		}
+	}
+}
+
+@layer utilities {
+	.grid {
+		display: grid;
+		gap: .5rem;
+	}
+
+	.card {
+		padding: .5rem;
+		box-shadow: .1rem .1rem .25rem grey;
+
+		h3 {
+			background-color: var(--tram);
+			color: var(--tram-text);
+			padding: .25rem;
+			width: 2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			aspect-ratio: 1;
+			margin-bottom: .25rem;
+		}
+	}
+
+	.data {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (width >= 950px) {
+		.grid-cols-4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
+@layer components {
+    #filter-results, #popular-results {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        li {
+            border-left: .25rem solid var(--tram);
+            padding-left: .25rem;            
+        }
+    }
+
+	#find-results {
+		display: flex;
+		gap: .5rem;
+		flex-wrap: wrap;
+        justify-content: center;
+
+		li {
+			background-color: var(--tram);
+			color: var(--tram-text);
+			padding: .25rem;
+			width: 2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			aspect-ratio: 1;
+		}
+	}
+}
+
+@layer reset {
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: Verdana, sans-serif;
+        box-sizing: border-box;
+	}
+}

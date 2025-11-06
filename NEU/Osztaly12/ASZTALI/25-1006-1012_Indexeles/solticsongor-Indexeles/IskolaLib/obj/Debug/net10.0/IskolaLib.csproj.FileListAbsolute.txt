@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\bin\Debug\net10.0\IskolaLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\bin\Debug\net10.0\IskolaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\bin\Debug\net10.0\IskolaLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\refint\IskolaLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\IskolaLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1006-1012_Indexeles\solticsongor-Indexeles\IskolaLib\obj\Debug\net10.0\ref\IskolaLib.dll

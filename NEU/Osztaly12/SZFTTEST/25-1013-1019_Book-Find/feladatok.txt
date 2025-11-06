@@ -1,0 +1,5 @@
+- Ellenőrizd az oldal címét (title)
+- Vizsgáld meg, hogy tartalmaz-e adott címkét (pl Humor)
+- Egy konkrét könyvet keress meg, és ellenőrizd az árát!
+
+site: https://books.toscrape.com/

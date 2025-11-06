@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utasszámok</title>
+    <link rel="stylesheet" href="src/assets/css/style.css">
+    <script src="src/data.js" defer></script>
+    <script src="src/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Utasszámok</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Új adat hozzáadása</h2>
+            <form id="add-item">
+                <label for="name">Megálló neve</label>
+                <input type="text" name="name" id="name" required max="255">
+                <label for="boarded">Felszállók</label>
+                <input type="number" name="boarded" id="boarded" required min="0">
+                <label for="disembarked">Leszállók</label>
+                <input type="number" name="disembarked" id="disembarked" required min="0">
+                <label for="line">Vonal</label>
+                <select name="line" id="line">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="D">D</option>
+                    <option value="71">71</option>
+                </select>
+                <button type="submit">Hozzáadás</button>
+            </form>
+        </section>
+        <section>
+            <h2>Utasszám</h2>
+            <div class="grid grid-cols-4">
+                <div class="card">
+                    <h3>1</h3>
+                    <p class="data" id="sum-1"></p>
+                </div>
+                <div class="card">
+                    <h3>2</h3>
+                    <p class="data" id="sum-2"></p>
+                </div>
+                <div class="card">
+                    <h3>D</h3>
+                    <p class="data" id="sum-D"></p>
+                </div>
+                <div class="card">
+                    <h3>71</h3>
+                    <p class="data" id="sum-71"></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Utasszám keresés</h2>
+            <form id="filter-item">
+                <label for="filter-value">Keresett érték</label>
+                <input type="number" name="filter-value" id="filter-value" required min="0">
+                <label for="filter-line">Vonal</label>
+                <select name="filter-line" id="filter-line">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="D">D</option>
+                    <option value="71">71</option>
+                </select>
+                <button type="submit">Keresés</button>
+            </form>
+            <ul id="filter-results">
+            </ul>
+        </section>
+        <section>
+            <h2>Legnépszerűbb megállók</h2>
+            <ul id="popular-results">
+            </ul>
+        </section>
+        <section>
+            <h2>Megálló keresés</h2>
+            <form id="find-stop">
+                <label for="stop-name">Keresett érték</label>
+                <input type="text" name="stop-name" id="stop-name" required max="255">
+                <button type="submit">Keresés</button>
+            </form>
+            <ul id="find-results">
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="csokigyarLib.Tests/csokigyarLib.Tests.csproj" />
+  <Project Path="csokigyarLib/csokigyarLib.csproj" />
+  <Project Path="solticsongor-Csokigyar/solticsongor-Csokigyar.csproj" />
+</Solution>

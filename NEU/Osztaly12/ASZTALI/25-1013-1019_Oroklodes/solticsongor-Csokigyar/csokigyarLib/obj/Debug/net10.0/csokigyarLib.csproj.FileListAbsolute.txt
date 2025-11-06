@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\bin\Debug\net10.0\csokigyarLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\bin\Debug\net10.0\csokigyarLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\bin\Debug\net10.0\csokigyarLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\refint\csokigyarLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\csokigyarLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1013-1019_Oroklodes\solticsongor-Csokigyar\csokigyarLib\obj\Debug\net10.0\ref\csokigyarLib.dll
