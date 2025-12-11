@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\bin\Debug\net10.0\teremLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\bin\Debug\net10.0\teremLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\bin\Debug\net10.0\teremLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\refint\teremLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\teremLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1201-1207_Oroklodes-Teremfoglalas\solticsongor-Teremfoglalas\teremLib\obj\Debug\net10.0\ref\teremLib.dll

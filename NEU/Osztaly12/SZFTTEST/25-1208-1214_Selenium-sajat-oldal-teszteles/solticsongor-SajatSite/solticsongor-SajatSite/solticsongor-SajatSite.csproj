@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>solticsongor_SajatSite</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+        <PackageReference Include="MSTest" Version="4.0.1"/>
+        <PackageReference Include="Selenium.Support" Version="4.39.0" />
+        <PackageReference Include="Selenium.WebDriver" Version="4.39.0" />
+        <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="144.0.7559.2000-beta" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting"/>
+    </ItemGroup>
+
+</Project>

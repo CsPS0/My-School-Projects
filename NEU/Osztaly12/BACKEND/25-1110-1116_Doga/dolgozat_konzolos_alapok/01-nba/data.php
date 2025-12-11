@@ -1,0 +1,9 @@
+<?php
+
+$nba = [
+    "Lakers", "Celtics",
+    "Bulls", "Heat",
+    "Warriors", "Nets",
+    "Suns", "Knicks",
+    "Mavericks", "Bucks",
+];

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="dobozokLib/dobozokLib.csproj" />
+  <Project Path="solticsongor-Teasdobozok/solticsongor-Teasdobozok.csproj" />
+</Solution>

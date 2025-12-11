@@ -1,0 +1,4 @@
+2023.11.20 11:45:00;65;1;VT - A lefoglalt időtartam nem pozitív, vagy nem 15-tel osztható.
+2023.11.20 12:45:00;65;1;DK - A lefoglalt időtartam nem pozitív, vagy nem 15-tel osztható.
+2023.11.20 09:45:00;60;1;VT - A kért időpontban a terem nem foglalható.
+2023.11.20 10:00:00;60;1;DK - A kért időpontban a terem nem foglalható.

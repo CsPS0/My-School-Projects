@@ -1,0 +1,16 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\input.txt
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\solticsongor-Lift.exe
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\solticsongor-Lift.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\solticsongor-Lift.runtimeconfig.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\solticsongor-Lift.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\bin\Debug\net10.0\solticsongor-Lift.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\refint\solticsongor-Lift.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\solticsongor-Lift.genruntimeconfig.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1117-1123_Operatorok-Lift\solticsongor-Lift\solticsongor-Lift\obj\Debug\net10.0\ref\solticsongor-Lift.dll

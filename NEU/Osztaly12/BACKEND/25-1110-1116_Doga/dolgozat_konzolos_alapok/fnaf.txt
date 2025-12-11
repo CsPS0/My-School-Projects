@@ -1,0 +1,29 @@
+első éjszaka
+
+16
+Freddy
+East Hall
+6
+03:00
+
+6
+Bonnie
+Dining Area
+4
+01:00
+
+
+második éjszaka
+
+2
+Chica
+Show Stage
+1
+00:00
+
+14
+Foxy
+West Hall
+10
+05:00
+

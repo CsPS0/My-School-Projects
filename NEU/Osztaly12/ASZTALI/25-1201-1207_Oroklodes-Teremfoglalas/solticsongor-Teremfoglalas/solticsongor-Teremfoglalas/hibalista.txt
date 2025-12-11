@@ -1,0 +1,2 @@
+2023.11.20 09:45:00;60;1;VT - A kért időpontban a terem nem foglalható.
+2023.11.20 10:00:00;60;1;DK - A kért időpontban a terem nem foglalható.

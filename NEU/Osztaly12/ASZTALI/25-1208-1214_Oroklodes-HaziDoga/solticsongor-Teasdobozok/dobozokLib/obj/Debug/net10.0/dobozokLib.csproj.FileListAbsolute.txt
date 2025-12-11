@@ -1,0 +1,12 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\bin\Debug\net10.0\dobozokLib.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\bin\Debug\net10.0\dobozokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\bin\Debug\net10.0\dobozokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\refint\dobozokLib.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\dobozokLib.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1208-1214_Oroklodes-HaziDoga\solticsongor-Teasdobozok\dobozokLib\obj\Debug\net10.0\ref\dobozokLib.dll

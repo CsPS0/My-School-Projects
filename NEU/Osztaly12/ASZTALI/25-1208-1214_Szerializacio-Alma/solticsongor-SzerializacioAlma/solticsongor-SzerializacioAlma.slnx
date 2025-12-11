@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="appleLib/appleLib.csproj" />
+  <Project Path="solticsongor-SzerializacioAlma/solticsongor-SzerializacioAlma.csproj" />
+</Solution>

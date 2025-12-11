@@ -1,0 +1,4 @@
+DolgozoID: 1, TermekID: 8
+DolgozoID: 4, TermekID: 3
+DolgozoID: 1, TermekID: 8
+DolgozoID: 4, TermekID: 3

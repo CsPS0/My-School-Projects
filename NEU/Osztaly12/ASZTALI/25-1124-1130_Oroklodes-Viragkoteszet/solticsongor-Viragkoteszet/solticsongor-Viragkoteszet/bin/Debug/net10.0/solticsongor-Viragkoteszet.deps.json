@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "solticsongor-Viragkoteszet/1.0.0": {
+        "dependencies": {
+          "koteszetLib": "1.0.0"
+        },
+        "runtime": {
+          "solticsongor-Viragkoteszet.dll": {}
+        }
+      },
+      "koteszetLib/1.0.0": {
+        "runtime": {
+          "koteszetLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "solticsongor-Viragkoteszet/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "koteszetLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="7d30710f-d16c-4488-aa37-64499b74e66f" name="solti_aks20xi@CHONYA 2025-12-11 12:23:05" runUser="CHONYA\solti_aks20xi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-12-11T12:23:05.9304740+01:00" queuing="2025-12-11T12:23:05.9304743+01:00" start="2025-12-11T12:23:02.3931455+01:00" finish="2025-12-11T12:23:05.9368296+01:00" />
+  <TestSettings name="default" id="c0133f87-a12d-4966-93fc-a9d6e5d0f62e">
+    <Deployment runDeploymentRoot="solti_aks20xi_CHONYA_2025-12-11_12_23_05" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="c0089408-ed52-426d-87d4-0ada540cedcf" testId="114ce43c-d55b-8f8e-9c6a-e5305757d1eb" testName="TestTitle" computerName="CHONYA" duration="00:00:02.3833139" startTime="2025-12-11T12:23:03.3078404+01:00" endTime="2025-12-11T12:23:05.7051035+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0089408-ed52-426d-87d4-0ada540cedcf" />
+    <UnitTestResult executionId="7604581d-4ef3-4f29-9dfa-32faf3ded622" testId="111140e1-97ab-8e49-93f8-3b6ff3dfab1c" testName="TestH2" computerName="CHONYA" duration="00:00:02.4911645" startTime="2025-12-11T12:23:03.3078208+01:00" endTime="2025-12-11T12:23:05.8104008+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7604581d-4ef3-4f29-9dfa-32faf3ded622" />
+    <UnitTestResult executionId="137dc4ed-8218-4e3f-a4c5-f423b02faece" testId="1dad20a7-462f-8e1a-942b-7c1be8a0d448" testName="TestEncoding" computerName="CHONYA" duration="00:00:02.5212826" startTime="2025-12-11T12:23:03.3078617+01:00" endTime="2025-12-11T12:23:05.8419611+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="137dc4ed-8218-4e3f-a4c5-f423b02faece" />
+    <UnitTestResult executionId="515dfd51-61a0-4f5d-84b5-4e2a40643ae4" testId="16c4110a-f80f-8489-819d-309834353fa0" testName="TestLanguage" computerName="CHONYA" duration="00:00:02.4899221" startTime="2025-12-11T12:23:03.3078313+01:00" endTime="2025-12-11T12:23:05.8091785+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="515dfd51-61a0-4f5d-84b5-4e2a40643ae4" />
+    <UnitTestResult executionId="576c02d2-1f14-4590-bb18-818e1ca7f5a8" testId="1555d33a-913c-8756-9399-97e1db2629f7" testName="TestH1" computerName="CHONYA" duration="00:00:02.4864783" startTime="2025-12-11T12:23:03.3078505+01:00" endTime="2025-12-11T12:23:05.8058123+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="576c02d2-1f14-4590-bb18-818e1ca7f5a8" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TestH2" storage="e:\repos\school\my-school-projects\neu\osztaly12\szfttest\25-1208-1214_selenium-sajat-oldal-teszteles\solticsongor-sajatsite\solticsongor-sajatsite\bin\debug\net9.0\solticsongor-sajatsite.dll" id="111140e1-97ab-8e49-93f8-3b6ff3dfab1c">
+      <Execution id="7604581d-4ef3-4f29-9dfa-32faf3ded622" />
+      <TestMethod codeBase="E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll" adapterTypeName="executor://mstestadapter/v4" className="solticsongor_SajatSite.Test1" name="TestH2" />
+    </UnitTest>
+    <UnitTest name="TestTitle" storage="e:\repos\school\my-school-projects\neu\osztaly12\szfttest\25-1208-1214_selenium-sajat-oldal-teszteles\solticsongor-sajatsite\solticsongor-sajatsite\bin\debug\net9.0\solticsongor-sajatsite.dll" id="114ce43c-d55b-8f8e-9c6a-e5305757d1eb">
+      <Execution id="c0089408-ed52-426d-87d4-0ada540cedcf" />
+      <TestMethod codeBase="E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll" adapterTypeName="executor://mstestadapter/v4" className="solticsongor_SajatSite.Test1" name="TestTitle" />
+    </UnitTest>
+    <UnitTest name="TestH1" storage="e:\repos\school\my-school-projects\neu\osztaly12\szfttest\25-1208-1214_selenium-sajat-oldal-teszteles\solticsongor-sajatsite\solticsongor-sajatsite\bin\debug\net9.0\solticsongor-sajatsite.dll" id="1555d33a-913c-8756-9399-97e1db2629f7">
+      <Execution id="576c02d2-1f14-4590-bb18-818e1ca7f5a8" />
+      <TestMethod codeBase="E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll" adapterTypeName="executor://mstestadapter/v4" className="solticsongor_SajatSite.Test1" name="TestH1" />
+    </UnitTest>
+    <UnitTest name="TestLanguage" storage="e:\repos\school\my-school-projects\neu\osztaly12\szfttest\25-1208-1214_selenium-sajat-oldal-teszteles\solticsongor-sajatsite\solticsongor-sajatsite\bin\debug\net9.0\solticsongor-sajatsite.dll" id="16c4110a-f80f-8489-819d-309834353fa0">
+      <Execution id="515dfd51-61a0-4f5d-84b5-4e2a40643ae4" />
+      <TestMethod codeBase="E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll" adapterTypeName="executor://mstestadapter/v4" className="solticsongor_SajatSite.Test1" name="TestLanguage" />
+    </UnitTest>
+    <UnitTest name="TestEncoding" storage="e:\repos\school\my-school-projects\neu\osztaly12\szfttest\25-1208-1214_selenium-sajat-oldal-teszteles\solticsongor-sajatsite\solticsongor-sajatsite\bin\debug\net9.0\solticsongor-sajatsite.dll" id="1dad20a7-462f-8e1a-942b-7c1be8a0d448">
+      <Execution id="137dc4ed-8218-4e3f-a4c5-f423b02faece" />
+      <TestMethod codeBase="E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll" adapterTypeName="executor://mstestadapter/v4" className="solticsongor_SajatSite.Test1" name="TestEncoding" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="114ce43c-d55b-8f8e-9c6a-e5305757d1eb" executionId="c0089408-ed52-426d-87d4-0ada540cedcf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="111140e1-97ab-8e49-93f8-3b6ff3dfab1c" executionId="7604581d-4ef3-4f29-9dfa-32faf3ded622" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1dad20a7-462f-8e1a-942b-7c1be8a0d448" executionId="137dc4ed-8218-4e3f-a4c5-f423b02faece" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16c4110a-f80f-8489-819d-309834353fa0" executionId="515dfd51-61a0-4f5d-84b5-4e2a40643ae4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1555d33a-913c-8756-9399-97e1db2629f7" executionId="576c02d2-1f14-4590-bb18-818e1ca7f5a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="5" executed="5" passed="5" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test Parallelization enabled for E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\SZFTTEST\25-1208-1214_Selenium-sajat-oldal-teszteles\solticsongor-SajatSite\solticsongor-SajatSite\bin\Debug\net9.0\solticsongor-SajatSite.dll (Workers: 12, Scope: MethodLevel)&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

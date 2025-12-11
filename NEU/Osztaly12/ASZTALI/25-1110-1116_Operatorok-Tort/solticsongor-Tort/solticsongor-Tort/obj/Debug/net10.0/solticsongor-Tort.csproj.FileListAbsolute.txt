@@ -1,0 +1,15 @@
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\bin\Debug\net10.0\solticsongor-Tort.exe
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\bin\Debug\net10.0\solticsongor-Tort.deps.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\bin\Debug\net10.0\solticsongor-Tort.runtimeconfig.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\bin\Debug\net10.0\solticsongor-Tort.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\bin\Debug\net10.0\solticsongor-Tort.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.GeneratedMSBuildEditorConfig.editorconfig
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.AssemblyInfoInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.AssemblyInfo.cs
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.csproj.CoreCompileInputs.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.sourcelink.json
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\refint\solticsongor-Tort.dll
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.pdb
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\solticsongor-Tort.genruntimeconfig.cache
+E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1110-1116_Operatorok-Tort\solticsongor-Tort\solticsongor-Tort\obj\Debug\net10.0\ref\solticsongor-Tort.dll

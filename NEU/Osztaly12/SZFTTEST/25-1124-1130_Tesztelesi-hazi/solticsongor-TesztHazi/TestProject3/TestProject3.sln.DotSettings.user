@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9fec30d2_002D7028_002D4ede_002Dbfde_002D11b0da5328fb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="FindFantasy" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::B665C309-7D72-485B-9C00-0613AD47B0F2::net8.0::TestProject3.UnitTest1.FindFantasy&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::B665C309-7D72-485B-9C00-0613AD47B0F2::net8.0::TestProject3.UnitTest1.Find&lt;/TestId&gt;
+    &lt;TestId&gt;MSTest::B665C309-7D72-485B-9C00-0613AD47B0F2::net8.0::TestProject3.UnitTest1.SumBookPrices&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
