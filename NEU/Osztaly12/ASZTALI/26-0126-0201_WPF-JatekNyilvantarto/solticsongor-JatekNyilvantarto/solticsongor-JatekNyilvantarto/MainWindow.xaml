@@ -1,0 +1,45 @@
+﻿<Window x:Class="solticsongor_JatekNyilvantarto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:solticsongor_JatekNyilvantarto"
+        mc:Ignorable="d"
+        Title="Játék nyilvántartó" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="MainView">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <ListBox x:Name="jatekListBox" Grid.Row="0" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Button x:Name="btnUjJatek" Content="Új játék hozzáadása" Padding="10,5" Margin="0,0,10,0" Click="btnUjJatek_Click"/>
+                <Button x:Name="btnTorles" Content="Törlés" Padding="10,5" Click="btnTorles_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="AddView" Visibility="Collapsed" Background="White">
+            <StackPanel VerticalAlignment="Top" Margin="20" HorizontalAlignment="Left" Width="300">
+                <Label Content="Cím:"/>
+                <TextBox x:Name="txtCim" Margin="0,0,0,10"/>
+                
+                <Label Content="Műfaj:"/>
+                <TextBox x:Name="txtMufaj" Margin="0,0,0,20"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btnMentes" Content="Mentés" Padding="10,5" Margin="0,0,10,0" Click="btnMentes_Click"/>
+                    <Button x:Name="btnMegsem" Content="Mégsem" Padding="10,5" Click="btnMegsem_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

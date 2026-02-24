@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-SelfCheckoutUnitTest", "solticsongor-SelfCheckoutUnitTest\solticsongor-SelfCheckoutUnitTest.csproj", "{5327B7A0-FE60-48FE-8F9C-76DA5368A3EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-SelfCheckoutConsole", "solticsongor-SelfCheckoutConsole\solticsongor-SelfCheckoutConsole.csproj", "{2AB7A268-28A9-4D7D-9BDE-2BA962F6FC11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selfCheckoutLib", "selfCheckoutLib\selfCheckoutLib.csproj", "{9E8CA345-207B-488D-95E3-80C54E5B0B3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5327B7A0-FE60-48FE-8F9C-76DA5368A3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5327B7A0-FE60-48FE-8F9C-76DA5368A3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5327B7A0-FE60-48FE-8F9C-76DA5368A3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5327B7A0-FE60-48FE-8F9C-76DA5368A3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AB7A268-28A9-4D7D-9BDE-2BA962F6FC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB7A268-28A9-4D7D-9BDE-2BA962F6FC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB7A268-28A9-4D7D-9BDE-2BA962F6FC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB7A268-28A9-4D7D-9BDE-2BA962F6FC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8CA345-207B-488D-95E3-80C54E5B0B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8CA345-207B-488D-95E3-80C54E5B0B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8CA345-207B-488D-95E3-80C54E5B0B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8CA345-207B-488D-95E3-80C54E5B0B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

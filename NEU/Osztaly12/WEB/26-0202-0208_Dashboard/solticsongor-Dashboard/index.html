@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+  </head>
+  <body class="bg-orange-50">
+    <header class="p-12 bg-orange-700 text-white mb-4 grid grid-cols-2 gap-2 items-center">
+      <h1 class="text-6xl font-black">Hey there,<br><span id="name">name</span>!</h1>
+      <div class="text-6xl font-black justify-self-end" id="emoji">emoji</div>
+    </header>
+    <main class="w-9/10 max-w-300 mx-auto p-4">
+      <div class="text-4xl font-semibold text-center mb-6">💸 1 USD = <span id="huf">???</span> HUF 💸</div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4" id="news">
+        <h2 class="text-4xl font-bold col-span-full border border-l-4 rounded-lg px-2 py-1 border-orange-200 border-l-orange-700 bg-orange-200">Hírek</h2>
+      </div>
+      <div class="grid md:grid-cols-3 lg:grid-cols-7 gap-4 mb-4" id="weather">
+        <h2 class="text-4xl font-bold col-span-full border border-l-4 rounded-lg px-2 py-1 border-orange-200 border-l-orange-700 bg-orange-200">Időjárás</h2>
+      </div>
+    </main>
+
+    <template id="news-template">
+      <div class="row-span-3 grid grid-rows-subgrid rounded-md  bg-orange-100 shadow shadow-orange-200">
+        <img src="image_url" alt="title" class="h-50 w-full object-cover rounded-t-md">
+        <div class="row-span-2 grid grid-rows-subgrid p-2">
+            <h3 class="text-xl font-semibold">title</h3>
+            <p class="text-justify">summary</p>
+        </div>
+      </div>
+    </template>
+
+    <template id="weather-template">
+      <div class="p-2 rounded-md text-center flex flex-col gap-4 bg-orange-100 shadow shadow-orange-200 first-of-type:bg-orange-200 last-of-type:col-span-full last-of-type:lg:col-span-1">
+        <h3 class="time font-bold">daily.time</h3>
+        <p class="text-2xl font-bold">🥵 <span class="max">max</span> °C</p>
+        <p class="text-xl font-semibold">🥶 <span class="min">min</span> °C</p>
+        <p class="text-xl">☔️ <span class="rain">rain</span> mm</p>
+      </div>
+    </template>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

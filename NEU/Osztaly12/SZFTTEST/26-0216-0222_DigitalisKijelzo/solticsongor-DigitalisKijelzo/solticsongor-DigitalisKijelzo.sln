@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-DigitalisKijelzoUnitTest", "solticsongor-DigitalisKijelzoUnitTest\solticsongor-DigitalisKijelzoUnitTest.csproj", "{238FB7BA-332D-40E6-9AAB-BD04630D0D16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "displayLib", "displayLib\displayLib.csproj", "{4F2047E7-B528-44CD-B9F7-F2D3E86B332C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-DigitalDisplayConsole", "solticsongor-DigitalDisplayConsole\solticsongor-DigitalDisplayConsole.csproj", "{59380E8C-3E9D-452E-B001-65091E791612}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{238FB7BA-332D-40E6-9AAB-BD04630D0D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238FB7BA-332D-40E6-9AAB-BD04630D0D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238FB7BA-332D-40E6-9AAB-BD04630D0D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238FB7BA-332D-40E6-9AAB-BD04630D0D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F2047E7-B528-44CD-B9F7-F2D3E86B332C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2047E7-B528-44CD-B9F7-F2D3E86B332C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2047E7-B528-44CD-B9F7-F2D3E86B332C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2047E7-B528-44CD-B9F7-F2D3E86B332C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59380E8C-3E9D-452E-B001-65091E791612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59380E8C-3E9D-452E-B001-65091E791612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59380E8C-3E9D-452E-B001-65091E791612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59380E8C-3E9D-452E-B001-65091E791612}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

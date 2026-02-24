@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="solticsongor-Sudoku/solticsongor-Sudoku.csproj" />
+  <Project Path="sudokuCLI/sudokuCLI.csproj" />
+</Solution>

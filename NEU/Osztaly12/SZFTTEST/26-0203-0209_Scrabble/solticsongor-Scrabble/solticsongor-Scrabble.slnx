@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="solticsongor-ScrabbleCLI/solticsongor-ScrabbleCLI.csproj" />
+  <Project Path="solticsongor-ScrabbleTest/solticsongor-ScrabbleTest.csproj" />
+</Solution>

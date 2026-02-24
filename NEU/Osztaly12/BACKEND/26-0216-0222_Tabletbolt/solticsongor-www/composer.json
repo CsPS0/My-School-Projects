@@ -1,0 +1,12 @@
+{
+    "name": "njszki/tabletbolt",
+    "description": "Tabletbolt web application",
+    "require": {
+        "filp/whoops": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Foo\\Bar\\": "src/Foo/Bar/"
+        }
+    }
+}

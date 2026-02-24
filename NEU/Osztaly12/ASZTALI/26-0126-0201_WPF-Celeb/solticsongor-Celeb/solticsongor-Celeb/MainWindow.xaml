@@ -1,0 +1,46 @@
+﻿<Window x:Class="solticsongor_Celeb.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:solticsongor_Celeb"
+        mc:Ignorable="d"
+        Title="Híres emberek" Height="300" Width="550" ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Név:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox x:Name="txtNev" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,10"/>
+        
+        <CheckBox x:Name="chkVilaghiru" Content="Világhírű" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,0,10"/>
+
+        <Label Content="Foglalkozás:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <ComboBox x:Name="cmbFoglalkozas" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,10"/>
+
+        <Label Content="Nemzetiség:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <ComboBox x:Name="cmbNemzetiseg" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,10"/>
+
+        <GroupBox Header="Nem:" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="20,0,0,10" VerticalAlignment="Top">
+            <StackPanel Margin="5">
+                <RadioButton x:Name="rbFerfi" Content="Férfi" IsChecked="True" Margin="0,0,0,5"/>
+                <RadioButton x:Name="rbNo" Content="Nő"/>
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button x:Name="btnRogzit" Content="Rögzít" Width="100" Margin="0,0,20,0" Click="btnRogzit_Click"/>
+            <Button x:Name="btnMegsem" Content="Mégsem" Width="100" Click="btnMegsem_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

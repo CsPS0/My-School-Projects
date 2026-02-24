@@ -1,0 +1,12 @@
+{
+    "name": "pixelshop/games",
+    "description": "Video games list",
+    "autoload": {
+        "psr-4": {
+            "PixelShop\\": "src/PixelShop/"
+        }
+    },
+    "require": {
+        "filp/whoops": "^2.17"
+    }
+}

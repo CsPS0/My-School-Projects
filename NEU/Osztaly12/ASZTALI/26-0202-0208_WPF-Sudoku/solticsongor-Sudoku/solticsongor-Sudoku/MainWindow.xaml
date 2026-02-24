@@ -1,0 +1,33 @@
+﻿<Window x:Class="solticsongor_Sudoku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:solticsongor_Sudoku"
+        mc:Ignorable="d"
+        Title="Sudoku-ellenőrző" Height="210" Width="540">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Label Content="Új feladvány mérete:" VerticalAlignment="Center"/>
+            <Button x:Name="minusButton" Content="-" Width="25" Height="25" VerticalAlignment="Center" Margin="5,0,5,0" Click="MinusButton_Click"/>
+            <TextBox x:Name="sizeTextBox" Text="4" Width="40" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" Margin="0,0,0,0"/>
+            <Button x:Name="plusButton" Content="+" Width="25" Height="25" VerticalAlignment="Center" Margin="5,0,0,0" Click="PlusButton_Click"/>
+        </StackPanel>
+
+        <Label Grid.Row="1" Content="Kezdőállapot:" Margin="0,0,0,5"/>
+
+        <TextBox x:Name="puzzleTextBox" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="PuzzleTextBox_TextChanged" VerticalScrollBarVisibility="Auto"/>
+
+        <Label x:Name="charCountLabel" Grid.Row="3" Content="Hossz: 0" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+
+        <Button x:Name="checkButton" Grid.Row="4" Content="Ellenőrzés" Width="100" Height="30" Margin="0,10,0,0" Click="CheckButton_Click" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>
