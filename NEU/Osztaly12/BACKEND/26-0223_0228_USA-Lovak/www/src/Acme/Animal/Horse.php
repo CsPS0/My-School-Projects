@@ -3,12 +3,12 @@
 namespace Acme\Animal;
 
 class Horse {
-    private int $id;                // azonosító
-    private string $state;          // állam
-    private string $breed;          // fajta
-    private string $description;    // leírás
-    private string $image;          // kép
-    private int $year;              // év
+    private int $id;
+    private string $state;
+    private string $breed;
+    private string $description;
+    private string $image;
+    private int $year;
 
     private static array $states = [
         "AL"=>"Alabama",
@@ -99,5 +99,4 @@ class Horse {
     {
         return self::$states;
     }
-
 }

@@ -20,21 +20,18 @@ if (!empty($_GET['layout'])) {
     $layout = 'home';
 }
 
-// Sorting
 if ($layout === 'table') {
     usort($horses, fn($a, $b) => $b->year <=> $a->year);
 } elseif ($layout === 'grid') {
     usort($horses, fn($a, $b) => $a->breed <=> $b->breed);
 }
 
-// Menu Items
 $menuItems = [
     ['text' => 'Főoldal', 'url' => 'index.php', 'active' => $layout === 'home'],
     ['text' => 'Táblázat', 'url' => 'index.php?layout=table', 'active' => $layout === 'table'],
     ['text' => 'Rács', 'url' => 'index.php?layout=grid', 'active' => $layout === 'grid'],
 ];
 
-// Title
 $titles = [
     'home' => 'felsorolás',
     'table' => 'táblázat',
@@ -44,7 +41,6 @@ $titles = [
 $pageName = $titles[$layout];
 $title = "Az USA államainak nemzeti lovai ($pageName)";
 
-// Determine page file
 $pageFile = $layout === 'home' ? 'list.php' : "$layout.php";
 
 ?>
