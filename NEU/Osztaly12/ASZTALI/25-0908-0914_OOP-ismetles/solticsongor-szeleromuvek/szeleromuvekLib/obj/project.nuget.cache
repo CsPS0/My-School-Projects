@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TEkJlLubGv4=",
+  "dgSpecHash": "OFyMCCfW/Vg=",
   "success": true,
-  "projectFilePath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-0908-0914_OOP-ismetles\\solticsongor-szeleromuvek\\szeleromuvekLib\\szeleromuvekLib.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/csps/REPOS/My-School-Projects/NEU/Osztaly12/ASZTALI/25-0908-0914_OOP-ismetles/solticsongor-szeleromuvek/szeleromuvekLib/szeleromuvekLib.csproj",
+  "expectedPackageFiles": [
+    "/home/csps/.nuget/packages/microsoft.netcore.app.ref/8.0.24/microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "/home/csps/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
+  ],
   "logs": []
 }
