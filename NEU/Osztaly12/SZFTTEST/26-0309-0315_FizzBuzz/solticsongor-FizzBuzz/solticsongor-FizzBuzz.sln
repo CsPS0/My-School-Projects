@@ -1,0 +1,21 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-FizzBuzz-UnitTest", "solticsongor-FizzBuzz-UnitTest\solticsongor-FizzBuzz-UnitTest.csproj", "{2C1409C7-1CAB-4733-9EFA-D4565B32D77E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-FizzBuzz-ConsoleApp", "solticsongor-FizzBuzz-ConsoleApp\solticsongor-FizzBuzz-ConsoleApp.csproj", "{AE5F1B9C-D864-4363-B577-188FBA1E238E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C1409C7-1CAB-4733-9EFA-D4565B32D77E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1409C7-1CAB-4733-9EFA-D4565B32D77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1409C7-1CAB-4733-9EFA-D4565B32D77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1409C7-1CAB-4733-9EFA-D4565B32D77E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE5F1B9C-D864-4363-B577-188FBA1E238E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5F1B9C-D864-4363-B577-188FBA1E238E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5F1B9C-D864-4363-B577-188FBA1E238E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5F1B9C-D864-4363-B577-188FBA1E238E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
