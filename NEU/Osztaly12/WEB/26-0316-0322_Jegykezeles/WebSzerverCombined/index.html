@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jegykezelés és -nyomtatás</title>
+    <script type="module" src="/src/main.js" defer></script>
+    <script type="module" src="/src/js/pages/index.js" defer></script>
+</head>
+
+<body>
+    <header class="text-center p-2">
+        <h1 class="text-3xl">Jegykezelés és -nyomtatás</h1>
+    </header>
+    <main class="w-11/12 max-w-350 mx-auto">
+        <section>
+            <h2 class="text-2xl mb-2">Jegyek</h2>
+            <div id="tickets" class="grid md:grid-cols-2 xl:grid-cols-4 gap-2">
+
+            </div>
+            <button type="button" id="new-ticket" class="bg-rose-700 text-white p-1 rounded cursor-pointer my-2">
+                Új jegy hozzáadása
+            </button>
+        </section>
+    </main>
+
+    <dialog id="action-modal" class="p-2 max-w-150 w-[95vw] place-self-center open:flex flex-col rounded backdrop:blur-4xl backdrop:backdrop-brightness-50">
+        <h2 class="text-xl mb-4 text-center">Jegy műveletek</h2>
+        <button id="print-view" class="bg-rose-700 text-white p-2 rounded mb-2">Nyomtatási kép</button>
+        <button id="check-validity" class="bg-rose-700 text-white p-2 rounded mb-2">Jegy ellenőrzése</button>
+        <button id="close-action-modal" class="bg-rose-700 text-white p-2 rounded">Mégse</button>
+    </dialog>
+
+    <dialog id="new-ticket-modal" class="p-2 max-w-150 w-[95vw] place-self-center open:flex flex-col rounded backdrop:blur-4xl backdrop:backdrop-brightness-50">
+        <h2 class="text-xl mb-4 text-center">Új jegy hozzáadása</h2>
+        <form id="new-ticket-form" class="flex flex-col gap-2">
+            <div class="flex flex-col">
+                <label for="from">Honnan:</label>
+                <input type="text" id="from" name="from" required maxlength="100" placeholder="Példa: Budapest" class="border rounded p-1">
+            </div>
+            <div class="flex flex-col">
+                <label for="to">Hova:</label>
+                <input type="text" id="to" name="to" required maxlength="100" placeholder="Példa: Bécs" class="border rounded p-1">
+            </div>
+            <div class="flex flex-col">
+                <label for="via">Keresztül:</label>
+                <textarea id="via" name="via" required maxlength="200" rows="2" placeholder="Példa: Hegyeshalom" class="border rounded p-1 resize-none"></textarea>
+            </div>
+            <div class="flex flex-col">
+                <label for="type">Típus:</label>
+                <select id="type" name="type" required class="border rounded p-1">
+                    <option value="single">Egyirányú</option>
+                    <option value="return">Menettéri</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="valid">Dátum:</label>
+                <input type="date" id="valid" name="valid" required class="border rounded p-1">
+            </div>
+            <div class="flex justify-end gap-2 mt-4">
+                <button type="button" id="close-new-ticket-modal" class="bg-gray-500 text-white p-2 rounded">Mégse</button>
+                <button type="submit" class="bg-rose-700 text-white p-2 rounded">Létrehozás</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+</html>

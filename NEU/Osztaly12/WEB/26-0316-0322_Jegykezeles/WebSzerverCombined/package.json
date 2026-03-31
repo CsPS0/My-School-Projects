@@ -1,0 +1,29 @@
+{
+  "name": "webszerver-combined",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:frontend": "vite --port 8080",
+    "dev:backend": "node server.js",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server.js",
+    "start": "pnpm build && node server.js",
+    "php:frontend": "pnpm build && php -S localhost:8000 -t dist",
+    "php": "concurrently \"npm run php:frontend\" \"npm run dev:backend\""
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "concurrently": "^8.2.2",
+    "tailwindcss": "4.1.18",
+    "vite": "7.3.0"
+  },
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "json-server": "0.17.4",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.5-lts.1",
+    "pluralize": "^8.0.0"
+  }
+}

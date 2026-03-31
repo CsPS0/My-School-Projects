@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="labirintusConsole/labirintusConsole.csproj" />
+  <Project Path="solticsongor-Labirintus/solticsongor-LabirintusGUI.csproj" />
+</Solution>

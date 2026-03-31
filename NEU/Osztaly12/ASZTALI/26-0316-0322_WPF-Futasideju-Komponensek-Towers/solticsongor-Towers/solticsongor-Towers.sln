@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongor-Towers-GUI", "solticsongor-Towers-GUI\solticsongor-Towers-GUI.csproj", "{62261DEA-0039-4250-8185-FE223C8F4FF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solticsongot-Towers-Console", "solticsongot-Towers-Console\solticsongot-Towers-Console.csproj", "{98AD84B5-2966-49C7-9F5A-DFF50585B670}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62261DEA-0039-4250-8185-FE223C8F4FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62261DEA-0039-4250-8185-FE223C8F4FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62261DEA-0039-4250-8185-FE223C8F4FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62261DEA-0039-4250-8185-FE223C8F4FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98AD84B5-2966-49C7-9F5A-DFF50585B670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98AD84B5-2966-49C7-9F5A-DFF50585B670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98AD84B5-2966-49C7-9F5A-DFF50585B670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98AD84B5-2966-49C7-9F5A-DFF50585B670}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

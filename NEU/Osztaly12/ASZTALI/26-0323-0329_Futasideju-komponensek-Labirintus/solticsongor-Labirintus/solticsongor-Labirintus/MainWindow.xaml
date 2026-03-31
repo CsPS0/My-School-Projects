@@ -1,0 +1,36 @@
+<Window x:Class="solticsongor_Labirintus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:solticsongor_Labirintus"
+        mc:Ignorable="d"
+        Title="Labirintus készítő" Height="700" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Margin="10">
+            <TextBlock Text="Labirintus mérete [sor x oszlop]:" Margin="0,0,0,5"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <ComboBox x:Name="RowsCombo" Width="60" Margin="0,0,10,0"/>
+                <ComboBox x:Name="ColsCombo" Width="60" Margin="0,0,20,0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="CreateMazeButton" Content="Induló labirintus létrehozása" Click="CreateMazeButton_Click" Padding="10,5" Margin="0,0,10,0"/>
+                <ComboBox x:Name="DifficultyCombo" Width="100" Margin="0,0,20,0" VerticalAlignment="Center"/>
+                <Button x:Name="SolveButton" Content="Útvonal keresése" Click="SolveButton_Click" Padding="10,5" Margin="0,0,20,0" Background="Orange"/>
+                <Button x:Name="SaveMazeButton" Content="Labirintus mentése" Click="SaveMazeButton_Click" Padding="10,5" Margin="0,0,10,0"/>
+                <ComboBox x:Name="SaveFileIndexCombo" Width="60"/>
+            </StackPanel>
+            <TextBlock x:Name="StatusText" Text="Kész" Margin="0,5,0,0" FontStyle="Italic"/>
+        </StackPanel>
+        
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10">
+            <Grid x:Name="MazeContainer" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#EEEEEE"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

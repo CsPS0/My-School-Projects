@@ -1,0 +1,10 @@
+{
+    "require": {
+        "filp/whoops": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Budapest\\Transport\\": "src/Budapest/Transport/"
+        }
+    }
+}
