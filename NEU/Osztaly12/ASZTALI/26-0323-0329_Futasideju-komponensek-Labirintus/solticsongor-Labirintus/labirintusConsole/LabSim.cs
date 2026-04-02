@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-
 namespace labirintusConsole
 {
     public class LabSim
@@ -69,30 +65,30 @@ namespace labirintusConsole
         {
             KeresesKesz = false;
             NincsMegoldas = false;
-            int r = 1; // segéd, a vizsgált cella sorindexe
-            int c = 0; // segéd, a vizsgált cella oszlopindexe
+            int r = 1;
+            int c = 0;
 
             while (!KeresesKesz && !NincsMegoldas)
             {
                 Lab[r, c] = 'O';
                 if (c + 1 < OszlopokSzama && Lab[r, c + 1] == ' ')
                 {
-                    c++; // jobbra lépünk
+                    c++;
                 }
                 else if (r + 1 < SorokSzama && Lab[r + 1, c] == ' ')
                 {
-                    r++; // lefelé lépünk
+                    r++;
                 }
                 else
                 {
-                    Lab[r, c] = '-'; // erre többet nem jövünk
+                    Lab[r, c] = '-';
                     if (c - 1 >= 0 && Lab[r, c - 1] == 'O')
                     {
-                        c--; // visszalépés balra
+                        c--;
                     }
                     else
                     {
-                        r--; // visszalépés felfelé
+                        r--;
                     }
                 }
 
@@ -103,10 +99,9 @@ namespace labirintusConsole
                 }
                 NincsMegoldas = (r == 1 && c == 0);
                 
-                // Szimuláció (8. feladat)
-                // Console.Clear();
-                // KiirLab();
-                // System.Threading.Thread.Sleep(50); 
+                Console.Clear();
+                KiirLab();
+                System.Threading.Thread.Sleep(50); 
             }
         }
     }

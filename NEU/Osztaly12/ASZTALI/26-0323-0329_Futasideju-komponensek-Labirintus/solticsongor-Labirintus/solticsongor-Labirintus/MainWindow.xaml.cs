@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -56,7 +52,6 @@ namespace solticsongor_Labirintus
 
             string difficulty = DifficultyCombo.SelectedItem.ToString() ?? "Könnyű";
             
-            // Loop until a valid path exists (for Közepes) or generate a guaranteed one (for Nehéz)
             int attempts = 0;
             do
             {
@@ -72,7 +67,6 @@ namespace solticsongor_Labirintus
         {
             isWall = new bool[rows, cols];
 
-            // Default: All empty except borders
             for (int r = 0; r < rows; r++)
             {
                 for (int c = 0; c < cols; c++)
@@ -84,7 +78,6 @@ namespace solticsongor_Labirintus
                 }
             }
 
-            // Entrance and Exit
             isWall[1, 0] = false;
             isWall[rows - 2, cols - 1] = false;
 
@@ -101,13 +94,11 @@ namespace solticsongor_Labirintus
             }
             else if (difficulty == "Nehéz")
             {
-                // Recursive Backtracking Maze Generation
                 for (int r = 1; r < rows - 1; r++)
                     for (int c = 1; c < cols - 1; c++)
                         isWall[r, c] = true;
 
                 GenerateMazeDFS(1, 1);
-                // Ensure entrance and exit connection
                 isWall[1, 1] = false;
                 isWall[rows - 2, cols - 2] = false;
             }
@@ -119,7 +110,6 @@ namespace solticsongor_Labirintus
             int[] dr = { 0, 0, 2, -2 };
             int[] dc = { 2, -2, 0, 0 };
             
-            // Shuffle directions
             var dirs = new List<int> { 0, 1, 2, 3 }.OrderBy(x => rnd.Next()).ToList();
 
             foreach (int i in dirs)

@@ -1,28 +1,28 @@
-<?php
-$headers = ["Kép", "Viszonylat", "Útvonal", "Hossz", "Első üzemnap", "Hálózat"];
-?>
-<h1 class="text-4xl font-bold mb-4">Viszonylatok - <?= count($filteredLines) ?> találat</h1>
+<h1 class="my-4 text-center text-4xl font-bold text-cyan-600"><?= $title ?></h1>
 
-<div class="overflow-auto">
-    <table class="w-full">
-        <thead>
-            <tr class="hover:bg-gray-100 border-b border-b-zinc-400">
-                <?php foreach ($headers as $header) : ?>
-                    <th class="px-2 py-1 align-middle font-semibold whitespace-nowrap"><?= $header ?></th>
-                <?php endforeach; ?>
+<div class="overflow-x-auto rounded-xl border border-cyan-200 shadow-sm">
+    <table class="min-w-full overflow-hidden rounded-xl">
+        <thead class="bg-cyan-600 text-white">
+            <tr>
+                <th class="px-4 py-3 text-sm font-semibold text-left">Gyártó</th>
+                <th class="px-4 py-3 text-sm font-semibold text-left">Megnevezés</th>
+                <th class="px-4 py-3 text-sm font-semibold text-center">Átmérő</th>
+                <th class="px-4 py-3 text-sm font-semibold text-center">Felbontás</th>
+                <th class="px-4 py-3 text-sm font-semibold text-center">Technológia</th>
+                <th class="px-4 py-3 text-sm font-semibold text-right">Ár</th>
             </tr>
         </thead>
-        <tbody>
-            <?php foreach ($filteredLines as $line) : ?>
-                <tr class="hover:bg-gray-100 border-b border-b-zinc-400">
-                    <td class="px-2 py-1 text-center">
-                        <img src="<?= $line->getImagePath() ?>" alt="<?= $line->number ?>" class="h-10 w-10 mx-auto rounded-full object-cover">
+        <tbody class="divide-y divide-cyan-100">
+            <?php foreach ($televisions as $tv): ?>
+                <tr class="odd:bg-white even:bg-cyan-50 hover:bg-cyan-100 transition">
+                    <td class="px-4 py-2 text-left"><?= $tv->manufacturer_name ?></td>
+                    <td class="px-4 py-2 text-left"><?= $tv->name ?></td>
+                    <td class="px-4 py-2 text-center"><?= $tv->size ?>"</td>
+                    <td class="px-4 py-2 text-center"><?= $tv->resolution ?></td>
+                    <td class="px-4 py-2 text-center"><?= $tv->technology ?></td>
+                    <td class="px-4 py-2 text-right font-bold text-cyan-700">
+                        <?= number_format($tv->price, 0, ',', '&nbsp;') ?>&nbsp;Ft
                     </td>
-                    <td class="px-2 py-1 text-center"><?= $line->number ?></td>
-                    <td class="px-2 py-1"><?= $line->route ?></td>
-                    <td class="px-2 py-1 text-center"><?= $line->length ?> km</td>
-                    <td class="px-2 py-1 text-center"><?= $line->since ?></td>
-                    <td class="px-2 py-1 text-center"><?= $line->getInterconnected() ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

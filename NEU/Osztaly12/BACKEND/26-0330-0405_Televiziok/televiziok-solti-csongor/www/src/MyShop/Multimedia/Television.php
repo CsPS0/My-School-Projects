@@ -1,42 +1,51 @@
 <?php
 
-namespace Budapest\Transport;
+namespace MyShop\Multimedia;
 
-class TramLine{
-    private string $number;
-    private string $route;
-    private int $since;
-    private string $interconnected;
-    private float $length;
-    private static $interconnecteds = ["none" => "Nincs", "budai" => "Budai Fonódó", "pesti" => "Pesti Fonódó"];
+class Television
+{
+    private int $id;
+    private string $name;
+    private int $manufacturer_id;
+    private int $size;
+    private string $resolution;
+    private string $technology;
+    private bool $hdr;
+    private int $price;
 
-    public function __construct(string $number, string $route, int $since, string $interconnected, float $length){
-        $this->number = $number;
-        $this->route = $route;
-        $this->since = $since;
-        $this->interconnected = $interconnected;
-        $this->length = $length;
+    private static array $manufacturers = [
+        1 => "Samsung",
+        2 => "LG",
+        3 => "Philips"
+    ];
+
+    public function __construct(int $id, string $name, int $manufacturer_id, int $size, string $resolution, string $technology, bool $hdr, int $price)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->manufacturer_id = $manufacturer_id;
+        $this->size = $size;
+        $this->resolution = $resolution;
+        $this->technology = $technology;
+        $this->hdr = $hdr;
+        $this->price = $price;
     }
 
-    public function __get($property){
-        return $this->$property;
+    public function __get(string $name): mixed
+    {
+        if ($name === 'manufacturer_name') {
+            return self::$manufacturers[$this->manufacturer_id] ?? 'Unknown';
+        }
+        return $this->$name;
     }
 
-    public function __set($property, $value){
-        $this->$property = $value;
+    public static function getManufacturers(): array
+    {
+        return self::$manufacturers;
     }
 
-    public function getInterconnected(){
-        return TramLine::$interconnecteds[$this->interconnected];
-    }
-
-    public function getImagePath(){
-        return "images/" . strtolower($this->number) . ".jpg";
-    }
-
-    public static function getInterconnecteds(){
-        return TramLine::$interconnecteds;
+    public function getImagePath(): string
+    {
+        return "img/{$this->id}.webp";
     }
 }
-
-?>

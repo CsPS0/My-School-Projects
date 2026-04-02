@@ -1,43 +1,76 @@
 <?php
+
 require 'vendor/autoload.php';
 
-$whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+use Whoops\Run;
+use Whoops\Handler\PrettyPageHandler;
+
+$whoops = new Run();
+$whoops->pushHandler(new PrettyPageHandler());
 $whoops->register();
 
-use Budapest\Transport\TramLine;
+use MyShop\Multimedia\Television;
 
-require 'data.php';
+require_once __DIR__ . '/data.php';
 
-$terminusFilter = $_GET['terminus'] ?? '';
-$interconnectedFilter = $_GET['interconnected'] ?? '';
-$sinceFilter = $_GET['since'] ?? '';
+$page = $_GET['page'] ?? 'home';
 
-$filteredLines = $lines;
-
-if (!empty($terminusFilter)) {
-    $filteredLines = array_filter($filteredLines, fn($line) => str_contains(strtolower($line->route), strtolower($terminusFilter)));
+if (!in_array($page, ['home', 'seller', 'products'])) {
+    $page = '404';
 }
 
-if (!empty($interconnectedFilter)) {
-    $filteredLines = array_filter($filteredLines, fn($line) => $line->interconnected === $interconnectedFilter);
+$manufacturer_id = $_GET['manufacturer_id'] ?? '';
+$minimum_size = $_GET['minimum_size'] ?? '';
+$maximum_size = $_GET['maximum_size'] ?? '';
+
+if ($manufacturer_id !== '' || $minimum_size !== '' || $maximum_size !== '') {
+    $televisions = array_filter($televisions, function ($tv) use ($manufacturer_id, $minimum_size, $maximum_size) {
+        if ($manufacturer_id !== '' && $tv->manufacturer_id != $manufacturer_id) {
+            return false;
+        }
+        if ($minimum_size !== '' && $tv->size < $minimum_size) {
+            return false;
+        }
+        if ($maximum_size !== '' && $tv->size > $maximum_size) {
+            return false;
+        }
+        return true;
+    });
 }
 
-if (!empty($sinceFilter)) {
-    $filteredLines = array_filter($filteredLines, fn($line) => $line->since <= (int)$sinceFilter);
-    usort($filteredLines, fn($a, $b) => $a->since <=> $b->since);
+if ($page === 'seller') {
+    usort($televisions, function ($a, $b) {
+        return $a->price <=> $b->price;
+    });
+} elseif ($page === 'products') {
+    usort($televisions, function ($a, $b) {
+        return strcmp($b->name, $a->name);
+    });
 }
 
-$allowedPages = ["grid", "table"];
-$page = $_GET['page'] ?? 'grid';
-if (!in_array($page, $allowedPages)) {
-    $page = 'grid';
-}
+$title = "TV " . count($televisions) . " darab";
 
 $menuItems = [
-    "grid" => "Rács",
-    "table" => "Táblázat"
+    [
+        'text' => 'Főoldal',
+        'url' => 'index.php',
+        'active' => $page === 'home'
+    ],
+    [
+        'text' => 'Eladói oldal',
+        'url' => 'index.php?page=seller',
+        'active' => $page === 'seller'
+    ],
+    [
+        'text' => 'Termékek',
+        'url' => 'index.php?page=products',
+        'active' => $page === 'products'
+    ],
 ];
+
+if ($page === '404') {
+    header("HTTP/1.1 404 Not Found");
+}
 
 ?>
 <!DOCTYPE html>
@@ -45,27 +78,28 @@ $menuItems = [
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viszonylatok</title>
-    <script src="https://cdn.tailwindcss.com/3.4.3"></script>
-    <link rel="stylesheet" href="style.css">
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="css/tv.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-gray-100 p-4">
-    
-    <header class="bg-white shadow rounded-lg mb-4">
-        <div class="w-11/12 mx-auto max-w-7xl p-4 sm:p-6 lg:p-8 flex justify-between items-center">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Viszonylatok</h1>
-            <?php include('components/menu.php'); ?>
-        </div>
-    </header>
+<body class="min-h-screen flex flex-col">
 
-    <main class="w-11/12 mx-auto max-w-7xl p-4 sm:p-6 lg:p-8 bg-white shadow rounded-lg">
-        <?php include('components/form.php'); ?>
-        <div class="mt-4 border-t pt-4">
-            <?php include("pages/{$page}.php"); ?>
-        </div>
-    </main>
+    <?php include __DIR__ . '/components/menu.php'; ?>
+
+    <div class="mx-auto max-w-7xl px-4 py-10 flex-grow">
+        <?php 
+        if ($page !== '404' && $page !== 'home') {
+            include __DIR__ . '/components/form.php';
+        }
+        include __DIR__ . "/pages/$page.php"; 
+        ?>
+    </div>
+
+    <?php include __DIR__ . '/components/footer.php'; ?>
 
 </body>
+
 </html>

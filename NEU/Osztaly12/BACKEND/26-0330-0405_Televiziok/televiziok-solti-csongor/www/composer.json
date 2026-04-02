@@ -1,10 +1,10 @@
 {
     "require": {
-        "filp/whoops": "^2.15"
+        "filp/whoops": "^2.17"
     },
     "autoload": {
         "psr-4": {
-            "Budapest\\Transport\\": "src/Budapest/Transport/"
+            "MyShop\\Multimedia\\": "src/MyShop/Multimedia/"
         }
     }
 }
