@@ -1,0 +1,204 @@
+{
+  "menus": [
+    {
+      "id": 1,
+      "day": "Hétfő",
+      "type": "A",
+      "soup": "Húsleves",
+      "main": "Rántott csirkemell petrezselymes burgonyával",
+      "drink": "Citromos tea",
+      "fruit": "Alma",
+      "dessert": "Piskóta"
+    },
+    {
+      "id": 2,
+      "day": "Hétfő",
+      "type": "B",
+      "soup": "Zöldségleves",
+      "main": "Brassói aprópecsenye",
+      "drink": "Ásványvíz",
+      "fruit": "",
+      "dessert": "Túrórudi"
+    },
+    {
+      "id": 3,
+      "day": "Hétfő",
+      "type": "Diétás",
+      "soup": "Cukkini krémleves",
+      "main": "Grillezett csirkemell párolt rizzsel",
+      "drink": "Cukormentes tea",
+      "fruit": "Banán",
+      "dessert": ""
+    },
+    {
+      "id": 4,
+      "day": "Hétfő",
+      "type": "Vegán",
+      "soup": "Paradicsomleves",
+      "main": "Lencsefasírt bulgurral",
+      "drink": "Narancslé",
+      "fruit": "Körte",
+      "dessert": ""
+    },
+    {
+      "id": 5,
+      "day": "Kedd",
+      "type": "A",
+      "soup": "Gulyásleves",
+      "main": "Mákos tészta",
+      "drink": "Málnaszörp",
+      "fruit": "",
+      "dessert": "Keksz"
+    },
+    {
+      "id": 6,
+      "day": "Kedd",
+      "type": "B",
+      "soup": "Karalábéleves",
+      "main": "Rakott karfiol",
+      "drink": "Ásványvíz",
+      "fruit": "Narancs",
+      "dessert": ""
+    },
+    {
+      "id": 7,
+      "day": "Kedd",
+      "type": "Diétás",
+      "soup": "",
+      "main": "Pulykamell salátával",
+      "drink": "Cukormentes limonádé",
+      "fruit": "Alma",
+      "dessert": ""
+    },
+    {
+      "id": 8,
+      "day": "Kedd",
+      "type": "Vegán",
+      "soup": "Brokkolikrémleves",
+      "main": "Zöldséges rizottó",
+      "drink": "Almalé",
+      "fruit": "",
+      "dessert": "Vegán zabkeksz"
+    },
+    {
+      "id": 9,
+      "day": "Szerda",
+      "type": "A",
+      "soup": "Babgulyás",
+      "main": "Túrós csusza",
+      "drink": "Tea",
+      "fruit": "",
+      "dessert": "Puding"
+    },
+    {
+      "id": 10,
+      "day": "Szerda",
+      "type": "B",
+      "soup": "Gyümölcsleves",
+      "main": "Sült csirke rizzsel",
+      "drink": "Szénsavmentes víz",
+      "fruit": "Őszibarack",
+      "dessert": ""
+    },
+    {
+      "id": 11,
+      "day": "Szerda",
+      "type": "Diétás",
+      "soup": "Zellerkrémleves",
+      "main": "Főtt csirkemell párolt zöldséggel",
+      "drink": "Cukormentes tea",
+      "fruit": "",
+      "dessert": ""
+    },
+    {
+      "id": 12,
+      "day": "Szerda",
+      "type": "Vegán",
+      "soup": "",
+      "main": "Chilis bab barnarizzsel",
+      "drink": "Szőlőlé",
+      "fruit": "Banán",
+      "dessert": ""
+    },
+    {
+      "id": 13,
+      "day": "Csütörtök",
+      "type": "A",
+      "soup": "Májgombócleves",
+      "main": "Sertéspörkölt tésztával",
+      "drink": "Citromos víz",
+      "fruit": "",
+      "dessert": "Palacsinta"
+    },
+    {
+      "id": 14,
+      "day": "Csütörtök",
+      "type": "B",
+      "soup": "Sajtkrémleves",
+      "main": "Rántott sajt párolt rizzsel",
+      "drink": "Tea",
+      "fruit": "Alma",
+      "dessert": ""
+    },
+    {
+      "id": 15,
+      "day": "Csütörtök",
+      "type": "Diétás",
+      "soup": "Karfiolkrémleves",
+      "main": "Grillezett halfilé salátával",
+      "drink": "Mentes víz",
+      "fruit": "",
+      "dessert": "Cukormentes puding"
+    },
+    {
+      "id": 16,
+      "day": "Csütörtök",
+      "type": "Vegán",
+      "soup": "Lencseleves",
+      "main": "Tofus zöldséges tészta",
+      "drink": "Narancslé",
+      "fruit": "",
+      "dessert": ""
+    },
+    {
+      "id": 17,
+      "day": "Péntek",
+      "type": "A",
+      "soup": "Tarhonyaleves",
+      "main": "Rántott halfilé hasábburgonyával",
+      "drink": "Tea",
+      "fruit": "Mandarin",
+      "dessert": "Somlói galuska"
+    },
+    {
+      "id": 18,
+      "day": "Péntek",
+      "type": "B",
+      "soup": "Zöldborsóleves",
+      "main": "Milánói sertésborda",
+      "drink": "Ásványvíz",
+      "fruit": "",
+      "dessert": ""
+    },
+    {
+      "id": 19,
+      "day": "Péntek",
+      "type": "Diétás",
+      "soup": "",
+      "main": "Párolt pulykamell barna rizzsel",
+      "drink": "Cukormentes üdítő",
+      "fruit": "Körte",
+      "dessert": ""
+    },
+    {
+      "id": 20,
+      "day": "Péntek",
+      "type": "Vegán",
+      "soup": "Sütőtökkrémleves",
+      "main": "Zöldséges kuszkusz",
+      "drink": "Almalé",
+      "fruit": "",
+      "dessert": "Vegán muffin"
+    }
+  ]
+}

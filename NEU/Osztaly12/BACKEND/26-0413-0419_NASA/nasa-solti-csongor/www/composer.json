@@ -1,0 +1,12 @@
+{
+    "name": "nasa/programs",
+    "description": "NASA Space Programs Project",
+    "require": {
+        "filp/whoops": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nasa\\": "src/Nasa/"
+        }
+    }
+}

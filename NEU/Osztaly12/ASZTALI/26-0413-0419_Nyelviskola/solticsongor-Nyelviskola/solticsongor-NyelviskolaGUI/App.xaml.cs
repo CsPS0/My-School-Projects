@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace solticsongor_KeresztrejtvenyGUI;
+namespace solticsongor_NyelviskolaGUI;
 
 public partial class App : Application
 {
