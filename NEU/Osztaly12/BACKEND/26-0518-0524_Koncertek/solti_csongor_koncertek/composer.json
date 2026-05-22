@@ -1,0 +1,12 @@
+{
+    "name": "party/programs",
+    "description": "Concert",
+    "require": {
+        "filp/whoops": "^2.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Event\\": "src/Event/"
+        }
+    }
+}

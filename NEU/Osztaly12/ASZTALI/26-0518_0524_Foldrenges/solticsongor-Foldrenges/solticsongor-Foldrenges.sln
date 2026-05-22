@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{99B3B9BB-4F7E-4C97-9D23-B6D16A9D00DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foldrengesLib", "foldrengesLib\foldrengesLib.csproj", "{D4D0C2D9-54E0-473E-9C45-1F76A48463FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{182197FA-DFCA-483D-B9CE-ECC81DAE45C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99B3B9BB-4F7E-4C97-9D23-B6D16A9D00DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99B3B9BB-4F7E-4C97-9D23-B6D16A9D00DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99B3B9BB-4F7E-4C97-9D23-B6D16A9D00DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99B3B9BB-4F7E-4C97-9D23-B6D16A9D00DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D0C2D9-54E0-473E-9C45-1F76A48463FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D0C2D9-54E0-473E-9C45-1F76A48463FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D0C2D9-54E0-473E-9C45-1F76A48463FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D0C2D9-54E0-473E-9C45-1F76A48463FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182197FA-DFCA-483D-B9CE-ECC81DAE45C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182197FA-DFCA-483D-B9CE-ECC81DAE45C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182197FA-DFCA-483D-B9CE-ECC81DAE45C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182197FA-DFCA-483D-B9CE-ECC81DAE45C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

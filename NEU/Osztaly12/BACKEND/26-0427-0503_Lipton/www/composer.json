@@ -1,0 +1,11 @@
+{
+    "name": "acme/lipton",
+    "autoload": {
+        "psr-4": {
+            "Acme\\": "src/Acme/"
+        }
+    },
+    "require": {
+        "filp/whoops": "^2.15"
+    }
+}

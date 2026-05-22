@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{06856B8F-7797-4C0C-A34B-382D904615DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmekLib", "filmekLib\filmekLib.csproj", "{D7A53F26-CBAA-4372-B440-C741859451F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{977466A0-6D3E-40EE-842E-0FC91A07AA66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06856B8F-7797-4C0C-A34B-382D904615DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06856B8F-7797-4C0C-A34B-382D904615DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06856B8F-7797-4C0C-A34B-382D904615DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06856B8F-7797-4C0C-A34B-382D904615DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A53F26-CBAA-4372-B440-C741859451F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A53F26-CBAA-4372-B440-C741859451F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A53F26-CBAA-4372-B440-C741859451F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A53F26-CBAA-4372-B440-C741859451F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977466A0-6D3E-40EE-842E-0FC91A07AA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977466A0-6D3E-40EE-842E-0FC91A07AA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977466A0-6D3E-40EE-842E-0FC91A07AA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977466A0-6D3E-40EE-842E-0FC91A07AA66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

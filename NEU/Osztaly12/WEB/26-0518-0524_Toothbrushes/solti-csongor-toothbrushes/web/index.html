@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toothbrushes</title>
+
+</head>
+
+<body>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-between items-center">
+    <h1 class="text-4xl font-bold text-gray-900">Toothbrushes</h1>
+
+    <button id="create-toothbrush-button"
+      class="bg-green-600 text-white px-5 py-3 rounded-xl hover:bg-green-700 transition font-semibold">
+      Add Toothbrush
+    </button>
+  </div>
+
+
+  <div id="products" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12"></div>
+
+  <template id="toothbrush-card">
+
+    <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-200">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-gray-800">MANUFACTURER NAME</h2>
+          <p class="technology text-sm text-gray-500">TECHNOLOGY</p>
+        </div>
+        <div class="rating text-yellow-500 font-semibold">
+          ★ <span>RATING</span>
+        </div>
+
+      </div>
+
+      <div class="space-y-2 text-sm text-gray-600">
+        <p class="price"><span class="font-semibold">Price:</span> <span>PRICE_HUF</span></p>
+        <p class="battery"><span class="font-semibold">Battery:</span> <span>BATTERY_LIFE_DAYS days</span></p>
+        <p class="modes"><span class="font-semibold">Modes:</span> <span>MODE_COUNT</span></p>
+        <p class="color"><span class="font-semibold">Color:</span> <span>COLOR</span></p>
+        <p class="waterproof"><span class="font-semibold">Waterproof:</span> <span>WATERPROOF_RATING</span></p>
+        <p class="weight"><span class="font-semibold">Weight:</span> <span>WEIGHT_GRAMS g</span></p>
+      </div>
+
+      <div class="mt-5 flex items-center justify-end gap-2">
+
+
+        <button class="stock-button bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 transition">
+          Stock
+        </button>
+
+        <button class="edit-button bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition">
+          Edit
+        </button>
+
+        <button class="delete-button bg-red-600 text-white px-4 py-2 rounded-xl hover:bg-red-700 transition">
+          Delete
+        </button>
+      </div>
+    </div>
+
+  </template>
+
+  <template id="stock-table-row">
+    <tr class="hover:bg-gray-50 transition">
+      <td class="name px-6 py-4 text-sm text-gray-800">
+        SHOP NAME
+      </td>
+
+      <td class="address px-6 py-4 text-sm text-gray-600">
+        SHOP ADDRESS
+      </td>
+
+      <td class="qty px-6 py-4">
+        <span class=" text-xs font-semibold px-3 py-1 rounded-full">
+          STOCK
+        </span>
+      </td>
+    </tr>
+  </template>
+
+  <dialog id="stock-dialog" class="m-auto rounded-2xl p-0 w-full max-w-4xl backdrop:bg-black/50 p-4">
+    <div class="flex justify-between align-bottom my-2">
+      <h2 class="text-xl font-semibold">Stock</h2>
+      <form class="flex justify-end">
+        <button class="bg-gray-800 text-white px-5 py-2 rounded-xl hover:bg-black transition">
+          Close
+        </button>
+      </form>
+    </div>
+    <div class="overflow-x-auto rounded-2xl shadow-md border border-gray-200">
+      <table class="min-w-full bg-white">
+
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              Shop
+            </th>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              Address
+            </th>
+
+            <th class="name px-6 py-4 text-left text-sm font-semibold text-gray-700">
+              Stock
+            </th>
+
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-200">
+
+
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
+
+
+  <dialog id="toothbrush-dialog" class="m-auto w-full max-w-2xl rounded-2xl p-0 shadow-2xl backdrop:bg-black/50">
+
+    <div class="bg-white rounded-2xl overflow-hidden">
+
+      <div class="p-6 border-b border-gray-200">
+        <h2 class="text-2xl font-bold text-gray-800">
+          Create Toothbrush
+        </h2>
+
+      </div>
+
+      <form class="p-6 space-y-5">
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-2" for="model">
+            Model
+          </label>
+
+          <input type="text" placeholder="iO Series 6" name="model" id="model" required
+            class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="manufacturer_id">
+              Manufacturer
+            </label>
+
+            <select name="manufacturer_id" id="manufacturer_id" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select manufacturer...</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="price_huf">
+              Price (HUF)
+            </label>
+
+            <input type="number" placeholder="12990" name="price_huf" id="price_huf" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="technology">
+              Technology
+            </label>
+
+            <select name="technology" id="technology" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select technology...</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="battery_life_days">
+              Battery Life (days)
+            </label>
+
+            <input type="number" placeholder="14" name="battery_life_days" id="battery_life_days" required min="1"
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="mode_count">
+              Modes
+            </label>
+
+            <input type="number" placeholder="1" name="mode_count" id="mode_count" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="weight_grams">
+              Weight (grams)
+            </label>
+
+            <input type="number" placeholder="115" name="weight_grams" id="weight_grams" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="color">
+              Color
+            </label>
+
+            <input type="text" placeholder="Black" name="color" id="color" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2" for="waterproof_rating">
+              Waterproof Rating
+            </label>
+
+            <input type="text" placeholder="IPX7" name="waterproof_rating" id="waterproof_rating" required
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t border-gray-200">
+
+
+          <button type="button"
+            class="cancel bg-gray-200 text-gray-800 px-5 py-2 rounded-xl hover:bg-gray-300 transition">
+            Cancel
+          </button>
+
+
+          <button type="submit" class="bg-green-600 text-white px-5 py-2 rounded-xl hover:bg-green-700 transition">
+            Save Toothbrush
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </dialog>
+
+
+  <dialog id="delete-dialog"
+    class="m-auto w-full max-w-2xl rounded-2xl p-6  rounded-2xl p-0 shadow-2xl backdrop:bg-black/50">
+    <h2 class="text-xl font-bold text-gray-800 mb-2">Delete toothbrush?</h2>
+
+    <p class="text-gray-600 mb-6">
+      Are you sure you want to delete this toothbrush? This action cannot be undone.
+    </p>
+
+    <div class="flex justify-end gap-3">
+      <button id="cancel-delete" type="button" class="bg-gray-200 text-gray-800 px-5 py-2 rounded-xl hover:bg-gray-300">
+        Cancel
+      </button>
+
+      <button id="confirm-delete" type="button" class="bg-red-600 text-white px-5 py-2 rounded-xl hover:bg-red-700">
+        Delete
+      </button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

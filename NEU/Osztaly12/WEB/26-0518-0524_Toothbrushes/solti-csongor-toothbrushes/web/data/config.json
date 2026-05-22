@@ -1,0 +1,16 @@
+{
+    "timestamps": false,
+    "relationships":[
+        {
+            "source": "manufacturers",
+            "destination": "toothbrushes",
+            "type": "hasMany"
+        },
+        {
+            "source": "toothbrushes",
+            "destination": "manufacturers",
+            "type": "belongsTo"
+        }
+        
+    ]
+}

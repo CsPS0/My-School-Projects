@@ -1,0 +1,4 @@
+{
+    "/api/*": "/$1",
+    "/toothbrushes/:id/stocks": "/stocks?toothbrush_id=:id"
+}

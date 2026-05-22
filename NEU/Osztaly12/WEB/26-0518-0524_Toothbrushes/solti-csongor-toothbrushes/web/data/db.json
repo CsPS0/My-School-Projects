@@ -1,0 +1,353 @@
+{
+  "manufacturers": [
+    {
+      "id": 1,
+      "name": "Oral-B",
+      "country": "Germany",
+      "founded_year": 1950
+    },
+    {
+      "id": 2,
+      "name": "Philips Sonicare",
+      "country": "Netherlands",
+      "founded_year": 1891
+    },
+    {
+      "id": 3,
+      "name": "Xiaomi",
+      "country": "China",
+      "founded_year": 2010
+    }
+  ],
+    "toothbrushes": [
+    {
+      "id": 1,
+      "manufacturer_id": 1,
+      "model": "Vitality 100",
+      "technology": "Rotating",
+      "price_huf": 12990,
+      "battery_life_days": 8,
+      "mode_count": 1,
+      "weight_grams": 115,
+      "waterproof_rating": "IPX7",
+      "color": "White",
+      "rating": 4.1,
+      "in_stock": true
+    },
+    {
+      "id": 2,
+      "manufacturer_id": 1,
+      "model": "Pro 3 3000",
+      "technology": "Rotating-Oscillating",
+      "price_huf": 24990,
+      "battery_life_days": 10,
+      "mode_count": 3,
+      "weight_grams": 120,
+      "waterproof_rating": "IPX7",
+      "color": "Black",
+      "rating": 4.4,
+      "in_stock": true
+    },
+    {
+      "id": 3,
+      "manufacturer_id": 1,
+      "model": "Smart 5",
+      "technology": "Rotating-Oscillating",
+      "price_huf": 45990,
+      "battery_life_days": 14,
+      "mode_count": 5,
+      "weight_grams": 128,
+      "waterproof_rating": "IPX7",
+      "color": "Blue",
+      "rating": 4.6,
+      "in_stock": true
+    },
+    {
+      "id": 4,
+      "manufacturer_id": 1,
+      "model": "iO Series 4",
+      "technology": "Magnetic",
+      "price_huf": 59990,
+      "battery_life_days": 14,
+      "mode_count": 4,
+      "weight_grams": 130,
+      "waterproof_rating": "IPX7",
+      "color": "Pink",
+      "rating": 4.7,
+      "in_stock": false
+    },
+    {
+      "id": 5,
+      "manufacturer_id": 1,
+      "model": "iO Series 6",
+      "technology": "Magnetic",
+      "price_huf": 69990,
+      "battery_life_days": 14,
+      "mode_count": 5,
+      "weight_grams": 132,
+      "waterproof_rating": "IPX7",
+      "color": "Black",
+      "rating": 4.8,
+      "in_stock": true
+    },
+    {
+      "id": 6,
+      "manufacturer_id": 1,
+      "model": "iO Series 10",
+      "technology": "Magnetic",
+      "price_huf": 129990,
+      "battery_life_days": 20,
+      "mode_count": 7,
+      "weight_grams": 138,
+      "waterproof_rating": "IPX8",
+      "color": "White",
+      "rating": 5.0,
+      "in_stock": true
+    },
+
+    {
+      "id": 7,
+      "manufacturer_id": 2,
+      "model": "1100 Series",
+      "technology": "Sonic",
+      "price_huf": 14990,
+      "battery_life_days": 14,
+      "mode_count": 1,
+      "weight_grams": 118,
+      "waterproof_rating": "IPX7",
+      "color": "White",
+      "rating": 4.2,
+      "in_stock": true
+    },
+    {
+      "id": 8,
+      "manufacturer_id": 2,
+      "model": "ProtectiveClean 4300",
+      "technology": "Sonic",
+      "price_huf": 32990,
+      "battery_life_days": 14,
+      "mode_count": 2,
+      "weight_grams": 122,
+      "waterproof_rating": "IPX7",
+      "color": "Black",
+      "rating": 4.5,
+      "in_stock": true
+    },
+    {
+      "id": 9,
+      "manufacturer_id": 2,
+      "model": "ExpertClean 7300",
+      "technology": "Sonic",
+      "price_huf": 54990,
+      "battery_life_days": 18,
+      "mode_count": 4,
+      "weight_grams": 130,
+      "waterproof_rating": "IPX7",
+      "color": "Blue",
+      "rating": 4.7,
+      "in_stock": false
+    },
+    {
+      "id": 10,
+      "manufacturer_id": 2,
+      "model": "DiamondClean 9000",
+      "technology": "Sonic",
+      "price_huf": 89990,
+      "battery_life_days": 21,
+      "mode_count": 4,
+      "weight_grams": 140,
+      "waterproof_rating": "IPX7",
+      "color": "White",
+      "rating": 4.9,
+      "in_stock": false
+    },
+    {
+      "id": 11,
+      "manufacturer_id": 2,
+      "model": "DiamondClean Prestige",
+      "technology": "Sonic",
+      "price_huf": 119990,
+      "battery_life_days": 21,
+      "mode_count": 5,
+      "weight_grams": 142,
+      "waterproof_rating": "IPX8",
+      "color": "Champagne",
+      "rating": 5.0,
+      "in_stock": true
+    },
+    {
+      "id": 12,
+      "manufacturer_id": 2,
+      "model": "For Kids",
+      "technology": "Sonic",
+      "price_huf": 19990,
+      "battery_life_days": 10,
+      "mode_count": 2,
+      "weight_grams": 98,
+      "waterproof_rating": "IPX7",
+      "color": "Pink",
+      "rating": 4.4,
+      "in_stock": true
+    },
+
+    {
+      "id": 13,
+      "manufacturer_id": 3,
+      "model": "Mi T100",
+      "technology": "Sonic",
+      "price_huf": 7990,
+      "battery_life_days": 30,
+      "mode_count": 2,
+      "weight_grams": 90,
+      "waterproof_rating": "IPX7",
+      "color": "White",
+      "rating": 4.0,
+      "in_stock": true
+    },
+    {
+      "id": 14,
+      "manufacturer_id": 3,
+      "model": "Mi T300",
+      "technology": "Sonic",
+      "price_huf": 11990,
+      "battery_life_days": 25,
+      "mode_count": 3,
+      "weight_grams": 95,
+      "waterproof_rating": "IPX7",
+      "color": "Blue",
+      "rating": 4.2,
+      "in_stock": true
+    },
+    {
+      "id": 15,
+      "manufacturer_id": 3,
+      "model": "Mi T500",
+      "technology": "Sonic",
+      "price_huf": 17990,
+      "battery_life_days": 18,
+      "mode_count": 3,
+      "weight_grams": 102,
+      "waterproof_rating": "IPX7",
+      "color": "Black",
+      "rating": 4.4,
+      "in_stock": false
+    },
+    {
+      "id": 16,
+      "manufacturer_id": 3,
+      "model": "T700",
+      "technology": "Sonic",
+      "price_huf": 27990,
+      "battery_life_days": 24,
+      "mode_count": 3,
+      "weight_grams": 125,
+      "waterproof_rating": "IPX7",
+      "color": "Blue",
+      "rating": 4.5,
+      "in_stock": true
+    },
+    {
+      "id": 17,
+      "manufacturer_id": 3,
+      "model": "Oclean X Pro",
+      "technology": "Sonic",
+      "price_huf": 34990,
+      "battery_life_days": 30,
+      "mode_count": 4,
+      "weight_grams": 110,
+      "waterproof_rating": "IPX8",
+      "color": "Green",
+      "rating": 4.7,
+      "in_stock": true
+    },
+    {
+      "id": 18,
+      "manufacturer_id": 3,
+      "model": "Oclean Ultra",
+      "technology": "Sonic",
+      "price_huf": 49990,
+      "battery_life_days": 40,
+      "mode_count": 6,
+      "weight_grams": 118,
+      "waterproof_rating": "IPX8",
+      "color": "Silver",
+      "rating": 4.9,
+      "in_stock": true
+    }
+  ],
+
+  "stocks": [
+    { "id": 1, "toothbrush_id": 1, "shop_name": "MediaMarkt", "address": "Budapest, Váci út 1-3.", "stock_quantity": 15 },
+    { "id": 2, "toothbrush_id": 1, "shop_name": "Alza", "address": "Budapest, Rákóczi út 10.", "stock_quantity": 10 },
+    { "id": 3, "toothbrush_id": 1, "shop_name": "eMAG", "address": "Budapest, Etele út 68.", "stock_quantity": 8 },
+
+    { "id": 4, "toothbrush_id": 2, "shop_name": "BestByte", "address": "Szeged, Kossuth Lajos sugárút 45.", "stock_quantity": 5 },
+    { "id": 5, "toothbrush_id": 2, "shop_name": "iPon", "address": "Budapest, Szentendrei út 89-95.", "stock_quantity": 3 },
+    { "id": 6, "toothbrush_id": 2, "shop_name": "MediaMarkt", "address": "Debrecen, Kishatár utca 7.", "stock_quantity": 16 },
+
+    { "id": 7, "toothbrush_id": 3, "shop_name": "Alza", "address": "Győr, Árpád út 25.", "stock_quantity": 6 },
+    { "id": 8, "toothbrush_id": 3, "shop_name": "eMAG", "address": "Pécs, Bajcsy-Zsilinszky utca 11.", "stock_quantity": 2 },
+    { "id": 9, "toothbrush_id": 3, "shop_name": "MediaMarkt", "address": "Miskolc, József Attila utca 87.", "stock_quantity": 4 },
+
+    { "id": 10, "toothbrush_id": 4, "shop_name": "Alza", "address": "Budapest, Kerepesi út 9.", "stock_quantity": 7 },
+    { "id": 11, "toothbrush_id": 4, "shop_name": "eMAG", "address": "Nyíregyháza, Bethlen Gábor utca 3.", "stock_quantity": 4 },
+    { "id": 12, "toothbrush_id": 4, "shop_name": "BestByte", "address": "Kecskemét, Petőfi Sándor utca 12.", "stock_quantity": 5 },
+
+    { "id": 13, "toothbrush_id": 5, "shop_name": "MediaMarkt", "address": "Budapest, Örs vezér tere 25.", "stock_quantity": 9 },
+    { "id": 14, "toothbrush_id": 5, "shop_name": "Alza", "address": "Tatabánya, Fő tér 18.", "stock_quantity": 6 },
+    { "id": 15, "toothbrush_id": 5, "shop_name": "iPon", "address": "Budapest, Lehel utca 51.", "stock_quantity": 8 },
+
+    { "id": 16, "toothbrush_id": 6, "shop_name": "eMAG", "address": "Budapest, Bartók Béla út 44.", "stock_quantity": 3 },
+    { "id": 17, "toothbrush_id": 6, "shop_name": "MediaMarkt", "address": "Székesfehérvár, Palotai út 6.", "stock_quantity": 5 },
+    { "id": 18, "toothbrush_id": 6, "shop_name": "BestByte", "address": "Pécs, Király utca 22.", "stock_quantity": 2 },
+
+    { "id": 19, "toothbrush_id": 7, "shop_name": "Alza", "address": "Budapest, Váci út 45.", "stock_quantity": 12 },
+    { "id": 20, "toothbrush_id": 7, "shop_name": "eMAG", "address": "Győr, Szent István út 31.", "stock_quantity": 7 },
+    { "id": 21, "toothbrush_id": 7, "shop_name": "MediaMarkt", "address": "Sopron, Lackner Kristóf utca 35.", "stock_quantity": 10 },
+
+    { "id": 22, "toothbrush_id": 8, "shop_name": "BestByte", "address": "Budapest, Corvin sétány 2.", "stock_quantity": 5 },
+    { "id": 23, "toothbrush_id": 8, "shop_name": "iPon", "address": "Miskolc, Kazinczy Ferenc utca 14.", "stock_quantity": 4 },
+    { "id": 24, "toothbrush_id": 8, "shop_name": "Alza", "address": "Pécs, Hungária út 5.", "stock_quantity": 6 },
+
+    { "id": 25, "toothbrush_id": 9, "shop_name": "MediaMarkt", "address": "Debrecen, Piac utca 18.", "stock_quantity": 3 },
+    { "id": 26, "toothbrush_id": 9, "shop_name": "eMAG", "address": "Budapest, Üllői út 201.", "stock_quantity": 5 },
+    { "id": 27, "toothbrush_id": 9, "shop_name": "iPon", "address": "Győr, Baross út 9.", "stock_quantity": 2 },
+
+    { "id": 28, "toothbrush_id": 10, "shop_name": "Alza", "address": "Budapest, Andrássy út 55.", "stock_quantity": 4 },
+    { "id": 29, "toothbrush_id": 10, "shop_name": "BestByte", "address": "Szeged, Tisza Lajos körút 40.", "stock_quantity": 3 },
+    { "id": 30, "toothbrush_id": 10, "shop_name": "MediaMarkt", "address": "Kaposvár, Fő utca 27.", "stock_quantity": 6 },
+
+    { "id": 31, "toothbrush_id": 11, "shop_name": "eMAG", "address": "Budapest, Bajcsy-Zsilinszky út 60.", "stock_quantity": 2 },
+    { "id": 32, "toothbrush_id": 11, "shop_name": "Alza", "address": "Szolnok, Ady Endre út 11.", "stock_quantity": 1 },
+    { "id": 33, "toothbrush_id": 11, "shop_name": "iPon", "address": "Eger, Dobó tér 4.", "stock_quantity": 3 },
+
+    { "id": 34, "toothbrush_id": 12, "shop_name": "MediaMarkt", "address": "Budapest, Arena Mall", "stock_quantity": 11 },
+    { "id": 35, "toothbrush_id": 12, "shop_name": "BestByte", "address": "Nyíregyháza, Kossuth tér 6.", "stock_quantity": 8 },
+    { "id": 36, "toothbrush_id": 12, "shop_name": "eMAG", "address": "Békéscsaba, Andrássy út 15.", "stock_quantity": 9 },
+
+    { "id": 37, "toothbrush_id": 13, "shop_name": "Alza", "address": "Budapest, Soroksári út 110.", "stock_quantity": 14 },
+    { "id": 38, "toothbrush_id": 13, "shop_name": "MediaMarkt", "address": "Tatabánya, Győri út 20.", "stock_quantity": 9 },
+    { "id": 39, "toothbrush_id": 13, "shop_name": "iPon", "address": "Szeged, Gutenberg utca 8.", "stock_quantity": 12 },
+
+    { "id": 40, "toothbrush_id": 14, "shop_name": "eMAG", "address": "Budapest, Fehérvári út 82.", "stock_quantity": 6 },
+    { "id": 41, "toothbrush_id": 14, "shop_name": "BestByte", "address": "Pécs, Rákóczi út 30.", "stock_quantity": 4 },
+    { "id": 42, "toothbrush_id": 14, "shop_name": "Alza", "address": "Győr, Teleki utca 16.", "stock_quantity": 7 },
+
+    { "id": 43, "toothbrush_id": 15, "shop_name": "MediaMarkt", "address": "Budapest, Könyves Kálmán körút 12.", "stock_quantity": 5 },
+    { "id": 44, "toothbrush_id": 15, "shop_name": "iPon", "address": "Debrecen, Csapó utca 19.", "stock_quantity": 4 },
+    { "id": 45, "toothbrush_id": 15, "shop_name": "eMAG", "address": "Szombathely, Fő tér 3.", "stock_quantity": 3 },
+
+    { "id": 46, "toothbrush_id": 16, "shop_name": "Alza", "address": "Budapest, Fogarasi út 28.", "stock_quantity": 8 },
+    { "id": 47, "toothbrush_id": 16, "shop_name": "MediaMarkt", "address": "Kecskemét, Izsáki út 2.", "stock_quantity": 6 },
+    { "id": 48, "toothbrush_id": 16, "shop_name": "BestByte", "address": "Veszprém, Jókai utca 9.", "stock_quantity": 5 },
+
+    { "id": 49, "toothbrush_id": 17, "shop_name": "eMAG", "address": "Budapest, Móricz Zsigmond körtér 14.", "stock_quantity": 4 },
+    { "id": 50, "toothbrush_id": 17, "shop_name": "iPon", "address": "Győr, Szigethy Attila út 55.", "stock_quantity": 3 },
+    { "id": 51, "toothbrush_id": 17, "shop_name": "Alza", "address": "Pécs, Nagy Lajos király útja 8.", "stock_quantity": 6 },
+
+    { "id": 52, "toothbrush_id": 18, "shop_name": "MediaMarkt", "address": "Budapest, Mammut Mall", "stock_quantity": 2 },
+    { "id": 53, "toothbrush_id": 18, "shop_name": "BestByte", "address": "Debrecen, Hatvan utca 10.", "stock_quantity": 1 },
+    { "id": 54, "toothbrush_id": 18, "shop_name": "eMAG", "address": "Szeged, Dugonics tér 7.", "stock_quantity": 3 }
+  ]
+
+}

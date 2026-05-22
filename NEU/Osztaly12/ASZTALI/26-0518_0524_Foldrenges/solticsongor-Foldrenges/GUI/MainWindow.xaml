@@ -1,0 +1,52 @@
+<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Földrengések Magyarországon" Height="500" Width="450" Background="#F0F0F0">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Kérem válasszon egy vármegyét:" Grid.Row="0" Margin="0,0,0,5"/>
+        <ComboBox x:Name="CountyComboBox" Grid.Row="1" SelectionChanged="CountyComboBox_SelectionChanged" Margin="0,0,0,20" Height="30" VerticalContentAlignment="Center"/>
+
+        <Label Content="Kérem válasszon egy települést:" Grid.Row="2" Margin="0,0,0,5"/>
+        <ComboBox x:Name="SettlementComboBox" Grid.Row="3" IsEnabled="False" SelectionChanged="SettlementComboBox_SelectionChanged" Margin="0,0,0,20" Height="30" VerticalContentAlignment="Center"/>
+
+        <Grid Grid.Row="4" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Dátum:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="DateTextBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Idő:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="TimeTextBox" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Magnitúdó:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="MagnitudeTextBox" Grid.Row="2" Grid.Column="1" IsReadOnly="True" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Intenzitás:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="IntensityTextBox" Grid.Row="3" Grid.Column="1" IsReadOnly="True" Margin="5" VerticalContentAlignment="Center"/>
+
+            <Label Content="Richter skála:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="RichterTextBox" Grid.Row="4" Grid.Column="1" IsReadOnly="True" Margin="5" VerticalContentAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
