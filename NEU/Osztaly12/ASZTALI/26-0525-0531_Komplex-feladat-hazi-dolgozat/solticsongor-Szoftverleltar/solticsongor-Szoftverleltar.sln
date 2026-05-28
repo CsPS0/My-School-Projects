@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{76A27684-0966-404F-8515-CCDDE648EA45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "szoftverLib", "szoftverLib\szoftverLib.csproj", "{8CC956C5-B205-4FFD-9B44-8B55FCE79365}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{8B310980-2549-4247-9AD7-AED69260A6E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76A27684-0966-404F-8515-CCDDE648EA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A27684-0966-404F-8515-CCDDE648EA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A27684-0966-404F-8515-CCDDE648EA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A27684-0966-404F-8515-CCDDE648EA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC956C5-B205-4FFD-9B44-8B55FCE79365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC956C5-B205-4FFD-9B44-8B55FCE79365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC956C5-B205-4FFD-9B44-8B55FCE79365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC956C5-B205-4FFD-9B44-8B55FCE79365}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B310980-2549-4247-9AD7-AED69260A6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B310980-2549-4247-9AD7-AED69260A6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B310980-2549-4247-9AD7-AED69260A6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B310980-2549-4247-9AD7-AED69260A6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
