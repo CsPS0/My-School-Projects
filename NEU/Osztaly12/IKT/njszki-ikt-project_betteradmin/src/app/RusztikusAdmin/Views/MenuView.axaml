@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:RusztikusAdmin.ViewModels"
+             x:Class="RusztikusAdmin.Views.MenuView"
+             x:DataType="vm:MenuViewModel">
+
+  <DockPanel>
+    <!-- Toolbar -->
+    <Border DockPanel.Dock="Top"
+            Background="White"
+            Padding="16"
+            Margin="0,0,0,16"
+            CornerRadius="8">
+      <Grid ColumnDefinitions="*,Auto">
+        <TextBox Grid.Column="0"
+                 Watermark="Keresés menüelemek között..."
+                 Width="400"
+                 HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="8">
+          <Button Content="➕ Új menüelem"
+                  Background="#030213"
+                  Foreground="White"
+                  Command="{Binding NewMenuItemCommand}"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- DataGrid -->
+    <Border Background="White"
+            CornerRadius="8"
+            Padding="16">
+      <DataGrid ItemsSource="{Binding MenuItems}"
+                SelectedItem="{Binding SelectedMenuItem}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                GridLinesVisibility="Horizontal">
+
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="ID"
+                              Binding="{Binding Id}"
+                              Width="100"/>
+          <DataGridTextColumn Header="Név"
+                              Binding="{Binding Name}"
+                              Width="200"/>
+          <DataGridTextColumn Header="Kategória"
+                              Binding="{Binding Category}"
+                              Width="150"/>
+          <DataGridTextColumn Header="Ár"
+                              Binding="{Binding Price}"
+                              Width="100"/>
+          <DataGridCheckBoxColumn Header="Elérhető"
+                                  Binding="{Binding Available}"
+                                  Width="100"/>
+
+          <DataGridTemplateColumn Header="Műveletek" Width="150">
+            <DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <Button Content="🗑️"
+                          Background="#d4183d"
+                          Foreground="White"
+                          Command="{Binding $parent[DataGrid].((vm:MenuViewModel)DataContext).DeleteMenuItemCommand}"
+                          CommandParameter="{Binding}"
+                          ToolTip.Tip="Törlés"/>
+                </StackPanel>
+              </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+          </DataGridTemplateColumn>
+        </DataGrid.Columns>
+      </DataGrid>
+    </Border>
+  </DockPanel>
+</UserControl>

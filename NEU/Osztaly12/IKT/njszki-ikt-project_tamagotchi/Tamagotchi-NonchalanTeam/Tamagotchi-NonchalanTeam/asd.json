@@ -1,0 +1,15 @@
+{
+  "Name": "asd",
+  "Hunger": 98,
+  "Thirst": 91,
+  "Happiness": 75,
+  "Health": 100,
+  "Age": 0,
+  "IsAlive": true,
+  "LastSaved": "2026-03-08T19:25:25.8837344+01:00",
+  "Money": 500,
+  "CurrentHat": null,
+  "CurrentShirt": null,
+  "CurrentPants": null,
+  "OwnedClothes": []
+}

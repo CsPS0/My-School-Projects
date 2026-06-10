@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.ScoreboardView"
+             x:DataType="vm:ScoreboardViewModel">
+	<Grid Background="#8ecae6">
+		<StackPanel Spacing="15" VerticalAlignment="Center" HorizontalAlignment="Center">
+			<Border Background="#023047" CornerRadius="30" Padding="30" Width="500">
+				<StackPanel Spacing="20">
+					<TextBlock Text="SCOREBOARD" FontSize="32" FontWeight="Black" Foreground="#ffb703" HorizontalAlignment="Center"/>
+					<TextBlock Text="Only those who have fallen are remembered." FontSize="14" Foreground="#8ecae6" FontStyle="Italic" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
+
+					<Separator Background="#219ebc" Height="2" Margin="0,10"/>
+
+					<ScrollViewer Height="450">
+						<ItemsControl ItemsSource="{Binding Scoreboard}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate x:DataType="vm:ScoreEntry">
+									<Border Background="#10ffffff" CornerRadius="10" Padding="15,10" Margin="0,5">
+										<Grid ColumnDefinitions="*,Auto">
+											<TextBlock Text="{Binding Name}" FontSize="20" FontWeight="Bold" Foreground="White"/>
+											<TextBlock Grid.Column="1" Text="{Binding DisplayTime}" FontSize="20" FontWeight="Bold" Foreground="#ffb703"/>
+										</Grid>
+									</Border>
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+				</StackPanel>
+			</Border>
+			<Button Content="Back" Command="{Binding BackCommand}"
+					Background="Transparent" Foreground="#023047" Width="100"
+					HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+		</StackPanel>
+	</Grid>
+</UserControl>

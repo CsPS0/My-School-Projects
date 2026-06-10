@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.LoadGameView"
+             x:DataType="vm:LoadGameViewModel">
+    <Grid Background="#8ecae6">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="25" Width="500">
+            <Border Background="White" CornerRadius="20" Padding="30" BoxShadow="0 10 30 0 #30000000">
+                <StackPanel Spacing="20">
+                    <TextBlock Text="LOAD GAME" Foreground="#023047" FontSize="24" FontWeight="Black" HorizontalAlignment="Center"/>
+                    
+                    <Border Background="#f8f9fa" CornerRadius="12" Padding="5">
+                        <ScrollViewer Height="350">
+                            <ItemsControl ItemsSource="{Binding SaveFiles}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Command="{Binding $parent[ItemsControl].((vm:LoadGameViewModel)DataContext).LoadSaveCommand}"
+                                                CommandParameter="{Binding}"
+                                                Background="White" Margin="5" HorizontalAlignment="Stretch" Padding="15"
+                                                CornerRadius="10" BorderBrush="#e0e0e0" BorderThickness="1">
+                                            <Grid ColumnDefinitions="Auto, *">
+                                                <Path Grid.Column="0" Data="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2H6Z" 
+                                                      Fill="#219ebc" Stretch="Uniform" Width="20" Height="20" Margin="0,0,12,0"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding}" Foreground="#023047" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Border>
+                </StackPanel>
+            </Border>
+            
+            <Button Content="Back to Menu" Command="{Binding BackCommand}"
+                    Background="#219ebc" Foreground="White" Width="180"
+                    HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                    Padding="12" CornerRadius="10" FontSize="16" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

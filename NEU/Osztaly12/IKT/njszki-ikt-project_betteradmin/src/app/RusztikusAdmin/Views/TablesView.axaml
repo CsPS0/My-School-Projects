@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:RusztikusAdmin.ViewModels"
+             x:Class="RusztikusAdmin.Views.TablesView"
+             x:DataType="vm:TablesViewModel">
+
+  <DockPanel>
+    <!-- Toolbar -->
+    <Border DockPanel.Dock="Top"
+            Background="White"
+            Padding="16"
+            Margin="0,0,0,16"
+            CornerRadius="8">
+        <Button Content="➕ Új asztal"
+                Background="#030213"
+                Foreground="White"
+                Command="{Binding AddTableCommand}"/>
+    </Border>
+
+    <!-- Tables Grid -->
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding Tables}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White"
+                            CornerRadius="8"
+                            Padding="20"
+                            Margin="8"
+                            Width="200"
+                            BoxShadow="0 1 3 0 #20000000">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Number, StringFormat='{}{0}.'}"
+                                       FontSize="32"
+                                       FontWeight="Bold"
+                                       Foreground="#030213"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,8"/>
+                            
+                            <TextBlock Text="{Binding Capacity, StringFormat='👥 {0} fő'}"
+                                       Foreground="#666666"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,8"/>
+                                       
+                            <TextBlock Text="{Binding Location, StringFormat='📍 {0}'}"
+                                       Foreground="#666666"
+                                       FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,8"/>
+
+                            <!-- Status Indicators -->
+                            <Panel Margin="0,0,0,16">
+                                <Border Background="#28a745" 
+                                        IsVisible="{Binding Available}"
+                                        HorizontalAlignment="Center"
+                                        Padding="10,4"
+                                        CornerRadius="4">
+                                    <TextBlock Text="Szabad"
+                                               Foreground="White"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"/>
+                                </Border>
+                                <Border Background="#d4183d" 
+                                        IsVisible="{Binding !Available}"
+                                        HorizontalAlignment="Center"
+                                        Padding="10,4"
+                                        CornerRadius="4">
+                                    <TextBlock Text="Foglalt"
+                                               Foreground="White"
+                                               FontSize="12"
+                                               FontWeight="SemiBold"/>
+                                </Border>
+                            </Panel>
+                                       
+                            <Button Content="Törlés"
+                                    Background="#d4183d"
+                                    Foreground="White"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center"
+                                    Command="{Binding $parent[ItemsControl].((vm:TablesViewModel)DataContext).DeleteTableCommand}"
+                                    CommandParameter="{Binding}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+  </DockPanel>
+</UserControl>

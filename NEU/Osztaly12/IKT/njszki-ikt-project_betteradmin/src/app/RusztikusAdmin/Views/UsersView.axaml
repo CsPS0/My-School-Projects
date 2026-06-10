@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:RusztikusAdmin.ViewModels"
+             xmlns:m="using:RusztikusAdmin.Models"
+             x:Class="RusztikusAdmin.Views.UsersView"
+             x:DataType="vm:UsersViewModel">
+
+  <DockPanel>
+    <!-- Toolbar -->
+    <Border DockPanel.Dock="Top"
+            Background="White"
+            Padding="16"
+            Margin="0,0,0,16"
+            CornerRadius="8">
+      <Grid ColumnDefinitions="*,Auto">
+        <TextBox Grid.Column="0"
+                 Watermark="Keresés név, felhasználónév vagy email alapján..."
+                 Text="{Binding SearchQuery}"
+                 Width="400"
+                 HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="8">
+          <Button Content="🔍 Keresés"
+                  Command="{Binding SearchCommand}"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- DataGrid -->
+    <Border Background="White"
+            CornerRadius="8"
+            Padding="16">
+      <DataGrid ItemsSource="{Binding Users}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                GridLinesVisibility="Horizontal">
+
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Név"
+                              Binding="{Binding FullName}"
+                              Width="150"/>
+          <DataGridTextColumn Header="Felhasználónév"
+                              Binding="{Binding Username}"
+                              Width="150"/>
+          <DataGridTextColumn Header="Email"
+                              Binding="{Binding Email}"
+                              Width="200"/>
+          <DataGridTextColumn Header="Szerepkör"
+                              Binding="{Binding Role}"
+                              Width="100"/>
+
+          <DataGridTemplateColumn Header="Műveletek" Width="120">
+            <DataGridTemplateColumn.CellTemplate>
+              <DataTemplate x:DataType="m:User">
+                <Panel HorizontalAlignment="Center">
+                  <!-- Delete button visible only for non-admin users -->
+                  <Button Content="🗑️ Törlés"
+                          Background="#d4183d"
+                          Foreground="White"
+                          Command="{Binding $parent[DataGrid].((vm:UsersViewModel)DataContext).DeleteCommand}"
+                          CommandParameter="{Binding}"
+                          IsVisible="{Binding IsNotAdmin}"
+                          ToolTip.Tip="Törlés"/>
+                  
+                  <!-- Label shown only for admin user -->
+                  <TextBlock Text="Rendszergazda"
+                             Foreground="#999"
+                             FontStyle="Italic"
+                             VerticalAlignment="Center"
+                             IsVisible="{Binding !IsNotAdmin}"/>
+                </Panel>
+              </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+          </DataGridTemplateColumn>
+        </DataGrid.Columns>
+      </DataGrid>
+    </Border>
+  </DockPanel>
+</UserControl>

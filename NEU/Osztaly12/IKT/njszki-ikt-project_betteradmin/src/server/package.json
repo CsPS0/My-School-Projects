@@ -1,0 +1,16 @@
+{
+  "name": "rusztikus-admin-server",
+  "version": "1.0.0",
+  "description": "Backend server for Rusztikus Admin application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["admin", "restaurant", "server"],
+  "author": "",
+  "license": "ISC"
+}

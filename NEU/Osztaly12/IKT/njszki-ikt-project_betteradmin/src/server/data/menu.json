@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Gulyásleves",
+    "category": "Levesek",
+    "description": "Tradicionális magyar gulyásleves",
+    "price": 1890,
+    "available": true,
+    "allergens": "Glutén, Zeller"
+  },
+  {
+    "id": 2,
+    "name": "Rántott sajt",
+    "category": "Főételek",
+    "description": "Házi készítésű rántott sajt hasábburgonyával",
+    "price": 2490,
+    "available": true,
+    "allergens": "Glutén, Tejtermék"
+  },
+  {
+    "id": 3,
+    "name": "Tiramisu",
+    "category": "Desszertek",
+    "description": "Olasz klasszikus desszert",
+    "price": 1490,
+    "available": true,
+    "allergens": "Glutén, Tojás, Tejtermék"
+  }
+]

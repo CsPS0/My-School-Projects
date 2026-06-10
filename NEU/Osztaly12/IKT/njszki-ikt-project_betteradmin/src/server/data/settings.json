@@ -1,0 +1,10 @@
+{
+  "restaurantName": "Rusztikus Étterem",
+  "address": "1052 Budapest, Petőfi Sándor utca 5.",
+  "phone": "+36 1 234 5678",
+  "email": "info@rusztikusetterem.hu",
+  "openingHours": {
+    "weekdays": "11:00 - 23:00",
+    "weekends": "12:00 - 24:00"
+  }
+}

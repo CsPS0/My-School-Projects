@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rusztikus Étterem - Foglalás és Menü</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Main Website Content -->
+  <div id="main-website">
+
+    <!-- Header/Navigation -->
+    <header class="header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <!-- Logo -->
+          <div class="logo">
+            <!--<span class="logo-icon">🍽️</span>-->
+            <span class="logo-text" id="restaurant-name">Rusztikus Étterem</span>
+          </div>
+
+          <!-- Navigation Menu -->
+          <nav class="nav-menu">
+            <a href="#home" class="nav-link active">Kezdőlap</a>
+            <a href="#menu" class="nav-link">Menü</a>
+            <a href="#booking" class="nav-link">Foglalás</a>
+            <a href="#contact" class="nav-link">Kapcsolat</a>
+          </nav>
+
+          <!-- Auth Buttons (shown when NOT logged in) -->
+          <div class="nav-actions" id="nav-auth">
+            <button class="btn-nav-auth" onclick="showLoginModal()">
+              Bejelentkezés
+            </button>
+            <button class="btn-nav-signup" onclick="showSignupModal()">
+              Regisztráció
+            </button>
+          </div>
+
+          <!-- User Menu (shown when logged in) -->
+          <div class="nav-user-menu" id="nav-user" style="display: none;">
+            <span class="user-greeting">Üdv, <span id="user-name"></span>!</span>
+            <button class="btn-logout" onclick="handleLogout()">
+              Kijelentkezés
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Üdvözöljük Éttermünkben</h1>
+          <p class="hero-subtitle">
+            Autentikus magyar ízek, modern környezetben. Foglaljon asztalt még ma!
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="scrollToBooking()">
+              Asztalfoglalás
+            </button>
+            <button class="btn btn-outline" onclick="scrollToSection('menu')">
+              Menü megtekintése
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🥬</div>
+            <h3 class="feature-title">Friss Alapanyagok</h3>
+            <p class="feature-description">
+              Naponta friss, helyi termelőktől származó alapanyagok
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">👨‍🍳</div>
+            <h3 class="feature-title">Tapasztalt Szakácsok</h3>
+            <p class="feature-description">
+              Évtizedes tapasztalattal rendelkező séfjeink
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎵</div>
+            <h3 class="feature-title">Kellemes Környezet</h3>
+            <p class="feature-description">
+              Modern design és élő zenés esték
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <h2 class="section-title">Étlapunk</h2>
+        <p class="section-subtitle">
+          Fedezze fel különleges ételkínálatunkat
+        </p>
+
+        <!-- Menu Categories -->
+        <div class="menu-categories">
+          <button class="category-btn active" data-category="all">Összes</button>
+          <button class="category-btn" data-category="Levesek">Levesek</button>
+          <button class="category-btn" data-category="Főételek">Főételek</button>
+          <button class="category-btn" data-category="Desszertek">Desszertek</button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div id="menu-grid" class="menu-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <div class="booking-wrapper">
+          <h2 class="section-title">Asztalfoglalás</h2>
+
+          <!-- Login Required Notice (shown when not logged in) -->
+          <div id="booking-login-required" class="login-required-notice">
+            <div class="notice-icon">🔒</div>
+            <h3>Bejelentkezés szükséges</h3>
+            <p>Az asztalfoglaláshoz kérjük jelentkezzen be vagy hozzon létre egy fiókot!</p>
+            <div class="notice-actions">
+              <button class="btn btn-primary" onclick="showLoginModal()">
+                Bejelentkezés
+              </button>
+              <button class="btn btn-outline" onclick="showSignupModal()">
+                Regisztráció
+              </button>
+            </div>
+          </div>
+
+          <!-- Booking Form (shown when logged in) -->
+          <div id="booking-form-container" style="display: none;">
+            <p class="section-subtitle">
+              Töltse ki az alábbi űrlapot, és munkatársaink hamarosan felveszik Önnel a kapcsolatot.
+            </p>
+
+            <form id="booking-form" class="booking-form">
+              <input type="hidden" id="user-id" name="userId">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Név *</label>
+                  <input type="text" id="name" name="name" placeholder="Teljes név" required readonly>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" placeholder="pelda@email.com" required readonly>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Telefonszám *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+36 20 123 4567" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="date">Dátum *</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                  <label for="time">Időpont *</label>
+                  <select id="time" name="time" required>
+                    <option value="">Válasszon...</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guests">Vendégek száma *</label>
+                  <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+                </div>
+                <div class="form-group">
+                  <label for="table">Asztalszám (opcionális)</label>
+                  <select id="table" name="table">
+                    <option value="">Automatikus választás</option>
+                    <option value="1">1. asztal</option>
+                    <option value="2">2. asztal</option>
+                    <option value="3">3. asztal</option>
+                    <option value="4">4. asztal</option>
+                    <option value="5">5. asztal</option>
+                    <option value="6">6. asztal</option>
+                    <option value="7">7. asztal</option>
+                    <option value="8">8. asztal</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large">
+                Foglalás küldése
+              </button>
+
+              <div id="booking-message" class="form-message"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contact" class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>Elérhetőség</h4>
+            <p id="footer-address">📍 1052 Budapest, Petőfi Sándor utca 5.</p>
+            <p id="footer-phone">📞 +36 1 234 5678</p>
+            <p id="footer-email">✉️ info@rusztikusetterem.hu</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Nyitvatartás</h4>
+            <p id="footer-weekdays">Hétfő - Péntek: 11:00 - 23:00</p>
+            <p id="footer-weekends">Szombat - Vasárnap: 12:00 - 24:00</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Kövessen minket!</h4>
+            <p>Facebook | Instagram | TripAdvisor</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 <span id="footer-restaurant-name">Rusztikus Étterem</span>. Minden jog fenntartva.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Admin Panel (only visible when logged in) -->
+  <div id="admin-panel" style="display: none; background-color: #f0f0f0; min-height: 100vh;">
+    <div style="padding: 50px; text-align: center;">
+        <h1>Admin Felület</h1>
+        <p>Várakozás a betöltésre...</p>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeLoginModal()">&times;</span>
+      <h2>Bejelentkezés</h2>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="login-username">Felhasználónév</label>
+          <input type="text" id="login-username" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Jelszó</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">
+          Belépés
+        </button>
+        <div id="login-error" class="form-message error"></div>
+        <p class="modal-footer-text">
+          Nincs még fiókja? <a href="#" onclick="closeLoginModal(); showSignupModal();">Regisztráció</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeSignupModal()">&times;</span>
+      <h2>Regisztráció</h2>
+      <form id="signup-form" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label for="signup-fullname">Teljes név</label>
+          <input type="text" id="signup-fullname" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-username">Felhasználónév</label>
+          <input type="text" id="signup-username" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Jelszó</label>
+          <input type="password" id="signup-password" required minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">
+          Regisztráció
+        </button>
+        <div id="signup-error" class="form-message error"></div>
+        <div id="signup-success" class="form-message success"></div>
+        <p class="modal-footer-text">
+          Van már fiókja? <a href="#" onclick="closeSignupModal(); showLoginModal();">Bejelentkezés</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data-service.js?v=3"></script>
+  <script src="js/validation.js?v=3"></script>
+  <script src="js/settings.js?v=3"></script>
+  <script src="js/auth.js?v=3"></script>
+  <script src="js/admin.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+model CacheEntry {
+  id         String   @id @default(cuid())
+  providerId String   @unique
+  data       String   
+  updatedAt  DateTime @updatedAt
+}
+model User {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  password        String
+  avatarUrl       String?
+  steamId         String?
+  steamApiKey     String?
+  youtubeHandle   String?
+  favoriteArtist  String?
+  trackerUrlR6    String?
+  trackerUrlRL    String?
+  trackerUrlLoL   String?
+  trackerUrlBF6   String?
+  trackerUrlFortnite String?
+  lastFmUsername  String?
+  exophaseUsername String?
+  dashboardStyle  String   @default("grid")
+  hiddenWidgets   String   @default("[]")
+  createdAt       DateTime @default(now())
+}

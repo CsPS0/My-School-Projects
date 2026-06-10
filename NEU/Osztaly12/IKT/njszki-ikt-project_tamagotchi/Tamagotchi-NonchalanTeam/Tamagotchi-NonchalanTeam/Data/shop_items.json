@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "buvarmaszk",
+    "Name": "Diving Mask",
+    "Type": "Hat",
+    "Price": 150,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/buvarmaszk.png",
+    "CharacterPath": "buvarmaszk"
+  },
+  {
+    "Id": "kalap",
+    "Name": "Hat",
+    "Type": "Hat",
+    "Price": 100,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/kalap.png",
+    "CharacterPath": "kalap"
+  },
+  {
+    "Id": "feherpolo",
+    "Name": "White Shirt",
+    "Type": "Shirt",
+    "Price": 100,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/feherpolo.png",
+    "CharacterPath": "feherpolo"
+  },
+  {
+    "Id": "kekpolo",
+    "Name": "Blue Shirt",
+    "Type": "Shirt",
+    "Price": 120,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/kekpolo.png",
+    "CharacterPath": "kekpolo"
+  },
+  {
+    "Id": "kekfarmer",
+    "Name": "Jeans",
+    "Type": "Pants",
+    "Price": 150,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/kekfarmer.png",
+    "CharacterPath": "kekfarmer"
+  },
+  {
+    "Id": "rovidnadrag",
+    "Name": "Shorts",
+    "Type": "Pants",
+    "Price": 100,
+    "IconPath": "avares://Tamagotchi-NonchalanTeam/Images/csps-statuses/shop-clothes/rovidnadrag.png",
+    "CharacterPath": "rovidnadrag"
+  }
+]

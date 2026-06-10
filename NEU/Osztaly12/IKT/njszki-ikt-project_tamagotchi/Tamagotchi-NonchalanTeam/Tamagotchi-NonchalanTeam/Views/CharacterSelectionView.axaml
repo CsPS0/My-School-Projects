@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.CharacterSelectionView"
+             x:DataType="vm:CharacterSelectionViewModel">
+    <Grid Background="#8ecae6">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="30">
+            <StackPanel Orientation="Horizontal" Spacing="40">
+                
+                <Border Background="White" CornerRadius="20" Padding="20" BoxShadow="0 10 25 0 #30000000">
+                    <StackPanel Spacing="15" Width="260">
+                        <Border BorderBrush="#023047" BorderThickness="3" CornerRadius="12" ClipToBounds="True" Height="320">
+                            <Image Source="{Binding CsongorImage}" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="CSONGOR" FontSize="24" FontWeight="Black" Foreground="#023047" HorizontalAlignment="Center"/>
+                        <Border Background="#e0f2f1" CornerRadius="8" Padding="10">
+                            <TextBlock Text="Balanced survivor. Resources decrease slowly." 
+                                       HorizontalAlignment="Center" FontSize="14" Foreground="#023047" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+                        <Button Content="CHOOSE" Command="{Binding SelectCsongorCommand}"
+                                Background="#219ebc" Foreground="White" HorizontalAlignment="Stretch" 
+                                HorizontalContentAlignment="Center" Padding="12" FontSize="16" FontWeight="Black" CornerRadius="10"/>
+                    </StackPanel>
+                </Border>
+
+                
+                <Border Background="White" CornerRadius="20" Padding="20" BoxShadow="0 10 25 0 #30000000">
+                    <StackPanel Spacing="15" Width="260">
+                        <Border BorderBrush="#023047" BorderThickness="3" CornerRadius="12" ClipToBounds="True" Height="320">
+                            <Image Source="{Binding DavidImage}" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="DÁVID" FontSize="24" FontWeight="Black" Foreground="#023047" HorizontalAlignment="Center"/>
+                        <Border Background="#fff3e0" CornerRadius="8" Padding="10">
+                            <TextBlock Text="Hardcore survivor. Fast decay and high energy." 
+                                       HorizontalAlignment="Center" FontSize="14" Foreground="#023047" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </Border>
+                        <Button Content="CHOOSE" Command="{Binding SelectDavidCommand}"
+                                Background="#fb8500" Foreground="White" HorizontalAlignment="Stretch" 
+                                HorizontalContentAlignment="Center" Padding="12" FontSize="16" FontWeight="Black" CornerRadius="10"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <Button Content="Back" Command="{Binding BackCommand}" 
+                    HorizontalAlignment="Center" Background="Transparent" 
+                    Foreground="#023047" FontSize="16" FontWeight="SemiBold"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

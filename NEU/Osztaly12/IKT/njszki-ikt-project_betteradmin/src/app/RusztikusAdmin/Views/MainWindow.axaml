@@ -1,0 +1,155 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RusztikusAdmin.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:RusztikusAdmin.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RusztikusAdmin.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Étterem Adminisztráció">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Fájl">
+                <MenuItem Header="Mentés" Command="{Binding SaveCommand}"/>
+                <MenuItem Header="Frissítés" Command="{Binding RefreshCommand}"/>
+                <Separator/>
+                <MenuItem Header="Kilépés" Command="{Binding ExitCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Szerkesztés">
+                <MenuItem Header="Új foglalás" Command="{Binding NewBookingCommand}"/>
+                <MenuItem Header="Új menüelem" Command="{Binding NewMenuItemCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Nézet">
+                <MenuItem Header="Foglalások" Command="{Binding ShowBookingsCommand}"/>
+                <MenuItem Header="Menü" Command="{Binding ShowMenuCommand}"/>
+                <MenuItem Header="Asztalok" Command="{Binding ShowTablesCommand}"/>
+                <MenuItem Header="Felhasználók" Command="{Binding ShowUsersCommand}"/>
+                <MenuItem Header="Statisztikák" Command="{Binding ShowStatsCommand}"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Status Bar -->
+        <Border DockPanel.Dock="Bottom"
+                Background="{StaticResource PrimaryBrush}"
+                Padding="8,4">
+            <Grid ColumnDefinitions="*,Auto,Auto">
+                <TextBlock Grid.Column="0"
+                           Foreground="White"
+                           Text="{Binding StatusMessage}"/>
+
+                <TextBlock Grid.Column="1"
+                           Foreground="White"
+                           Margin="16,0"
+                           Text="{Binding CurrentDate}"/>
+
+                <TextBlock Grid.Column="2"
+                           Foreground="White"
+                           Text="{Binding CurrentUser}"/>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid ColumnDefinitions="250,*">
+            <!-- Sidebar Navigation -->
+            <Border Grid.Column="0"
+                    Background="{StaticResource BackgroundBrush}"
+                    BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="0,0,1,0">
+                <DockPanel>
+                    <!-- User Info -->
+                    <Border DockPanel.Dock="Top"
+                            Background="{StaticResource PrimaryBrush}"
+                            Padding="16"
+                            Margin="0,0,0,16">
+                        <StackPanel>
+                            <TextBlock Text="Admin Felhasználó"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       FontSize="16"/>
+                            <TextBlock Text="admin@etterem.hu"
+                                       Foreground="#cccccc"
+                                       FontSize="12"
+                                       Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Logout Button -->
+                    <Button DockPanel.Dock="Bottom"
+                            Classes="NavButton"
+                            Margin="8"
+                            Command="{Binding LogoutCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="🚪" Margin="0,0,8,0"/>
+                            <TextBlock Text="Kijelentkezés"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Navigation Buttons -->
+                    <StackPanel Margin="8">
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowBookingsCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📅" Margin="0,0,8,0"/>
+                                <TextBlock Text="Foglalások"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowMenuCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🍽️" Margin="0,0,8,0"/>
+                                <TextBlock Text="Menü"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowTablesCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🪑" Margin="0,0,8,0"/>
+                                <TextBlock Text="Asztalok"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowUsersCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="👥" Margin="0,0,8,0"/>
+                                <TextBlock Text="Felhasználók"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowStatsCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📊" Margin="0,0,8,0"/>
+                                <TextBlock Text="Statisztikák"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Classes="NavButton"
+                                Command="{Binding ShowSettingsCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="⚙️" Margin="0,0,8,0"/>
+                                <TextBlock Text="Beállítások"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+            <!-- Content Area -->
+            <TransitioningContentControl Grid.Column="1"
+                                         Content="{Binding CurrentView}"
+                                         Margin="16"/>
+        </Grid>
+    </DockPanel>
+
+</Window>

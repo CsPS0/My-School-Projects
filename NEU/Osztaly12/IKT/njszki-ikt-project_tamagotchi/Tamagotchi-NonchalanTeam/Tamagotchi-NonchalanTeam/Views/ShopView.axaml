@@ -1,0 +1,121 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             xmlns:c="using:Tamagotchi_NonchalanTeam.Converters"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.ShopView"
+             x:DataType="vm:ShopViewModel">
+    <UserControl.Resources>
+        <c:ImagePathToDownscaledBitmapConverter x:Key="DownscaleConverter"/>
+        <c:ShopItemBorderBrushConverter x:Key="BorderBrushConverter"/>
+    </UserControl.Resources>
+    
+    <Grid Background="#8ecae6" RowDefinitions="Auto,*">
+        
+        <Border Grid.Row="0" Background="#10023047" Padding="15" BorderBrush="#20023047" BorderThickness="0,0,0,2">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Button Grid.Column="0" Content="Back" Command="{Binding BackCommand}" 
+                        Background="#219ebc" Foreground="White" CornerRadius="8" Padding="12,8" FontSize="16" FontWeight="SemiBold"/>
+                
+                <Border Grid.Column="2" Background="#023047" CornerRadius="10" Padding="15,8">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="Balance:" Foreground="#8ecae6" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding ActivePet.Money, StringFormat='{}{0} Coins'}" Foreground="#ffb703" FontWeight="Black" FontSize="18" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            
+            <Border Grid.Column="0" Background="White" CornerRadius="20" Margin="30" Padding="20">
+                <Grid RowDefinitions="*,Auto">
+                    <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding ShopItems}" HorizontalAlignment="Center">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding ((vm:ShopViewModel)DataContext).SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                            CommandParameter="{Binding}"
+                                            Padding="0" Background="Transparent" Margin="5">
+                                        <Border CornerRadius="12" BorderThickness="3" Width="120" Height="120" Background="#f8f9fa">
+                                            <Border.BorderBrush>
+                                                <MultiBinding Converter="{StaticResource BorderBrushConverter}">
+                                                    <Binding Path="IsSelected"/>
+                                                    <Binding Path="IsOwned"/>
+                                                </MultiBinding>
+                                            </Border.BorderBrush>
+                                            <Panel>
+                                                <Image Source="{Binding IconPath, Converter={StaticResource DownscaleConverter}}" 
+                                                       Margin="10"
+                                                       ToolTip.Tip="{Binding Name}"
+                                                       Stretch="Uniform"/>
+                                            </Panel>
+                                        </Border>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <StackPanel Grid.Row="1" Margin="0,15,0,0" Spacing="15">
+                        <Border Background="#f0f2f5" CornerRadius="10" Padding="15">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <StackPanel>
+                                    <TextBlock Text="Total Cost" FontSize="12" Foreground="#666" FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding SelectedPrice, StringFormat='{}{0} Coins'}" FontSize="24" FontWeight="Black" Foreground="#fb8500"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                                    <Button Content="BUY" Command="{Binding BuyCommand}" Width="100" Height="45" 
+                                            Background="#ffb703" Foreground="#023047" FontWeight="Black" FontSize="16" 
+                                            CornerRadius="8"/>
+                                    <Button Content="SELL" Command="{Binding SellCommand}" Width="100" Height="45" 
+                                            Background="#e63946" Foreground="White" FontWeight="Black" FontSize="16" 
+                                            CornerRadius="8"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            
+            <Grid Grid.Column="1" RowDefinitions="Auto,*,Auto" Margin="20,30,30,30">
+                
+                <Border Grid.Row="0" Background="#fb8500" CornerRadius="12" Padding="15,10" Margin="0,0,0,15"
+                        HorizontalAlignment="Stretch"
+                        IsVisible="{Binding TutorialMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                    <TextBlock Text="{Binding TutorialMessage}" Foreground="White" FontWeight="Black" FontSize="16" TextAlignment="Center" TextWrapping="Wrap"/>
+                </Border>
+
+                
+                <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto">
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center" Spacing="30">
+                        <Button Command="{Binding PreviousHatCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&lt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                        <Button Command="{Binding PreviousShirtCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&lt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                        <Button Command="{Binding PreviousPantsCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&lt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <Border Grid.Column="1" Background="White" CornerRadius="20" Margin="15,0" BorderBrush="#023047" BorderThickness="4" ClipToBounds="True">
+                        <Image Source="{Binding CharacterImage, Converter={StaticResource DownscaleConverter}, ConverterParameter=512}" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Spacing="30">
+                        <Button Command="{Binding NextHatCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&gt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                        <Button Command="{Binding NextShirtCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&gt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                        <Button Command="{Binding NextPantsCommand}" Background="#023047" Foreground="White" Width="50" Height="50" CornerRadius="25" Content="&gt;" FontSize="24" FontWeight="Black" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Grid.Row="2" Text="PREVIEW" FontSize="16" FontWeight="Black" Foreground="#023047" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

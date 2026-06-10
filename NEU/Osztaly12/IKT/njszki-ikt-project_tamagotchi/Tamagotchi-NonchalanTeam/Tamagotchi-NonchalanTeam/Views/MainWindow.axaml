@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+        x:Class="Tamagotchi_NonchalanTeam.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Tamagotchi"
+        Width="1280" Height="720"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#8ecae6">
+        <Viewbox Stretch="Uniform" Name="MainViewbox">
+            <ContentControl Name="MainContent" Content="{Binding CurrentPage}" Width="1280" Height="720" />
+        </Viewbox>
+    </Grid>
+</Window>

@@ -1,0 +1,135 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RusztikusAdmin.ViewModels"
+        x:Class="RusztikusAdmin.Views.LoginWindow"
+        x:DataType="vm:LoginViewModel"
+        Title="Rusztikus Étterem - Admin Belépés"
+        Width="450"
+        Height="550"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+
+  <Design.DataContext>
+    <vm:LoginViewModel/>
+  </Design.DataContext>
+
+  <Grid Background="#f3f3f5">
+    <Border Background="White"
+            MaxWidth="400"
+            Margin="24"
+            Padding="40,48"
+            CornerRadius="12"
+            BoxShadow="0 4 16 0 #20000000">
+
+      <StackPanel Spacing="24">
+        <!-- Logo and Title -->
+        <StackPanel HorizontalAlignment="Center" Spacing="12">
+          <TextBlock Text="🍽️"
+                    FontSize="48"
+                    HorizontalAlignment="Center"/>
+          <TextBlock Text="Rusztikus Étterem"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center"
+                    Foreground="#030213"/>
+          <TextBlock Text="Admin Belépés"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    Foreground="#666666"/>
+        </StackPanel>
+
+        <!-- Login Form -->
+        <StackPanel Spacing="16">
+          <Button Content="⚙️ Kapcsolati beállítások"
+                  Command="{Binding ToggleSettingsCommand}"
+                  Background="Transparent"
+                  BorderThickness="0"
+                  Foreground="#666"
+                  FontSize="12"
+                  HorizontalAlignment="Right"
+                  Padding="0"/>
+
+          <!-- Connection Settings (Expandable) -->
+          <StackPanel Spacing="8" IsVisible="{Binding IsSettingsOpen}">
+            <TextBlock Text="Szerver címe"
+                      FontWeight="Medium"
+                      FontSize="13"/>
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBox Grid.Column="0"
+                       Text="{Binding ServerUrl}"
+                       Watermark="http://192.168.1.15:3000"
+                       Padding="8"
+                       BorderBrush="#e4e4e9"
+                       CornerRadius="6,0,0,6"/>
+              <Button Grid.Column="1"
+                      Content="Teszt"
+                      Command="{Binding TestConnectionCommand}"
+                      Background="#030213"
+                      Foreground="White"
+                      Padding="12,8"
+                      CornerRadius="0,6,6,0"/>
+            </Grid>
+            <TextBlock Text="{Binding ConnectionStatus}"
+                      FontSize="11"
+                      HorizontalAlignment="Left"/>
+            <Separator Margin="0,8"/>
+          </StackPanel>
+
+          <!-- Username -->
+          <StackPanel>
+            <TextBlock Text="Felhasználónév"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding Username}"
+                    Watermark="admin"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"/>
+          </StackPanel>
+
+          <!-- Password -->
+          <StackPanel>
+            <TextBlock Text="Jelszó" 
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding Password}"
+                    PasswordChar="●"
+                    Watermark="••••••••"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"/>
+          </StackPanel>
+
+          <!-- Error Message -->
+          <TextBlock Text="{Binding ErrorMessage}"
+                    IsVisible="{Binding HasError}"
+                    Foreground="#d4183d"
+                    FontSize="13"
+                    TextAlignment="Center"
+                    Padding="8"
+                    Background="#ffd4d4"/>
+
+          <!-- Login Button -->
+          <Button Content="Belépés"
+                  Command="{Binding LoginCommand}"
+                  Background="#030213"
+                  Foreground="White"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Center"
+                  Padding="0,14"
+                  FontSize="16"
+                  FontWeight="SemiBold"
+                  CornerRadius="6"
+                  Margin="0,8,0,0"/>
+
+          <!-- Info Text -->
+          <TextBlock Text="Alapértelmezett: admin / admin"
+                    FontSize="12"
+                    Foreground="#999999"
+                    HorizontalAlignment="Center"
+                    Margin="0,8,0,0"/>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>

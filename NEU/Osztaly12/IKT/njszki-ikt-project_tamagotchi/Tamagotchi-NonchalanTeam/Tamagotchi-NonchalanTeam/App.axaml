@@ -1,0 +1,38 @@
+<Application x:Class="Tamagotchi_NonchalanTeam.App"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:local="using:Tamagotchi_NonchalanTeam"
+             xmlns:conv="using:Tamagotchi_NonchalanTeam.Converters"
+             RequestedThemeVariant="Default">
+  <Application.DataTemplates>
+    <local:ViewLocator />
+  </Application.DataTemplates>
+  <Application.Resources>
+    <conv:FoodStockToOpacityConverter x:Key="FoodStockToOpacityConverter" />
+    <conv:PointToPositionConverter x:Key="PointToX" />
+    <conv:PointToYPositionConverter x:Key="PointToY" />
+    <conv:XoColorConverter x:Key="XoColorConverter" />
+  </Application.Resources>
+  <Application.Styles>
+    <FluentTheme />
+    <Style Selector="Button">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+      <Setter Property="Opacity" Value="0.7" />
+    </Style>
+    <Style Selector="Button:pointerover">
+      <Setter Property="RenderTransform" Value="scale(0.98)" />
+    </Style>
+    <Style Selector="Button:pressed">
+      <Setter Property="RenderTransform" Value="scale(0.95)" />
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </Application.Styles>
+  </Application>

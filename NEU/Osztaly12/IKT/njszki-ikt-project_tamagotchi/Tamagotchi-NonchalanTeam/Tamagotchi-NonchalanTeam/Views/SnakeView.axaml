@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             xmlns:local="clr-namespace:Tamagotchi_NonchalanTeam.Views"
+             x:Class="Tamagotchi_NonchalanTeam.Views.SnakeView"
+             x:DataType="vm:SnakeViewModel"
+             Focusable="True">
+    <UserControl.Resources>
+        <local:PointToXConverter x:Key="PointToX"/>
+        <local:PointToYConverter x:Key="PointToY"/>
+    </UserControl.Resources>
+    <Grid Background="#8ecae6">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="25">
+            <Border Background="#023047" CornerRadius="15" Padding="25,10" BoxShadow="0 4 15 0 #40000000">
+                <StackPanel Orientation="Horizontal" Spacing="40">
+                    <TextBlock Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="28" FontWeight="Black" Foreground="#8ecae6"/>
+                    <TextBlock Text="{Binding HighScore, StringFormat='Best: {0}'}" FontSize="28" FontWeight="Black" Foreground="#ffb703"/>
+                </StackPanel>
+            </Border>
+            
+            <Border BorderBrush="#023047" BorderThickness="8" CornerRadius="20" Background="#05415e" BoxShadow="0 20 50 0 #40000000">
+                <Panel Width="600" Height="400">
+                    
+                    <Canvas>
+                        <Ellipse Width="18" Height="18" Fill="#e63946"
+                                 Canvas.Left="{Binding Food.X, Converter={StaticResource PointToX}}"
+                                 Canvas.Top="{Binding Food.Y, Converter={StaticResource PointToY}}"
+                                 Margin="1"/>
+                    </Canvas>
+                    
+                    
+                    <ItemsControl ItemsSource="{Binding Snake}" x:CompileBindings="False">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemContainerTheme>
+                            <ControlTheme TargetType="ContentPresenter">
+                                <Setter Property="Canvas.Left" Value="{Binding X, Converter={StaticResource PointToX}}"/>
+                                <Setter Property="Canvas.Top" Value="{Binding Y, Converter={StaticResource PointToY}}"/>
+                            </ControlTheme>
+                        </ItemsControl.ItemContainerTheme>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="20" Height="20" Background="#fb8500" CornerRadius="4" Margin="1" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Panel>
+            </Border>
+
+            <TextBlock Text="ARROWS OR WASD TO MOVE" FontSize="18" Foreground="#023047" HorizontalAlignment="Center" FontWeight="Black"/>
+
+            <Button Content="Exit Game" Command="{Binding BackCommand}"
+                    Background="#023047" Foreground="White" FontWeight="Bold" 
+                    Padding="30,12" CornerRadius="10" HorizontalAlignment="Center" FontSize="18"/>
+        </StackPanel>
+
+        
+        <Border IsVisible="{Binding IsGameOver}" Background="#EE023047" ZIndex="100">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="30">
+                <TextBlock Text="GAME OVER" FontSize="64" FontWeight="Black" Foreground="#ffb703" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding GameOverMessage}" FontSize="32" Foreground="White" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
+                    <Button Content="TRY AGAIN" Command="{Binding RestartCommand}" 
+                            Background="#fb8500" Foreground="White" Padding="30,15" FontSize="24" FontWeight="Black" CornerRadius="12"/>
+                    <Button Content="EXIT" Command="{Binding BackCommand}" 
+                            Background="#219ebc" Foreground="White" Padding="30,15" FontSize="24" FontWeight="Black" CornerRadius="12"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

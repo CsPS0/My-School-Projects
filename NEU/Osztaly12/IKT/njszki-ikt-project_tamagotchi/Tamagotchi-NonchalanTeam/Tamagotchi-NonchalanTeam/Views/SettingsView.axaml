@@ -1,0 +1,85 @@
+<UserControl x:Class="Tamagotchi_NonchalanTeam.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             d:DesignHeight="720"
+             d:DesignWidth="1280"
+             mc:Ignorable="d">
+  <Grid Background="#8ecae6">
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="40">
+      <TextBlock HorizontalAlignment="Center"
+                 FontSize="48"
+                 FontWeight="Bold"
+                 Foreground="#023047"
+                 Text="SETTINGS" />
+      <Border Width="600"
+              Background="White"
+              CornerRadius="20"
+              Padding="30"
+              BoxShadow="5 5 20 0 #40000000">
+        <StackPanel Spacing="20">
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBlock VerticalAlignment="Center"
+                       FontSize="20"
+                       Foreground="#023047"
+                       Text="Window Mode"
+                       Grid.Column="0" />
+            <ComboBox ItemsSource="{Binding WindowModes}"
+                      SelectedItem="{Binding SelectedWindowMode}"
+                      Width="220"
+                      Grid.Column="1" />
+          </Grid>
+          <Separator />
+          <Grid ColumnDefinitions="*, Auto">
+            <TextBlock VerticalAlignment="Center"
+                       FontSize="20"
+                       Foreground="#023047"
+                       Text="Resolution"
+                       Grid.Column="0" />
+            <ComboBox ItemsSource="{Binding Resolutions}"
+                      SelectedItem="{Binding SelectedResolution}"
+                      IsEnabled="{Binding IsResolutionEnabled}"
+                      Width="220"
+                      Grid.Column="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="vm:ResolutionOption">
+                        <TextBlock Text="{Binding Label}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+          </Grid>
+          <Separator />
+          <Button Content="Manage Saves"
+                  Command="{Binding OpenManageSavesCommand}"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Center"
+                  Background="#219ebc"
+                  CornerRadius="10"
+                  Foreground="White"
+                  Padding="15"
+                  FontSize="20" />
+          <Separator />
+          <TextBlock HorizontalAlignment="Center"
+                     FontSize="16"
+                     Foreground="#219ebc"
+                     Text="Game Version: 1.0.0" />
+        </StackPanel>
+      </Border>
+      <Button Content="Back"
+              Command="{Binding BackCommand}"
+              Width="150"
+              HorizontalAlignment="Center"
+              HorizontalContentAlignment="Center"
+              Background="#219ebc"
+              CornerRadius="10"
+              Foreground="White"
+              Padding="15"
+              FontSize="22" />
+    </StackPanel>
+  </Grid>
+</UserControl>

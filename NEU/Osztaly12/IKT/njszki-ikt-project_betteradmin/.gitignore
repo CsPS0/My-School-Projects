@@ -1,0 +1,33 @@
+node_modules/
+
+dist/
+out/
+figma-design
+
+*.log
+*.tmp
+*.bak
+*.txt
+*.swp
+
+.DS_Store      # macOS
+Thumbs.db      # Windows
+Desktop.ini    # Windows
+
+.vscode/
+*.code-workspace
+
+.env
+.env.local
+
+*.vs
+
+# .NET Build artifacts
+**/bin/
+**/obj/
+*.user
+*.suo
+*.sln.docstates
+
+*.png
+*.pdf

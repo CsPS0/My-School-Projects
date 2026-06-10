@@ -1,0 +1,20 @@
+* text=auto
+
+
+* text eol=lf
+
+*.js text
+*.ts text
+*.tsx text
+*.json text
+*.css text
+*.md text
+*.html text
+*.mjs text
+*.pdf binary
+
+# Linguist (GitHub/GitLab) settings
+README.md linguist-language=Hungarian
+docs/*.md linguist-language=Hungarian
+src/**/*.ts linguist-language=TypeScript
+src/**/*.tsx linguist-language=TypeScript

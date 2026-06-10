@@ -1,0 +1,92 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:RusztikusAdmin.ViewModels"
+             x:Class="RusztikusAdmin.Views.BookingsView"
+             x:DataType="vm:BookingsViewModel">
+
+  <DockPanel>
+    <!-- Toolbar -->
+    <Border DockPanel.Dock="Top"
+            Background="White"
+            Padding="16"
+            Margin="0,0,0,16"
+            CornerRadius="8">
+      <Grid ColumnDefinitions="*,Auto">
+        <TextBox Grid.Column="0"
+                 Watermark="Keresés név, telefon vagy dátum alapján..."
+                 Text="{Binding SearchQuery}"
+                 Width="400"
+                 HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="8">
+          <Button Content="🔍 Keresés"
+                  Command="{Binding SearchCommand}"/>
+          <Button Content="➕ Új foglalás"
+                  Background="#030213"
+                  Foreground="White"
+                  Command="{Binding AddBookingCommand}"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- DataGrid -->
+    <Border Background="White"
+            CornerRadius="8"
+            Padding="16">
+      <DataGrid ItemsSource="{Binding Bookings}"
+                SelectedItem="{Binding SelectedBooking}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                GridLinesVisibility="Horizontal">
+
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="ID"
+                              Binding="{Binding Id}"
+                              Width="100"/>
+          <DataGridTextColumn Header="Név"
+                              Binding="{Binding Name}"
+                              Width="150"/>
+          <DataGridTextColumn Header="Dátum"
+                              Binding="{Binding Date}"
+                              Width="120"/>
+          <DataGridTextColumn Header="Idő"
+                              Binding="{Binding Time}"
+                              Width="80"/>
+          <DataGridTextColumn Header="Vendégek"
+                              Binding="{Binding Guests}"
+                              Width="80"/>
+          <DataGridTextColumn Header="Asztal"
+                              Binding="{Binding TableNumber}"
+                              Width="80"/>
+          <DataGridTextColumn Header="Telefon"
+                              Binding="{Binding Phone}"
+                              Width="140"/>
+          <DataGridTextColumn Header="Státusz"
+                              Binding="{Binding Status}"
+                              Width="*"/>
+
+          <DataGridTemplateColumn Header="Műveletek" Width="150">
+            <DataGridTemplateColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <Button Content="✏️"
+                          Command="{Binding $parent[DataGrid].((vm:BookingsViewModel)DataContext).EditCommand}"
+                          CommandParameter="{Binding}"
+                          ToolTip.Tip="Szerkesztés"/>
+                  <Button Content="🗑️"
+                          Background="#d4183d"
+                          Foreground="White"
+                          Command="{Binding $parent[DataGrid].((vm:BookingsViewModel)DataContext).DeleteCommand}"
+                          CommandParameter="{Binding}"
+                          ToolTip.Tip="Törlés"/>
+                </StackPanel>
+              </DataTemplate>
+            </DataGridTemplateColumn.CellTemplate>
+          </DataGridTemplateColumn>
+        </DataGrid.Columns>
+      </DataGrid>
+    </Border>
+  </DockPanel>
+</UserControl>

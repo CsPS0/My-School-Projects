@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.NamePetView"
+             x:DataType="vm:NamePetViewModel">
+    <Grid Background="#8ecae6">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="30" Width="400">
+            <TextBlock Text="NEW GAME" FontSize="36" FontWeight="Bold" Foreground="#023047" HorizontalAlignment="Center"/>
+            
+            <Border Background="White" CornerRadius="15" Padding="30">
+                <StackPanel Spacing="20">
+                    <TextBlock Text="Enter Pet Name:" Foreground="#023047" FontSize="18"/>
+                    <TextBox Text="{Binding PetName, UpdateSourceTrigger=PropertyChanged}" 
+                             Watermark="Name..."
+                             FontSize="18"
+                             HorizontalAlignment="Stretch"/>
+                    
+                    <Button Content="Continue" Command="{Binding StartCommand}"
+                            Background="#219ebc" Foreground="White" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                            Padding="12" CornerRadius="8" FontWeight="Bold"/>
+                </StackPanel>
+            </Border>
+            
+            <Button Content="Back" Command="{Binding BackCommand}"
+                    Background="Transparent" Foreground="#023047" Width="100"
+                    HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

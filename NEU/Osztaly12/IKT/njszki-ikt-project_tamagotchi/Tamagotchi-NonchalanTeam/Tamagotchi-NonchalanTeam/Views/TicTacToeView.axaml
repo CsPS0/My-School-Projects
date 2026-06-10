@@ -1,0 +1,71 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             x:Class="Tamagotchi_NonchalanTeam.Views.TicTacToeView"
+             x:DataType="vm:TicTacToeViewModel">
+  <Grid Background="#8ecae6">
+    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Spacing="20" Margin="0,40,0,0">
+      <TextBlock Text="TIC TAC TOE" FontSize="48" FontWeight="Black" Foreground="#023047" HorizontalAlignment="Center" />
+      <Border Background="#023047" CornerRadius="12" Padding="25,10" HorizontalAlignment="Center" BoxShadow="0 4 10 0 #20000000">
+        <TextBlock Text="{Binding StatusMessage}" FontSize="24" FontWeight="Bold" Foreground="#ffb703" />
+      </Border>
+    </StackPanel>
+
+    <Border BorderBrush="#023047" BorderThickness="8" CornerRadius="20" Background="#05415e" Width="480" Height="480" HorizontalAlignment="Center" VerticalAlignment="Center" BoxShadow="0 20 50 0 #40000000">
+      <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*" Margin="5">
+        <Button Grid.Row="0" Grid.Column="0" Command="{Binding MakeMoveCommand}" CommandParameter="0" Content="{Binding Board[0]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="0" Grid.Column="1" Command="{Binding MakeMoveCommand}" CommandParameter="1" Content="{Binding Board[1]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="0" Grid.Column="2" Command="{Binding MakeMoveCommand}" CommandParameter="2" Content="{Binding Board[2]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        
+        <Button Grid.Row="1" Grid.Column="0" Command="{Binding MakeMoveCommand}" CommandParameter="3" Content="{Binding Board[3]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="1" Grid.Column="1" Command="{Binding MakeMoveCommand}" CommandParameter="4" Content="{Binding Board[4]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="1" Grid.Column="2" Command="{Binding MakeMoveCommand}" CommandParameter="5" Content="{Binding Board[5]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        
+        <Button Grid.Row="2" Grid.Column="0" Command="{Binding MakeMoveCommand}" CommandParameter="6" Content="{Binding Board[6]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding MakeMoveCommand}" CommandParameter="7" Content="{Binding Board[7]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding MakeMoveCommand}" CommandParameter="8" Content="{Binding Board[8]}" 
+                FontSize="80" FontWeight="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                BorderBrush="#10ffffff" BorderThickness="1" Background="Transparent" />
+      </Grid>
+    </Border>
+
+    <Button Content="Exit Game" Command="{Binding BackCommand}" Background="#023047" Foreground="White" FontWeight="Bold" Padding="30,12" CornerRadius="10" HorizontalAlignment="Center" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,40" />
+
+    
+    <Border IsVisible="{Binding IsGameOver}" Background="#EE023047" ZIndex="100">
+      <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="30">
+        <TextBlock Text="GAME OVER" FontSize="64" FontWeight="Black" Foreground="#ffb703" HorizontalAlignment="Center" />
+        <TextBlock Text="{Binding GameOverResult}" FontSize="36" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" />
+        <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
+          <Button Content="REPLAY" Command="{Binding RestartCommand}" Background="#fb8500" Foreground="White" Padding="30,15" FontSize="24" FontWeight="Black" CornerRadius="12" />
+          <Button Content="EXIT" Command="{Binding BackCommand}" Background="#219ebc" Foreground="White" Padding="30,15" FontSize="24" FontWeight="Black" CornerRadius="12" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

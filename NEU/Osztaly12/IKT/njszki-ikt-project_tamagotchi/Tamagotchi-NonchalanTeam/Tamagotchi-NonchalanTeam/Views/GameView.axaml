@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.GameView"
+             x:DataType="vm:GameViewModel">
+    <Grid Background="#8ecae6" RowDefinitions="Auto,*">
+        
+        <Border Grid.Row="0" Background="#10023047" Padding="15" BorderBrush="#20023047" BorderThickness="0,0,0,2">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10">
+                    <Button Content="Menu" Command="{Binding BackToMenuCommand}" Background="#219ebc" Foreground="White" CornerRadius="8" Padding="12,8" FontSize="14" FontWeight="SemiBold"/>
+                    <Button Content="Shop" Command="{Binding OpenShopCommand}" Background="#219ebc" Foreground="White" CornerRadius="8" Padding="12,8" FontSize="14" FontWeight="SemiBold"/>
+                    <Button Content="Games" Command="{Binding OpenGamesCommand}" Background="#219ebc" Foreground="White" CornerRadius="8" Padding="12,8" FontSize="14" FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <TextBlock Grid.Column="1" Text="{Binding ActivePet.Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28" FontWeight="Black" Foreground="#023047"/>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Spacing="15">
+                    <Border Background="#023047" CornerRadius="6" Padding="10,4">
+                        <TextBlock Text="{Binding ActivePet.SurvivalTime, StringFormat='{}Time: {0:mm\\:ss}'}" FontSize="16" FontWeight="Bold" Foreground="#ffb703"/>
+                    </Border>
+                    <Border Background="#023047" CornerRadius="6" Padding="10,4">
+                        <TextBlock Text="{Binding ActivePet.Money, StringFormat='{}Money: {0}'}" FontSize="16" FontWeight="Bold" Foreground="#8ecae6"/>
+                    </Border>
+                    <Border Background="#023047" CornerRadius="6" Padding="10,4">
+                        <TextBlock Text="{Binding ActivePet.FoodStock, StringFormat='{}Food: {0}'}" FontSize="16" FontWeight="Bold" Foreground="#fb8500"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        
+        <Grid Grid.Row="1" RowDefinitions="Auto, *" Margin="20">
+            
+            <Border Grid.Row="0" Background="#ffb703" CornerRadius="10" Padding="20,10" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <TextBlock Text="{Binding StatusMessage}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#023047" TextAlignment="Center"/>
+            </Border>
+            
+            <Grid Grid.Row="1" ColumnDefinitions="*, Auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+                
+                <Border Grid.Column="0" BorderBrush="#023047" BorderThickness="4" CornerRadius="20" ClipToBounds="True" Width="360" Height="480" Background="White" Margin="0,0,40,0">
+                    <Image Source="{Binding ActivePetImage}" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+
+                
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="25">
+                    <Border Background="#023047" CornerRadius="20" Padding="30">
+                        <StackPanel Spacing="20" Width="300">
+                            <StackPanel>
+                                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,5">
+                                    <TextBlock Text="Hunger" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding ActivePet.Hunger, StringFormat='{}{0}%'}" Foreground="White" FontSize="16" Opacity="0.8"/>
+                                </Grid>
+                                <ProgressBar Value="{Binding ActivePet.Hunger}" Minimum="0" Maximum="100" Height="25" Foreground="#fb8500" Background="#10ffffff"/>
+                            </StackPanel>
+                            
+                            <StackPanel>
+                                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,5">
+                                    <TextBlock Text="Happiness" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding ActivePet.Happiness, StringFormat='{}{0}%'}" Foreground="White" FontSize="16" Opacity="0.8"/>
+                                </Grid>
+                                <ProgressBar Value="{Binding ActivePet.Happiness}" Minimum="0" Maximum="100" Height="25" Foreground="#ffb703" Background="#10ffffff"/>
+                            </StackPanel>
+                            
+                            <StackPanel>
+                                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,5">
+                                    <TextBlock Text="Health" Foreground="White" FontSize="18" FontWeight="SemiBold"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding ActivePet.Health, StringFormat='{}{0}%'}" Foreground="White" FontSize="16" Opacity="0.8"/>
+                                </Grid>
+                                <ProgressBar Value="{Binding ActivePet.Health}" Minimum="0" Maximum="100" Height="25" Foreground="#e63946" Background="#10ffffff"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    
+                    <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
+                        <Button Content="FEED" Command="{Binding FeedPetCommand}" IsEnabled="{Binding ActivePet.IsAlive}"
+                                Opacity="{Binding ActivePet.FoodStock, Converter={StaticResource FoodStockToOpacityConverter}}"
+                                Background="#fb8500" Foreground="White" FontWeight="Black" Width="140" Height="50"
+                                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="10" FontSize="20"/>
+                        <Button Content="HEAL" Command="{Binding HealPetCommand}" IsEnabled="{Binding ActivePet.IsAlive}"
+                                Background="#e63946" Foreground="White" FontWeight="Black" Width="140" Height="50"
+                                HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CornerRadius="10" FontSize="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        
+        <Canvas Grid.Row="1" IsVisible="{Binding IsVirusVisible}" Background="Transparent" ZIndex="100">
+            <Button Command="{Binding PopVirusCommand}" 
+                    Padding="0" Background="Transparent" BorderThickness="0"
+                    Canvas.Left="{Binding VirusX}" Canvas.Top="{Binding VirusY}">
+                <Image Source="{Binding VirusImage}" Width="120" Height="120"/>
+            </Button>
+        </Canvas>
+    </Grid>
+</UserControl>

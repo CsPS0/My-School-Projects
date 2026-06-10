@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@rusztikusetterem.hu",
+    "fullName": "Adminisztrátor",
+    "role": "admin"
+  },
+  {
+    "id": 1,
+    "username": "adam",
+    "password": "adam123",
+    "email": "adam@example.com",
+    "fullName": "Ádám",
+    "role": "user"
+  },
+  {
+    "id": 2,
+    "username": "eva",
+    "password": "eva123",
+    "email": "eva@example.com",
+    "fullName": "Éva",
+    "role": "user"
+  }
+]

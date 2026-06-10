@@ -1,0 +1,47 @@
+# Build and Output
+**/bin/
+**/obj/
+dist/
+out/
+TestResults/
+
+# IDEs and Editors
+.vs/
+.vscode/
+.idea/
+*.swp
+*.user
+*.suo
+*.sln.docstates
+*.code-workspace
+
+# OS related
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment and Secrets
+.env
+.env.local
+*.log
+
+# Project specific
+node_modules/
+figma-design
+*.tmp
+*.bak
+
+# Images (Blocked due to GitLab size limits)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+*.svg
+*.ico
+*.heic
+*.tiff
+
+# Documents
+*.pdf

@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Tamagotchi_NonchalanTeam.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+             x:Class="Tamagotchi_NonchalanTeam.Views.MainMenuView"
+             x:DataType="vm:MainMenuViewModel">
+    <Grid Background="#8ecae6">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="30">
+            <TextBlock Text="TAMAGOTCHI" FontSize="48" FontWeight="Bold" Foreground="#023047" HorizontalAlignment="Center"/>
+            <TextBlock Text="NonchalanTeam" FontSize="18" Foreground="#219ebc" HorizontalAlignment="Center" Margin="0,-25,0,0"/>
+            
+            <StackPanel Spacing="15" Width="300">
+                <Button Content="New Game" Command="{Binding NewGameCommand}"
+                        Background="#219ebc" Foreground="White" FontSize="20"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                        Padding="15" CornerRadius="10"/>
+                <Button Content="Load Game" Command="{Binding LoadGameCommand}"
+                        Background="#219ebc" Foreground="White" FontSize="20"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                        Padding="15" CornerRadius="10"/>
+                <Button Content="Settings" Command="{Binding OpenSettingsCommand}"
+                        Background="#219ebc" Foreground="White" FontSize="20"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                        Padding="15" CornerRadius="10"/>
+                <Button Content="Scoreboard" Command="{Binding OpenScoreboardCommand}"
+                        Background="#219ebc" Foreground="White" FontSize="20"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                        Padding="15" CornerRadius="10"/>
+                <Button Content="Exit" Command="{Binding ExitCommand}"
+                        Background="#fb8500" Foreground="White" FontSize="20"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                        Padding="15" CornerRadius="10"/>
+            </StackPanel>
+            
+            <TextBlock Text="{Binding StatusMessage}" FontSize="16" Foreground="#023047" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

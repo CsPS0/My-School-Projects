@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Tamagotchi-NonchalanTeam/Tamagotchi-NonchalanTeam.csproj" />
+  <Project Path="tamagotchiLib/tamagotchiLib.csproj" />
+  <Project Path="tamagotchiLib.Tests/tamagotchiLib.Tests.csproj" />
+</Solution>

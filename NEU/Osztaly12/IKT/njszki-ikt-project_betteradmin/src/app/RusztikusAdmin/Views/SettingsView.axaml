@@ -1,0 +1,134 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:RusztikusAdmin.ViewModels"
+             x:Class="RusztikusAdmin.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+
+  <ScrollViewer>
+    <StackPanel MaxWidth="800" Spacing="24">
+      <TextBlock Text="Beállítások"
+                FontSize="32"
+                FontWeight="Bold"/>
+
+      <!-- Restaurant Info Card -->
+      <Border Background="White"
+              Padding="24"
+              CornerRadius="8"
+              BoxShadow="0 1 3 0 #10000000">
+        <StackPanel Spacing="16">
+          <TextBlock Text="Étterem Adatai"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    Margin="0,0,0,8"/>
+
+          <!-- Restaurant Name -->
+          <StackPanel>
+            <TextBlock Text="Étterem neve *"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding RestaurantName}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"/>
+          </StackPanel>
+
+          <!-- Address -->
+          <StackPanel>
+            <TextBlock Text="Cím"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding Address}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"/>
+          </StackPanel>
+
+          <!-- Phone -->
+          <StackPanel>
+            <TextBlock Text="Telefonszám *"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding Phone}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"
+                    Watermark="+36 1 234 5678"/>
+          </StackPanel>
+
+          <!-- Email -->
+          <StackPanel>
+            <TextBlock Text="Email *"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding Email}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"
+                    Watermark="info@rusztikusetterem.hu"/>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <!-- Opening Hours Card -->
+      <Border Background="White"
+              Padding="24"
+              CornerRadius="8"
+              BoxShadow="0 1 3 0 #10000000">
+        <StackPanel Spacing="16">
+          <TextBlock Text="Nyitvatartás"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    Margin="0,0,0,8"/>
+
+          <!-- Weekdays -->
+          <StackPanel>
+            <TextBlock Text="Hétfő - Péntek"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding WeekdaysHours}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"
+                    Watermark="11:00 - 23:00"/>
+          </StackPanel>
+
+          <!-- Weekends -->
+          <StackPanel>
+            <TextBlock Text="Szombat - Vasárnap"
+                      FontWeight="Medium"
+                      Margin="0,0,0,6"/>
+            <TextBox Text="{Binding WeekendsHours}"
+                    Padding="12"
+                    BorderBrush="#e4e4e9"
+                    CornerRadius="6"
+                    Watermark="12:00 - 24:00"/>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <!-- Action Buttons -->
+      <StackPanel Orientation="Horizontal"
+                  Spacing="12"
+                  HorizontalAlignment="Right">
+        <Button Content="Mégse"
+                Padding="20,10"
+                Command="{Binding CancelCommand}"/>
+
+        <Button Content="Mentés"
+                Background="#030213"
+                Foreground="White"
+                Padding="20,10"
+                FontWeight="SemiBold"
+                Command="{Binding SaveCommand}"/>
+      </StackPanel>
+
+      <!-- Status Message -->
+      <TextBlock Text="{Binding StatusMessage}"
+                IsVisible="{Binding !!StatusMessage}"
+                Foreground="#1e7e34"
+                Background="#d4f4dd"
+                Padding="12"
+                TextAlignment="Center"/>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

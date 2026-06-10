@@ -1,0 +1,49 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:RusztikusAdmin"
+             x:Class="RusztikusAdmin.App"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Resources>
+        <!-- Színdefiníciók -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#030213"/>
+        <SolidColorBrush x:Key="DestructiveBrush" Color="#d4183d"/>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#f3f3f5"/>
+        <SolidColorBrush x:Key="MutedBrush" Color="#ececf0"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="#e4e4e9"/>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+
+        <Style Selector="Window">
+            <Setter Property="Background" Value="#f3f3f5"/>
+        </Style>
+
+        <!-- Navigációs gombok stílusa -->
+        <Style Selector="Button.NavButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#030213"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,2"/>
+        </Style>
+
+        <Style Selector="Button.NavButton:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#ececf0"/>
+        </Style>
+
+        <Style Selector="Button.NavButton.active /template/ ContentPresenter">
+            <Setter Property="Background" Value="#030213"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Application.Styles>
+</Application>
