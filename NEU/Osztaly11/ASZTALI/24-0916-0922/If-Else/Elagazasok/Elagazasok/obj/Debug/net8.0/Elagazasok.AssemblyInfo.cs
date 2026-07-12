@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Elagazasok")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25fcfe3698db00764c8802c7321a1c40275a8817")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f851b2110594390b95bdc9bc7657849948b9249")]
 [assembly: System.Reflection.AssemblyProductAttribute("Elagazasok")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Elagazasok")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

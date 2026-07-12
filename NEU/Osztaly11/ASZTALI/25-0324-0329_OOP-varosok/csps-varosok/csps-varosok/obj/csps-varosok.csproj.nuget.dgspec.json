@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj": {}
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj": {}
   },
   "projects": {
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj": {
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj",
+        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj",
         "projectName": "csps-varosok",
-        "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj",
-        "packagesPath": "C:\\Users\\solti_aks20xi\\.nuget\\packages\\",
-        "outputPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\obj\\",
+        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\csps-varosok.csproj",
+        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
+        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\csps-varosok\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti_aks20xi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,10 +30,11 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj": {
-                "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj"
+              "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj": {
+                "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj"
               }
             }
           }
@@ -48,10 +49,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -69,24 +71,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj": {
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj",
+        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj",
         "projectName": "VarosokLib",
-        "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj",
-        "packagesPath": "C:\\Users\\solti_aks20xi\\.nuget\\packages\\",
-        "outputPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\obj\\",
+        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\VarosokLib.csproj",
+        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
+        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_OOP-varosok\\csps-varosok\\VarosokLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti_aks20xi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -99,6 +101,7 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -113,10 +116,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -134,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

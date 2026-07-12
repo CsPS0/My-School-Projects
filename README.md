@@ -3,6 +3,8 @@
 Welcome to my School Projects Repository!
 This repository contains my comprehensive collection of school projects, assignments, and learning materials from BMSZC Neumann János Szakközépiskola.
 
+**Quick Link:** [English NOK Study Materials](NEU/Osztaly12/OTHER/Angol/26-0707-0731_NOK/README.md)
+
 ## Repository Structure
 
 The repository is organized into two main sections:

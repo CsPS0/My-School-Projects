@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("solticsongor-szeleromuvek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b3b9c0f3c8c7442597453232e1ea3794a4ed399")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f851b2110594390b95bdc9bc7657849948b9249")]
 [assembly: System.Reflection.AssemblyProductAttribute("solticsongor-szeleromuvek")]
 [assembly: System.Reflection.AssemblyTitleAttribute("solticsongor-szeleromuvek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

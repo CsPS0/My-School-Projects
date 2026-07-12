@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Feladatok")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41508035263fd27b80af8fdee4a4fbf8179f4b14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f851b2110594390b95bdc9bc7657849948b9249")]
 [assembly: System.Reflection.AssemblyProductAttribute("Feladatok")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Feladatok")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

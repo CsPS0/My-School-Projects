@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj": {}
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj": {}
   },
   "projects": {
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj": {
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj",
+        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj",
         "projectName": "CsPS-nyovenygyujtes",
-        "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj",
-        "packagesPath": "C:\\Users\\solti_aks20xi\\.nuget\\packages\\",
-        "outputPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\obj\\",
+        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes.csproj",
+        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
+        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\CsPS-nyovenygyujtes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti_aks20xi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,10 +30,11 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj": {
-                "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj"
+              "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj": {
+                "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj"
               }
             }
           }
@@ -48,10 +49,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -69,24 +71,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj": {
+    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj",
+        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj",
         "projectName": "novenygyujtesLib",
-        "projectPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj",
-        "packagesPath": "C:\\Users\\solti_aks20xi\\.nuget\\packages\\",
-        "outputPath": "E:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\obj\\",
+        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\novenygyujtesLib.csproj",
+        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
+        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0512-0518_Novenygyujtes-Interface\\CsPS-nyovenygyujtes\\novenygyujtesLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti_aks20xi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -99,6 +101,7 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -113,10 +116,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -134,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
