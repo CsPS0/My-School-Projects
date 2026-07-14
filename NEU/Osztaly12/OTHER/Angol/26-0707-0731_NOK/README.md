@@ -6,14 +6,16 @@ Welcome to your study materials! You can use this page to navigate to the differ
 These sections contain grammar rules and translation exercises.
 
 - [First Conditional](Grammar/First_Conditional.md)
+- [Second Conditional](Grammar/Second_Conditional.md)
 - [Present Simple](Grammar/Present_Simple.md)
 - [Present Continuous](Grammar/Present_Continuous.md)
-- [Past Simple](Grammar/Past_Simple.md)
 - [Present Perfect Continuous](Grammar/Present_Perfect_Continuous.md)
+- [Past Simple](Grammar/Past_Simple.md)
 
 ## Vocabulary & Phrases
 These sections contain English-Hungarian vocabulary lists.
 
+- [Financial Terms (Advanced)](Vocabulary/Financial_Terms.md)
 - [Family Terms](Vocabulary/Family_Terms.md)
 - [Shopping (Advanced)](Vocabulary/Shopping.md)
 - [Work (Advanced level)](Vocabulary/Work.md)
