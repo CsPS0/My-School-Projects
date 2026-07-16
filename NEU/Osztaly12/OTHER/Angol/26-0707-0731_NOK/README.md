@@ -16,6 +16,8 @@ These sections contain grammar rules and translation exercises.
 ## Vocabulary & Phrases
 These sections contain English-Hungarian vocabulary lists.
 
+
+- [Phrasal Verbs (Translations)](Vocabulary/Phrasal_Verbs.md)
 - [Housing (Advanced)](Vocabulary/Housing.md)
 - [Financial Terms (Advanced)](Vocabulary/Financial_Terms.md)
 - [Family Terms](Vocabulary/Family_Terms.md)
