@@ -11,12 +11,13 @@ These sections contain grammar rules and translation exercises.
 - [Present Continuous](Grammar/Present_Continuous.md)
 - [Present Perfect Continuous](Grammar/Present_Perfect_Continuous.md)
 - [Past Simple](Grammar/Past_Simple.md)
+- [Passive Voice](Grammar/Passive.md)
 - [Reported Speech](Grammar/Reported_Speech.md)
 
 ## Vocabulary & Phrases
 These sections contain English-Hungarian vocabulary lists.
 
-
+- [Environmental Protection (Advanced)](Vocabulary/Environmental_Protection.md)
 - [Phrasal Verbs (Translations)](Vocabulary/Phrasal_Verbs.md)
 - [Housing (Advanced)](Vocabulary/Housing.md)
 - [Financial Terms (Advanced)](Vocabulary/Financial_Terms.md)
