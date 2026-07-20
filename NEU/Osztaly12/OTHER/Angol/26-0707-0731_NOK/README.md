@@ -13,10 +13,12 @@ These sections contain grammar rules and translation exercises.
 - [Past Simple](Grammar/Past_Simple.md)
 - [Passive Voice](Grammar/Passive.md)
 - [Reported Speech](Grammar/Reported_Speech.md)
+- [Gerund or Infinitive](Grammar/Gerund_or_Infinitive.md)
 
 ## Vocabulary & Phrases
 These sections contain English-Hungarian vocabulary lists.
 
+- [Public Transport (Advanced)](Vocabulary/Public_Transport.md)
 - [Environmental Protection (Advanced)](Vocabulary/Environmental_Protection.md)
 - [Phrasal Verbs (Translations)](Vocabulary/Phrasal_Verbs.md)
 - [Housing (Advanced)](Vocabulary/Housing.md)
