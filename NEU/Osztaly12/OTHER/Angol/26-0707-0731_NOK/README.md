@@ -32,5 +32,6 @@ These sections contain English-Hungarian vocabulary lists.
 - [Phrases and Expressions](Vocabulary/Phrases_and_Expressions.md)
 - [Public Transport (Advanced)](Vocabulary/Public_Transport.md)
 - [Shopping (Advanced)](Vocabulary/Shopping.md)
+- [Spice Up Your English I](Vocabulary/Spice_Up_Your_English_1.md)
 - [Technology Terms](Vocabulary/Technology_Terms.md)
 - [Work (Advanced level)](Vocabulary/Work.md)
