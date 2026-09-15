@@ -10,3 +10,16 @@ E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\refint\koteszetLib.dll
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.pdb
 E:\REPOS\SCHOOL\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\ref\koteszetLib.dll
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\bin\Debug\net10.0\koteszetLib.deps.json
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\bin\Debug\net10.0\koteszetLib.dll
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\bin\Debug\net10.0\koteszetLib.pdb
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.AssemblyInfoInputs.cache
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.AssemblyInfo.cs
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.csproj.CoreCompileInputs.cache
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.sourcelink.json
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.dll
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\refint\koteszetLib.dll
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszetLib.pdb
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\ref\koteszetLib.dll
+C:\AKK\My-School-Projects\NEU\Osztaly12\ASZTALI\25-1124-1130_Oroklodes-Viragkoteszet\solticsongor-Viragkoteszet\koteszetLib\obj\Debug\net10.0\koteszet.5F88597B.Up2Date

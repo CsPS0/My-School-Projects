@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="penzugyTanacsLib/penzugyTanacsLib.csproj" />
+  <Project Path="Tanacsado/Tanacsado.csproj" />
+  <Project Path="TanacsadoGUI/TanacsadoGUI.csproj" />
+</Solution>
