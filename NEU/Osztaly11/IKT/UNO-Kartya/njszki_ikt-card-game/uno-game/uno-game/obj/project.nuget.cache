@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jaT+6egJ1eA=",
+  "dgSpecHash": "vL07Lgsof7Y=",
   "success": true,
-  "projectFilePath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\IKT\\UNO-Kartya\\njszki_ikt-card-game\\uno-game\\uno-game\\uno-game.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\IKT\\UNO-Kartya\\njszki_ikt-card-game\\uno-game\\uno-game\\uno-game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.31\\microsoft.netcore.app.host.win-x64.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -27,23 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\solti\\.nuget\\packages\\": {},
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\solticsongor-Csokigyar.csproj",
+      "projectUniqueName": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\solticsongor-Csokigyar.csproj",
       "projectName": "solticsongor-Csokigyar",
-      "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\solticsongor-Csokigyar.csproj",
-      "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
-      "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\obj\\",
+      "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\solticsongor-Csokigyar.csproj",
+      "packagesPath": "C:\\Users\\solti.csongor\\.nuget\\packages\\",
+      "outputPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\solticsongor-Csokigyar\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\solti.csongor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -52,6 +52,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,8 +60,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\csokigyarLib\\csokigyarLib.csproj": {
-              "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\csokigyarLib\\csokigyarLib.csproj"
+            "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\csokigyarLib\\csokigyarLib.csproj": {
+              "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\ASZTALI\\25-1013-1019_Oroklodes\\solticsongor-Csokigyar\\csokigyarLib\\csokigyarLib.csproj"
             }
           }
         }
@@ -75,7 +76,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net10.0": {
@@ -97,7 +98,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "umTfZSR95aI=",
+  "dgSpecHash": "jF3z1b4NDUs=",
   "success": true,
-  "projectFilePath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_Ijaszat-orai\\CsPS-ijaszat\\ijaszLib\\ijaszLib.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0324-0329_Ijaszat-orai\\CsPS-ijaszat\\ijaszLib\\ijaszLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

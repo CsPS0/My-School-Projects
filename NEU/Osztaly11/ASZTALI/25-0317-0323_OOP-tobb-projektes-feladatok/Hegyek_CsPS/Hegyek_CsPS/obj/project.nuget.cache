@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dgfuH/LuNds=",
+  "dgSpecHash": "7Ix7n74Oe0w=",
   "success": true,
-  "projectFilePath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.31\\microsoft.netcore.app.host.win-x64.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj": {}
+    "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj": {}
   },
   "projects": {
-    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj": {
+    "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj",
+        "projectUniqueName": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj",
         "projectName": "Hegyek-lib",
-        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj",
-        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
-        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\obj\\",
+        "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj",
+        "packagesPath": "C:\\Users\\solti.csongor\\.nuget\\packages\\",
+        "outputPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti.csongor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
@@ -62,29 +63,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj": {
+    "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
+        "projectUniqueName": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
         "projectName": "Hegyek_CsPS",
-        "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
-        "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
-        "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\obj\\",
+        "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\Hegyek_CsPS.csproj",
+        "packagesPath": "C:\\Users\\solti.csongor\\.nuget\\packages\\",
+        "outputPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek_CsPS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\solti.csongor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,6 +108,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -100,8 +116,8 @@
             "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj": {
-                "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj"
+              "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj": {
+                "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0317-0323_OOP-tobb-projektes-feladatok\\Hegyek_CsPS\\Hegyek-lib\\Hegyek-lib.csproj"
               }
             }
           }
@@ -116,7 +132,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
@@ -133,12 +149,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.31, 8.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.31, 8.0.31]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

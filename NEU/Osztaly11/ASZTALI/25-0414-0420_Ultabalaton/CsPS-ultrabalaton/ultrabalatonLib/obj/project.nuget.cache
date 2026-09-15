@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mhTAf0OjBao=",
+  "dgSpecHash": "KtbiTCI6WdI=",
   "success": true,
-  "projectFilePath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0414-0420_Ultabalaton\\CsPS-ultrabalaton\\ultrabalatonLib\\ultrabalatonLib.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0414-0420_Ultabalaton\\CsPS-ultrabalaton\\ultrabalatonLib\\ultrabalatonLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

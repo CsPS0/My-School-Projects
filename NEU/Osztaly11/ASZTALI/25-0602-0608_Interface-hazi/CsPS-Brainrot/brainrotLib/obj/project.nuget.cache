@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4FVRsoc+ELo=",
+  "dgSpecHash": "fMW2S/JZ3zM=",
   "success": true,
-  "projectFilePath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0602-0608_Interface-hazi\\CsPS-Brainrot\\brainrotLib\\brainrotLib.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly11\\ASZTALI\\25-0602-0608_Interface-hazi\\CsPS-Brainrot\\brainrotLib\\brainrotLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512"
+  ],
   "logs": []
 }

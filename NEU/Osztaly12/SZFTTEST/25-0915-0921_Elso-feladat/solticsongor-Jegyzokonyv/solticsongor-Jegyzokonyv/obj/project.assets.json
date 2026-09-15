@@ -948,23 +948,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\solti\\.nuget\\packages\\": {},
+    "C:\\Users\\solti.csongor\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv.csproj",
+      "projectUniqueName": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv.csproj",
       "projectName": "solticsongor-Jegyzokonyv",
-      "projectPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv.csproj",
-      "packagesPath": "C:\\Users\\solti\\.nuget\\packages\\",
-      "outputPath": "F:\\REPOS\\SCHOOL\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\obj\\",
+      "projectPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv.csproj",
+      "packagesPath": "C:\\Users\\solti.csongor\\.nuget\\packages\\",
+      "outputPath": "C:\\AKK\\My-School-Projects\\NEU\\Osztaly12\\SZFTTEST\\25-0915-0921_Elso-feladat\\solticsongor-Jegyzokonyv\\solticsongor-Jegyzokonyv\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\solti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\solti.csongor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -973,6 +973,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -992,7 +993,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net9.0": {
@@ -1047,12 +1048,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[9.0.20, 9.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[9.0.20, 9.0.20]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[9.0.20, 9.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
