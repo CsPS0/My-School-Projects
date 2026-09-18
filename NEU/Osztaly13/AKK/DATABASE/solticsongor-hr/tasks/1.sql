@@ -1,0 +1,4 @@
+-- 1. feladat
+-- opciónális: docker pull mysql:latest
+-- dockerrel való mysql meghívása: docker run --name mymysql -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd):/solticsongor-hr/tasks" -d mysql:9.7.1
+-- felcsatolás (kicsit elbasztam a ~/munka/solticsongor-hr mappából): docker exec -it 29 mysql -p

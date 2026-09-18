@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Console/Console.csproj" />
+  <Project Path="GUI/GUI.csproj" />
+  <Project Path="logicLib/logicLib.csproj" />
+  <Project Path="solticsongor-TicTacToe/Testing.csproj" />
+</Solution>

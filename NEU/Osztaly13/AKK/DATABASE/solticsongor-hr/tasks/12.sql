@@ -1,0 +1,1 @@
+SELECT ROUND(`AVERAGE`, 0) AS 'atlag' FROM `kiholdolgozik`

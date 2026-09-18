@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JatekLogika", "JatekLogika\JatekLogika.csproj", "{1F4D55F5-921D-4033-918D-3D955228780D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JatekLogika.Tests", "JatekLogika.Tests\JatekLogika.Tests.csproj", "{505DAD4E-C7BA-46BA-BD71-3E5410E9F23F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegjelenitesKonzol", "MegjelenitesKonzol\MegjelenitesKonzol.csproj", "{9B7B3783-4AEB-4822-99DB-9C24FC8EDB8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegjelenitesGUI", "MegjelenitesGUI\MegjelenitesGUI.csproj", "{F5D37488-2DEA-4380-8B0A-FF341EFFDC9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F4D55F5-921D-4033-918D-3D955228780D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4D55F5-921D-4033-918D-3D955228780D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4D55F5-921D-4033-918D-3D955228780D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4D55F5-921D-4033-918D-3D955228780D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505DAD4E-C7BA-46BA-BD71-3E5410E9F23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505DAD4E-C7BA-46BA-BD71-3E5410E9F23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505DAD4E-C7BA-46BA-BD71-3E5410E9F23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505DAD4E-C7BA-46BA-BD71-3E5410E9F23F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B7B3783-4AEB-4822-99DB-9C24FC8EDB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B7B3783-4AEB-4822-99DB-9C24FC8EDB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B7B3783-4AEB-4822-99DB-9C24FC8EDB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B7B3783-4AEB-4822-99DB-9C24FC8EDB8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D37488-2DEA-4380-8B0A-FF341EFFDC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D37488-2DEA-4380-8B0A-FF341EFFDC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D37488-2DEA-4380-8B0A-FF341EFFDC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D37488-2DEA-4380-8B0A-FF341EFFDC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
