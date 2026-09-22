@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Console/Console.csproj" />
+  <Project Path="hanoiLib/hanoiLib.csproj" />
+  <Project Path="NUnitTest/NUnitTest.csproj" />
+</Solution>
