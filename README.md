@@ -24,7 +24,7 @@ Materials from my previous school, in the same layout as NEU (see [Verebay/READM
 - **Osztaly10** (2023/24) - WEB, PYTHON, CISCO, OTHER
 
 ### docs
-Source of the project's GitHub Pages site: a searchable index of every project and file in this repo.
+Source of the project's GitHub Pages site: a searchable index of every project and file in this repo (`index.html`, `css/`, `js/`; Tailwind via CDN). Supports sorting, favorites, copy-link, dark-mode toggle and a random-project button.
 - Available at: https://csps0.github.io/My-School-Projects/
 - Loads the file list live from the GitHub API, so there is nothing to rebuild when new projects are pushed
 

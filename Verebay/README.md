@@ -7,7 +7,7 @@ Same layout as `NEU/`: `Osztaly<grade>/<SUBJECT>/<project>`.
 |---|---|---|
 | `Osztaly09/WEB` | 2022/23 (9.A) | HTML/CSS classwork, homework and tests |
 | `Osztaly09/PYTHON` | 2022/23 | First Python exercises, project week |
-| `Osztaly09/OFFICE` | 2022/23 | Word, Excel and PowerPoint assignments |
+| `Osztaly09/OFFICE` | 2022/23 | Word, Excel and PowerPoint assignments, each split into `Orai-munka` / `Projektek` / `Feladatok` / `Jegyzetek` / `Egyeb` |
 | `Osztaly09/OTHER` | 2022/23 | History |
 | `Osztaly10/WEB` | 2023/24 (10.A) | Bootstrap sites, the cat site (`Macskak`) and its versions, personal site |
 | `Osztaly10/PYTHON` | 2023/24 | Classwork, homework, tests, exam practice |

@@ -1,0 +1,20 @@
+/* Tailwind (CDN) handles layout; plain CSS here for shared control styling and highlights. */
+.ctl { font: inherit; color: inherit; background: #fff; border: 1px solid #e4e4e7;
+  border-radius: .5rem; padding: .6rem .75rem; cursor: pointer; }
+input[type=search].ctl { cursor: text; }
+.dark .ctl { background: #18181b; border-color: #3f3f46; }
+.ctl:focus-visible { outline: 2px solid #2563eb; outline-offset: -1px; }
+.card { display: block; padding: .75rem .9rem; background: #fff; border: 1px solid #e4e4e7; border-radius: .75rem; }
+.dark .card { background: #18181b; border-color: #3f3f46; }
+.card:hover, .card:focus-visible { border-color: #2563eb; }
+.tag { background: #eef2fb; border-radius: 999px; padding: 1px 9px; font-size: .78rem; }
+.dark .tag { background: #25293a; }
+mark { background: #fff1a8; color: inherit; border-radius: 2px; }
+.dark mark { background: #5c4d00; }
+kbd { border: 1px solid #d4d4d8; border-radius: 4px; padding: 0 5px; font-size: .8rem; }
+.ic { width: 1em; height: 1em; flex: none; }
+.star { background: none; border: 0; cursor: pointer; font-size: 1.25rem; line-height: 1; color: #a1a1aa; padding: .4rem; }
+.star:hover { color: #2563eb; }
+.star.on { color: #f59e0b; }
+.star.on .ic { fill: currentColor; }
+@media (max-width: 639px) { .ctl { padding: .7rem .75rem; } .card { padding: .7rem .75rem; } }
