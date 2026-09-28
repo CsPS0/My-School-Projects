@@ -29,3 +29,5 @@ Desktop.ini
 config/local.json
 personal_script.sh
 secret.txt
+.idea/
+*.DotSettings.user

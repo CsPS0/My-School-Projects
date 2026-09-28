@@ -1,0 +1,6 @@
+-- 1. feladat
+-- A megoldas-ures.sql fájlt solti-csongor-urhajozas.sql nevre neveztem át, abban egyben megtalálható a teljes megoldás.
+-- Emellett készítettem egy tasks mappát, amibe a feladatokat egyesével, külön fájlokba (2.sql ... 21.sql) raktam,
+-- hogy dockerben feladatonként SOURCE-olva is futtathatók legyenek.
+-- A mappát a docker konténerbe /urhajozas néven csatoltam fel, ezért a 4. feladatban a táblák és az adatok
+-- betöltése ezzel az útvonallal történik.

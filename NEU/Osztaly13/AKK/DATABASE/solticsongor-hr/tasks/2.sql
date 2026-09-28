@@ -1,2 +1,0 @@
--- 2.feladat
--- nem írtam át, de töröltem, hanem csak csináltam egy tasks mappát, majd egyesével raktam be ahogy a tanár úr kérte (vagyis remélem, hogy ezt kérte, és odafigyeltem, nem pedgi LARP-oltam)

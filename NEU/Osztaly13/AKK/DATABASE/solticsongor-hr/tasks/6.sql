@@ -1,1 +1,0 @@
-SELECT `job_title`, `db` FROM `munkakorletszam`;

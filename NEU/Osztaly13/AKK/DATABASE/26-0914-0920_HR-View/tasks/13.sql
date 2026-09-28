@@ -1,0 +1,4 @@
+-- 13. feladat
+CREATE OR REPLACE VIEW `belepo` AS
+SELECT CONCAT(`FIRST_NAME`, ' ', `LAST_NAME`) AS `FULL_NAME`, `HIRE_DATE`
+FROM `employees`;

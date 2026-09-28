@@ -1,0 +1,3 @@
+-- 2. feladat
+-- A teljes megoldás egyben a solti-csongor-hr-view.sql fájlban található.
+-- Emellett a feladatokat egyesével, külön fájlokba is szétszedtem a tasks mappában, hogy dockerben külön-külön is futtathatók legyenek.

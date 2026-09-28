@@ -1,4 +1,0 @@
-CREATE VIEW `munkakorletszam` AS
-SELECT `JOB_TITLE`, SUM(`EMPLOYEE_ID`) AS 'db'
-FROM `jobs`
-WHERE 

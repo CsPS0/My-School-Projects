@@ -1,1 +1,0 @@
-SELECT `DEPARTMENT_NAME`, `FULL_NAME` FROm `reszlegvezeto` WHERE `FULL_NAME` = 'Den Raphaely';

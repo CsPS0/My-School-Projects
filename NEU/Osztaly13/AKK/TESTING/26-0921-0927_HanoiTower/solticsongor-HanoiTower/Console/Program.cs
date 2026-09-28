@@ -1,6 +1,10 @@
 ﻿using hanoiLib;
 
-HanoiGame game = new(3);
+Console.Write("Korongok száma (Enter = 3): ");
+string? diskInput = Console.ReadLine();
+int diskCount = int.TryParse(diskInput, out int n) ? n : 3;
+
+HanoiGame game = new(diskCount);
 
 while (!game.IsSolved())
 {
@@ -39,9 +43,7 @@ static void PrintBoard(HanoiGame game)
     Console.WriteLine("\n--- Állás ---");
     for (int i = 0; i < game.Pegs.Count; i++)
     {
-        int[] disks = game.Pegs[i].ToArray();
-        Array.Reverse(disks);
-        Console.WriteLine($"Rúd {i}: {string.Join(", ", disks)}");
+        Console.WriteLine($"Rúd {i}: {string.Join(", ", game.Pegs[i].Reverse())}");
     }
     Console.WriteLine();
 }

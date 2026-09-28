@@ -2,7 +2,7 @@
 
 public class HanoiGame
 {
-    public List<Stack<int>> Pegs { get; } = new();
+    public List<Stack<int>> Pegs { get; } = [];
     public int DiskCount { get; }
 
     public HanoiGame(int diskCount, int pegCount = 3)
