@@ -1,0 +1,9 @@
+- kiindulási mappát átnevezed a saját polgári nevedre!
+  pl.: dolgozat_240216 --> juhasz_zoltan
+- ha feladatoddal végeztél és elmentetted: 
+  win10: jobb gomb a mappán -> küldés -> tömöratett mappa
+  win11: jobb gomb a mappán -> tömörítés .zip fileba
+- ezt csatolod a @verebelyszki.hu-s email címedről küldött leveledhez MÁSOLAT CSATOLÁSA módon
+- az üzenet tárgya: python dolgozat_240216
+- akinek küldöd: juhaszz@verebelyszki.hu
+- done!

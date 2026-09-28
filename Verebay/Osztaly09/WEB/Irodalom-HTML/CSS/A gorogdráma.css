@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(181, 125, 22);
+    color: brown;
+}
+h1{
+    text-align: center;
+}
+p{
+    font-size: larger;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(159, 143, 34);
+    color: rgb(255, 0, 0);
+    text-align: center;
+  }

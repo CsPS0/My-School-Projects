@@ -19,22 +19,14 @@ Organized by school years (11~~-13~~) and subjects:
 - **OTHER** - Additional subjects (English, Literature, German, etc.)
 
 ### Verebay ([Verebély László Informatikai Technikum](https://verebelyszki.hu/))
-Materials from my previous school (9-10):
-- **Cisco** - Networking materials and practice tests
-- **Office365** - Documentation and office suite related work
-- **PROGRAMMING**
-  - Backend (C# and Python projects)
-  - Frontend (Web development projects)
+Materials from my previous school, in the same layout as NEU (see [Verebay/README.md](Verebay/README.md)):
+- **Osztaly09** (2022/23) - WEB, PYTHON, OFFICE, OTHER
+- **Osztaly10** (2023/24) - WEB, PYTHON, CISCO, OTHER
 
-### docs (Temporary)
-This directory contains the source files for the project's GitHub Pages website:
-- Available at: https://csps0.github.io/My-School-Projects/index.html
-- Features guides and resources for IDE mastery and development workflow optimization
-- Includes sections on:
-  - IDE basics and productivity tips
-  - Debugging techniques
-  - Essential extensions
-  - Custom workflow optimization
+### docs
+Source of the project's GitHub Pages site: a searchable index of every project and file in this repo.
+- Available at: https://csps0.github.io/My-School-Projects/
+- Loads the file list live from the GitHub API, so there is nothing to rebuild when new projects are pushed
 
 ## Project Types
 

@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+h2{
+    color:#A4E8E0;
+}
+  
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f1f1f1;
+    overflow: auto;
+    position: fixed;
+}
+  
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+   
+.sidebar a.active {
+    background-color: #A4E8E0;
+    color: white;
+}
+  
+.sidebar a:hover:not(.active) {
+    background-color: #FFFEE6;
+    color: #666666;
+}
+  
+div.tartalom {
+    margin-left: 200px;
+    padding: 1px 16px;
+}
+
+.tartalom div{
+    border: 1px solid #f1f1f1;
+    box-shadow: 3px 3px 3px #f1f1f1;
+    padding: 10px;
+    height: auto;
+    min-width: 180px;
+}
+  
+@media screen and (max-width: 850px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.tartalom {margin-left: 0;}
+}
+
+@media only screen and (max-width: 650px) {
+    .sidebar {
+        text-align: center;
+        float: none;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+}
+
+img{
+    width: 100%;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* vegye ki a column classokat a divekből mert nem találtam más opciót /*

@@ -1,0 +1,95 @@
+body{
+    background-image: url(../kepek/konyv_hatter.jpg);
+    background-size: 500px;
+}
+
+#tartalom{
+    background-color: #CA8;
+    width: 50%;
+    margin: 30px auto;
+    color: #432;
+}
+
+.konyv{
+    background-color: #ECA;
+    border: 2px solid #432;
+    box-shadow: 5px 5px 10px #432;
+    margin: 20px 40px;
+    border-radius: 5px;
+}
+
+img{
+    width: 25%;
+    float: left;
+    margin: 0px 20px 20px;
+}
+
+.leiras{
+    clear:both;
+    margin: 0px 20px;
+    text-align: justify;
+}
+
+.kozepre{
+    text-align: center;
+}
+
+button{
+    background-color: #432;
+    border: none;
+}
+
+a{
+    color: #ECA;
+    text-decoration: none;
+    padding: 10px 25px;
+    display: block;
+}
+
+a:hover{
+    color: #CA8;
+}
+
+button:hover{
+    opacity: 90%;
+    float: right;
+}
+
+img:hover{
+    border:solid 1px black;
+    width: 200px;
+    height: 400px;
+}
+
+a:visited{
+    color: white;
+}
+
+a:active{
+    color: bisque;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav{
+    background-color: #432;
+    padding: 20px;
+}
+
+li{
+    display: inline;
+}
+
+li a{
+    color: #ECA;
+    text-decoration: none;
+}
+
+li a:hover{
+    opacity: 90%;
+}
