@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Console/Console.csproj" />
+  <Project Path="GUI/GUI.csproj" />
+  <Project Path="starTrekLib/starTrekLib.csproj" />
+</Solution>
