@@ -1,0 +1,2 @@
+-- 2. feladat
+-- Létrehoztam a kondibelepok adatbázisát a megadott szempontok alapján

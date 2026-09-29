@@ -1,0 +1,3 @@
+-- 1. feladat
+-- Átneveztem a megoldas-ures.sql fájlt solti-csongor-kondibelepok.sql-re
+-- Átnvezésnél figyeltem a megadott szabályokra
