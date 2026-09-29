@@ -1,0 +1,3 @@
+-- 19. feladat
+ALTER TABLE tagok
+ADD COLUMN torzsvendeg BOOLEAN NOT NULL DEFAULT FALSE;

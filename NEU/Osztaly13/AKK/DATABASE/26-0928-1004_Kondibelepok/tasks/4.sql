@@ -1,4 +1,4 @@
 -- 4. feladat
-CREATE VIEW hanyBerletTipus AS
-SELECT COUNT(kartya_tipusa) AS 'db'
-FROM tagok;
+SELECT COUNT(*) AS db
+FROM belepok
+WHERE megnevezes LIKE '%bérlet%';
