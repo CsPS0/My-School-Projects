@@ -51,6 +51,13 @@ namespace Tests
                 "HIBA: a láda negatív térfogattal is létrejön, a leírás szerint ez nem megengedett.");
         }
 
+        [TestCase(0)]
+        [TestCase(-5)]
+        public void NewTreasureZeroOrNegativeVolumeIsRejected(int volume)
+        {
+            Assert.That(() => new Treasure("hibás kincs", volume), Throws.ArgumentException,
+                $"HIBA: a kincs {volume} térfogattal is létrejön, a leírás szerint a térfogat nem lehet 0 vagy negatív.");
+        }
         [Test]
         public void NewTreasureStoresNameAndVolume()
         {

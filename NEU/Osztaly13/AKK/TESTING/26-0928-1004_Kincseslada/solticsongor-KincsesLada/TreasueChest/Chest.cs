@@ -1,4 +1,4 @@
-﻿namespace TreasureChest
+namespace TreasureChest
 {
     public class Chest
     {
@@ -19,6 +19,10 @@
             get; init;
         }
         public Chest(string name, int volume) { 
+            if (volume < 0)
+            {
+                throw new ArgumentException("A láda térfogata nem lehet negatív.");
+            }
             Volume = volume;
             Name = name;
             IsLocked = true; // alapból legyen bezárva
@@ -90,18 +94,16 @@
         public Treasure? TakeOut(string name)
         {
             if (_contents.Count == 0 || !IsOpen) return null;
-            Treasure? treasure=null;
-            int i=0;
-            while (i < _contents.Count)
+            for (int i = 0; i < _contents.Count; i++)
             {
                 if (_contents[i].Name == name)
                 {
-                    treasure = _contents[i];
+                    Treasure treasure = _contents[i];
                     _contents.RemoveAt(i);
+                    return treasure;
                 }
-                    i++;
             }
-            return treasure;
+            return null;
         }
 
     }
