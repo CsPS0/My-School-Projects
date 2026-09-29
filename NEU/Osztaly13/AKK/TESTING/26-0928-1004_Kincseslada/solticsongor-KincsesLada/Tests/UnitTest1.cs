@@ -12,7 +12,7 @@ namespace Tests
             chest = new Chest("vasveretes faláda", 10);
         }
 
-        // Segédfüggvény: kinyitja a ládát (feloldja a zárat, majd felnyitja)
+        // láda kinyit, felnyit, hogy ne akadjon bele
         private void OpenChest()
         {
             chest.UnLock();
@@ -20,7 +20,7 @@ namespace Tests
         }
 
         [Test]
-        public void NewChest_IsLockedAndClosed()
+        public void NewChestIsLockedAndClosed()
         {
             Assert.That(chest.IsLocked, Is.True,
                 "HIBA: az új láda nincs bezárva, pedig alapból zárt állapotban kell létrejönnie.");
@@ -29,7 +29,7 @@ namespace Tests
         }
 
         [Test]
-        public void NewChest_StoresNameAndVolume()
+        public void NewChestStoresNameAndVolume()
         {
             Assert.That(chest.Name, Is.EqualTo("vasveretes faláda"),
                 "HIBA: a láda nem a konstruktorban megadott nevet tárolja.");
@@ -38,14 +38,14 @@ namespace Tests
         }
 
         [Test]
-        public void NewChest_ZeroVolumeIsAllowed()
+        public void NewChestZeroVolumeIsAllowed()
         {
             Assert.DoesNotThrow(() => new Chest("üres doboz", 0),
                 "HIBA: a 0 térfogatú láda létrehozása kivételt dob, pedig a leírás szerint a 0 megengedett.");
         }
 
         [Test]
-        public void NewChest_NegativeVolumeIsRejected()
+        public void NewChestNegativeVolumeIsRejected()
         {
             Assert.Throws<ArgumentException>(() => new Chest("hibás láda", -1),
                 "HIBA: a láda negatív térfogattal is létrejön, a leírás szerint ez nem megengedett.");
@@ -53,14 +53,14 @@ namespace Tests
 
         [TestCase(0)]
         [TestCase(-5)]
-        public void NewTreasure_ZeroOrNegativeVolumeIsRejected(int volume)
+        public void NewTreasureZeroOrNegativeVolumeIsRejected(int volume)
         {
             Assert.Throws<ArgumentException>(() => new Treasure("hibás kincs", volume),
                 $"HIBA: a kincs {volume} térfogattal is létrejön, a leírás szerint a térfogat nem lehet 0 vagy negatív.");
         }
 
         [Test]
-        public void NewTreasure_StoresNameAndVolume()
+        public void NewTreasureStoresNameAndVolume()
         {
             Treasure t = new Treasure("hosszúkard", 3);
             Assert.That(t.Name, Is.EqualTo("hosszúkard"),
@@ -80,7 +80,7 @@ namespace Tests
         }
 
         [Test]
-        public void Open_FailsWhenLocked()
+        public void OpenFailsWhenLocked()
         {
             Assert.That(chest.Open(), Is.False,
                 "HIBA: a bezárt láda Open() hívása true-t ad, pedig bezárt ládát nem lehet felnyitni.");
@@ -89,7 +89,7 @@ namespace Tests
         }
 
         [Test]
-        public void Open_FailsWhenAlreadyOpen()
+        public void OpenFailsWhenAlreadyOpen()
         {
             OpenChest();
             Assert.That(chest.Open(), Is.False,
@@ -109,7 +109,7 @@ namespace Tests
         }
 
         [Test]
-        public void Close_FailsWhenAlreadyClosed()
+        public void CloseFailsWhenAlreadyClosed()
         {
             chest.UnLock();
             Assert.That(chest.Close(), Is.False,
@@ -129,7 +129,7 @@ namespace Tests
         }
 
         [Test]
-        public void Lock_FailsWhenOpen()
+        public void LockFailsWhenOpen()
         {
             OpenChest();
             Assert.That(chest.Lock(), Is.False,
@@ -139,7 +139,7 @@ namespace Tests
         }
 
         [Test]
-        public void Lock_FailsWhenAlreadyLocked()
+        public void LockFailsWhenAlreadyLocked()
         {
             Assert.That(chest.Lock(), Is.False,
                 "HIBA: a már bezárt láda Lock() hívása true-t ad, pedig csak nem bezárt ládát lehet bezárni.");
@@ -157,7 +157,7 @@ namespace Tests
         }
 
         [Test]
-        public void UnLock_FailsWhenNotLocked()
+        public void UnLockFailsWhenNotLocked()
         {
             chest.UnLock();
             Assert.That(chest.UnLock(), Is.False,
@@ -187,7 +187,6 @@ namespace Tests
                 "HIBA: a helyhiány miatt elutasított kincs mégis bekerült a ládába.");
         }
 
-        // ---------- Hozzáférés nyitott / csukott ládához ----------
 
         [Test]
         public void isItAccessible()
@@ -234,7 +233,7 @@ namespace Tests
         }
 
         [Test]
-        public void TakeOutLast_ReturnsNullWhenEmpty()
+        public void TakeOutLastReturnsNullWhenEmpty()
         {
             OpenChest();
             Assert.That(chest.TakeOutLast(), Is.Null,
@@ -261,7 +260,7 @@ namespace Tests
         }
 
         [Test]
-        public void TakeOut_RemovesOnlyTheFirstMatch()
+        public void TakeOutRemovesOnlyTheFirstMatch()
         {
             OpenChest();
             chest.Store(new Treasure("hosszúkard", 1));
@@ -275,7 +274,7 @@ namespace Tests
         }
 
         [Test]
-        public void TakeOut_ReturnsNullWhenNameNotFound()
+        public void TakeOutReturnsNullWhenNameNotFound()
         {
             OpenChest();
             chest.Store(new Treasure("hosszúkard", 2));
@@ -294,7 +293,7 @@ namespace Tests
         }
 
         [Test]
-        public void ToString_ListsContentsWithCommas()
+        public void ToStringListsContentsWithCommas()
         {
             OpenChest();
             chest.Store(new Treasure("pajzs", 2));
