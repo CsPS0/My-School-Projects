@@ -19,10 +19,6 @@ namespace TreasureChest
             get; init;
         }
         public Chest(string name, int volume) { 
-            if (volume < 0)
-            {
-                throw new ArgumentException("A láda térfogata nem lehet negatív.");
-            }
             Volume = volume;
             Name = name;
             IsLocked = true; // alapból legyen bezárva
@@ -57,7 +53,7 @@ namespace TreasureChest
         }
         public bool UnLock()
         {
-            if (IsLocked && !IsOpen) // akkor lehet bekinyti ha zárva van és le van csukva Minden más esetben nem lehet
+            if (IsLocked && !IsOpen) // akkor lehet bekinyti ha zárva van és le va csukva Minden más esetben nem lehet
             {
                 IsLocked = false;
                 return true;
@@ -94,16 +90,18 @@ namespace TreasureChest
         public Treasure? TakeOut(string name)
         {
             if (_contents.Count == 0 || !IsOpen) return null;
-            for (int i = 0; i < _contents.Count; i++)
+            Treasure? treasure=null;
+            int i=0;
+            while (i < _contents.Count)
             {
                 if (_contents[i].Name == name)
                 {
-                    Treasure treasure = _contents[i];
+                    treasure = _contents[i];
                     _contents.RemoveAt(i);
-                    return treasure;
                 }
+                    i++;
             }
-            return null;
+            return treasure;
         }
 
     }
