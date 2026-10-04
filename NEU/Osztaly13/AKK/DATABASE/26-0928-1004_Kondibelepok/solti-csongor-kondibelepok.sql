@@ -7,7 +7,11 @@ CREATE DATABASE IF NOT EXISTS kondibelepok
   COLLATE utf8_hungarian_ci;
 
 -- 3. feladat
-USE kondibelepok;
+USE `kondibelepok`;
+SET FOREIGN_KEY_CHECKS = 0;
+SOURCE /kondibelepok/kondi-tablak.sql;
+SOURCE /kondibelepok/kondi-adatok.sql;
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- 4. feladat
 SELECT COUNT(*) AS db

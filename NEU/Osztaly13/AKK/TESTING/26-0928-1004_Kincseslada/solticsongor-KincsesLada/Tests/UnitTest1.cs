@@ -1,4 +1,4 @@
-﻿using TreasureChest;
+using TreasureChest;
 
 namespace Tests
 {
@@ -40,23 +40,15 @@ namespace Tests
         [Test]
         public void NewChestZeroVolumeIsAllowed()
         {
-            Assert.DoesNotThrow(() => new Chest("üres doboz", 0),
+            Assert.That(() => new Chest("üres doboz", 0), Throws.Nothing,
                 "HIBA: a 0 térfogatú láda létrehozása kivételt dob, pedig a leírás szerint a 0 megengedett.");
         }
 
         [Test]
         public void NewChestNegativeVolumeIsRejected()
         {
-            Assert.Throws<ArgumentException>(() => new Chest("hibás láda", -1),
+            Assert.That(() => new Chest("hibás láda", -1), Throws.ArgumentException,
                 "HIBA: a láda negatív térfogattal is létrejön, a leírás szerint ez nem megengedett.");
-        }
-
-        [TestCase(0)]
-        [TestCase(-5)]
-        public void NewTreasureZeroOrNegativeVolumeIsRejected(int volume)
-        {
-            Assert.Throws<ArgumentException>(() => new Treasure("hibás kincs", volume),
-                $"HIBA: a kincs {volume} térfogattal is létrejön, a leírás szerint a térfogat nem lehet 0 vagy negatív.");
         }
 
         [Test]

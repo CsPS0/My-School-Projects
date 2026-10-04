@@ -1,4 +1,4 @@
-﻿using hanoiLib;
+using hanoiLib;
 
 namespace NUnitTest;
 
@@ -31,7 +31,7 @@ public class HanoiGameTests
         var game = new HanoiGame(3);
         game.Move(0, 1);
 
-        Assert.Throws<InvalidOperationException>(() => game.Move(0, 1), "Nagyobb korongot nem tehetsz kisebbre.");
+        Assert.That(() => game.Move(0, 1), Throws.InvalidOperationException, "Nagyobb korongot nem tehetsz kisebbre.");
     }
 
     [Test]
@@ -39,7 +39,7 @@ public class HanoiGameTests
     {
         var game = new HanoiGame(3);
 
-        Assert.Throws<InvalidOperationException>(() => game.Move(1, 2), "Az forrásrúd üres.");
+        Assert.That(() => game.Move(1, 2), Throws.InvalidOperationException, "Az forrásrúd üres.");
     }
 
     [Test]
@@ -73,13 +73,13 @@ public class HanoiGameTests
     [Test]
     public void Constructor_ThrowsException_WhenDiskCountIsLessThanOne()
     {
-        Assert.Throws<ArgumentException>(() => new HanoiGame(0), "0 korongal nem hozható létre játék.");
+        Assert.That(() => new HanoiGame(0), Throws.ArgumentException, "0 korongal nem hozható létre játék.");
     }
 
     [Test]
     public void Constructor_ThrowsException_WhenPegCountIsLessThanThree()
     {
-        Assert.Throws<ArgumentException>(() => new HanoiGame(3, 2), "2 rúddal nem hozható létre játék.");
+        Assert.That(() => new HanoiGame(3, 2), Throws.ArgumentException, "2 rúddal nem hozható létre játék.");
     }
 
     [Test]
@@ -106,7 +106,7 @@ public class HanoiGameTests
     {
         var game = new HanoiGame(3);
 
-        Assert.Throws<InvalidOperationException>(() => game.Move(0, 0), "Ugyanarra a rúdra nem lehet mozgatni.");
+        Assert.That(() => game.Move(0, 0), Throws.InvalidOperationException, "Ugyanarra a rúdra nem lehet mozgatni.");
     }
 
     [Test]
@@ -114,8 +114,8 @@ public class HanoiGameTests
     {
         var game = new HanoiGame(3);
 
-        Assert.Throws<InvalidOperationException>(() => game.Move(-1, 0), "Negatív rúdindex nem engedélyezett.");
-        Assert.Throws<InvalidOperationException>(() => game.Move(0, 3), "Tartományon kívüli rúdindex nem engedélyezett.");
+        Assert.That(() => game.Move(-1, 0), Throws.InvalidOperationException, "Negatív rúdindex nem engedélyezett.");
+        Assert.That(() => game.Move(0, 3), Throws.InvalidOperationException, "Tartományon kívüli rúdindex nem engedélyezett.");
     }
 
     [Test]
