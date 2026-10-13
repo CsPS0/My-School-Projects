@@ -1,0 +1,286 @@
+openapi: 3.1.0
+info:
+  title: BookStre API
+  version: 1.0.0
+  description: API konyvek lekérdezésére
+
+servers:
+  - url: http://backend.vm1.test
+    description: VM1 backend
+  - url: http://backend.vm2.test
+    description: VM2 backend
+  - url: http://backend.vm3.test
+    description: VM3 backend
+  - url: http://backend.vm4.test
+    description: VM4 backend
+  - url: http://backend.vm5.test
+    description: VM5 backend
+  - url: http://backend.vm6.test
+    description: VM6 backend
+
+paths:
+  /api/books:
+    get:
+      operationId: books.index
+      tags:
+        - Book
+      summary: Könyvek listázása
+      parameters:
+        - name: pages_min
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: pages_max
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"
+              example: {"data":[{"id":13,"title":"A Whisper in Time","author":"Isabella Moore","genre":"thriller","price":3187,"year":2018,"pages":351,"rating":4.3},{"id":14,"title":"Chasing the Sun","author":"Lucas Howard","genre":"romance","price":3425,"year":2019,"pages":538,"rating":4.3},{"id":4,"title":"The Iron Throne","author":"Robert Hall","genre":"romance","price":3598,"year":2015,"pages":562,"rating":3.9},{"id":1,"title":"The Lost Kingdom","author":"Anna Wright","genre":"fantasy","price":4118,"year":2017,"pages":616,"rating":3.6},{"id":5,"title":"Forgotten Tales","author":"Sophie Turner","genre":"fantasy","price":4202,"year":2024,"pages":439,"rating":4.4},{"id":12,"title":"Frozen Shadows","author":"Ethan Brooks","genre":"sci-fi","price":4207,"year":2015,"pages":502,"rating":4.7},{"id":11,"title":"Tides of Memory","author":"Chloe Miller","genre":"romance","price":5126,"year":2020,"pages":570,"rating":3.7},{"id":3,"title":"Crimson Skies","author":"Lily Adams","genre":"fantasy","price":5394,"year":2018,"pages":242,"rating":3.7},{"id":6,"title":"Beyond the Horizon","author":"Daniel Morgan","genre":"sci-fi","price":5898,"year":2015,"pages":469,"rating":4.4},{"id":9,"title":"Hidden Truths","author":"Olivia Reed","genre":"romance","price":6203,"year":2025,"pages":244,"rating":4.1},{"id":10,"title":"Echo Valley","author":"Noah Bennett","genre":"drama","price":6269,"year":2022,"pages":543,"rating":4.3},{"id":2,"title":"Winds of Destiny","author":"Michael Carter","genre":"sci-fi","price":6462,"year":2022,"pages":552,"rating":4.6},{"id":15,"title":"Fragments of Reality","author":"Grace Evans","genre":"sci-fi","price":7138,"year":2019,"pages":490,"rating":4.7},{"id":7,"title":"The Final Algorithm","author":"Evelyn Clark","genre":"fantasy","price":7299,"year":2025,"pages":544,"rating":3.7},{"id":8,"title":"Distant Stars","author":"James Nolan","genre":"romance","price":7438,"year":2022,"pages":488,"rating":4.2}]}
+
+  /api/books/{id}:
+    get:
+      operationId: books.show
+      tags:
+        - Book
+      summary: Könyv lekérése ID alapján
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 3
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Book"
+              example:
+                {
+                  "data":
+                    {
+                      "id": 3,
+                      "title": "Crimson Skies",
+                      "author": "Lily Adams",
+                      "genre": "fantasy",
+                      "price": 5394,
+                      "year": 2018,
+                      "pages": 242,
+                      "rating": 3.7,
+                    },
+                }
+
+  /api/books/genre/{genre}:
+    get:
+      operationId: books.genre
+      tags:
+        - Book
+      summary: Könyv lekérése genre alapján
+      parameters:
+        - name: genre
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: "^[A-Za-z]+$"
+            example: fantasy
+
+        - name: order
+          in: query
+          required: false
+          description: Rendezés iránya (növekvő vagy csökkenő)
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+          examples:
+            asc:
+              summary: Növekvő sorrend
+              value: asc
+            desc:
+              summary: Csökkenő sorrend
+              value: desc
+
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"
+              example: {"data":[{"id":7,"title":"The Final Algorithm","author":"Evelyn Clark","genre":"fantasy","price":7299,"year":2025,"pages":544,"rating":3.7},{"id":5,"title":"Forgotten Tales","author":"Sophie Turner","genre":"fantasy","price":4202,"year":2024,"pages":439,"rating":4.4},{"id":3,"title":"Crimson Skies","author":"Lily Adams","genre":"fantasy","price":5394,"year":2018,"pages":242,"rating":3.7},{"id":1,"title":"The Lost Kingdom","author":"Anna Wright","genre":"fantasy","price":4118,"year":2017,"pages":616,"rating":3.6}]}
+
+  /api/books/most-expensive:
+    get:
+      operationId: books.mostExpensive
+      tags:
+        - Book
+      summary: Legdrágább könyv adatai
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Book"
+              example:
+                {
+                  "data":
+                    {
+                      "id": 8,
+                      "title": "Distant Stars",
+                      "author": "James Nolan",
+                      "genre": "romance",
+                      "price": 7438,
+                      "year": 2022,
+                      "pages": 488,
+                      "rating": 4.2,
+                    },
+                }
+
+  /api/books/random:
+    get:
+      operationId: books.random
+      tags:
+        - Book
+      summary: Véletlenszerű könyv adatai
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Book"
+              example:
+                {
+                  "data":
+                    {
+                      "id": 4,
+                      "title": "The Iron Throne",
+                      "author": "Robert Hall",
+                      "genre": "romance",
+                      "price": 3598,
+                      "year": 2015,
+                      "pages": 562,
+                      "rating": 3.9,
+                    },
+                }
+
+  /api/books/popular:
+    get:
+      operationId: books.popular
+      tags:
+        - Book
+      summary: "4.5-nél nagyobb értékeléssel bíró könyvek"
+      responses:
+        "200":
+          description: Sikeres válasz
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      average_rating:
+                        type: number
+              example:
+                {
+                  "data":
+                    [
+                      {
+                        "id": 2,
+                        "title": "Winds of Destiny",
+                        "author": "Michael Carter",
+                        "genre": "sci-fi",
+                        "price": 6462,
+                        "year": 2022,
+                        "pages": 552,
+                        "rating": 4.6,
+                      },
+                      {
+                        "id": 12,
+                        "title": "Frozen Shadows",
+                        "author": "Ethan Brooks",
+                        "genre": "sci-fi",
+                        "price": 4207,
+                        "year": 2015,
+                        "pages": 502,
+                        "rating": 4.7,
+                      },
+                      {
+                        "id": 15,
+                        "title": "Fragments of Reality",
+                        "author": "Grace Evans",
+                        "genre": "sci-fi",
+                        "price": 7138,
+                        "year": 2019,
+                        "pages": 490,
+                        "rating": 4.7,
+                      },
+                    ],
+                }
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: A könyv azonosítója
+        title:
+          type: string
+          description: A könyv címe
+        author:
+          type: string
+          description: A könyv szerzője
+        genre:
+          type: string
+          description: A könyv műfaja (pl. fantasy, sci-fi)
+        price:
+          type: integer
+          description: A könyv ára fortintban
+        year:
+          type: integer
+          description: A könyv kiadási éve
+        pages:
+          type: integer
+          description: Könyv oldalainak száma
+        rating:
+          type: number
+          format: float
+          description: A könyv értékelése 1-5 között
