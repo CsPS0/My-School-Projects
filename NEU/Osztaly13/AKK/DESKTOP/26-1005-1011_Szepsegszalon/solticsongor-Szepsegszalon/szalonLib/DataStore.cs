@@ -1,46 +1,39 @@
-﻿namespace szalonLib
+namespace szalonLib;
+
+public class DataStore
 {
-    public class DataStore
+    public List<Alkalmazottak> Alkalmazottak { get; set; }
+    public List<Kezelesek> Kezelesek { get; set; }
+    public List<Szakmak> Szakmak { get; set; }
+    public List<Vendegek> Vendegek { get; set; }
+
+    public DataStore(string folder = "Forrasok")
     {
-        readonly List<Alkalmazottak> alkalmazottak;
-        readonly List<Kezelesek> kezelesek;
-        readonly List<Szakmak> szakmak;
-        readonly List<Vendegek> vendegek;
+        Alkalmazottak = File.ReadAllLines($"{folder}/alkalmazottak.csv")
+            .Skip(1)
+            .Select(x => new Alkalmazottak(x))
+            .ToList();
 
-        DataStore()
-        {
-            alkalmazottak = File.ReadAllLines("\\..\\Console\\Forrasok\\alkalmazottak.csv")
-                .Skip(1)
-                .Select(x => new Alkalmazottak(x))
-                .ToList();
-            kezelesek = File.ReadAllLines("\\..\\Console\\Forrasok\\kezelesek.csv")
-                .Skip(1)
-                .Select(x => new Kezelesek(x))
-                .ToList();
-            szakmak = File.ReadAllLines("\\..\\Console\\Forrasok\\szakmak.csv")
-                .Skip(1)
-                .Select(x =>new Szakmak(x))
-                .ToList();
-            vendegek = File.ReadAllLines("\\..\\Console\\Forrasok\\vendegek.csv")
-                .Skip(1)
-                .Select(x => new Vendegek(x))
-                .ToList();
-        }
+        Kezelesek = File.ReadAllLines($"{folder}/kezelesek.csv")
+            .Skip(1)
+            .Select(x => new Kezelesek(x))
+            .ToList();
 
-        public static DataStore? Instance { get; private set; }
+        Szakmak = File.ReadAllLines($"{folder}/szakmak.csv")
+            .Skip(1)
+            .Select(x => new Szakmak(x))
+            .ToList();
 
-        public static void InitCSV()
-        {
-            if (Instance is not null)
-            {
-                throw new InvalidOperationException("Már inicializált!");
-            }
-            Instance = new DataStore();
-        }
+        Vendegek = File.ReadAllLines($"{folder}/vendegek.csv")
+            .Skip(1)
+            .Select(x => new Vendegek(x))
+            .ToList();
+    }
 
-        public IEnumerable<Alkalmazottak> Alkalmazottak_ => alkalmazottak;
-        public IEnumerable<Kezelesek> Kezelesek_ => kezelesek;
-        public IEnumerable<Szakmak> Szakmak_ => szakmak;
-        public IEnumerable<Vendegek> Vendegek_ => vendegek;
+    public int AlkalmazottBevetel(string nev)
+    {
+        var emp = Alkalmazottak.FirstOrDefault(x => x.Nev == nev);
+        if (emp == null) return 0;
+        return Kezelesek.Where(x => x.AlkalmazottID == emp.AlkalmazottID).Sum(x => x.Ar);
     }
 }

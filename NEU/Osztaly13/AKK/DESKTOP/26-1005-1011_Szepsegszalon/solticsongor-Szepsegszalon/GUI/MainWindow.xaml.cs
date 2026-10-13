@@ -1,24 +1,48 @@
-﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using szalonLib;
 
-namespace GUI
+namespace GUI;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    DataStore data = new();
+
+    public MainWindow()
     {
-        public MainWindow()
+        InitializeComponent();
+        cbSzakmak.ItemsSource = data.Szakmak.Select(x => x.Nev).ToList();
+    }
+
+    void CbSzakmak_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        tbTelefon.Text = "";
+
+        if (cbSzakmak.SelectedItem is string selectedJob)
         {
-            InitializeComponent();
+            var job = data.Szakmak.FirstOrDefault(x => x.Nev == selectedJob);
+            cbAlkalmazottak.ItemsSource = data.Alkalmazottak
+                .Where(x => x.SzakmaID == job?.SzakmaID)
+                .OrderBy(x => x.Nev)
+                .Select(x => x.Nev)
+                .ToList();
+        }
+        else
+        {
+            cbAlkalmazottak.ItemsSource = null;
+        }
+    }
+
+    void CbAlkalmazottak_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (cbAlkalmazottak.SelectedItem is string empName)
+        {
+            var emp = data.Alkalmazottak.FirstOrDefault(x => x.Nev == empName);
+            tbTelefon.Text = emp?.Telefon ?? "";
+        }
+        else
+        {
+            tbTelefon.Text = "";
         }
     }
 }
