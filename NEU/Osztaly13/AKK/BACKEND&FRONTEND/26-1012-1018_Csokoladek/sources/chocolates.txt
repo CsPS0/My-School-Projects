@@ -1,0 +1,70 @@
+[
+    'id' => 1,
+    'name' => 'Silky Milk Bar',
+    'type' => 'milk',
+    'price' => 299,
+    'manufacturer_id' => 1
+],
+[
+    'id' => 2,
+    'name' => 'Almond Crunch',
+    'type' => 'milk',
+    'price' => 349,
+    'manufacturer_id' => 2
+],
+[
+    'id' => 3,
+    'name' => 'Velvet Dark',
+    'type' => 'dark',
+    'price' => 399,
+    'manufacturer_id' => 4
+],
+[
+    'id' => 4,
+    'name' => 'Cocoa Bliss',
+    'type' => 'dark',
+    'price' => 429,
+    'manufacturer_id' => 3
+],
+[
+    'id' => 5,
+    'name' => 'Choco Chips',
+    'type' => 'white',
+    'price' => 259,
+    'manufacturer_id' => 1
+],
+[
+    'id' => 6,
+    'name' => 'Hazelnut Dream',
+    'type' => 'milk',
+    'price' => 379,
+    'manufacturer_id' => 5
+],
+[
+    'id' => 7,
+    'name' => 'Ruby Swirl',
+    'type' => 'ruby',
+    'price' => 499,
+    'manufacturer_id' => 2
+],
+[
+    'id' => 8,
+    'name' => 'Minty Bites',
+    'type' => 'dark',
+    'price' => 359,
+    'manufacturer_id' => 4
+],
+[
+    'id' => 9,
+    'name' => 'Caramel Core',
+    'type' => 'milk',
+    'price' => 389,
+    'manufacturer_id' => 3
+],
+[
+    'id' => 10,
+    'name' => 'Orange Zest',
+    'type' => 'dark',
+    'price' => 419,
+    'manufacturer_id' => 5
+],
