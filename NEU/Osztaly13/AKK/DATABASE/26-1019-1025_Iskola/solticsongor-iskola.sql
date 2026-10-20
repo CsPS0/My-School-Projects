@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS `diakok`;
+
+CREATE DATABASE `diakok`;
