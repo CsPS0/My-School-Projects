@@ -1,0 +1,17 @@
+<script setup>
+defineProps({
+  image: {
+    type: String,
+    required: true,
+  },
+})
+</script>
+
+<template>
+  <div
+    class="h-50 md:h-100 w-full shrink-0 text-white text-xl p-8 flex flex-col justify-center"
+    :style="`background: linear-gradient(to left, rgb(0 0 0 / .5) 20%, rgb(0 0 0 / 0) 80%, rgb(0 0 0 / .5)), center / cover url('/images/${image}')`"
+  >
+    <slot></slot>
+  </div>
+</template>
