@@ -2,15 +2,26 @@
 {
     public class Orarend
     {
-        public int Ora_ID { get; set; }
-        public DateOnly Datum { get; set; }
-        public TimeOnly Kezdesi_Ido { get; set; }
-        public int Hossz { get; set; }
-        public int Kepzes_ID { get; set; }
-        public int Szint_ID { get; set; }
-        public int Oktato_ID { get; set; }
-        public string Helyszin { get; set; }
-        public int Letszam { get; set; }
+        public int Ora_ID { get; init; }
+        public DateOnly Datum { get; init; }
+        public TimeOnly Kezdesi_Ido { get; init; }
+        public int Hossz { get; init; }
+        public int Kepzes_ID { get; init; }
+        public int Szint_ID { get; init; }
+        public int Oktato_ID { get; init; }
+        public string Helyszin { get; init; }
+        public int Letszam { get; init; }
+
+        public int Keresett
+        {
+            get; set
+            {
+                var oradijImport = DataStore.Instance!.Oktatok.Select(x => x.Oradij);
+                double oradijToDouble = Convert.ToDouble(oradijImport);
+                double oradij = oradijToDouble / 60;
+                double brutto = oradij * Hossz * Letszam;
+            }
+        }
 
         public Orarend(string row)
         {

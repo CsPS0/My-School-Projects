@@ -1,37 +1,33 @@
 ﻿using LovaglasLibrary;
 
-var data = new DataStore();
+DataStore.InitCSV();
 
 #region 5.feladat
-//5. feladat
-Console.WriteLine("5.feladat: {} lovaglás tartott {} percig");
+Console.WriteLine($"5.feladat: {DataStore.Instance!.Orarend.Count(x => x.Hossz >= 45)} lovaglás tartott 45 percig");
 #endregion
 
 #region 6.feladat
-//6. feladat
-Console.Write("6.feladat:");
+Console.Write("6.feladat: adja a nevet: ");
 string nevBekeres = Console.ReadLine() ?? "";
-
-if ()
+var oktato = DataStore.Instance!.Oktatok.FirstOrDefault(x => x.Nev == nevBekeres);
+if (oktato is null)
 {
-    Console.WriteLine("Ilyen néven nem található");
+    Console.WriteLine("\tIlyen néven nem található");
 }
-else if (nevBekeres == null)
-{
-    Console.WriteLine("HIBA: név nem lehet üres");
-} 
 else
 {
-    Console.WriteLine("A 3 legtöbbet kereső oktató:\n");
-    for (int i = 0; i < nevBekeres.Length; i++)
-    {
-
-    }
+    Console.WriteLine($"\tEmail: {oktato.Email}" +
+        $"\n\tTelefon: {oktato.Telefon}" +
+        $"\n\tÓradíj: {oktato.Oradij}");
 }
-//else if ()
 #endregion
 
-#region
-//7. feladat
-Console.WriteLine("7.feladat: A 3 legtöbbet kereső oktató:");
+#region 7.feladat
+var oktatok = DataStore.Instance!.Oktatok
+    .Select(x => x.Nev);
+var orarend = DataStore.Instance!.Orarend
+    .OrderByDescending(x => x.Keresett)
+    .Take(3);
+Console.WriteLine($"7.feladat: A 3 legtöbbet kereső oktató:" +
+    $"\n\t {oktatok}: {orarend} Ft");
 #endregion

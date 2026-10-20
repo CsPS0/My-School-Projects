@@ -1,58 +1,44 @@
-﻿using System.Text;
-
-namespace LovaglasLibrary
+﻿namespace LovaglasLibrary
 {
     public class DataStore
     {
-        List<Szint> Szint = new();
-        List<Kepzes> Kepzes = new();
-        List<Oktato> Oktato = new();
-        List<Orarend> Orarend = new();
+        readonly List<Szint> szint;
+        readonly List<Kepzes> kepzes;
+        readonly List<Oktato> oktato;
+        readonly List<Orarend> orarend;
 
-        public DataStore(string path = "Forrasok")
+        public IEnumerable<Szint> Szintek => szint;
+        public IEnumerable<Kepzes> Kepzes => kepzes;
+        public IEnumerable<Oktato> Oktatok => oktato;
+        public IEnumerable<Orarend> Orarend => orarend;
+
+        DataStore(string path = "Forrasok")
         {
-            Szint = Path.Combine(File.ReadAllLines($"{path}/szint.csv")
+            szint = File.ReadAllLines(Path.Combine(path, "szint.csv"))
                 .Skip(1)
-                .Select(x => new Szint)
-                .ToList());
-            Kepzes = Path.Combine(File.ReadAllLines($"{path}/kepzes.csv")
+                .Select(x => new Szint(x))
+                .ToList();
+            kepzes = File.ReadAllLines(Path.Combine(path, "kepzes.csv"))
                 .Skip(1)
-                .Select(x => new Kepzes)
-                .ToList());
-            Oktato = Path.Combine(File.ReadLines($"{path}/oktato.csv")
+                .Select(x => new Kepzes(x))
+                .ToList();
+            oktato = File.ReadAllLines(Path.Combine(path, "oktato.csv"))
                 .Skip(1)
-                .Select(x => new Oktato)
-                .ToList());
-            Orarend = Path.Combine(File.ReadAllLines($"{path}/orarend.csv")
+                .Select(x => new Oktato(x))
+                .ToList();
+            orarend = File.ReadAllLines(Path.Combine(path, "orarend.csv"))
                 .Skip(1)
-                .Select(x => new Orarend)
-                .ToList());
+                .Select(x => new Orarend(x))
+                .ToList();
         }
 
-        public void Oramegtartasa()
-        {
-            
-        }
+        public static DataStore? Instance { get; set; }
 
-        public void Feladat05()
+        public static void InitCSV()
         {
-            string legalabb45 = Szint.Where(x => x.Orarend.Hossz >= 45);
-        }
-
-        public void Feladat06()
-        {
-            var stringBuilder = new StringBuilder();
-            for (int i = 0; i <= 3; i++)
-            {
-                stringBuilder.AppendLine($"{Nev}: {Oradij} Ft");
-                i++;
-            }
-            Console.WriteLine(stringBuilder.ToString());
-        }
-
-        public void Feladat07()
-        {
-            string keresettPenz = Oktato.Select(x => x.Oradij).OrderByDescending(x => x).First(3);
+            if (Instance is not null)
+                throw new InvalidOperationException("Már incializált.");
+            Instance = new DataStore();
         }
     }
 }
