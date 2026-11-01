@@ -13,16 +13,16 @@ CREATE TABLE `blokk` (
   `id` int NOT NULL primary key auto_increment,
   `vasarlas_ideje` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `elado_id` int NOT NULL,
-  `fizetesi_mod` int NOT NULL,
+  `fizetesi_mod` varchar(10) NOT NULL,
   FOREIGN KEY (elado_id) REFERENCES elado(id)
-) ENGINE=InnoD;
+) ENGINE=InnoDB;
 
 CREATE TABLE `cikk` (
   `id` int NOT NULL primary key auto_increment,
   `blokk_id` int NOT NULL,
   `nev` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `mennyiseg` double NOT NULL,
-  `mertekegyseg` varchar(5) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `mertekegyseg` varchar(20) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
   `egysegar` int NOT NULL,
   `afa` double NOT NULL,
   FOREIGN KEY (blokk_id) REFERENCES blokk(id)
