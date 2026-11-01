@@ -7,9 +7,6 @@ use Illuminate\Support\Collection;
 
 class BookController extends Controller
 {
-    /**
-     * Return books from books.txt as a Laravel Collection.
-     */
     public function getBooks(): Collection
     {
         $path = storage_path('app/books.txt');
@@ -26,10 +23,6 @@ class BookController extends Controller
         return collect($data);
     }
 
-    /**
-     * GET /api/books
-     * List all books, optionally filtered by pages_min and pages_max, sorted by price ASC.
-     */
     public function index(Request $request)
     {
         $books = $this->getBooks();
@@ -51,10 +44,6 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/books/most-expensive
-     * Return the book with the highest price.
-     */
     public function mostExpensive()
     {
         $book = $this->getBooks()->sortByDesc('price')->first();
@@ -64,10 +53,6 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/books/random
-     * Return a single random book.
-     */
     public function random()
     {
         $book = $this->getBooks()->random();
@@ -77,10 +62,6 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/books/popular
-     * Return books with rating >= 4.5.
-     */
     public function popular()
     {
         $books = $this->getBooks()
@@ -92,10 +73,6 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/books/genre/{genre}
-     * Return books of a specific genre, ordered by year (asc/desc, default desc).
-     */
     public function genre(Request $request, string $genre)
     {
         $order = strtolower($request->query('order', 'desc'));
@@ -115,10 +92,6 @@ class BookController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/books/{id}
-     * Return a specific book by ID, or 404 if not found.
-     */
     public function show(string $id)
     {
         $numericId = (int) $id;

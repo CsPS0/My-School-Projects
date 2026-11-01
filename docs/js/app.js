@@ -6,14 +6,12 @@ const esc = s => s ? String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const BINARY_EXTS = new Set(['zip', '7z', 'rar', 'tar', 'gz', 'bz2', 'iso', 'exe', 'dll', 'bin', 'pdb', 'obj']);
 
-// Crisp, modern SVG icons (VS Code / GitHub developer style - ZERO emojis)
 const SVG_ICONS = {
   chevron_down: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
   chevron_right: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`,
   folder: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
   folder_open: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>`,
   
-  // Subject Icons for Projects
   subject_desktop: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>`,
   subject_database: `<svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>`,
   subject_backend: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
@@ -26,7 +24,6 @@ const SVG_ICONS = {
   subject_dk: `<svg class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>`,
   subject_ikt: `<svg class="w-4 h-4 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
 
-  // File Extension Icons
   cs: `<svg class="w-4 h-4 text-purple-600 dark:text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" x2="12" y1="4" y2="20"/></svg>`,
   sln: `<svg class="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>`,
   csproj: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
@@ -103,7 +100,6 @@ const collapsedFolders = new Set();
 
 try { favs = new Set(JSON.parse(localStorage.favs || '[]')); } catch {}
 
-// Update Highlight.js theme dynamically
 function updateHljsTheme(isDark) {
   const themeLink = $('hljs-theme');
   if (themeLink) {
@@ -113,19 +109,16 @@ function updateHljsTheme(isDark) {
   }
 }
 
-// Ultra-fast tree loader: check preloaded window.REPO_TREE first (0ms load)
 async function loadTree() {
   if (window.REPO_TREE && Array.isArray(window.REPO_TREE)) {
     return window.REPO_TREE;
   }
 
-  // Strategy 2: local fetch
   try {
     const res = await fetch('tree.json');
     if (res.ok) return await res.json();
   } catch {}
 
-  // Strategy 3: GitHub API fallback
   const key = 'tree:' + REPO;
   try {
     const cached = JSON.parse(sessionStorage.getItem(key));
@@ -140,7 +133,6 @@ async function loadTree() {
   return tree;
 }
 
-// Normalize metadata from path
 function parseItem([path, isDir, size]) {
   const parts = path.split('/');
   const name = parts[parts.length - 1];
@@ -186,12 +178,10 @@ function parseItem([path, isDir, size]) {
     }
   }
 
-  // Detect dated project directories e.g. 26-1012-1018_... or 24-0916-0922 or 23-0108
   const m = name.match(/^(\d{2})-(\d{2})(\d{2})/);
   const date = m ? `20${m[1]} ${MONTHS[+m[2] - 1] || ''} ${+m[3]}` : '';
   if (isDir && m) isProject = true;
 
-  // Clean subject display
   if (subject === 'DEVCORNER') subject = 'OTHER';
 
   return {
@@ -259,7 +249,6 @@ function getProjectFiles(projectPath) {
   return allItems.filter(it => !it.isDir && it.path.startsWith(prefix));
 }
 
-// Render Project / File Cards (Clean, concise, no huge root path)
 function render(reset = true) {
   if (reset) shownCount = PAGE;
   const { hits, words, q } = filtered();
@@ -274,7 +263,6 @@ function render(reset = true) {
     const cardIcon = isFile ? getFileSvg(ext) : getSubjectSvg(it.subject);
     const subjectTagClass = `tag-${(it.subject || '').toLowerCase()}`;
 
-    // Compute file stats for project
     let projectStatsBadge = '';
     if (!isFile) {
       const files = getProjectFiles(it.path);
@@ -283,7 +271,6 @@ function render(reset = true) {
       projectStatsBadge = `<span class="tag bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${files.length} files ${extList ? `· ${extList}` : ''}</span>`;
     }
 
-    // Relative match path for file search only
     let matchSubline = '';
     if (isFile && words.length) {
       matchSubline = `<div class="text-xs text-zinc-400 font-mono mt-0.5 break-all">${highlight(it.name, words)}</div>`;
@@ -341,7 +328,6 @@ async function fetchFileContent(filePath) {
     return fileCache.get(filePath);
   }
 
-  // Strategy 1: Local relative fetch
   try {
     const localRes = await fetch('../' + filePath);
     if (localRes.ok) {
@@ -351,7 +337,6 @@ async function fetchFileContent(filePath) {
     }
   } catch {}
 
-  // Strategy 2: GitHub raw usercontent
   const rawUrl = rawUrlOf(filePath);
   const ghRes = await fetch(rawUrl);
   if (!ghRes.ok) throw new Error(`HTTP ${ghRes.status} (${ghRes.statusText})`);
@@ -360,29 +345,24 @@ async function fetchFileContent(filePath) {
   return text;
 }
 
-// Smart priority file picker when opening a project: NEVER pick .zip / binaries first!
 function pickInitialFile(files) {
   if (!files || !files.length) return null;
 
-  // 1. Primary code files: Program.cs, index.php, MainWindow.xaml.cs, App.xaml.cs
   const mainEntry = files.find(f => /Program\.cs$|index\.php$|MainWindow\.xaml\.cs$/i.test(f.name));
   if (mainEntry) return mainEntry;
 
-  // 2. Readable code files (.cs, .sql, .php, .js, .html, .vue, .xaml)
   const codeFile = files.find(f => {
     const ext = f.name.split('.').pop().toLowerCase();
     return ['cs', 'sql', 'php', 'js', 'html', 'vue', 'xaml'].includes(ext);
   });
   if (codeFile) return codeFile;
 
-  // 3. Documentation / config files (.md, .txt, .json, .yaml, .yml)
   const docFile = files.find(f => {
     const ext = f.name.split('.').pop().toLowerCase();
     return ['md', 'txt', 'json', 'yaml', 'yml'].includes(ext);
   });
   if (docFile) return docFile;
 
-  // 4. Non-binary file
   const nonBinary = files.find(f => {
     const ext = f.name.split('.').pop().toLowerCase();
     return !BINARY_EXTS.has(ext);
@@ -392,20 +372,17 @@ function pickInitialFile(files) {
   return files[0];
 }
 
-// Open and render a file in the modal viewer
 async function viewFile(filePath) {
   currentFilePath = filePath;
   const item = allItems.find(i => i.path === filePath) || { path: filePath, name: filePath.split('/').pop(), size: 0 };
   const ext = item.name.includes('.') ? item.name.split('.').pop().toLowerCase() : '';
 
-  // Clean relative breadcrumb within project (no root prefix!)
   let relBreadcrumb = item.name;
   if (currentProject && filePath.startsWith(currentProject)) {
     const pfxLen = currentProject.endsWith('/') ? currentProject.length : currentProject.length + 1;
     relBreadcrumb = filePath.substring(pfxLen).split('/').join(' / ');
   }
 
-  // Update headers
   $('active-file-icon').innerHTML = getFileSvg(ext);
   $('active-filename').textContent = item.name;
   $('active-file-size').textContent = item.size ? `· ${formatBytes(item.size)}` : '';
@@ -416,12 +393,10 @@ async function viewFile(filePath) {
   $('code-copy-text').textContent = 'Copy';
   $('md-toggle-btn').classList.add('hidden');
 
-  // Highlight active item in sidebar tree
   document.querySelectorAll('#sidebar-tree .tree-row').forEach(el => {
     el.classList.toggle('active', el.dataset.filePath === filePath);
   });
 
-  // Reset view panes
   $('code-status').classList.remove('hidden');
   $('code-status-text').textContent = `Loading ${item.name}…`;
   $('code-wrapper').classList.add('hidden');
@@ -430,7 +405,6 @@ async function viewFile(filePath) {
   $('code-media').innerHTML = '';
   currentCodeText = '';
 
-  // Fast Binary / Archive Handler (Instant, NO text fetch!)
   if (BINARY_EXTS.has(ext)) {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
@@ -456,7 +430,6 @@ async function viewFile(filePath) {
     return;
   }
 
-  // Handle Images
   if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico'].includes(ext)) {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
@@ -468,7 +441,6 @@ async function viewFile(filePath) {
     return;
   }
 
-  // Handle PDF
   if (ext === 'pdf') {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
@@ -491,7 +463,6 @@ async function viewFile(filePath) {
     return;
   }
 
-  // Handle Dia diagrams
   if (ext === 'dia') {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
@@ -515,11 +486,9 @@ async function viewFile(filePath) {
     return;
   }
 
-  // Handle Code / Text / Markdown
   await loadCodeText(filePath, ext);
 }
 
-// Load and display code / text
 async function loadCodeText(filePath, ext) {
   try {
     const text = await fetchFileContent(filePath);
@@ -527,7 +496,6 @@ async function loadCodeText(filePath, ext) {
 
     $('code-status').classList.add('hidden');
 
-    // Handle Markdown with formatted preview option
     if (ext === 'md' && window.marked) {
       $('md-toggle-btn').classList.remove('hidden');
       $('md-toggle-btn').textContent = 'View Raw Markdown';
@@ -537,7 +505,6 @@ async function loadCodeText(filePath, ext) {
       return;
     }
 
-    // Code Editor View
     $('code-wrapper').classList.remove('hidden');
     const codeEl = $('code-content');
     codeEl.className = 'hljs block';
@@ -574,7 +541,6 @@ async function loadCodeText(filePath, ext) {
       hljs.highlightElement(codeEl);
     }
 
-    // Generate Line Numbers Gutter
     const lineCount = text.split('\n').length;
     $('active-file-lines').textContent = `· ${lineCount} lines`;
     const gutterHtml = Array.from({ length: lineCount }, (_, i) => `<div>${i + 1}</div>`).join('');
@@ -589,7 +555,6 @@ async function loadCodeText(filePath, ext) {
   }
 }
 
-// Build hierarchical file tree structure from flat file list
 function buildHierarchy(files, rootPath) {
   const root = { name: '', isDir: true, children: {}, fullPath: '' };
   const prefixLen = rootPath.endsWith('/') ? rootPath.length : rootPath.length + 1;
@@ -629,12 +594,10 @@ function buildHierarchy(files, rootPath) {
   return root;
 }
 
-// Render Tree HTML recursively with collapsible folders and clean icons
 function renderTreeHtml(node, depth = 0) {
   const childKeys = Object.keys(node.children).sort((a, b) => {
     const aNode = node.children[a];
     const bNode = node.children[b];
-    // Directories first, then files
     if (aNode.isDir !== bNode.isDir) return bNode.isDir - aNode.isDir;
     return a.localeCompare(b, 'hu');
   });
@@ -673,7 +636,6 @@ function renderTreeHtml(node, depth = 0) {
   }).join('');
 }
 
-// Render sidebar tree view with optional live search filter
 function renderSidebarTree(files, rootPath) {
   const filterVal = $('sidebar-filter').value.toLowerCase().trim();
   const filtered = filterVal ? files.filter(f => f.path.toLowerCase().includes(filterVal)) : files;
@@ -687,7 +649,6 @@ function renderSidebarTree(files, rootPath) {
   $('sidebar-tree').innerHTML = renderTreeHtml(hierarchy);
 }
 
-// Open project explorer modal
 function openProject(projectPath, targetFilePath = null) {
   currentProject = projectPath;
   collapsedFolders.clear();
@@ -702,12 +663,10 @@ function openProject(projectPath, targetFilePath = null) {
   $('sidebar-count').textContent = projectFiles.length;
   $('sidebar-filter').value = '';
 
-  // Render Hierarchical Tree
   renderSidebarTree(projectFiles, projectPath);
 
   dialog.showModal();
 
-  // If a specific file was requested, view it; otherwise smart-pick the best readable file
   if (targetFilePath) {
     viewFile(targetFilePath);
   } else if (projectFiles.length > 0) {
@@ -720,9 +679,7 @@ function openProject(projectPath, targetFilePath = null) {
   }
 }
 
-// Tree view interaction: toggle folder collapse or open file
 $('sidebar-tree').addEventListener('click', e => {
-  // Folder collapse / expand toggle
   const folderRow = e.target.closest('[data-toggle-folder]');
   if (folderRow) {
     const folderPath = folderRow.dataset.toggleFolder;
@@ -738,21 +695,18 @@ $('sidebar-tree').addEventListener('click', e => {
     return;
   }
 
-  // File row click
   const fileRow = e.target.closest('.tree-file');
   if (fileRow && fileRow.dataset.filePath) {
     viewFile(fileRow.dataset.filePath);
   }
 });
 
-// Sidebar search filter input
 $('sidebar-filter').addEventListener('input', () => {
   if (currentProject) {
     renderSidebarTree(getProjectFiles(currentProject), currentProject);
   }
 });
 
-// Markdown / Raw toggle
 $('md-toggle-btn').addEventListener('click', () => {
   const isViewingFormatted = !$('md-preview').classList.contains('hidden');
   if (isViewingFormatted) {
@@ -774,7 +728,6 @@ $('md-toggle-btn').addEventListener('click', () => {
   }
 });
 
-// Copy code button
 $('code-copy-btn').onclick = () => {
   if (!currentCodeText) return;
   navigator.clipboard?.writeText(currentCodeText);
@@ -782,7 +735,6 @@ $('code-copy-btn').onclick = () => {
   setTimeout(() => { $('code-copy-text').textContent = 'Copy'; }, 1500);
 };
 
-// Word wrap toggle
 $('code-wrap-btn').onclick = () => {
   const wrapper = $('code-wrapper');
   wrapper.classList.toggle('code-wrapped');
@@ -790,7 +742,6 @@ $('code-wrap-btn').onclick = () => {
   $('code-wrap-btn').classList.toggle('text-blue-600', wrapper.classList.contains('code-wrapped'));
 };
 
-// Download current file
 $('code-download-btn').onclick = () => {
   if (!currentFilePath) return;
   const a = document.createElement('a');
@@ -801,10 +752,8 @@ $('code-download-btn').onclick = () => {
   document.body.removeChild(a);
 };
 
-// Close modal
 $('code-close-btn').onclick = () => $('code-dialog').close();
 
-// Click delegation on results list
 $('results').addEventListener('click', e => {
   const favBtn = e.target.closest('button[data-fav]');
   if (favBtn) {
@@ -840,7 +789,6 @@ $('results').addEventListener('click', e => {
   }
 });
 
-// Filter Pills click handler
 document.querySelectorAll('.pill[data-pill-type]').forEach(pill => {
   pill.addEventListener('click', () => {
     document.querySelectorAll(`.pill[data-pill-type="${pill.dataset.pillType}"]`).forEach(p => p.classList.remove('active'));
@@ -853,7 +801,6 @@ document.querySelectorAll('.pill[data-pill-type]').forEach(pill => {
   });
 });
 
-// Synchronize dropdown selects with pills
 $('subject').addEventListener('change', () => {
   const val = $('subject').value;
   document.querySelectorAll('.pill[data-pill-type="subject"]').forEach(p => {
@@ -862,14 +809,12 @@ $('subject').addEventListener('change', () => {
   render();
 });
 
-// Clear Search Input Button
 $('q-clear').addEventListener('click', () => {
   $('q').value = '';
   render();
   $('q').focus();
 });
 
-// Reset all filters
 $('clear').onclick = () => {
   $('q').value = '';
   $('grade').value = '';
@@ -883,20 +828,17 @@ $('clear').onclick = () => {
   render();
 };
 
-// Theme Toggle
 $('theme').onclick = () => {
   const dark = document.documentElement.classList.toggle('dark');
   try { localStorage.theme = dark ? 'dark' : 'light'; } catch {}
   updateHljsTheme(dark);
 };
 
-// Show More Pagination
 $('more').onclick = () => {
   shownCount += PAGE;
   render(false);
 };
 
-// Random Project Selector
 $('random').onclick = () => {
   const projects = allItems.filter(i => i.project);
   if (projects.length) {
@@ -912,7 +854,6 @@ function fillSelect(sel, values, defaultLabel = 'All') {
   }
 }
 
-// Light dismiss fallback for dialogs without closedby support
 if (!('closedBy' in HTMLDialogElement.prototype)) {
   const dialog = $('code-dialog');
   const outside = (e, d) => {
@@ -924,7 +865,6 @@ if (!('closedBy' in HTMLDialogElement.prototype)) {
   dialog.addEventListener('pointerup', (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
 }
 
-// Global keyboard shortcuts: Ctrl+K / Cmd+K search interception with browser lock
 window.addEventListener('keydown', e => {
   const isCtrlOrCmd = e.ctrlKey || e.metaKey;
   if (isCtrlOrCmd && (e.key === 'k' || e.key === 'K')) {
@@ -946,7 +886,6 @@ window.addEventListener('keydown', e => {
     return false;
   }
 
-  // Also support '/' when no input or modal is open
   if (e.key === '/' && !$('code-dialog')?.open) {
     const tag = document.activeElement?.tagName;
     if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
@@ -959,18 +898,16 @@ window.addEventListener('keydown', e => {
       }
     }
   }
-}, true); // TRUE: capture phase ensures browser search bar navigation is intercepted and cancelled
+}, true);
 
 for (const id of ['q', 'grade', 'files', 'fav-only', 'sort']) {
   $(id).addEventListener('input', () => render());
 }
 
-// Application Initialization
 loadTree().then(tree => {
   rawTree = tree;
   allItems = tree.filter(([p]) => /^(NEU|Verebay)\//.test(p)).map(parseItem);
 
-  // Populate Grades in clear pedagogical order (13 down to 9)
   const gradeOrder = ['13. osztály', '12. osztály', '11. osztály', '10. osztály', '9. osztály'];
   const availableGrades = new Set(allItems.map(i => i.grade).filter(Boolean));
   $('grade').innerHTML = '<option value="">All grades</option>';
@@ -983,7 +920,6 @@ loadTree().then(tree => {
     $('grade').add(new Option(g, g));
   }
   
-  // Populate Subjects including CISCO, PYTHON, OFFICE
   const distinctSubjects = ['DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'CISCO', 'PYTHON', 'OFFICE', 'DK', 'IKT', 'OTHER'];
   $('subject').innerHTML = '<option value="">All subjects</option>';
   for (const s of distinctSubjects) {

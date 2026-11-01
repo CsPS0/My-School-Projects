@@ -1,7 +1,6 @@
 # Book Store API (Laravel)
 
 Megoldás a `26-0920-0926_Konyvesbolt` feladatra.
-Készítette: Solti Csongor Péter
 
 ## Útvonalak (API Endpoints)
 

@@ -1,8 +1,3 @@
--- =============================================================================
--- Iskola adatbázis megvalósítása
--- Készítette: Solti Csongor Péter
--- =============================================================================
-
 DROP DATABASE IF EXISTS `diakok`;
 CREATE DATABASE IF NOT EXISTS `diakok`
   DEFAULT CHARACTER SET utf8mb4
@@ -10,10 +5,6 @@ CREATE DATABASE IF NOT EXISTS `diakok`
 
 USE `diakok`;
 
--- -----------------------------------------------------------------------------
--- 1. Tantárgyak tábla
--- A tantárgyak esetében meg kell adni a nevét, az évfolyamot és a tanmenet azonosítóját.
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `tantargyak`;
 CREATE TABLE `tantargyak` (
   `tanmenet_id` VARCHAR(30) NOT NULL,
@@ -22,10 +13,6 @@ CREATE TABLE `tantargyak` (
   PRIMARY KEY (`tanmenet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 2. Tanárok tábla
--- A tanárokról szeretnénk tudni a nevüket, az e-mail címüket (egyedinek kell lennie).
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `tanarok`;
 CREATE TABLE `tanarok` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -35,10 +22,6 @@ CREATE TABLE `tanarok` (
   UNIQUE KEY `uq_tanar_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 3. Tanári végzettségek tábla (többértékű attribútum 1NF felbontása)
--- A tanárok végzettségét tárolja (egy tanárnak több végzettsége is lehet).
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `tanar_vegzettsegek`;
 CREATE TABLE `tanar_vegzettsegek` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -49,10 +32,6 @@ CREATE TABLE `tanar_vegzettsegek` (
     REFERENCES `tanarok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 4. Diákok tábla
--- Név, születési idő, TAJ szám (PK), osztály, és a számított kor.
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `diakok`;
 CREATE TABLE `diakok` (
   `taj` VARCHAR(11) NOT NULL,
@@ -63,9 +42,6 @@ CREATE TABLE `diakok` (
   PRIMARY KEY (`taj`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 5. Tanítja kapcsolat tábla (N:M kapcsolat a Tanárok és Tantárgyak között)
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `tanitja`;
 CREATE TABLE `tanitja` (
   `tanar_id` INT NOT NULL,
@@ -77,10 +53,6 @@ CREATE TABLE `tanitja` (
     REFERENCES `tantargyak` (`tanmenet_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 6. Tanulja kapcsolat tábla (N:M kapcsolat a Diákok és Tantárgyak között)
--- Tárolja, hogy melyik diák melyik tantárgyat melyik tanévben tanulja.
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `tanulja`;
 CREATE TABLE `tanulja` (
   `diak_taj` VARCHAR(11) NOT NULL,
@@ -92,11 +64,6 @@ CREATE TABLE `tanulja` (
   CONSTRAINT `fk_tanulja_tantargy` FOREIGN KEY (`tanmenet_id`)
     REFERENCES `tantargyak` (`tanmenet_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
-
--- =============================================================================
--- Mintaadatok feltöltése
--- =============================================================================
 
 INSERT INTO `tantargyak` (`tanmenet_id`, `nev`, `evfolyam`) VALUES
   ('TM-PROG-13', 'Szoftvertesztelés és backend programozás', 13),
@@ -132,20 +99,13 @@ INSERT INTO `tanulja` (`diak_taj`, `tanmenet_id`, `tanev`) VALUES
   ('987654321', 'TM-PROG-13', '2025/2026'),
   ('112233445', 'TM-ADAT-12', '2024/2025');
 
--- =============================================================================
--- Lekérdezések ellenőrzéshez
--- =============================================================================
-
--- 1. Diákok adatai a számított életkorral
 SELECT `taj`, `nev`, `osztaly`, `szuletesi_ido`, `kor` FROM `diakok`;
 
--- 2. Tanárok és végzettségeik listája
 SELECT t.`nev`, t.`email`, GROUP_CONCAT(v.`vegzettseg` SEPARATOR ', ') AS `vegzettsegek`
 FROM `tanarok` t
 LEFT JOIN `tanar_vegzettsegek` v ON t.`id` = v.`tanar_id`
 GROUP BY t.`id`, t.`nev`, t.`email`;
 
--- 3. Diákok és a tanult tantárgyaik tanévenként
 SELECT d.`nev` AS `diak_nev`, d.`osztaly`, tt.`nev` AS `tantargy`, t.`tanev`
 FROM `tanulja` t
 JOIN `diakok` d ON t.`diak_taj` = d.`taj`

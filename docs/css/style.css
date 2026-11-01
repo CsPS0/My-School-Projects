@@ -1,4 +1,3 @@
-/* Shared Controls & Components */
 .ctl {
   font: inherit;
   color: inherit;
@@ -27,7 +26,6 @@ input[type=search].ctl, input[type=text].ctl {
   border-color: #2563eb;
 }
 
-/* Project Cards */
 .card {
   display: block;
   padding: 0.85rem 1rem;
@@ -49,7 +47,6 @@ input[type=search].ctl, input[type=text].ctl {
   outline: 2px solid #2563eb;
 }
 
-/* Filter Pills */
 .pill {
   border: 1px solid #e4e4e7;
   border-radius: 9999px;
@@ -81,7 +78,6 @@ input[type=search].ctl, input[type=text].ctl {
   box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
 }
 
-/* Badges & Tags */
 .tag {
   background: #f4f4f5;
   color: #52525b;
@@ -156,7 +152,6 @@ mark {
   fill: currentColor;
 }
 
-/* Dialog & Backdrop */
 dialog:modal {
   overscroll-behavior: contain;
 }
@@ -167,9 +162,6 @@ dialog::backdrop {
   backdrop-filter: blur(4px);
 }
 
-/* ========================================================================= */
-/* Hierarchical Tree View Styling (VS Code Inspired)                         */
-/* ========================================================================= */
 .tree-node {
   font-family: inherit;
   font-size: 12px;
@@ -201,7 +193,6 @@ dialog::backdrop {
   color: #ffffff !important;
 }
 
-/* Tree Folder Chevron & Toggle */
 .tree-chevron {
   width: 14px;
   height: 14px;
@@ -227,7 +218,6 @@ dialog::backdrop {
   border-left-color: #27272a;
 }
 
-/* Code Viewer & Synchronized Line Gutter */
 #code-wrapper.code-wrapped pre code {
   white-space: pre-wrap;
   word-break: break-all;
@@ -241,7 +231,6 @@ pre code.hljs {
   line-height: inherit;
 }
 
-/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -263,7 +252,6 @@ pre code.hljs {
   background: #52525b;
 }
 
-/* Markdown preview prose styles */
 #md-preview h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.85rem; }
 #md-preview h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.4rem; margin-bottom: 0.65rem; border-bottom: 1px solid #e4e4e7; padding-bottom: 0.25rem; }
 .dark #md-preview h2 { border-color: #27272a; }

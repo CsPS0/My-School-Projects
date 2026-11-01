@@ -33,11 +33,11 @@ public class Tests
     }
 
     [TestCase("KGCW-5881-JUAH", ExpectedResult = true)]
-    [TestCase("kgcw-5881-juah", ExpectedResult = true)] // lowercase check
-    [TestCase("Kgcw-5881-Juah", ExpectedResult = true)] // mixed case check
-    [TestCase("CAJAVALK88GK", ExpectedResult = true)]   // valid unhyphenated (12 chars: 2 'K', 3 'A', '88')
-    [TestCase("K123-A88B-CDEF", ExpectedResult = true)]   // exactly 1 'K', 1 'A', '88'
-    [TestCase("KKKK-88BC-DEFG", ExpectedResult = true)]   // 4 'K's, 0 'A's (valid, <= 3)
+    [TestCase("kgcw-5881-juah", ExpectedResult = true)]
+    [TestCase("Kgcw-5881-Juah", ExpectedResult = true)]
+    [TestCase("CAJAVALK88GK", ExpectedResult = true)]
+    [TestCase("K123-A88B-CDEF", ExpectedResult = true)]
+    [TestCase("KKKK-88BC-DEFG", ExpectedResult = true)]
     public bool TestValidCodes(string code)
     {
         return ActivatetionCodeValidator_lib.CheckCodeValidity(code);
@@ -46,16 +46,16 @@ public class Tests
     [TestCase(null, ExpectedResult = false)]
     [TestCase("", ExpectedResult = false)]
     [TestCase("   ", ExpectedResult = false)]
-    [TestCase("K123-888B-CDEF", ExpectedResult = false)] // 3 eights ("888")
-    [TestCase("K183-A88B-CDEF", ExpectedResult = false)] // 3 eights separated
-    [TestCase("K183-A81B-CDEF", ExpectedResult = false)] // two eights but not adjacent ("8...8")
-    [TestCase("X123-A88B-CDEF", ExpectedResult = false)] // missing 'K'
-    [TestCase("KAAA-A88B-CDEF", ExpectedResult = false)] // 4 'A's (> 3)
-    [TestCase("K123-A88B-CDE!", ExpectedResult = false)] // invalid punctuation
-    [TestCase("K123-A88B-CDE", ExpectedResult = false)]  // 11 chars with hyphens (too short)
-    [TestCase("K123-A88B-CDEF1", ExpectedResult = false)] // too long
-    [TestCase("K123A88BCDE", ExpectedResult = false)]   // 11 chars without hyphens
-    [TestCase("K123A88BCDEFG", ExpectedResult = false)]  // 13 chars without hyphens
+    [TestCase("K123-888B-CDEF", ExpectedResult = false)]
+    [TestCase("K183-A88B-CDEF", ExpectedResult = false)]
+    [TestCase("K183-A81B-CDEF", ExpectedResult = false)]
+    [TestCase("X123-A88B-CDEF", ExpectedResult = false)]
+    [TestCase("KAAA-A88B-CDEF", ExpectedResult = false)]
+    [TestCase("K123-A88B-CDE!", ExpectedResult = false)]
+    [TestCase("K123-A88B-CDE", ExpectedResult = false)]
+    [TestCase("K123-A88B-CDEF1", ExpectedResult = false)]
+    [TestCase("K123A88BCDE", ExpectedResult = false)]
+    [TestCase("K123A88BCDEFG", ExpectedResult = false)]
     public bool TestInvalidBoundaryConditions(string? code)
     {
         return ActivatetionCodeValidator_lib.CheckCodeValidity(code);

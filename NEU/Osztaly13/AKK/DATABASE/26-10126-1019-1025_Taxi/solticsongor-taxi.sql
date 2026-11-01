@@ -1,9 +1,3 @@
--- =============================================================================
--- Taxi adatbázis megvalósítása
--- Készítette: Solti Csongor Péter
--- Feladat: Taxitársaság adatbázisának megtervezése és létrehozása
--- =============================================================================
-
 DROP DATABASE IF EXISTS `taxi`;
 CREATE DATABASE IF NOT EXISTS `taxi`
   DEFAULT CHARACTER SET utf8mb4
@@ -11,11 +5,6 @@ CREATE DATABASE IF NOT EXISTS `taxi`
 
 USE `taxi`;
 
--- -----------------------------------------------------------------------------
--- 1. Sofőrök tábla
--- "A társaság több sofőrt is alkalmaz. A sofőrökről el kell tárolni a nevét,
---  és az engedély számát."
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `soforok`;
 CREATE TABLE `soforok` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -25,10 +14,6 @@ CREATE TABLE `soforok` (
   UNIQUE KEY `uq_sofor_engedely` (`engedely_szam`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 2. Sofőr telefonszámok tábla (1NF felbontás a többértékű attribútumhoz)
--- "azt is feltesszük, hogy egy sofőrnek több telefonszáma is lehet."
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `sofor_telefonszamok`;
 CREATE TABLE `sofor_telefonszamok` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -39,12 +24,6 @@ CREATE TABLE `sofor_telefonszamok` (
     REFERENCES `soforok` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 3. Kocsik tábla
--- "Minden kocsiról tudni kell a rendszámát, a típusát és a férőhelyek számát.
---  A gépkocsikat mindig ugyanaz a sofőr vezeti, nincs olyan, hogy átadják egymásnak
---  a járműveket." -> 1:1 kapcsolat a gépkocsi és a sofőr között (sofor_id UNIQUE).
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `kocsik`;
 CREATE TABLE `kocsik` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -59,11 +38,6 @@ CREATE TABLE `kocsik` (
     REFERENCES `soforok` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
--- -----------------------------------------------------------------------------
--- 4. Utak / Fuvarok tábla
--- "Minden egyes utat is el kell tárolni. Nélkülözhetetlen az utas neve,
---  az indulási cím és időpont, az úti cél és a megtett km."
--- -----------------------------------------------------------------------------
 DROP TABLE IF EXISTS `utak`;
 CREATE TABLE `utak` (
   `id` INT AUTO_INCREMENT NOT NULL,
@@ -78,19 +52,12 @@ CREATE TABLE `utak` (
     REFERENCES `kocsik` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
-
--- =============================================================================
--- Mintaadatok feltöltése
--- =============================================================================
-
--- Sofőrök
 INSERT INTO `soforok` (`id`, `engedely_szam`, `nev`) VALUES
   (1, 'TX-ENG-1001', 'Kovács Ferenc'),
   (2, 'TX-ENG-1002', 'Nagy László'),
   (3, 'TX-ENG-1003', 'Szabó Péter'),
   (4, 'TX-ENG-1004', 'Tóth András');
 
--- Telefonszámok (több sofőrnek több telefonszáma is van)
 INSERT INTO `sofor_telefonszamok` (`sofor_id`, `telefonszam`) VALUES
   (1, '+36 30 123 4567'),
   (1, '+36 1 234 5678'),
@@ -99,14 +66,12 @@ INSERT INTO `sofor_telefonszamok` (`sofor_id`, `telefonszam`) VALUES
   (3, '+36 30 999 8888'),
   (4, '+36 20 444 3322');
 
--- Kocsik (1:1 kapcsolat a sofőrökkel)
 INSERT INTO `kocsik` (`id`, `rendszam`, `tipus`, `ferohelyek_szama`, `sofor_id`) VALUES
   (1, 'AA-TX-101', 'Toyota Prius Hybrid', 4, 1),
   (2, 'AA-TX-102', 'Skoda Octavia Combi', 4, 2),
   (3, 'AA-TX-103', 'Volkswagen Passat', 4, 3),
   (4, 'AA-TX-104', 'Mercedes-Benz Vito Tourer', 7, 4);
 
--- Utak / Fuvarok
 INSERT INTO `utak` (`kocsi_id`, `utas_neve`, `indulasi_cim`, `indulasi_idopont`, `uti_cel`, `megtett_km`) VALUES
   (1, 'Horváth Anna', '1052 Budapest, Deák Ferenc tér 3.', '2026-10-20 08:15:00', '1185 Budapest, Liszt Ferenc Repülőtér', 22.40),
   (1, 'Molnár Gábor', '1185 Budapest, Liszt Ferenc Repülőtér', '2026-10-20 09:40:00', '1014 Budapest, Szentháromság tér 6.', 24.10),
@@ -117,23 +82,15 @@ INSERT INTO `utak` (`kocsi_id`, `utas_neve`, `indulasi_cim`, `indulasi_idopont`,
   (4, 'Schmidt Klaus (csoport)', '1051 Budapest, Széchenyi tér 5.', '2026-10-20 18:00:00', '1223 Budapest, Nagytétényi kastély', 18.60),
   (1, 'Fekete József', '1095 Budapest, Lechner Ödön fasor 7.', '2026-10-21 07:30:00', '1054 Budapest, Szabadság tér 12.', 4.90);
 
-
--- =============================================================================
--- Ellenőrző lekérdezések
--- =============================================================================
-
--- 1. Sofőrök és összes elérhető telefonszámuk
 SELECT s.`engedely_szam`, s.`nev`, GROUP_CONCAT(t.`telefonszam` SEPARATOR ', ') AS `telefonszamok`
 FROM `soforok` s
 LEFT JOIN `sofor_telefonszamok` t ON s.`id` = t.`sofor_id`
 GROUP BY s.`id`, s.`engedely_szam`, s.`nev`;
 
--- 2. Kocsik és az őket vezető dedikált sofőrök (1:1 kapcsolat ellenőrzése)
 SELECT k.`rendszam`, k.`tipus`, k.`ferohelyek_szama`, s.`nev` AS `sofor_neve`, s.`engedely_szam`
 FROM `kocsik` k
 JOIN `soforok` s ON k.`sofor_id` = s.`id`;
 
--- 3. Részletes fuvarlista autóval és sofőrrel
 SELECT u.`id` AS `fuvar_id`, u.`utas_neve`, u.`indulasi_cim`, u.`uti_cel`,
        u.`indulasi_idopont`, u.`megtett_km`,
        k.`rendszam` AS `kocsi_rendszam`, k.`tipus` AS `kocsi_tipus`,
@@ -143,7 +100,6 @@ JOIN `kocsik` k ON u.`kocsi_id` = k.`id`
 JOIN `soforok` s ON k.`sofor_id` = s.`id`
 ORDER BY u.`indulasi_idopont`;
 
--- 4. Sofőrönként és autónként összesített fuvarstatisztika
 SELECT s.`nev` AS `sofor`, k.`rendszam`, COUNT(u.`id`) AS `fuvarok_szama`,
        SUM(u.`megtett_km`) AS `osszes_megtett_km`,
        ROUND(AVG(u.`megtett_km`), 2) AS `atlagos_fuvartav_km`
