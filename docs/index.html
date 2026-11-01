@@ -22,8 +22,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <!-- Pre-loaded tree data for instant 0ms offline and local loading -->
-<script src="js/tree-data.js"></script>
-<link rel="stylesheet" href="css/style.css">
+<script src="js/tree-data.js?v=20261101_3"></script>
+<link rel="stylesheet" href="css/style.css?v=20261101_3">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.classList.toggle('dark', isDark);
@@ -47,7 +47,7 @@
           CsPS0/My-School-Projects
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
         </a>
-        · Press <kbd class="px-1.5 py-0.5 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded shadow-sm">/</kbd> to search
+        · Press <kbd class="px-1.5 py-0.5 text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded shadow-sm">Ctrl + K</kbd> to search
       </p>
     </div>
     <div class="flex items-center gap-2 shrink-0">
@@ -68,9 +68,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
       <div class="relative sm:col-span-6">
         <input id="q" type="search" class="ctl w-full pl-9 pr-8" autofocus aria-label="Search"
-          placeholder="Search projects, files or topics (e.g. taxi, sql, oop, wpf, netflix…)">
+          placeholder="Search projects, files or topics (Press Ctrl + K)...">
         <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <button id="q-clear" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-xs px-1" title="Clear search">✕</button>
+        <button id="q-clear" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 p-1 flex items-center justify-center" title="Clear search">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
       </div>
 
       <select id="grade" class="ctl sm:col-span-3 text-sm" aria-label="Grade">
@@ -87,28 +89,40 @@
       <span class="text-zinc-400 mr-1 font-semibold uppercase tracking-wider text-[10px]">Filter:</span>
       <button class="pill active" data-pill-type="subject" data-pill-value="">All</button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DESKTOP">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        <svg class="ic text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
         DESKTOP
       </button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DATABASE">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+        <svg class="ic text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
         DATABASE
       </button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="BACKEND">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+        <svg class="ic text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
         BACKEND
       </button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="TESTING">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.5a2 2 0 0 1-.2.9L5 20.4a1 1 0 0 0 .9 1.6h12.2a1 1 0 0 0 .9-1.6L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+        <svg class="ic text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.5a2 2 0 0 1-.2.9L5 20.4a1 1 0 0 0 .9 1.6h12.2a1 1 0 0 0 .9-1.6L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
         TESTING
       </button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="WEB">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        <svg class="ic text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
         WEB
       </button>
       <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DOCKER">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <svg class="ic text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
         DOCKER
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="CISCO">
+        <svg class="ic text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+        CISCO
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="PYTHON">
+        <svg class="ic text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c4 0 4 2.5 4 2.5v2H9V4.5s0-2.5 4-2.5Z"/><path d="M12 22c-4 0-4-2.5-4-2.5v-2h7v2s0 2.5-4 2.5Z"/><path d="M7 7h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><circle cx="9.5" cy="4.5" r=".5" fill="currentColor"/><circle cx="14.5" cy="19.5" r=".5" fill="currentColor"/></svg>
+        PYTHON
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="OFFICE">
+        <svg class="ic text-rose-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        OFFICE
       </button>
     </div>
 
@@ -192,7 +206,9 @@
         GitHub
       </a>
 
-      <button id="code-close-btn" class="ctl py-1.5 px-2.5 text-xs font-bold hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors" aria-label="Close dialog" title="Close (Esc)">✕</button>
+      <button id="code-close-btn" class="ctl p-1.5 text-xs font-bold hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors flex items-center justify-center" aria-label="Close dialog" title="Close (Esc)">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
   </div>
 
@@ -256,6 +272,6 @@
   </div>
 </dialog>
 
-<script src="js/app.js"></script>
+<script src="js/app.js?v=20261101_3"></script>
 </body>
 </html>

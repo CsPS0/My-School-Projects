@@ -6,12 +6,27 @@ const esc = s => s ? String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const BINARY_EXTS = new Set(['zip', '7z', 'rar', 'tar', 'gz', 'bz2', 'iso', 'exe', 'dll', 'bin', 'pdb', 'obj']);
 
-// Crisp, modern SVG icons (VS Code / GitHub style)
+// Crisp, modern SVG icons (VS Code / GitHub developer style - ZERO emojis)
 const SVG_ICONS = {
   chevron_down: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
   chevron_right: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`,
   folder: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
   folder_open: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>`,
+  
+  // Subject Icons for Projects
+  subject_desktop: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>`,
+  subject_database: `<svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>`,
+  subject_backend: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
+  subject_testing: `<svg class="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.5a2 2 0 0 1-.2.9L5 20.4a1 1 0 0 0 .9 1.6h12.2a1 1 0 0 0 .9-1.6L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>`,
+  subject_web: `<svg class="w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+  subject_docker: `<svg class="w-4 h-4 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+  subject_cisco: `<svg class="w-4 h-4 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>`,
+  subject_python: `<svg class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 0 4 2.5 4 2.5v2H9V4.5s0-2.5 4-2.5Z"/><path d="M12 22c-4 0-4-2.5-4-2.5v-2h7v2s0 2.5-4 2.5Z"/><path d="M7 7h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><circle cx="9.5" cy="4.5" r=".5" fill="currentColor"/><circle cx="14.5" cy="19.5" r=".5" fill="currentColor"/></svg>`,
+  subject_office: `<svg class="w-4 h-4 text-rose-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+  subject_dk: `<svg class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>`,
+  subject_ikt: `<svg class="w-4 h-4 text-cyan-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+
+  // File Extension Icons
   cs: `<svg class="w-4 h-4 text-purple-600 dark:text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" x2="12" y1="4" y2="20"/></svg>`,
   sln: `<svg class="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>`,
   csproj: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
@@ -27,6 +42,11 @@ const SVG_ICONS = {
   zip: `<svg class="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M10 3v18M14 3v18M10 7h4M10 11h4M10 15h4"/></svg>`,
   zip_large: `<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M10 3v18M14 3v18M10 7h4M10 11h4M10 15h4"/></svg>`,
   img: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`,
+  py: `<svg class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 0 4 2.5 4 2.5v2H9V4.5s0-2.5 4-2.5Z"/><path d="M12 22c-4 0-4-2.5-4-2.5v-2h7v2s0 2.5-4 2.5Z"/><path d="M7 7h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><circle cx="9.5" cy="4.5" r=".5" fill="currentColor"/><circle cx="14.5" cy="19.5" r=".5" fill="currentColor"/></svg>`,
+  pkt: `<svg class="w-4 h-4 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>`,
+  docx: `<svg class="w-4 h-4 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13h8M8 17h6"/></svg>`,
+  xlsx: `<svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>`,
+  pptx: `<svg class="w-4 h-4 text-rose-600 dark:text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="5" rx="2"/><path d="M7 15h10M12 5v14"/></svg>`,
   file: `<svg class="w-4 h-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`,
   download: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
   github: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`
@@ -45,9 +65,30 @@ function getFileSvg(ext) {
   if (['json'].includes(ext)) return SVG_ICONS.json;
   if (['md'].includes(ext)) return SVG_ICONS.md;
   if (['pdf'].includes(ext)) return SVG_ICONS.pdf;
+  if (['py'].includes(ext)) return SVG_ICONS.py;
+  if (['pkt', 'pka'].includes(ext)) return SVG_ICONS.pkt;
+  if (['docx', 'doc', 'odt'].includes(ext)) return SVG_ICONS.docx;
+  if (['xlsx', 'xls', 'csv'].includes(ext)) return SVG_ICONS.xlsx;
+  if (['pptx', 'ppt', 'odp'].includes(ext)) return SVG_ICONS.pptx;
   if (['zip', '7z', 'rar', 'tar', 'gz', 'bz2'].includes(ext)) return SVG_ICONS.zip;
   if (['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif', 'ico'].includes(ext)) return SVG_ICONS.img;
   return SVG_ICONS.file;
+}
+
+function getSubjectSvg(subject) {
+  const s = (subject || '').toUpperCase();
+  if (s === 'DESKTOP') return SVG_ICONS.subject_desktop;
+  if (s === 'DATABASE') return SVG_ICONS.subject_database;
+  if (s === 'BACKEND') return SVG_ICONS.subject_backend;
+  if (s === 'TESTING') return SVG_ICONS.subject_testing;
+  if (s === 'WEB') return SVG_ICONS.subject_web;
+  if (s === 'DOCKER') return SVG_ICONS.subject_docker;
+  if (s === 'CISCO') return SVG_ICONS.subject_cisco;
+  if (s === 'PYTHON') return SVG_ICONS.subject_python;
+  if (s === 'OFFICE') return SVG_ICONS.subject_office;
+  if (s === 'DK') return SVG_ICONS.subject_dk;
+  if (s === 'IKT') return SVG_ICONS.subject_ikt;
+  return SVG_ICONS.folder;
 }
 
 let rawTree = [];
@@ -116,36 +157,42 @@ function parseItem([path, isDir, size]) {
         subject = sub === 'BACKEND&FRONTEND' ? 'BACKEND' : sub.toUpperCase();
         if (isDir && parts.length === 5) isProject = true;
       } else {
-        subject = (parts[2] || 'OTHER').toUpperCase();
+        const sub = parts[2] || 'OTHER';
+        subject = sub.includes('.') ? 'OTHER' : sub.toUpperCase();
         if (isDir && parts.length === 4) isProject = true;
       }
     } else if (parts[1] === 'Osztaly12') {
       grade = '12. osztály';
-      subject = (parts[2] || 'OTHER').toUpperCase();
+      const sub = parts[2] || 'OTHER';
+      subject = sub.includes('.') ? 'OTHER' : sub.toUpperCase();
       if (isDir && parts.length === 4) isProject = true;
     } else if (parts[1] === 'Osztaly11') {
       grade = '11. osztály';
-      subject = (parts[2] || 'OTHER').toUpperCase();
+      const sub = parts[2] || 'OTHER';
+      subject = sub.includes('.') ? 'OTHER' : sub.toUpperCase();
       if (isDir && parts.length === 4) isProject = true;
     }
   } else if (parts[0] === 'Verebay') {
-    grade = 'Verebay';
-    subject = (parts[2] || 'OTHER').toUpperCase();
-    if (isDir && parts.length === 4) isProject = true;
+    if (parts[1] === 'Osztaly10') {
+      grade = '10. osztály';
+      const sub = parts[2] || 'OTHER';
+      subject = sub.includes('.') ? 'OTHER' : sub.toUpperCase();
+      if (isDir && parts.length === 4) isProject = true;
+    } else if (parts[1] === 'Osztaly09') {
+      grade = '9. osztály';
+      const sub = parts[2] || 'OTHER';
+      subject = sub.includes('.') ? 'OTHER' : sub.toUpperCase();
+      if (isDir && parts.length === 4) isProject = true;
+    }
   }
 
-  // Detect dated project directories e.g. 26-1012-1018_... or 24-0916-0922
+  // Detect dated project directories e.g. 26-1012-1018_... or 24-0916-0922 or 23-0108
   const m = name.match(/^(\d{2})-(\d{2})(\d{2})/);
   const date = m ? `20${m[1]} ${MONTHS[+m[2] - 1] || ''} ${+m[3]}` : '';
   if (isDir && m) isProject = true;
 
   // Clean subject display
-  if (subject === 'WEB') subject = 'WEB';
-  if (subject === 'DESKTOP') subject = 'DESKTOP';
-  if (subject === 'DATABASE') subject = 'DATABASE';
-  if (subject === 'TESTING') subject = 'TESTING';
-  if (subject === 'BACKEND') subject = 'BACKEND';
-  if (subject === 'DOCKER') subject = 'DOCKER';
+  if (subject === 'DEVCORNER') subject = 'OTHER';
 
   return {
     path,
@@ -224,14 +271,14 @@ function render(reset = true) {
     const isFile = !it.isDir;
     const isFav = favs.has(it.path);
     const ext = it.name.includes('.') ? it.name.split('.').pop().toLowerCase() : '';
-    const fileSvg = isFile ? getFileSvg(ext) : SVG_ICONS.folder;
+    const cardIcon = isFile ? getFileSvg(ext) : getSubjectSvg(it.subject);
     const subjectTagClass = `tag-${(it.subject || '').toLowerCase()}`;
 
     // Compute file stats for project
     let projectStatsBadge = '';
     if (!isFile) {
       const files = getProjectFiles(it.path);
-      const exts = new Set(files.map(f => f.name.split('.').pop().toLowerCase()).filter(e => ['cs', 'sql', 'php', 'js', 'html', 'dia'].includes(e)));
+      const exts = new Set(files.map(f => f.name.split('.').pop().toLowerCase()).filter(e => ['cs', 'sql', 'php', 'js', 'html', 'dia', 'py', 'pkt', 'pka'].includes(e)));
       const extList = Array.from(exts).slice(0, 3).map(e => e.toUpperCase()).join(' · ');
       projectStatsBadge = `<span class="tag bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${files.length} files ${extList ? `· ${extList}` : ''}</span>`;
     }
@@ -247,7 +294,7 @@ function render(reset = true) {
       <div class="flex items-center justify-between gap-3 pr-24">
         <div class="min-w-0 flex-1 cursor-pointer" data-action="${isFile ? 'open-file' : 'open-project'}" data-path="${esc(it.path)}">
           <div class="flex items-center gap-2 flex-wrap">
-            <span class="shrink-0 flex items-center">${fileSvg}</span>
+            <span class="shrink-0 flex items-center">${cardIcon}</span>
             <span class="font-bold text-[15px] text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 break-words transition-colors">
               ${highlight(it.name, words)}
             </span>
@@ -774,7 +821,7 @@ $('results').addEventListener('click', e => {
     const path = copyBtn.dataset.copy;
     navigator.clipboard?.writeText(urlOf(path));
     const orig = copyBtn.innerHTML;
-    copyBtn.innerHTML = '✓';
+    copyBtn.innerHTML = '<svg class="ic text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
     setTimeout(() => { copyBtn.innerHTML = orig; }, 1200);
     return;
   }
@@ -877,13 +924,42 @@ if (!('closedBy' in HTMLDialogElement.prototype)) {
   dialog.addEventListener('pointerup', (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
 }
 
-// Keyboard shortcuts: '/' focuses search
-addEventListener('keydown', e => {
-  if (e.key === '/' && document.activeElement !== $('q') && !$('code-dialog').open) {
+// Global keyboard shortcuts: Ctrl+K / Cmd+K search interception with browser lock
+window.addEventListener('keydown', e => {
+  const isCtrlOrCmd = e.ctrlKey || e.metaKey;
+  if (isCtrlOrCmd && (e.key === 'k' || e.key === 'K')) {
     e.preventDefault();
-    $('q').focus();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    const dialog = $('code-dialog');
+    if (dialog && dialog.open) {
+      dialog.close();
+    }
+
+    const qInput = $('q');
+    if (qInput) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      qInput.focus();
+      qInput.select();
+    }
+    return false;
   }
-});
+
+  // Also support '/' when no input or modal is open
+  if (e.key === '/' && !$('code-dialog')?.open) {
+    const tag = document.activeElement?.tagName;
+    if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+      e.preventDefault();
+      const qInput = $('q');
+      if (qInput) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        qInput.focus();
+        qInput.select();
+      }
+    }
+  }
+}, true); // TRUE: capture phase ensures browser search bar navigation is intercepted and cancelled
 
 for (const id of ['q', 'grade', 'files', 'fav-only', 'sort']) {
   $(id).addEventListener('input', () => render());
@@ -894,10 +970,25 @@ loadTree().then(tree => {
   rawTree = tree;
   allItems = tree.filter(([p]) => /^(NEU|Verebay)\//.test(p)).map(parseItem);
 
-  fillSelect($('grade'), allItems.map(i => i.grade), 'All grades');
+  // Populate Grades in clear pedagogical order (13 down to 9)
+  const gradeOrder = ['13. osztály', '12. osztály', '11. osztály', '10. osztály', '9. osztály'];
+  const availableGrades = new Set(allItems.map(i => i.grade).filter(Boolean));
+  $('grade').innerHTML = '<option value="">All grades</option>';
+  for (const g of gradeOrder) {
+    if (availableGrades.has(g)) {
+      $('grade').add(new Option(g, g));
+    }
+  }
+  for (const g of [...availableGrades].filter(g => !gradeOrder.includes(g)).sort()) {
+    $('grade').add(new Option(g, g));
+  }
   
-  const distinctSubjects = ['DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'DK', 'IKT', 'OTHER'];
-  fillSelect($('subject'), distinctSubjects, 'All subjects');
+  // Populate Subjects including CISCO, PYTHON, OFFICE
+  const distinctSubjects = ['DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'CISCO', 'PYTHON', 'OFFICE', 'DK', 'IKT', 'OTHER'];
+  $('subject').innerHTML = '<option value="">All subjects</option>';
+  for (const s of distinctSubjects) {
+    $('subject').add(new Option(s, s));
+  }
 
   const projectCount = allItems.filter(i => i.project).length;
   const fileCount = allItems.filter(i => !i.isDir).length;

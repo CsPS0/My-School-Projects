@@ -104,6 +104,18 @@ input[type=search].ctl, input[type=text].ctl {
 .dark .tag-testing { background: #281938; color: #d8b4fe; }
 .tag-web { background: #ffedd5; color: #9a3412; }
 .dark .tag-web { background: #351a0e; color: #fed7aa; }
+.tag-docker { background: #e0f2fe; color: #0369a1; }
+.dark .tag-docker { background: #0c2d48; color: #7dd3fc; }
+.tag-cisco { background: #ccfbf1; color: #0f766e; }
+.dark .tag-cisco { background: #134e4a; color: #5eead4; }
+.tag-python { background: #fef9c3; color: #854d0e; }
+.dark .tag-python { background: #372f08; color: #fde047; }
+.tag-office { background: #fee2e2; color: #991b1b; }
+.dark .tag-office { background: #3b1111; color: #fca5a5; }
+.tag-dk { background: #ede9fe; color: #5b21b6; }
+.dark .tag-dk { background: #2e1065; color: #c4b5fd; }
+.tag-ikt { background: #cffafe; color: #155e75; }
+.dark .tag-ikt { background: #164e63; color: #67e8f9; }
 
 mark {
   background: #fef08a;
