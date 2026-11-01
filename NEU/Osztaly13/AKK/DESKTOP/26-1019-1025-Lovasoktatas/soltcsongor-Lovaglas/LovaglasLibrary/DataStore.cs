@@ -1,4 +1,4 @@
-﻿namespace LovaglasLibrary
+namespace LovaglasLibrary
 {
     public class DataStore
     {
@@ -14,6 +14,16 @@
 
         DataStore(string path = "Forrasok")
         {
+            if (!Directory.Exists(path))
+            {
+                string baseDir = AppContext.BaseDirectory;
+                string candidate = Path.Combine(baseDir, path);
+                if (Directory.Exists(candidate))
+                {
+                    path = candidate;
+                }
+            }
+
             szint = File.ReadAllLines(Path.Combine(path, "szint.csv"))
                 .Skip(1)
                 .Select(x => new Szint(x))
@@ -34,11 +44,11 @@
 
         public static DataStore? Instance { get; set; }
 
-        public static void InitCSV()
+        public static void InitCSV(string path = "Forrasok")
         {
             if (Instance is not null)
-                throw new InvalidOperationException("Már incializált.");
-            Instance = new DataStore();
+                return;
+            Instance = new DataStore(path);
         }
     }
 }

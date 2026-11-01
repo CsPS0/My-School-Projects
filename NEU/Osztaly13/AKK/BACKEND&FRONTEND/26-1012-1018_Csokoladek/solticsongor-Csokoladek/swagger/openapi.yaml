@@ -1,0 +1,148 @@
+openapi: "3.1.0"
+info:
+  title: Csokoládék API
+  version: 1.0.0
+
+servers:
+  - url: http://backend.vm1.test
+    description: VM1 backend
+  - url: http://backend.vm2.test
+    description: VM2 backend
+  - url: http://backend.vm3.test
+    description: VM3 backend
+  - url: http://backend.vm4.test
+    description: VM4 backend
+  - url: http://backend.vm5.test
+    description: VM5 backend
+
+paths:
+  /api/manufacturers:
+    get:
+      tags:
+       - Manufacturer
+      summary: Gyártók listájának lekérése
+      description: Az `index` action jelenítse meg az összes gyártót a minta szerint.
+      operationId: manufacturers.index
+      responses:
+        '200':
+          description: Gyártók listája
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ManufacturerResource'
+              example: {"data":[{"id":1,"name":"SweetDelights","url":"sweetdelights.com","founded":1985,"created_at":null,"updated_at":null},{"id":2,"name":"ChocoLuxe","url":"chocoluxe.net","founded":1992,"created_at":null,"updated_at":null},{"id":3,"name":"CocoaHeaven","url":null,"founded":2001,"created_at":null,"updated_at":null},{"id":4,"name":"VelvetCocoa","url":"velvetcocoa.org","founded":1978,"created_at":null,"updated_at":null},{"id":5,"name":"DarkBite","url":"darkbite.io","founded":2010,"created_at":null,"updated_at":null}]}
+
+  /api/manufacturers/{manufacturer}:
+    get:
+      tags:
+       - Manufacturer
+      summary: Egy adott gyártó lekérése
+      description: A `show` action jelentítse meg a kiválasztott gyártót.
+      operationId: manufacturers.show
+      parameters:
+        - name: manufacturer
+          in: path
+          required: true
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Egy adott gyártó
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ManufacturerResource'
+              example: {"data":{"id":1,"name":"SweetDelights","url":"sweetdelights.com","founded":1985,"created_at":null,"updated_at":null}}
+
+  /api/chocolates:
+    get:
+      tags:
+       - Chocolate
+      summary: Csokik listájának lekérése
+      description: Az `index` action jelenítse meg az összes csokit.
+      operationId: chocolates.index
+      responses:
+        '200':
+          description: Csokik listája
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ChocolateResource'
+              example: {"data":[{"id":1,"name":"Silky Milk Bar","type":"milk","price":299,"manufacturer_id":1,"created_at":null,"updated_at":null},{"id":2,"name":"Almond Crunch","type":"milk","price":349,"manufacturer_id":2,"created_at":null,"updated_at":null},{"id":3,"name":"Velvet Dark","type":"dark","price":399,"manufacturer_id":4,"created_at":null,"updated_at":null},{"id":4,"name":"Cocoa Bliss","type":"dark","price":429,"manufacturer_id":3,"created_at":null,"updated_at":null},{"id":5,"name":"Choco Chips","type":"white","price":259,"manufacturer_id":1,"created_at":null,"updated_at":null},{"id":6,"name":"Hazelnut Dream","type":"milk","price":379,"manufacturer_id":5,"created_at":null,"updated_at":null},{"id":7,"name":"Ruby Swirl","type":"ruby","price":499,"manufacturer_id":2,"created_at":null,"updated_at":null},{"id":8,"name":"Minty Bites","type":"dark","price":359,"manufacturer_id":4,"created_at":null,"updated_at":null},{"id":9,"name":"Caramel Core","type":"milk","price":389,"manufacturer_id":3,"created_at":null,"updated_at":null},{"id":10,"name":"Orange Zest","type":"dark","price":419,"manufacturer_id":5,"created_at":null,"updated_at":null}]}
+
+  /api/chocolates/{chocolate}:
+    get:
+      tags:
+       - Chocolate
+      summary: Egy adott csoki lekérése
+      description: A `show` action jelentítse meg a kiválasztott csokit.
+      operationId: chocolates.show
+      parameters:
+        - name: chocolate
+          in: path
+          required: true
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Egy adott csoki
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/ChocolateResource'
+              example: {"data":{"id":1,"name":"Silky Milk Bar","type":"milk","price":299,"manufacturer_id":1,"created_at":null,"updated_at":null}}
+
+components:
+  schemas:
+    ManufacturerResource:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          maxLength: 50
+        url:
+          type: string
+          maxLength: 25
+          nullable: true
+        founded:
+          type: integer
+    ChocolateResource:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          maxLength: 50
+        type:
+          type: string
+          maxLength: 25
+        price:
+          type: integer
+          min: 100
+          max: 5000
+        manufacturer_id:
+          type: integer
+
+
+        

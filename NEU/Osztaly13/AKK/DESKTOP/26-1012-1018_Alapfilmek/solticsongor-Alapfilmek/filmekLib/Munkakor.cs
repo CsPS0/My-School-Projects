@@ -1,15 +1,14 @@
-﻿namespace filmekLib
-{
-    public class Munkakor
-    {
-        public int MunkakorAzon { get; set; }
-        public int Munkakorr { get; set; }
+namespace filmekLib;
 
-        public Munkakor(string data)
-        {
-            string[] datas = data.Split(";");
-            MunkakorAzon = int.Parse(datas[0]);
-            Munkakorr = int.Parse(datas[1]);
-        }
+public class Munkakor
+{
+    public int MunkakorAzon { get; set; }
+    public string Nev { get; set; }
+
+    public Munkakor(string row)
+    {
+        string[] parts = row.Split('\t');
+        MunkakorAzon = int.Parse(parts[0]);
+        Nev = parts[1];
     }
 }

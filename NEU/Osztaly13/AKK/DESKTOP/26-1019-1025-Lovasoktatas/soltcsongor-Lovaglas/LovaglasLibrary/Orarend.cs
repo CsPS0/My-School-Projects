@@ -1,4 +1,4 @@
-﻿namespace LovaglasLibrary
+namespace LovaglasLibrary
 {
     public class Orarend
     {
@@ -14,13 +14,17 @@
 
         public int Keresett
         {
-            get; set
+            get
             {
-                var oradijImport = DataStore.Instance!.Oktatok.Select(x => x.Oradij);
-                double oradijToDouble = Convert.ToDouble(oradijImport);
-                double oradij = oradijToDouble / 60;
-                double brutto = oradij * Hossz * Letszam;
+                var oktato = DataStore.Instance?.Oktatok.FirstOrDefault(x => x.Oktato_ID == Oktato_ID);
+                if (oktato is null) return 0;
+                return (int)Math.Round((double)oktato.Oradij / 60.0 * Hossz * Letszam);
             }
+        }
+
+        public int KeresettSzamitas(int oradij)
+        {
+            return (int)Math.Round((double)oradij / 60.0 * Hossz * Letszam);
         }
 
         public Orarend(string row)

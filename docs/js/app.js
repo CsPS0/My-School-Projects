@@ -9,11 +9,21 @@ const ICON = {
   link: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>',
   check: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
   folder: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
-  file: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>'
+  file: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
+  code: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'
 };
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-let items = [], shown = PAGE, favs = new Set();
+let items = [], shown = PAGE, favs = new Set(), currentCode = '';
 try { favs = new Set(JSON.parse(localStorage.favs || '[]')); } catch {}
+
+function updateHljsTheme(isDark) {
+  const themeLink = $('hljs-theme');
+  if (themeLink) {
+    themeLink.href = isDark
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css'
+      : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css';
+  }
+}
 
 async function loadTree() {
   const key = 'tree:' + REPO;
@@ -27,10 +37,8 @@ async function loadTree() {
 
 function toItem([path, isDir]) {
   const parts = path.split('/'), name = parts.at(-1);
-  // both schools use <School>/OsztalyXX/<SUBJECT>/<project>
   const grade = parts[1] ? +parts[1].replace('Osztaly', '') + '. osztály' + (parts[0] === 'Verebay' ? ' (Verebay)' : '') : '';
   const subject = parts[2] || '';
-  // folder names like "24-0916-0922_Topic" encode the school week
   const m = name.match(/^(\d{2})-(\d{2})(\d{2})/);
   const date = m ? `20${m[1]} ${MONTHS[+m[2] - 1] || ''} ${+m[3]}` : '';
   const project = isDir && (!!m || parts.length === 4);
@@ -53,9 +61,9 @@ function highlight(text, words) {
 }
 
 const urlOf = it => `https://github.com/${REPO}/${it.isDir ? 'tree' : 'blob'}/${BRANCH}/${it.path.split('/').map(encodeURIComponent).join('/')}`;
+const rawUrlOf = it => `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${it.path.split('/').map(encodeURIComponent).join('/')}`;
 
 const SORTS = {
-  // projects first; undated items sink in both date orders
   new: (a, b) => (b.project - a.project) || b.sort.localeCompare(a.sort) || a.path.localeCompare(b.path),
   old: (a, b) => (b.project - a.project) || (!a.sort - !b.sort) || a.sort.localeCompare(b.sort) || a.path.localeCompare(b.path),
   name: (a, b) => a.name.localeCompare(b.name, 'hu'),
@@ -72,6 +80,82 @@ function filtered() {
   return { hits: hits.sort(SORTS[$('sort').value]), words, q };
 }
 
+async function viewCode(it) {
+  const dialog = $('code-dialog');
+  if (!dialog) return;
+
+  $('code-dialog-title').textContent = it.name;
+  $('code-dialog-path').textContent = it.path;
+  $('code-github-link').href = urlOf(it);
+  $('code-copy-text').textContent = 'Copy';
+  currentCode = '';
+
+  $('code-status').classList.remove('hidden');
+  $('code-status').textContent = 'Loading code…';
+  $('code-pre').classList.add('hidden');
+  $('code-media').classList.add('hidden');
+  $('code-media').innerHTML = '';
+
+  dialog.showModal();
+
+  const ext = it.name.includes('.') ? it.name.split('.').pop().toLowerCase() : '';
+  const rawUrl = rawUrlOf(it);
+
+  if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico'].includes(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `<img src="${rawUrl}" alt="${esc(it.name)}" class="max-h-[70vh] mx-auto rounded shadow-sm">`;
+    return;
+  }
+
+  if (ext === 'pdf') {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `<p class="mb-4 text-zinc-600 dark:text-zinc-400">PDF Document</p><a class="ctl inline-flex items-center gap-2" href="${urlOf(it)}" target="_blank" rel="noopener">${ICON.link} Open PDF on GitHub</a>`;
+    return;
+  }
+
+  try {
+    const res = await fetch(rawUrl);
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+    const text = await res.text();
+    currentCode = text;
+
+    $('code-status').classList.add('hidden');
+    $('code-pre').classList.remove('hidden');
+
+    const codeEl = $('code-content');
+    codeEl.className = '';
+    const langMap = {
+      cs: 'csharp',
+      sql: 'sql',
+      php: 'php',
+      vue: 'xml',
+      html: 'xml',
+      xml: 'xml',
+      xaml: 'xml',
+      js: 'javascript',
+      mjs: 'javascript',
+      json: 'json',
+      css: 'css',
+      py: 'python',
+      md: 'markdown',
+      yaml: 'yaml',
+      yml: 'yaml'
+    };
+    if (langMap[ext]) {
+      codeEl.classList.add(`language-${langMap[ext]}`);
+    }
+    codeEl.textContent = text;
+    if (window.hljs) {
+      hljs.highlightElement(codeEl);
+    }
+  } catch (err) {
+    $('code-status').classList.remove('hidden');
+    $('code-status').innerHTML = `<span class="text-red-500">Failed to load file: ${esc(err.message)}</span><br><a class="text-blue-500 underline mt-2 inline-block" href="${urlOf(it)}" target="_blank" rel="noopener">Open on GitHub instead</a>`;
+  }
+}
+
 function render(reset = true) {
   if (reset) shown = PAGE;
   const { hits, words, q } = filtered();
@@ -79,15 +163,32 @@ function render(reset = true) {
   $('more').classList.toggle('hidden', hits.length <= shown);
   $('results').innerHTML = hits.slice(0, shown).map(it => {
     const tags = [it.grade, it.subject, it.date].filter(Boolean);
-    const kind = (it.isDir ? ICON.folder + 'folder' : ICON.file + (it.name.includes('.') ? it.name.split('.').pop() : 'file'));
+    const ext = it.name.includes('.') ? it.name.split('.').pop() : 'file';
+    const kind = (it.isDir ? ICON.folder + 'folder' : ICON.file + ext);
     const on = favs.has(it.path);
-    return `<li class="relative"><a class="card pr-20" href="${urlOf(it)}" target="_blank" rel="noopener">
-      <div class="font-semibold break-words">${highlight(it.name, words)}</div>
-      <div class="text-sm text-zinc-500 dark:text-zinc-400 break-all">${highlight(it.path, words)}</div>
-      <div class="flex flex-wrap gap-1.5 mt-1.5"><span class="tag inline-flex items-center gap-1">${kind}</span>${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div></a>
-      <div class="absolute top-2 right-2 flex gap-2">
+    const isFile = !it.isDir;
+    const cardHref = isFile ? '#' : urlOf(it);
+    const cardTarget = isFile ? '' : 'target="_blank" rel="noopener"';
+    const cardData = isFile ? `data-view="${esc(it.path)}"` : '';
+
+    return `<li class="relative">
+      <a class="card pr-28 cursor-pointer" href="${cardHref}" ${cardTarget} ${cardData}>
+        <div class="font-semibold break-words flex items-center gap-1.5">
+          ${highlight(it.name, words)}
+          ${isFile ? `<span class="tag inline-flex items-center gap-1 text-[11px] text-blue-600 dark:text-blue-400 font-normal">${ICON.code} view code</span>` : ''}
+        </div>
+        <div class="text-sm text-zinc-500 dark:text-zinc-400 break-all">${highlight(it.path, words)}</div>
+        <div class="flex flex-wrap gap-1.5 mt-1.5">
+          <span class="tag inline-flex items-center gap-1">${kind}</span>
+          ${tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}
+        </div>
+      </a>
+      <div class="absolute top-2 right-2 flex gap-1.5 items-center">
         <button class="star ${on ? 'on' : ''}" data-fav="${esc(it.path)}" title="Favorite" aria-label="Favorite">${ICON.star}</button>
-        <button class="star" data-copy="${esc(it.path)}" title="Copy link" aria-label="Copy link">${ICON.link}</button></div></li>`;
+        <button class="star" data-copy="${esc(it.path)}" title="Copy link" aria-label="Copy link">${ICON.link}</button>
+        ${isFile ? `<a class="star inline-flex items-center" href="${urlOf(it)}" target="_blank" rel="noopener" title="Open on GitHub" aria-label="Open on GitHub"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>` : ''}
+      </div>
+    </li>`;
   }).join('');
   history.replaceState(null, '', q ? '#' + encodeURIComponent(q) : location.pathname);
 }
@@ -97,7 +198,16 @@ function fillSelect(sel, values) {
 }
 
 $('results').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
+  const card = e.target.closest('a[data-view]');
+  if (card) {
+    e.preventDefault();
+    const it = items.find(i => i.path === card.dataset.view);
+    if (it) viewCode(it);
+    return;
+  }
+
+  const b = e.target.closest('button');
+  if (!b) return;
   if (b.dataset.fav) {
     favs.delete(b.dataset.fav) || favs.add(b.dataset.fav);
     try { localStorage.favs = JSON.stringify([...favs]); } catch {}
@@ -108,10 +218,31 @@ $('results').addEventListener('click', e => {
   }
 });
 
+$('code-close-btn').onclick = () => $('code-dialog').close();
+$('code-copy-btn').onclick = () => {
+  if (!currentCode) return;
+  navigator.clipboard?.writeText(currentCode);
+  $('code-copy-text').textContent = 'Copied!';
+  setTimeout(() => { $('code-copy-text').textContent = 'Copy'; }, 1500);
+};
+
+// Light dismiss fallback for dialogs without closedby support (modern-web-guidance)
+if (!('closedBy' in HTMLDialogElement.prototype)) {
+  const dialog = $('code-dialog');
+  const outside = (e, d) => {
+    const r = d.getBoundingClientRect();
+    return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+  };
+  let pressedOutside = false;
+  dialog.addEventListener('pointerdown', (e) => { pressedOutside = outside(e, dialog); });
+  dialog.addEventListener('pointerup', (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
+}
+
 $('more').onclick = () => { shown += PAGE; render(false); };
 $('theme').onclick = () => {
   const dark = document.documentElement.classList.toggle('dark');
   try { localStorage.theme = dark ? 'dark' : 'light'; } catch {}
+  updateHljsTheme(dark);
 };
 $('clear').onclick = () => {
   for (const id of ['q', 'grade', 'subject']) $(id).value = '';
@@ -132,5 +263,8 @@ loadTree().then(tree => {
 
 for (const id of ['q', 'grade', 'subject', 'files', 'fav-only', 'sort']) $(id).addEventListener('input', () => render());
 addEventListener('keydown', e => {
-  if (e.key === '/' && document.activeElement !== $('q')) { e.preventDefault(); $('q').focus(); }
+  if (e.key === '/' && document.activeElement !== $('q') && !$('code-dialog').open) {
+    e.preventDefault();
+    $('q').focus();
+  }
 });

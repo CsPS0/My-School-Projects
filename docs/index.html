@@ -7,9 +7,16 @@
 <meta name="description" content="Searchable index of CsPS0's school projects and assignments.">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config = { darkMode: 'class' };</script>
+<link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script>document.documentElement.classList.toggle('dark',
-  localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches);</script>
+<script>
+  const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.classList.toggle('dark', isDark);
+  document.getElementById('hljs-theme')?.setAttribute('href', isDark
+    ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css'
+    : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 </head>
 <body class="bg-stone-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 text-[15px] leading-normal">
 <main class="max-w-4xl mx-auto px-4 pt-5 sm:pt-8 pb-16">
@@ -47,6 +54,34 @@
   <ul id="results" class="grid gap-2"></ul>
   <button id="more" class="ctl mx-auto mt-4 hidden">Show more</button>
 </main>
+
+<!-- Code Viewer Modal Dialog -->
+<dialog id="code-dialog" closedby="any" aria-labelledby="code-dialog-title"
+  class="w-[95%] max-w-5xl rounded-xl p-0 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 m-auto">
+  <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 p-4 gap-3 bg-stone-100/60 dark:bg-zinc-800/50 rounded-t-xl">
+    <div class="min-w-0 flex-1">
+      <h2 id="code-dialog-title" class="font-bold text-base sm:text-lg truncate">File Viewer</h2>
+      <p id="code-dialog-path" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono truncate"></p>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <button id="code-copy-btn" class="ctl flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-2.5" title="Copy code">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <span id="code-copy-text">Copy</span>
+      </button>
+      <a id="code-github-link" class="ctl flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-2.5" target="_blank" rel="noopener" title="Open on GitHub">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        GitHub
+      </a>
+      <button id="code-close-btn" class="ctl py-1.5 px-2.5 text-xs sm:text-sm font-semibold" aria-label="Close dialog" title="Close (Esc)">✕</button>
+    </div>
+  </div>
+  <div id="code-body" class="relative">
+    <div id="code-status" class="py-12 text-center text-zinc-500 dark:text-zinc-400">Loading code…</div>
+    <pre id="code-pre" class="hidden overflow-auto p-4 text-xs sm:text-sm font-mono leading-relaxed max-h-[75vh]"><code id="code-content"></code></pre>
+    <div id="code-media" class="hidden p-6 text-center"></div>
+  </div>
+</dialog>
+
 <script src="js/app.js"></script>
 </body>
 </html>

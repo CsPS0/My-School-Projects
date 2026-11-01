@@ -1,23 +1,24 @@
-﻿namespace filmekLib
-{
-    public class Filmek
-    {
-        public int FilmAzon { get; set; }
-        public string Cim { get; set; }
-        public string Ev { get; set; }
-        public string Szines { get; set; }
-        public string Mufaj { get; set; }
-        public int Hossz { get; set; }
+namespace filmekLib;
 
-        public Filmek(string data)
-        {
-            string[] datas = data.Split(";");
-            FilmAzon = int.Parse(datas[0]);
-            Cim = datas[1];
-            Ev = datas[2];
-            Szines = datas[3];
-            Mufaj = datas[4];
-            Hossz = int.Parse(datas[5]);
-        }
+public class Filmek
+{
+    public int FilmAzon { get; set; }
+    public string Cim { get; set; }
+    public int Ev { get; set; }
+    public string Szines { get; set; }
+    public string Mufaj { get; set; }
+    public int Hossz { get; set; }
+
+    public int HanyEveKeszult => DateTime.Now.Year - Ev;
+
+    public Filmek(string row)
+    {
+        string[] parts = row.Split('\t');
+        FilmAzon = int.Parse(parts[0]);
+        Cim = parts[1];
+        Ev = int.Parse(parts[2]);
+        Szines = parts[3];
+        Mufaj = parts[4];
+        Hossz = int.Parse(parts[5]);
     }
 }

@@ -17,4 +17,25 @@ kbd { border: 1px solid #d4d4d8; border-radius: 4px; padding: 0 5px; font-size: 
 .star:hover { color: #2563eb; }
 .star.on { color: #f59e0b; }
 .star.on .ic { fill: currentColor; }
+
+/* Dialog modal scroll containment per modern-web-guidance */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+/* Code viewer styling */
+pre code.hljs {
+  border-radius: 0 0 .75rem .75rem;
+  background: transparent !important;
+}
+.dark pre code.hljs {
+  background: transparent !important;
+}
+
 @media (max-width: 639px) { .ctl { padding: .7rem .75rem; } .card { padding: .7rem .75rem; } }

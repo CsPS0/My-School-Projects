@@ -1,0 +1,7 @@
+# Humanizer / Agent skills
+.agents/
+skills-lock.json
+
+# Office temporary / lock files
+.~lock.*#
+~$*.docx
