@@ -1,58 +1,64 @@
 const REPO = 'CsPS0/My-School-Projects', BRANCH = 'main', PAGE = 40;
 const $ = id => document.getElementById(id);
-const fold = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const fold = s => s ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() : '';
 const esc = s => s ? String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) : '';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const FILE_ICONS = {
-  cs: '🔷',
-  sln: '⚙️',
-  slnx: '⚙️',
-  csproj: '📦',
-  sql: '🗄️',
-  dia: '📐',
-  php: '🐘',
-  js: '🟨',
-  mjs: '🟨',
-  json: '📋',
-  html: '🌐',
-  css: '🎨',
-  md: '📝',
-  txt: '📄',
-  pdf: '📕',
-  png: '🖼️',
-  jpg: '🖼️',
-  jpeg: '🖼️',
-  svg: '🖼️',
-  webp: '🖼️',
-  gif: '🖼️',
-  yaml: '⚙️',
-  yml: '⚙️',
-  dockerfile: '🐳',
-  folder: '📁'
+const BINARY_EXTS = new Set(['zip', '7z', 'rar', 'tar', 'gz', 'bz2', 'iso', 'exe', 'dll', 'bin', 'pdb', 'obj']);
+
+// Crisp, modern SVG icons (VS Code / GitHub style)
+const SVG_ICONS = {
+  chevron_down: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
+  chevron_right: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`,
+  folder: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
+  folder_open: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>`,
+  cs: `<svg class="w-4 h-4 text-purple-600 dark:text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" x2="12" y1="4" y2="20"/></svg>`,
+  sln: `<svg class="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>`,
+  csproj: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+  sql: `<svg class="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>`,
+  dia: `<svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg>`,
+  php: `<svg class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 2-2 2 2-2 2-2-2Z"/><path d="m14 12 2-2 2 2-2 2-2-2Z"/></svg>`,
+  js: `<svg class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 16.5v-3a1.5 1.5 0 0 0-3 0v.5"/><path d="M14 16.5v-7"/></svg>`,
+  html: `<svg class="w-4 h-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  css: `<svg class="w-4 h-4 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 8 3-2 15-6 2-6-2-2-15 8-3Z"/></svg>`,
+  json: `<svg class="w-4 h-4 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v3a2 2 0 0 1-2 2 2 2 0 0 1 2 2v3a2 2 0 0 0 2 2h2"/><path d="M16 3h2a2 2 0 0 1 2 2v3a2 2 0 0 0 2 2 2 2 0 0 0-2 2v3a2 2 0 0 1-2 2h-2"/></svg>`,
+  md: `<svg class="w-4 h-4 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>`,
+  pdf: `<svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15v-4h2a1.5 1.5 0 0 1 0 3H9"/></svg>`,
+  zip: `<svg class="w-4 h-4 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M10 3v18M14 3v18M10 7h4M10 11h4M10 15h4"/></svg>`,
+  zip_large: `<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M10 3v18M14 3v18M10 7h4M10 11h4M10 15h4"/></svg>`,
+  img: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>`,
+  file: `<svg class="w-4 h-4 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+  download: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  github: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`
 };
 
-const SUBJECT_ICONS = {
-  DESKTOP: '💻',
-  DATABASE: '🗄️',
-  BACKEND: '⚙️',
-  TESTING: '🧪',
-  WEB: '🌐',
-  DOCKER: '🐳',
-  DK: '📊',
-  IKT: '📡',
-  OTHER: '📁'
-};
+function getFileSvg(ext) {
+  if (['cs'].includes(ext)) return SVG_ICONS.cs;
+  if (['sln', 'slnx'].includes(ext)) return SVG_ICONS.sln;
+  if (['csproj'].includes(ext)) return SVG_ICONS.csproj;
+  if (['sql'].includes(ext)) return SVG_ICONS.sql;
+  if (['dia'].includes(ext)) return SVG_ICONS.dia;
+  if (['php'].includes(ext)) return SVG_ICONS.php;
+  if (['js', 'mjs', 'ts'].includes(ext)) return SVG_ICONS.js;
+  if (['html', 'xml', 'xaml', 'vue'].includes(ext)) return SVG_ICONS.html;
+  if (['css'].includes(ext)) return SVG_ICONS.css;
+  if (['json'].includes(ext)) return SVG_ICONS.json;
+  if (['md'].includes(ext)) return SVG_ICONS.md;
+  if (['pdf'].includes(ext)) return SVG_ICONS.pdf;
+  if (['zip', '7z', 'rar', 'tar', 'gz', 'bz2'].includes(ext)) return SVG_ICONS.zip;
+  if (['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif', 'ico'].includes(ext)) return SVG_ICONS.img;
+  return SVG_ICONS.file;
+}
 
 let rawTree = [];
 let allItems = [];
-let projectItems = [];
 let shownCount = PAGE;
 let favs = new Set();
 let currentProject = null;
 let currentFilePath = null;
 let currentCodeText = '';
 const fileCache = new Map();
+const collapsedFolders = new Set();
 
 try { favs = new Set(JSON.parse(localStorage.favs || '[]')); } catch {}
 
@@ -66,18 +72,19 @@ function updateHljsTheme(isDark) {
   }
 }
 
-// Load repository tree (prefer local static tree.json for 0ms load and no rate limits)
+// Ultra-fast tree loader: check preloaded window.REPO_TREE first (0ms load)
 async function loadTree() {
-  try {
-    const res = await fetch('tree.json');
-    if (res.ok) {
-      const data = await res.json();
-      return data;
-    }
-  } catch (e) {
-    console.warn('Local tree.json fetch failed, falling back to GitHub API:', e);
+  if (window.REPO_TREE && Array.isArray(window.REPO_TREE)) {
+    return window.REPO_TREE;
   }
 
+  // Strategy 2: local fetch
+  try {
+    const res = await fetch('tree.json');
+    if (res.ok) return await res.json();
+  } catch {}
+
+  // Strategy 3: GitHub API fallback
   const key = 'tree:' + REPO;
   try {
     const cached = JSON.parse(sessionStorage.getItem(key));
@@ -154,11 +161,9 @@ function parseItem([path, isDir, size]) {
   };
 }
 
-// GitHub & Raw URLs
 const urlOf = path => `https://github.com/${REPO}/${path.includes('.') ? 'blob' : 'tree'}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
 const rawUrlOf = path => `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
 
-// Highlighting matching search terms
 function highlight(text, words) {
   if (!words || !words.length) return esc(text);
   const f = fold(text), marks = new Array(text.length).fill(false);
@@ -202,13 +207,12 @@ function filtered() {
   return { hits: hits.sort(SORTS[$('sort').value]), words, q };
 }
 
-// Find files belonging to a project
 function getProjectFiles(projectPath) {
   const prefix = projectPath.endsWith('/') ? projectPath : projectPath + '/';
   return allItems.filter(it => !it.isDir && it.path.startsWith(prefix));
 }
 
-// Render Project / File Cards
+// Render Project / File Cards (Clean, concise, no huge root path)
 function render(reset = true) {
   if (reset) shownCount = PAGE;
   const { hits, words, q } = filtered();
@@ -220,7 +224,7 @@ function render(reset = true) {
     const isFile = !it.isDir;
     const isFav = favs.has(it.path);
     const ext = it.name.includes('.') ? it.name.split('.').pop().toLowerCase() : '';
-    const fileIcon = isFile ? (FILE_ICONS[ext] || '📄') : (SUBJECT_ICONS[it.subject] || '📁');
+    const fileSvg = isFile ? getFileSvg(ext) : SVG_ICONS.folder;
     const subjectTagClass = `tag-${(it.subject || '').toLowerCase()}`;
 
     // Compute file stats for project
@@ -232,21 +236,27 @@ function render(reset = true) {
       projectStatsBadge = `<span class="tag bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${files.length} files ${extList ? `· ${extList}` : ''}</span>`;
     }
 
+    // Relative match path for file search only
+    let matchSubline = '';
+    if (isFile && words.length) {
+      matchSubline = `<div class="text-xs text-zinc-400 font-mono mt-0.5 break-all">${highlight(it.name, words)}</div>`;
+    }
+
     return `
     <li class="relative card group">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pr-24">
+      <div class="flex items-center justify-between gap-3 pr-24">
         <div class="min-w-0 flex-1 cursor-pointer" data-action="${isFile ? 'open-file' : 'open-project'}" data-path="${esc(it.path)}">
           <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-lg shrink-0">${fileIcon}</span>
-            <span class="font-bold text-base text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 break-words transition-colors">
+            <span class="shrink-0 flex items-center">${fileSvg}</span>
+            <span class="font-bold text-[15px] text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 break-words transition-colors">
               ${highlight(it.name, words)}
             </span>
-            ${isFile ? `<span class="tag text-[11px] text-blue-600 dark:text-blue-400">view code</span>` : `<span class="tag text-[11px] bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-300 font-medium">Browse Code</span>`}
+            ${isFile 
+              ? `<span class="tag text-[11px] text-blue-600 dark:text-blue-400">View file</span>` 
+              : `<span class="tag text-[11px] bg-blue-50 text-blue-600 dark:bg-blue-950/60 dark:text-blue-300 font-medium">Browse Code</span>`}
           </div>
-          <div class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1 break-all">
-            ${highlight(it.path, words)}
-          </div>
-          <div class="flex flex-wrap items-center gap-1.5 mt-2">
+          ${matchSubline}
+          <div class="flex flex-wrap items-center gap-1.5 mt-1.5">
             ${it.grade ? `<span class="tag font-semibold">${esc(it.grade)}</span>` : ''}
             ${it.subject ? `<span class="tag ${subjectTagClass} font-semibold">${esc(it.subject)}</span>` : ''}
             ${it.date ? `<span class="tag bg-stone-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${esc(it.date)}</span>` : ''}
@@ -254,7 +264,7 @@ function render(reset = true) {
           </div>
         </div>
 
-        <div class="absolute top-3 right-3 flex items-center gap-1 shrink-0">
+        <div class="absolute top-2.5 right-2.5 flex items-center gap-1 shrink-0">
           <button class="star ${isFav ? 'on' : ''}" data-fav="${esc(it.path)}" title="Add to favorites" aria-label="Favorite">
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg>
           </button>
@@ -269,11 +279,9 @@ function render(reset = true) {
     </li>`;
   }).join('');
 
-  // Update clear search button
   $('q-clear').classList.toggle('hidden', !$('q').value);
 }
 
-// Format file size
 function formatBytes(bytes) {
   if (!bytes) return '0 B';
   const k = 1024, sizes = ['B', 'KB', 'MB', 'GB'];
@@ -281,13 +289,12 @@ function formatBytes(bytes) {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
 }
 
-// Fetch file content with multi-strategy & memory cache
 async function fetchFileContent(filePath) {
   if (fileCache.has(filePath)) {
     return fileCache.get(filePath);
   }
 
-  // Strategy 1: Local relative fetch (for offline / local dev server)
+  // Strategy 1: Local relative fetch
   try {
     const localRes = await fetch('../' + filePath);
     if (localRes.ok) {
@@ -306,24 +313,64 @@ async function fetchFileContent(filePath) {
   return text;
 }
 
+// Smart priority file picker when opening a project: NEVER pick .zip / binaries first!
+function pickInitialFile(files) {
+  if (!files || !files.length) return null;
+
+  // 1. Primary code files: Program.cs, index.php, MainWindow.xaml.cs, App.xaml.cs
+  const mainEntry = files.find(f => /Program\.cs$|index\.php$|MainWindow\.xaml\.cs$/i.test(f.name));
+  if (mainEntry) return mainEntry;
+
+  // 2. Readable code files (.cs, .sql, .php, .js, .html, .vue, .xaml)
+  const codeFile = files.find(f => {
+    const ext = f.name.split('.').pop().toLowerCase();
+    return ['cs', 'sql', 'php', 'js', 'html', 'vue', 'xaml'].includes(ext);
+  });
+  if (codeFile) return codeFile;
+
+  // 3. Documentation / config files (.md, .txt, .json, .yaml, .yml)
+  const docFile = files.find(f => {
+    const ext = f.name.split('.').pop().toLowerCase();
+    return ['md', 'txt', 'json', 'yaml', 'yml'].includes(ext);
+  });
+  if (docFile) return docFile;
+
+  // 4. Non-binary file
+  const nonBinary = files.find(f => {
+    const ext = f.name.split('.').pop().toLowerCase();
+    return !BINARY_EXTS.has(ext);
+  });
+  if (nonBinary) return nonBinary;
+
+  return files[0];
+}
+
 // Open and render a file in the modal viewer
 async function viewFile(filePath) {
   currentFilePath = filePath;
   const item = allItems.find(i => i.path === filePath) || { path: filePath, name: filePath.split('/').pop(), size: 0 };
   const ext = item.name.includes('.') ? item.name.split('.').pop().toLowerCase() : '';
 
+  // Clean relative breadcrumb within project (no root prefix!)
+  let relBreadcrumb = item.name;
+  if (currentProject && filePath.startsWith(currentProject)) {
+    const pfxLen = currentProject.endsWith('/') ? currentProject.length : currentProject.length + 1;
+    relBreadcrumb = filePath.substring(pfxLen).split('/').join(' / ');
+  }
+
   // Update headers
+  $('active-file-icon').innerHTML = getFileSvg(ext);
   $('active-filename').textContent = item.name;
   $('active-file-size').textContent = item.size ? `· ${formatBytes(item.size)}` : '';
   $('active-file-lines').textContent = '';
   $('active-file-lang').textContent = ext || 'text';
-  $('code-dialog-path').textContent = item.path;
+  $('code-dialog-breadcrumb').textContent = relBreadcrumb;
   $('code-github-link').href = urlOf(item.path);
   $('code-copy-text').textContent = 'Copy';
   $('md-toggle-btn').classList.add('hidden');
 
   // Highlight active item in sidebar tree
-  document.querySelectorAll('#sidebar-tree .tree-item').forEach(el => {
+  document.querySelectorAll('#sidebar-tree .tree-row').forEach(el => {
     el.classList.toggle('active', el.dataset.filePath === filePath);
   });
 
@@ -335,6 +382,32 @@ async function viewFile(filePath) {
   $('code-media').classList.add('hidden');
   $('code-media').innerHTML = '';
   currentCodeText = '';
+
+  // Fast Binary / Archive Handler (Instant, NO text fetch!)
+  if (BINARY_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `
+      <div class="text-center p-8 space-y-4 max-w-md mx-auto">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
+          ${SVG_ICONS.zip_large}
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+          <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · Binary Archive</p>
+        </div>
+        <p class="text-sm text-zinc-500">Binary archives cannot be previewed directly as text.</p>
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+            ${SVG_ICONS.download} Download ${ext.toUpperCase()}
+          </a>
+          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+            ${SVG_ICONS.github} View on GitHub
+          </a>
+        </div>
+      </div>`;
+    return;
+  }
 
   // Handle Images
   if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico'].includes(ext)) {
@@ -354,7 +427,9 @@ async function viewFile(filePath) {
     $('code-media').classList.remove('hidden');
     $('code-media').innerHTML = `
       <div class="text-center p-8 space-y-4">
-        <span class="text-5xl">📕</span>
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
         <h3 class="font-bold text-lg">${esc(item.name)}</h3>
         <p class="text-sm text-zinc-500 max-w-md mx-auto">PDF document preview available via direct link or download.</p>
         <div class="flex items-center justify-center gap-3">
@@ -362,27 +437,29 @@ async function viewFile(filePath) {
             Open PDF in new tab
           </a>
           <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
-            View on GitHub
+            ${SVG_ICONS.github} View on GitHub
           </a>
         </div>
       </div>`;
     return;
   }
 
-  // Handle Dia files
+  // Handle Dia diagrams
   if (ext === 'dia') {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
     $('code-media').innerHTML = `
       <div class="text-center p-8 space-y-4">
-        <span class="text-5xl">📐</span>
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg>
+        </div>
         <h3 class="font-bold text-lg">${esc(item.name)}</h3>
-        <p class="text-sm text-zinc-500 max-w-md mx-auto">Dia Database Diagram. To view or edit, open in Dia or convert to PNG.</p>
+        <p class="text-sm text-zinc-500 max-w-md mx-auto">Dia Database ER Diagram.</p>
         <div class="flex items-center justify-center gap-3">
           <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700" href="${rawUrlOf(filePath)}" download>
-            Download .dia file
+            ${SVG_ICONS.download} Download .dia
           </a>
-          <button id="dia-raw-btn" class="ctl text-sm">View raw file</button>
+          <button id="dia-raw-btn" class="ctl text-sm">View XML</button>
         </div>
       </div>`;
     $('dia-raw-btn')?.addEventListener('click', async () => {
@@ -428,6 +505,7 @@ async function loadCodeText(filePath, ext) {
       xaml: 'xml',
       js: 'javascript',
       mjs: 'javascript',
+      ts: 'typescript',
       json: 'json',
       css: 'css',
       py: 'python',
@@ -464,34 +542,130 @@ async function loadCodeText(filePath, ext) {
   }
 }
 
+// Build hierarchical file tree structure from flat file list
+function buildHierarchy(files, rootPath) {
+  const root = { name: '', isDir: true, children: {}, fullPath: '' };
+  const prefixLen = rootPath.endsWith('/') ? rootPath.length : rootPath.length + 1;
+
+  for (const f of files) {
+    const rel = f.path.substring(prefixLen);
+    const segments = rel.split('/');
+    let curr = root;
+
+    for (let i = 0; i < segments.length; i++) {
+      const seg = segments[i];
+      const isLast = (i === segments.length - 1);
+
+      if (isLast) {
+        curr.children[seg] = {
+          name: seg,
+          isDir: false,
+          file: f,
+          fullPath: f.path,
+          relPath: rel
+        };
+      } else {
+        if (!curr.children[seg]) {
+          const folderRel = segments.slice(0, i + 1).join('/');
+          curr.children[seg] = {
+            name: seg,
+            isDir: true,
+            children: {},
+            relPath: folderRel,
+            fullPath: rootPath + '/' + folderRel
+          };
+        }
+        curr = curr.children[seg];
+      }
+    }
+  }
+  return root;
+}
+
+// Render Tree HTML recursively with collapsible folders and clean icons
+function renderTreeHtml(node, depth = 0) {
+  const childKeys = Object.keys(node.children).sort((a, b) => {
+    const aNode = node.children[a];
+    const bNode = node.children[b];
+    // Directories first, then files
+    if (aNode.isDir !== bNode.isDir) return bNode.isDir - aNode.isDir;
+    return a.localeCompare(b, 'hu');
+  });
+
+  return childKeys.map(key => {
+    const child = node.children[key];
+
+    if (child.isDir) {
+      const isCollapsed = collapsedFolders.has(child.fullPath);
+      const folderIcon = isCollapsed ? SVG_ICONS.folder : SVG_ICONS.folder_open;
+
+      return `
+        <div class="tree-folder ${isCollapsed ? 'collapsed' : ''}" data-folder-path="${esc(child.fullPath)}">
+          <div class="tree-row tree-folder-row hover:text-zinc-900 dark:hover:text-zinc-100" data-toggle-folder="${esc(child.fullPath)}">
+            <span class="tree-chevron">${SVG_ICONS.chevron_down}</span>
+            <span class="shrink-0 flex items-center">${folderIcon}</span>
+            <span class="font-medium truncate font-mono text-[12px]">${esc(child.name)}</span>
+          </div>
+          <div class="tree-folder-children">
+            ${renderTreeHtml(child, depth + 1)}
+          </div>
+        </div>`;
+    } else {
+      const ext = child.name.includes('.') ? child.name.split('.').pop().toLowerCase() : '';
+      const icon = getFileSvg(ext);
+      const isActive = child.fullPath === currentFilePath;
+
+      return `
+        <div class="tree-row tree-file ${isActive ? 'active' : ''}" data-file-path="${esc(child.fullPath)}" title="${esc(child.relPath)}">
+          <span class="w-3.5 shrink-0"></span>
+          <span class="shrink-0 flex items-center">${icon}</span>
+          <span class="truncate flex-1 font-mono text-[12px]">${esc(child.name)}</span>
+          <span class="text-[10px] text-zinc-400 font-mono shrink-0 pl-1">${formatBytes(child.file.size)}</span>
+        </div>`;
+    }
+  }).join('');
+}
+
+// Render sidebar tree view with optional live search filter
+function renderSidebarTree(files, rootPath) {
+  const filterVal = $('sidebar-filter').value.toLowerCase().trim();
+  const filtered = filterVal ? files.filter(f => f.path.toLowerCase().includes(filterVal)) : files;
+
+  if (!filtered.length) {
+    $('sidebar-tree').innerHTML = `<p class="p-3 text-zinc-400 text-center text-xs">No matching files</p>`;
+    return;
+  }
+
+  const hierarchy = buildHierarchy(filtered, rootPath);
+  $('sidebar-tree').innerHTML = renderTreeHtml(hierarchy);
+}
+
 // Open project explorer modal
 function openProject(projectPath, targetFilePath = null) {
   currentProject = projectPath;
+  collapsedFolders.clear();
   const dialog = $('code-dialog');
   if (!dialog) return;
 
   const projectItem = allItems.find(i => i.path === projectPath) || { name: projectPath.split('/').pop(), subject: 'Project', grade: '' };
   $('code-dialog-title').textContent = projectItem.name;
   $('modal-project-badge').textContent = projectItem.subject || 'PROJECT';
-  $('code-dialog-path').textContent = projectPath;
 
   const projectFiles = getProjectFiles(projectPath);
   $('sidebar-count').textContent = projectFiles.length;
+  $('sidebar-filter').value = '';
 
-  // Render Sidebar Tree
+  // Render Hierarchical Tree
   renderSidebarTree(projectFiles, projectPath);
 
   dialog.showModal();
 
-  // If a specific file was requested, view it; otherwise find the best primary file
+  // If a specific file was requested, view it; otherwise smart-pick the best readable file
   if (targetFilePath) {
     viewFile(targetFilePath);
   } else if (projectFiles.length > 0) {
-    // Pick priority file: Program.cs, .sql, README.md, or first code file
-    const priority = projectFiles.find(f => /Program\.cs$|\.sql$|README\.md$/i.test(f.name)) ||
-                     projectFiles.find(f => !/\.pdf|\.dia/i.test(f.name)) ||
-                     projectFiles[0];
-    viewFile(priority.path);
+    const priority = pickInitialFile(projectFiles);
+    if (priority) viewFile(priority.path);
   } else {
     $('active-filename').textContent = 'Empty Project';
     $('code-status').classList.remove('hidden');
@@ -499,33 +673,28 @@ function openProject(projectPath, targetFilePath = null) {
   }
 }
 
-// Render files list in sidebar with instant filter
-function renderSidebarTree(files, rootPath) {
-  const filterVal = $('sidebar-filter').value.toLowerCase().trim();
-  const filtered = filterVal ? files.filter(f => f.path.toLowerCase().includes(filterVal)) : files;
-
-  const prefixLen = rootPath.endsWith('/') ? rootPath.length : rootPath.length + 1;
-
-  $('sidebar-tree').innerHTML = filtered.map(f => {
-    const relPath = f.path.substring(prefixLen);
-    const ext = f.name.includes('.') ? f.name.split('.').pop().toLowerCase() : '';
-    const icon = FILE_ICONS[ext] || '📄';
-    const isActive = f.path === currentFilePath;
-
-    return `
-      <div class="tree-item ${isActive ? 'active' : ''}" data-file-path="${esc(f.path)}" title="${esc(relPath)}">
-        <span class="shrink-0 text-sm">${icon}</span>
-        <span class="truncate flex-1">${esc(relPath)}</span>
-        <span class="text-[10px] text-zinc-400 font-mono shrink-0">${formatBytes(f.size)}</span>
-      </div>`;
-  }).join('');
-}
-
-// Sidebar file selection
+// Tree view interaction: toggle folder collapse or open file
 $('sidebar-tree').addEventListener('click', e => {
-  const item = e.target.closest('.tree-item');
-  if (item && item.dataset.filePath) {
-    viewFile(item.dataset.filePath);
+  // Folder collapse / expand toggle
+  const folderRow = e.target.closest('[data-toggle-folder]');
+  if (folderRow) {
+    const folderPath = folderRow.dataset.toggleFolder;
+    if (collapsedFolders.has(folderPath)) {
+      collapsedFolders.delete(folderPath);
+    } else {
+      collapsedFolders.add(folderPath);
+    }
+    const folderEl = folderRow.closest('.tree-folder');
+    if (folderEl) {
+      folderEl.classList.toggle('collapsed', collapsedFolders.has(folderPath));
+    }
+    return;
+  }
+
+  // File row click
+  const fileRow = e.target.closest('.tree-file');
+  if (fileRow && fileRow.dataset.filePath) {
+    viewFile(fileRow.dataset.filePath);
   }
 });
 
@@ -590,7 +759,6 @@ $('code-close-btn').onclick = () => $('code-dialog').close();
 
 // Click delegation on results list
 $('results').addEventListener('click', e => {
-  // Favorite button
   const favBtn = e.target.closest('button[data-fav]');
   if (favBtn) {
     const path = favBtn.dataset.fav;
@@ -601,7 +769,6 @@ $('results').addEventListener('click', e => {
     return;
   }
 
-  // Copy link button
   const copyBtn = e.target.closest('button[data-copy]');
   if (copyBtn) {
     const path = copyBtn.dataset.copy;
@@ -612,7 +779,6 @@ $('results').addEventListener('click', e => {
     return;
   }
 
-  // Open Project / File card click
   const card = e.target.closest('[data-action]');
   if (card) {
     const action = card.dataset.action;
@@ -620,7 +786,6 @@ $('results').addEventListener('click', e => {
     if (action === 'open-project') {
       openProject(path);
     } else if (action === 'open-file') {
-      // Find enclosing project for file
       const parentDir = path.substring(0, path.lastIndexOf('/'));
       const project = allItems.find(i => i.isDir && i.project && path.startsWith(i.path + '/')) || { path: parentDir };
       openProject(project.path, path);
@@ -693,7 +858,6 @@ $('random').onclick = () => {
   }
 };
 
-// Fill Select Dropdown options
 function fillSelect(sel, values, defaultLabel = 'All') {
   sel.innerHTML = `<option value="">${defaultLabel}</option>`;
   for (const v of [...new Set(values)].filter(Boolean).sort()) {
@@ -713,7 +877,7 @@ if (!('closedBy' in HTMLDialogElement.prototype)) {
   dialog.addEventListener('pointerup', (e) => { if (pressedOutside && outside(e, dialog)) dialog.close(); });
 }
 
-// Keyboard shortcuts: '/' focuses search, 'Esc' handled natively by dialog
+// Keyboard shortcuts: '/' focuses search
 addEventListener('keydown', e => {
   if (e.key === '/' && document.activeElement !== $('q') && !$('code-dialog').open) {
     e.preventDefault();
@@ -721,7 +885,6 @@ addEventListener('keydown', e => {
   }
 });
 
-// Filter events
 for (const id of ['q', 'grade', 'files', 'fav-only', 'sort']) {
   $(id).addEventListener('input', () => render());
 }
@@ -733,16 +896,13 @@ loadTree().then(tree => {
 
   fillSelect($('grade'), allItems.map(i => i.grade), 'All grades');
   
-  // Normalized Subjects for dropdown
   const distinctSubjects = ['DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'DK', 'IKT', 'OTHER'];
   fillSelect($('subject'), distinctSubjects, 'All subjects');
 
-  // Stats badge
   const projectCount = allItems.filter(i => i.project).length;
   const fileCount = allItems.filter(i => !i.isDir).length;
   $('quick-stats').textContent = `${projectCount} projects · ${fileCount.toLocaleString()} files`;
 
-  // Parse initial URL hash if present
   if (location.hash && location.hash.length > 1) {
     const hash = decodeURIComponent(location.hash.slice(1));
     if (hash.startsWith('project=')) {

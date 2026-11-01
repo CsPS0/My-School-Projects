@@ -30,11 +30,11 @@ input[type=search].ctl, input[type=text].ctl {
 /* Project Cards */
 .card {
   display: block;
-  padding: 0.9rem 1.1rem;
+  padding: 0.85rem 1rem;
   background: #ffffff;
   border: 1px solid #e4e4e7;
-  border-radius: 0.85rem;
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0.75rem;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .dark .card {
   background: #121214;
@@ -59,6 +59,7 @@ input[type=search].ctl, input[type=text].ctl {
   color: #52525b;
   cursor: pointer;
   transition: all 0.15s ease;
+  user-select: none;
 }
 .dark .pill {
   border-color: #27272a;
@@ -154,32 +155,64 @@ dialog::backdrop {
   backdrop-filter: blur(4px);
 }
 
-/* Sidebar Tree Items */
-.tree-item {
+/* ========================================================================= */
+/* Hierarchical Tree View Styling (VS Code Inspired)                         */
+/* ========================================================================= */
+.tree-node {
+  font-family: inherit;
+  font-size: 12px;
+}
+.tree-row {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.5rem;
-  border-radius: 0.375rem;
+  gap: 0.35rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.35rem;
   cursor: pointer;
-  user-select: none;
   transition: background 0.1s ease;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-.tree-item:hover {
+.tree-row:hover {
   background: rgba(0, 0, 0, 0.05);
 }
-.dark .tree-item:hover {
+.dark .tree-row:hover {
   background: rgba(255, 255, 255, 0.06);
 }
-.tree-item.active {
+.tree-row.active {
   background: #2563eb !important;
   color: #ffffff !important;
 }
-.tree-item.active svg {
+.tree-row.active svg {
   color: #ffffff !important;
+}
+.tree-row.active span {
+  color: #ffffff !important;
+}
+
+/* Tree Folder Chevron & Toggle */
+.tree-chevron {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+.tree-folder.collapsed > .tree-folder-row .tree-chevron {
+  transform: rotate(-90deg);
+}
+.tree-folder.collapsed > .tree-folder-children {
+  display: none;
+}
+.tree-folder-children {
+  margin-left: 0.5rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid #e4e4e7;
+}
+.dark .tree-folder-children {
+  border-left-color: #27272a;
 }
 
 /* Code Viewer & Synchronized Line Gutter */
@@ -198,8 +231,8 @@ pre code.hljs {
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -219,20 +252,20 @@ pre code.hljs {
 }
 
 /* Markdown preview prose styles */
-#md-preview h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; }
-#md-preview h2 { font-size: 1.35rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; border-bottom: 1px solid #e4e4e7; padding-bottom: 0.3rem; }
+#md-preview h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.85rem; }
+#md-preview h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.4rem; margin-bottom: 0.65rem; border-bottom: 1px solid #e4e4e7; padding-bottom: 0.25rem; }
 .dark #md-preview h2 { border-color: #27272a; }
-#md-preview h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+#md-preview h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.1rem; margin-bottom: 0.45rem; }
 #md-preview p { margin-bottom: 0.75rem; }
-#md-preview ul, #md-preview ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+#md-preview ul, #md-preview ol { padding-left: 1.4rem; margin-bottom: 0.75rem; }
 #md-preview ul { list-style-type: disc; }
 #md-preview ol { list-style-type: decimal; }
 #md-preview code { font-family: monospace; background: rgba(0,0,0,0.06); padding: 0.15rem 0.3rem; border-radius: 0.25rem; font-size: 0.85em; }
 .dark #md-preview code { background: rgba(255,255,255,0.1); }
-#md-preview pre { background: #1e1e24; color: #f4f4f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; }
+#md-preview pre { background: #1e1e24; color: #f4f4f5; padding: 0.85rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 0.85rem; }
 #md-preview pre code { background: transparent; padding: 0; color: inherit; }
-#md-preview table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-#md-preview th, #md-preview td { border: 1px solid #e4e4e7; padding: 0.5rem 0.75rem; text-align: left; }
+#md-preview table { width: 100%; border-collapse: collapse; margin-bottom: 0.85rem; }
+#md-preview th, #md-preview td { border: 1px solid #e4e4e7; padding: 0.4rem 0.65rem; text-align: left; }
 .dark #md-preview th, .dark #md-preview td { border-color: #27272a; }
 #md-preview th { background: rgba(0,0,0,0.04); }
 .dark #md-preview th { background: rgba(255,255,255,0.04); }

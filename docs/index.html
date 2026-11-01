@@ -21,6 +21,8 @@
 <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<!-- Pre-loaded tree data for instant 0ms offline and local loading -->
+<script src="js/tree-data.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
@@ -35,15 +37,12 @@
 <!-- Main Application Layout -->
 <div class="max-w-6xl mx-auto px-4 pt-6 pb-20">
   
-  <!-- Header -->
+  <!-- Clean, Sleek Header -->
   <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
     <div>
-      <div class="flex items-center gap-2">
-        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">My School Projects</h1>
-        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800">v2.0 In-Page IDE</span>
-      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">My School Projects</h1>
       <p class="text-zinc-500 dark:text-zinc-400 mt-1 text-sm">
-        Fast, direct in-page code viewing for all projects in
+        Search and browse code in
         <a class="text-blue-600 dark:text-blue-400 hover:underline font-medium inline-flex items-center gap-1" href="https://github.com/CsPS0/My-School-Projects" target="_blank" rel="noopener">
           CsPS0/My-School-Projects
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
@@ -83,16 +82,34 @@
       </select>
     </div>
 
-    <!-- Quick filter pill chips -->
+    <!-- Quick filter pill chips with real SVG icons -->
     <div class="flex flex-wrap items-center gap-1.5 text-xs">
       <span class="text-zinc-400 mr-1 font-semibold uppercase tracking-wider text-[10px]">Filter:</span>
       <button class="pill active" data-pill-type="subject" data-pill-value="">All</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="DESKTOP">💻 DESKTOP</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="DATABASE">🗄️ DATABASE</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="BACKEND">⚙️ BACKEND</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="TESTING">🧪 TESTING</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="WEB">🌐 WEB</button>
-      <button class="pill" data-pill-type="subject" data-pill-value="DOCKER">🐳 DOCKER</button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DESKTOP">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        DESKTOP
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DATABASE">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+        DATABASE
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="BACKEND">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+        BACKEND
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="TESTING">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.5a2 2 0 0 1-.2.9L5 20.4a1 1 0 0 0 .9 1.6h12.2a1 1 0 0 0 .9-1.6L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+        TESTING
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="WEB">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        WEB
+      </button>
+      <button class="pill flex items-center gap-1" data-pill-type="subject" data-pill-value="DOCKER">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        DOCKER
+      </button>
     </div>
 
     <!-- Checkboxes, Sort & Info -->
@@ -127,7 +144,7 @@
   </div>
 
   <!-- Results List / Grid -->
-  <ul id="results" class="grid gap-2.5 sm:grid-cols-1"></ul>
+  <ul id="results" class="grid gap-2 sm:grid-cols-1"></ul>
 
   <!-- Pagination / Show more -->
   <div class="text-center mt-6">
@@ -149,7 +166,8 @@
       </div>
       <div class="min-w-0 flex-1">
         <h2 id="code-dialog-title" class="font-bold text-sm sm:text-base truncate leading-tight">Project Explorer</h2>
-        <p id="code-dialog-path" class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono truncate"></p>
+        <!-- Clean relative breadcrumb without root prefix -->
+        <p id="code-dialog-breadcrumb" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono truncate"></p>
       </div>
     </div>
 
@@ -181,17 +199,18 @@
   <!-- Modal Main Body: 2-Column Split View -->
   <div class="flex-1 flex overflow-hidden min-h-0">
     
-    <!-- Left Sidebar: Project File Explorer -->
+    <!-- Left Sidebar: Hierarchical Collapsible Project File Tree -->
     <aside id="file-sidebar" class="w-64 sm:w-72 border-r border-zinc-200 dark:border-zinc-800 bg-stone-50 dark:bg-zinc-950 flex flex-col shrink-0">
       <div class="p-2 border-b border-zinc-200 dark:border-zinc-800">
         <input id="sidebar-filter" type="text" placeholder="Filter files in project…"
           class="ctl text-xs py-1 px-2 w-full bg-white dark:bg-zinc-900">
       </div>
-      <div class="p-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider flex items-center justify-between">
-        <span>Files</span>
-        <span id="sidebar-count" class="text-zinc-500">0</span>
+      <div class="px-3 py-1.5 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900">
+        <span>Project Files</span>
+        <span id="sidebar-count" class="text-zinc-500 font-mono">0</span>
       </div>
-      <div id="sidebar-tree" class="flex-1 overflow-y-auto px-1 pb-4 space-y-0.5 text-xs font-mono"></div>
+      <!-- Real Tree View Container -->
+      <div id="sidebar-tree" class="flex-1 overflow-y-auto p-1.5 space-y-0.5 text-xs select-none"></div>
     </aside>
 
     <!-- Right Pane: Code / Preview Area -->
@@ -200,9 +219,10 @@
       <!-- File Metadata Subheader -->
       <div id="file-meta-bar" class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-50/50 dark:bg-zinc-900/50 text-xs shrink-0">
         <div class="flex items-center gap-2 min-w-0">
+          <span id="active-file-icon" class="shrink-0 flex items-center"></span>
           <span id="active-filename" class="font-bold truncate font-mono text-zinc-800 dark:text-zinc-200">No file selected</span>
-          <span id="active-file-size" class="text-zinc-400 text-[11px]"></span>
-          <span id="active-file-lines" class="text-zinc-400 text-[11px]"></span>
+          <span id="active-file-size" class="text-zinc-400 text-[11px] font-mono"></span>
+          <span id="active-file-lines" class="text-zinc-400 text-[11px] font-mono"></span>
         </div>
         <div class="flex items-center gap-2">
           <button id="md-toggle-btn" class="hidden text-xs text-blue-600 dark:text-blue-400 hover:underline">Toggle Markdown Preview</button>
@@ -229,7 +249,7 @@
         <!-- Markdown Rendered Preview -->
         <div id="md-preview" class="hidden flex-1 overflow-auto p-6 sm:p-8 prose dark:prose-invert max-w-none text-sm leading-relaxed"></div>
 
-        <!-- Media Preview Area (Images, PDF, Dia) -->
+        <!-- Media & Binary Preview Area (Images, PDF, Dia, Zip) -->
         <div id="code-media" class="hidden flex-1 overflow-auto p-6 flex flex-col items-center justify-center text-center"></div>
       </div>
     </main>
