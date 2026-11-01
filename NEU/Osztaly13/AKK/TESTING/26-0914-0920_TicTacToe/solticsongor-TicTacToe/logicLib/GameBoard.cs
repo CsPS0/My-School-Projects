@@ -1,4 +1,4 @@
-﻿namespace logicLib
+namespace logicLib
 {
     public class GameBoard
     {
@@ -20,8 +20,6 @@
             }
             else return false;
         }
-
-        public 
 
         public GameBoard()
         {

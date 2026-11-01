@@ -3,11 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My School Projects</title>
-<meta name="description" content="Searchable index of CsPS0's school projects and assignments.">
+<title>My School Projects | CsPS0</title>
+<meta name="description" content="Searchable index and fast in-page code browser for CsPS0's school projects and assignments.">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config = { darkMode: 'class' };</script>
-<link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          mono: ['JetBrains Mono', 'Fira Code', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+        }
+      }
+    }
+  };
+</script>
+<link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
@@ -16,69 +29,210 @@
     ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css'
     : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css');
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 </head>
-<body class="bg-stone-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 text-[15px] leading-normal">
-<main class="max-w-4xl mx-auto px-4 pt-5 sm:pt-8 pb-16">
-  <header class="flex items-start justify-between gap-4">
+<body class="bg-stone-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 text-[15px] leading-normal min-h-screen">
+
+<!-- Main Application Layout -->
+<div class="max-w-6xl mx-auto px-4 pt-6 pb-20">
+  
+  <!-- Header -->
+  <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
     <div>
-      <h1 class="text-2xl sm:text-3xl font-bold">My School Projects</h1>
-      <p class="text-zinc-500 dark:text-zinc-400 mt-1">Search every task and project in
-        <a class="text-blue-600 dark:text-blue-400 underline" href="https://github.com/CsPS0/My-School-Projects">CsPS0/My-School-Projects</a>.
-        Press <kbd>/</kbd> to search.</p>
-    </div>
-    <button id="theme" class="ctl shrink-0" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-  </header>
-
-  <div class="sm:sticky top-0 z-10 bg-stone-50/95 dark:bg-zinc-950/95 backdrop-blur py-3 mt-4 space-y-2" role="search">
-    <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-      <input id="q" type="search" class="ctl col-span-2 sm:flex-1 sm:basis-72 min-w-0" autofocus aria-label="Search"
-        placeholder="Search projects and files, e.g. sql join, OOP, madár…">
-      <select id="grade" class="ctl" aria-label="Grade"><option value="">All grades</option></select>
-      <select id="subject" class="ctl" aria-label="Subject"><option value="">All subjects</option></select>
-      <select id="sort" class="ctl col-span-2 sm:col-span-1" aria-label="Sort">
-        <option value="new">Newest first</option>
-        <option value="old">Oldest first</option>
-        <option value="name">Name A–Z</option>
-      </select>
-    </div>
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-zinc-500 dark:text-zinc-400">
-      <label class="flex items-center gap-1.5"><input id="files" type="checkbox"> include files</label>
-      <label class="flex items-center gap-1.5"><input id="fav-only" type="checkbox"> <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg> favorites only</label>
-      <button id="clear" class="underline hover:text-blue-600">reset filters</button>
-      <button id="random" class="inline-flex items-center gap-1 underline hover:text-blue-600"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r=".8"/><circle cx="15.5" cy="15.5" r=".8"/><circle cx="12" cy="12" r=".8"/></svg> random project</button>
-    </div>
-  </div>
-
-  <p id="status" class="text-zinc-500 dark:text-zinc-400 my-3 min-h-6" aria-live="polite">Loading…</p>
-  <ul id="results" class="grid gap-2"></ul>
-  <button id="more" class="ctl mx-auto mt-4 hidden">Show more</button>
-</main>
-
-<!-- Code Viewer Modal Dialog -->
-<dialog id="code-dialog" closedby="any" aria-labelledby="code-dialog-title"
-  class="w-[95%] max-w-5xl rounded-xl p-0 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 m-auto">
-  <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 p-4 gap-3 bg-stone-100/60 dark:bg-zinc-800/50 rounded-t-xl">
-    <div class="min-w-0 flex-1">
-      <h2 id="code-dialog-title" class="font-bold text-base sm:text-lg truncate">File Viewer</h2>
-      <p id="code-dialog-path" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono truncate"></p>
+      <div class="flex items-center gap-2">
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">My School Projects</h1>
+        <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300 border border-blue-200 dark:border-blue-800">v2.0 In-Page IDE</span>
+      </div>
+      <p class="text-zinc-500 dark:text-zinc-400 mt-1 text-sm">
+        Fast, direct in-page code viewing for all projects in
+        <a class="text-blue-600 dark:text-blue-400 hover:underline font-medium inline-flex items-center gap-1" href="https://github.com/CsPS0/My-School-Projects" target="_blank" rel="noopener">
+          CsPS0/My-School-Projects
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        </a>
+        · Press <kbd class="px-1.5 py-0.5 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded shadow-sm">/</kbd> to search
+      </p>
     </div>
     <div class="flex items-center gap-2 shrink-0">
-      <button id="code-copy-btn" class="ctl flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-2.5" title="Copy code">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-        <span id="code-copy-text">Copy</span>
+      <button id="random" class="ctl flex items-center gap-1.5 text-sm" title="Open a random project">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r=".8"/><circle cx="15.5" cy="15.5" r=".8"/><circle cx="12" cy="12" r=".8"/></svg>
+        <span>Random</span>
       </button>
-      <a id="code-github-link" class="ctl flex items-center gap-1.5 text-xs sm:text-sm py-1.5 px-2.5" target="_blank" rel="noopener" title="Open on GitHub">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-        GitHub
-      </a>
-      <button id="code-close-btn" class="ctl py-1.5 px-2.5 text-xs sm:text-sm font-semibold" aria-label="Close dialog" title="Close (Esc)">✕</button>
+      <button id="theme" class="ctl flex items-center justify-center p-2.5" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Filter & Search Control Panel -->
+  <div class="sticky top-0 z-20 bg-stone-50/95 dark:bg-zinc-950/95 backdrop-blur-md pt-4 pb-3 space-y-3 border-b border-zinc-200/80 dark:border-zinc-800/80" role="search">
+    
+    <!-- Search bar & primary selects -->
+    <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+      <div class="relative sm:col-span-6">
+        <input id="q" type="search" class="ctl w-full pl-9 pr-8" autofocus aria-label="Search"
+          placeholder="Search projects, files or topics (e.g. taxi, sql, oop, wpf, netflix…)">
+        <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <button id="q-clear" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 text-xs px-1" title="Clear search">✕</button>
+      </div>
+
+      <select id="grade" class="ctl sm:col-span-3 text-sm" aria-label="Grade">
+        <option value="">All grades</option>
+      </select>
+
+      <select id="subject" class="ctl sm:col-span-3 text-sm" aria-label="Subject">
+        <option value="">All subjects</option>
+      </select>
+    </div>
+
+    <!-- Quick filter pill chips -->
+    <div class="flex flex-wrap items-center gap-1.5 text-xs">
+      <span class="text-zinc-400 mr-1 font-semibold uppercase tracking-wider text-[10px]">Filter:</span>
+      <button class="pill active" data-pill-type="subject" data-pill-value="">All</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="DESKTOP">💻 DESKTOP</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="DATABASE">🗄️ DATABASE</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="BACKEND">⚙️ BACKEND</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="TESTING">🧪 TESTING</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="WEB">🌐 WEB</button>
+      <button class="pill" data-pill-type="subject" data-pill-value="DOCKER">🐳 DOCKER</button>
+    </div>
+
+    <!-- Checkboxes, Sort & Info -->
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 pt-1">
+      <div class="flex flex-wrap items-center gap-4">
+        <label class="flex items-center gap-1.5 cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-200">
+          <input id="files" type="checkbox" class="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-0"> include files
+        </label>
+        <label class="flex items-center gap-1.5 cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-200">
+          <input id="fav-only" type="checkbox" class="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-0">
+          <svg class="w-3.5 h-3.5 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg>
+          favorites only
+        </label>
+        <button id="clear" class="hover:text-blue-600 underline cursor-pointer">reset filters</button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="text-zinc-400 text-xs">Sort:</span>
+        <select id="sort" class="ctl text-xs py-1 px-2" aria-label="Sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
     </div>
   </div>
-  <div id="code-body" class="relative">
-    <div id="code-status" class="py-12 text-center text-zinc-500 dark:text-zinc-400">Loading code…</div>
-    <pre id="code-pre" class="hidden overflow-auto p-4 text-xs sm:text-sm font-mono leading-relaxed max-h-[75vh]"><code id="code-content"></code></pre>
-    <div id="code-media" class="hidden p-6 text-center"></div>
+
+  <!-- Status / Results Summary -->
+  <div class="flex items-center justify-between text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 my-3 min-h-6">
+    <p id="status" aria-live="polite">Loading project catalog…</p>
+    <div id="quick-stats" class="text-xs text-zinc-400 hidden sm:block"></div>
+  </div>
+
+  <!-- Results List / Grid -->
+  <ul id="results" class="grid gap-2.5 sm:grid-cols-1"></ul>
+
+  <!-- Pagination / Show more -->
+  <div class="text-center mt-6">
+    <button id="more" class="ctl px-6 py-2.5 text-sm font-medium hidden hover:border-blue-500">Show more</button>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- IDE-Style In-Page Project & Code Viewer Modal Dialog                      -->
+<!-- ========================================================================= -->
+<dialog id="code-dialog" closedby="any" aria-labelledby="code-dialog-title"
+  class="w-[96vw] max-w-6xl h-[92vh] max-h-[92vh] rounded-2xl p-0 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 m-auto flex flex-col overflow-hidden">
+  
+  <!-- Modal Top Bar -->
+  <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 px-4 py-2.5 gap-3 bg-stone-100/80 dark:bg-zinc-800/60 shrink-0">
+    <div class="flex items-center gap-2.5 min-w-0 flex-1">
+      <div id="modal-project-badge" class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300 shrink-0 uppercase tracking-wider">
+        Project
+      </div>
+      <div class="min-w-0 flex-1">
+        <h2 id="code-dialog-title" class="font-bold text-sm sm:text-base truncate leading-tight">Project Explorer</h2>
+        <p id="code-dialog-path" class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono truncate"></p>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-1.5 shrink-0">
+      <button id="code-copy-btn" class="ctl flex items-center gap-1.5 text-xs py-1.5 px-2.5 hover:border-blue-500" title="Copy code to clipboard">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <span id="code-copy-text">Copy</span>
+      </button>
+
+      <button id="code-wrap-btn" class="ctl flex items-center gap-1 text-xs py-1.5 px-2.5" title="Toggle line wrapping">
+        <span>Wrap</span>
+      </button>
+
+      <button id="code-download-btn" class="ctl flex items-center gap-1 text-xs py-1.5 px-2.5" title="Download current file">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Download</span>
+      </button>
+
+      <a id="code-github-link" class="ctl flex items-center gap-1.5 text-xs py-1.5 px-2.5" target="_blank" rel="noopener" title="Open file on GitHub">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        GitHub
+      </a>
+
+      <button id="code-close-btn" class="ctl py-1.5 px-2.5 text-xs font-bold hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors" aria-label="Close dialog" title="Close (Esc)">✕</button>
+    </div>
+  </div>
+
+  <!-- Modal Main Body: 2-Column Split View -->
+  <div class="flex-1 flex overflow-hidden min-h-0">
+    
+    <!-- Left Sidebar: Project File Explorer -->
+    <aside id="file-sidebar" class="w-64 sm:w-72 border-r border-zinc-200 dark:border-zinc-800 bg-stone-50 dark:bg-zinc-950 flex flex-col shrink-0">
+      <div class="p-2 border-b border-zinc-200 dark:border-zinc-800">
+        <input id="sidebar-filter" type="text" placeholder="Filter files in project…"
+          class="ctl text-xs py-1 px-2 w-full bg-white dark:bg-zinc-900">
+      </div>
+      <div class="p-2 text-[11px] font-semibold text-zinc-400 uppercase tracking-wider flex items-center justify-between">
+        <span>Files</span>
+        <span id="sidebar-count" class="text-zinc-500">0</span>
+      </div>
+      <div id="sidebar-tree" class="flex-1 overflow-y-auto px-1 pb-4 space-y-0.5 text-xs font-mono"></div>
+    </aside>
+
+    <!-- Right Pane: Code / Preview Area -->
+    <main class="flex-1 flex flex-col overflow-hidden min-w-0 bg-white dark:bg-zinc-900 relative">
+      
+      <!-- File Metadata Subheader -->
+      <div id="file-meta-bar" class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-50/50 dark:bg-zinc-900/50 text-xs shrink-0">
+        <div class="flex items-center gap-2 min-w-0">
+          <span id="active-filename" class="font-bold truncate font-mono text-zinc-800 dark:text-zinc-200">No file selected</span>
+          <span id="active-file-size" class="text-zinc-400 text-[11px]"></span>
+          <span id="active-file-lines" class="text-zinc-400 text-[11px]"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="md-toggle-btn" class="hidden text-xs text-blue-600 dark:text-blue-400 hover:underline">Toggle Markdown Preview</button>
+          <span id="active-file-lang" class="tag uppercase text-[10px] font-mono tracking-wider"></span>
+        </div>
+      </div>
+
+      <!-- Content Views -->
+      <div id="code-body" class="flex-1 overflow-hidden relative flex flex-col">
+        <!-- Loading State -->
+        <div id="code-status" class="flex-1 flex items-center justify-center p-8 text-zinc-500 dark:text-zinc-400">
+          <div class="text-center space-y-2">
+            <svg class="w-6 h-6 animate-spin mx-auto text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+            <p id="code-status-text">Loading file…</p>
+          </div>
+        </div>
+
+        <!-- Code Editor Pane with Synchronized Line Numbers -->
+        <div id="code-wrapper" class="hidden flex-1 overflow-auto flex text-xs sm:text-[13px] font-mono leading-relaxed">
+          <div id="code-gutter" class="select-none py-3 pl-3 pr-2 text-right text-zinc-400 dark:text-zinc-600 bg-stone-100/60 dark:bg-zinc-950/40 border-r border-zinc-200 dark:border-zinc-800 min-w-[3.5rem] shrink-0 font-mono"></div>
+          <pre id="code-pre" class="flex-1 overflow-x-auto py-3 px-4 m-0"><code id="code-content" class="hljs block"></code></pre>
+        </div>
+
+        <!-- Markdown Rendered Preview -->
+        <div id="md-preview" class="hidden flex-1 overflow-auto p-6 sm:p-8 prose dark:prose-invert max-w-none text-sm leading-relaxed"></div>
+
+        <!-- Media Preview Area (Images, PDF, Dia) -->
+        <div id="code-media" class="hidden flex-1 overflow-auto p-6 flex flex-col items-center justify-center text-center"></div>
+      </div>
+    </main>
   </div>
 </dialog>
 

@@ -11,6 +11,10 @@ namespace TreasureChest
             get => _volume;
             init
             {
+                if (value < 0)
+                {
+                    throw new System.ArgumentException("A láda negatív térfogattal nem jöhet létre.");
+                }
                 _volume = value;
             }
         }
@@ -28,11 +32,11 @@ namespace TreasureChest
         public bool Open()
         {
             if (!IsLocked && !IsOpen) { // akkor lehet kinyitni ha nincs zárva és nincs nyitva. Minden más esetben nem lehet
-
                 IsOpen = true;
                 return true;
             }
-            return false;        }
+            return false;
+        }
         public bool Close()
         {
             if (!IsLocked && IsOpen) // akkor lehet becsukni ha nincs zárva és nyitva van. Minden más esetben nem lehet
@@ -90,18 +94,16 @@ namespace TreasureChest
         public Treasure? TakeOut(string name)
         {
             if (_contents.Count == 0 || !IsOpen) return null;
-            Treasure? treasure=null;
-            int i=0;
-            while (i < _contents.Count)
+            for (int i = 0; i < _contents.Count; i++)
             {
                 if (_contents[i].Name == name)
                 {
-                    treasure = _contents[i];
+                    Treasure treasure = _contents[i];
                     _contents.RemoveAt(i);
+                    return treasure;
                 }
-                    i++;
             }
-            return treasure;
+            return null;
         }
 
     }
