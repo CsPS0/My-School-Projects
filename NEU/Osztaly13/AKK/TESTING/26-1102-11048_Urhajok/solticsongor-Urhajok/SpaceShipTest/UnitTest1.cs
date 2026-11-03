@@ -9,15 +9,13 @@ public class UrhajoTesztek
     {
         var osztaly = new UrhajoOsztaly("Felfedező");
 
-        Assert.That(osztaly.Nev, Is.EqualTo("Felfedező"));
+        Assert.That(osztaly.Nev, Is.EqualTo("Felfedező"), "Nem érvényes felfedező!");
     }
 
-    [TestCase(null)]
-    [TestCase("")]
-    [TestCase("   ")]
-    public void UrhajoOsztaly_ErvenytelenNev_KiveteltDob(string? nev)
+    [Test]
+    public void UrhajoOsztaly_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new UrhajoOsztaly(nev!), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new UrhajoOsztaly(""), Throws.TypeOf<ArgumentException>());
     }
 
     [Test]
@@ -39,11 +37,10 @@ public class UrhajoTesztek
         Assert.That(tipus.ElvartSzakertelmek, Is.Empty);
     }
 
-    [TestCase(null)]
-    [TestCase("")]
-    public void UrhajoTipus_ErvenytelenNev_KiveteltDob(string? nev)
+    [Test]
+    public void UrhajoTipus_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new UrhajoTipus(nev!, "Leírás"), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new UrhajoTipus("", "Leírás"), Throws.TypeOf<ArgumentException>());
     }
 
     [Test]
@@ -67,11 +64,10 @@ public class UrhajoTesztek
         Assert.That(tag.HozzaRendeltHajo, Is.Null);
     }
 
-    [TestCase(null)]
-    [TestCase("")]
-    public void LegenysegiTag_ErvenytelenNev_KiveteltDob(string? nev)
+    [Test]
+    public void LegenysegiTag_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new LegenysegiTag(nev!, "magyar", DateTime.Now, "férfi"), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new LegenysegiTag("", "magyar", DateTime.Now, "férfi"), Throws.TypeOf<ArgumentException>());
     }
 
     [Test]

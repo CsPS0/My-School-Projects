@@ -51,38 +51,16 @@ CREATE TABLE `eloadasok` (
 
 INSERT INTO `csoportok` (`id`, `nev`, `nemzetiseg`, `atlageletkor`, `pontszam`) VALUES
   (1, 'Budapest Salsa Stars', 'magyar', 21.5, 92),
-  (2, 'Vienna Royal Dancers', 'osztrák', 24.0, 88),
-  (3, 'Berlin Beat Breakers', 'német', 19.8, 95),
-  (4, 'Milano Passion Crew', 'olasz', 22.3, 89),
-  (5, 'Sevilla Flamenco Viva', 'spanyol', 26.2, 94);
+  (2, 'Vienna Royal Dancers', 'osztrák', 24.0, 88);
 
 INSERT INTO `tancok` (`id`, `nev`, `mufaj`) VALUES
   (1, 'Tüzes Cha-Cha', 'latin'),
-  (2, 'Bécsi keringő', 'standard'),
-  (3, 'Urban Funk Showcase', 'hip-hop'),
-  (4, 'Kalocsai legényes', 'néptánc'),
-  (5, 'Andalúz Rumba', 'latin');
+  (2, 'Bécsi keringő', 'standard');
 
 INSERT INTO `zenek` (`cim`, `eloado`, `mufaj`) VALUES
   ('Oye Como Va', 'Santana', 'latin'),
-  ('An der schönen blauen Donau', 'Johann Strauss', 'klasszikus'),
-  ('Uptown Funk', 'Mark Ronson ft. Bruno Mars', 'funk'),
-  ('Hej Dunáról fúj a szél', 'Muzsikás', 'népzene'),
-  ('Bamboleo', 'Gipsy Kings', 'latin');
+  ('An der schönen blauen Donau', 'Johann Strauss', 'klasszikus');
 
 INSERT INTO `eloadasok` (`csoport_id`, `tanc_id`, `zene_cim`) VALUES
   (1, 1, 'Oye Como Va'),
-  (1, 5, 'Bamboleo'),
-  (2, 2, 'An der schönen blauen Donau'),
-  (3, 3, 'Uptown Funk'),
-  (4, 1, 'Oye Como Va'),
-  (5, 5, 'Bamboleo');
-
-SELECT cs.`nev` AS `csoport`, cs.`nemzetiseg`, cs.`pontszam`,
-       t.`nev` AS `tanc`, t.`mufaj` AS `tanc_mufaj`,
-       z.`cim` AS `zene_cim`, z.`eloado`
-FROM `eloadasok` e
-JOIN `csoportok` cs ON e.`csoport_id` = cs.`id`
-JOIN `tancok` t ON e.`tanc_id` = t.`id`
-JOIN `zenek` z ON e.`zene_cim` = z.`cim`
-ORDER BY cs.`pontszam` DESC;
+  (2, 2, 'An der schönen blauen Donau');
