@@ -1,0 +1,4 @@
+CREATE OR REPLACE VIEW `gyartok` AS
+SELECT DISTINCT `gyarto`
+FROM `autok`
+ORDER BY `gyarto` DESC;

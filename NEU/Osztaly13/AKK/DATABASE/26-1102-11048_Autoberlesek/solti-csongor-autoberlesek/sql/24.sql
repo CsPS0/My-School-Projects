@@ -1,0 +1,4 @@
+ALTER TABLE `berlesek`
+ADD CONSTRAINT `fk_berlesek_auto`
+FOREIGN KEY (`auto_id`) REFERENCES `autok` (`id`)
+ON DELETE RESTRICT ON UPDATE CASCADE;

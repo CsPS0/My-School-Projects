@@ -1,0 +1,6 @@
+Relációs séma:
+
+csoportok(id [PK], nev, nemzetiseg, atlageletkor, pontszam)
+tancok(id [PK], nev, mufaj)
+zenek(cim [PK], eloado, mufaj)
+eloadasok(id [PK], csoport_id [FK -> csoportok.id], tanc_id [FK -> tancok.id], zene_cim [FK -> zenek.cim])
