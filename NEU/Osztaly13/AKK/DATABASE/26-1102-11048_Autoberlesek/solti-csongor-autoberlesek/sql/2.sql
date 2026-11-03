@@ -1,0 +1,2 @@
+-- docker container elinditva berles neven, felcsatolva az sql mappa:
+-- docker run --name berles -v ${PWD}/sql:/sql -e MYSQL_ROOT_PASSWORD=root -d mysql

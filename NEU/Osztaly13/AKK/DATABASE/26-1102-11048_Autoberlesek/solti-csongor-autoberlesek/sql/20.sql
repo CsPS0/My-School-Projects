@@ -1,1 +1,1 @@
--- Bejelentkezes az admin felhasznaloval
+connect autoberlesek admin admin;

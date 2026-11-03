@@ -2,17 +2,12 @@ namespace ConsoleApp;
 
 public class Urparancsnoksag
 {
-    public List<Urhajo> Hajok { get; } = new();
-    public List<LegenysegiTag> SzabadLegenyseg { get; } = new();
+    public List<Urhajo> Hajok { get; set; } = new List<Urhajo>();
+    public List<LegenysegiTag> SzabadLegenyseg { get; set; } = new List<LegenysegiTag>();
 
     public void HajoRegisztracio(Urhajo hajo)
     {
-        if (hajo == null)
-        {
-            throw new ArgumentNullException(nameof(hajo));
-        }
-
-        if (!Hajok.Contains(hajo))
+        if (hajo != null && !Hajok.Contains(hajo))
         {
             Hajok.Add(hajo);
         }
@@ -20,12 +15,7 @@ public class Urparancsnoksag
 
     public void LegenysegiTagRegisztracio(LegenysegiTag tag)
     {
-        if (tag == null)
-        {
-            throw new ArgumentNullException(nameof(tag));
-        }
-
-        if (!SzabadLegenyseg.Contains(tag) && tag.HozzaRendeltHajo == null)
+        if (tag != null && !SzabadLegenyseg.Contains(tag) && tag.HozzaRendeltHajo == null)
         {
             SzabadLegenyseg.Add(tag);
         }
@@ -33,22 +23,19 @@ public class Urparancsnoksag
 
     public void Hozzarendel(Urhajo hajo, LegenysegiTag tag)
     {
-        if (hajo == null) throw new ArgumentNullException(nameof(hajo));
-        if (tag == null) throw new ArgumentNullException(nameof(tag));
-
         if (!Hajok.Contains(hajo))
         {
-            throw new InvalidOperationException("Az űrhajó nem tartozik a parancsnoksághoz.");
+            throw new InvalidOperationException("A hajó nem található!");
         }
 
         if (!SzabadLegenyseg.Contains(tag))
         {
-            throw new InvalidOperationException("A legénységi tag nem elérhető vagy már hajóhoz van rendelve.");
+            throw new InvalidOperationException("A tag nem elérhető!");
         }
 
         if (hajo.Legenyseg.Count >= hajo.Ferohely)
         {
-            throw new InvalidOperationException("Az űrhajón nincs több szabad férőhely.");
+            throw new InvalidOperationException("Nincs több szabad hely!");
         }
 
         SzabadLegenyseg.Remove(tag);
@@ -58,12 +45,9 @@ public class Urparancsnoksag
 
     public void Visszavon(Urhajo hajo, LegenysegiTag tag)
     {
-        if (hajo == null) throw new ArgumentNullException(nameof(hajo));
-        if (tag == null) throw new ArgumentNullException(nameof(tag));
-
         if (!hajo.Legenyseg.Contains(tag))
         {
-            throw new InvalidOperationException("A megadott tag nem része az űrhajó legénységének.");
+            throw new InvalidOperationException("A tag nincs a hajón!");
         }
 
         hajo.Legenyseg.Remove(tag);

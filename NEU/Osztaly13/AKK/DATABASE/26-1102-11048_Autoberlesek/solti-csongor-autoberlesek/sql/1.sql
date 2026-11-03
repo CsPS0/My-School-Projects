@@ -1,0 +1,1 @@
+-- solti-csongor-autoberlesek mappa es benne az sql mappa letrehozva, forrasfajlok atmasolva

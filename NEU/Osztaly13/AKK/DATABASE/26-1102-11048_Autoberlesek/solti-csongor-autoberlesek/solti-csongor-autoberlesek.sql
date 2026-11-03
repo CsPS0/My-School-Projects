@@ -184,7 +184,7 @@ GRANT SELECT ON `autoberlesek`.`kintlevo` TO `statisztika`;
 GRANT SELECT ON `autoberlesek`.`gyarto_db` TO `statisztika`;
 GRANT SELECT ON `autoberlesek`.`atlagfgoyasztas` TO `statisztika`;
 GRANT `statisztika` TO 'elemzo'@'%';
-SET DEFAULT ROLE `statisztika` FOR 'elemzo'@'%';
+SET DEFAULT ROLE `statisztika` TO 'elemzo'@'%';
 
 CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY 'admin';
 GRANT SELECT, INSERT, UPDATE ON `autoberlesek`.`autok` TO 'admin'@'%';

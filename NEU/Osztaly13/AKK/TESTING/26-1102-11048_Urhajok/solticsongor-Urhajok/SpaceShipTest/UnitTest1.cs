@@ -15,7 +15,7 @@ public class UrhajoTesztek
     [Test]
     public void UrhajoOsztaly_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new UrhajoOsztaly(""), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new UrhajoOsztaly(""), Throws.TypeOf<ArgumentException>(), "Üres névnél nem dobott kivételt!");
     }
 
     [Test]
@@ -24,9 +24,9 @@ public class UrhajoTesztek
         var elvart = new Dictionary<string, int> { { "navigáció", 2 } };
         var tipus = new UrhajoTipus("Felderítő", "Mélyűri felderítő űrhajó", elvart);
 
-        Assert.That(tipus.Nev, Is.EqualTo("Felderítő"));
-        Assert.That(tipus.Leiras, Is.EqualTo("Mélyűri felderítő űrhajó"));
-        Assert.That(tipus.ElvartSzakertelmek["navigáció"], Is.EqualTo(2));
+        Assert.That(tipus.Nev, Is.EqualTo("Felderítő"), "A típus neve nem megfelelő!");
+        Assert.That(tipus.Leiras, Is.EqualTo("Mélyűri felderítő űrhajó"), "A típus leírása nem megfelelő!");
+        Assert.That(tipus.ElvartSzakertelmek["navigáció"], Is.EqualTo(2), "A navigáció elvárt szintje nem megfelelő!");
     }
 
     [Test]
@@ -34,13 +34,13 @@ public class UrhajoTesztek
     {
         var tipus = new UrhajoTipus("Teherszállító", "Nehéz teherszállító");
 
-        Assert.That(tipus.ElvartSzakertelmek, Is.Empty);
+        Assert.That(tipus.ElvartSzakertelmek, Is.Empty, "Nem üres az elvárt szakértelmek listája!");
     }
 
     [Test]
     public void UrhajoTipus_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new UrhajoTipus("", "Leírás"), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new UrhajoTipus("", "Leírás"), Throws.TypeOf<ArgumentException>(), "Üres típusnévnél nem dobott kivételt!");
     }
 
     [Test]
@@ -54,20 +54,20 @@ public class UrhajoTesztek
 
         var tag = new LegenysegiTag("John Smith", "amerikai", new DateTime(2001, 11, 2), "férfi", szakertelmek);
 
-        Assert.That(tag.Nev, Is.EqualTo("John Smith"));
-        Assert.That(tag.Nemzetiseg, Is.EqualTo("amerikai"));
-        Assert.That(tag.SzuletesiDatum, Is.EqualTo(new DateTime(2001, 11, 2)));
-        Assert.That(tag.Nem, Is.EqualTo("férfi"));
-        Assert.That(tag.GetSzakertelemSzint("navigáció"), Is.EqualTo(2));
-        Assert.That(tag.GetSzakertelemSzint("diplomácia"), Is.EqualTo(1));
-        Assert.That(tag.GetSzakertelemSzint("harcászat"), Is.EqualTo(0));
-        Assert.That(tag.HozzaRendeltHajo, Is.Null);
+        Assert.That(tag.Nev, Is.EqualTo("John Smith"), "A tag neve nem megfelelő!");
+        Assert.That(tag.Nemzetiseg, Is.EqualTo("amerikai"), "A nemzetiség nem megfelelő!");
+        Assert.That(tag.SzuletesiDatum, Is.EqualTo(new DateTime(2001, 11, 2)), "A születési dátum nem megfelelő!");
+        Assert.That(tag.Nem, Is.EqualTo("férfi"), "A nem nem megfelelő!");
+        Assert.That(tag.GetSzakertelemSzint("navigáció"), Is.EqualTo(2), "A navigáció szintje nem megfelelő!");
+        Assert.That(tag.GetSzakertelemSzint("diplomácia"), Is.EqualTo(1), "A diplomácia szintje nem megfelelő!");
+        Assert.That(tag.GetSzakertelemSzint("harcászat"), Is.EqualTo(0), "Az ismeretlen szakértelem szintje nem nulla!");
+        Assert.That(tag.HozzaRendeltHajo, Is.Null, "Kezdetben nincs hozzárendelt hajó!");
     }
 
     [Test]
     public void LegenysegiTag_ErvenytelenNev_KiveteltDob()
     {
-        Assert.That(() => new LegenysegiTag("", "magyar", DateTime.Now, "férfi"), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new LegenysegiTag("", "magyar", DateTime.Now, "férfi"), Throws.TypeOf<ArgumentException>(), "Üres tagnévnél nem dobott kivételt!");
     }
 
     [Test]
@@ -76,7 +76,7 @@ public class UrhajoTesztek
         var osztaly = new UrhajoOsztaly("Felfedező");
         var tipus = new UrhajoTipus("Felderítő", "Leírás");
 
-        Assert.That(() => new Urhajo("Kutató 11", tipus, osztaly, 2026, 0), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new Urhajo("Kutató 11", tipus, osztaly, 2026, 0), Throws.TypeOf<ArgumentException>(), "0 férőhelynél nem dobott kivételt!");
     }
 
     [Test]
@@ -86,7 +86,7 @@ public class UrhajoTesztek
         var tipus = new UrhajoTipus("Bárka", "Egyszerű szállító");
         var hajo = new Urhajo("Cargo 1", tipus, osztaly, 2024, 5);
 
-        Assert.That(hajo.Indithato, Is.True);
+        Assert.That(hajo.Indithato, Is.True, "Elvárt szakértelem nélkül a hajónak indíthatónak kell lennie!");
     }
 
     [Test]
@@ -101,7 +101,7 @@ public class UrhajoTesztek
 
         hajo.Legenyseg.Add(tag);
 
-        Assert.That(hajo.Indithato, Is.False);
+        Assert.That(hajo.Indithato, Is.False, "Nem elegendő szakértelemnél a hajó nem indítható!");
     }
 
     [Test]
@@ -119,7 +119,7 @@ public class UrhajoTesztek
         hajo.Legenyseg.Add(tag1);
         hajo.Legenyseg.Add(tag2);
 
-        Assert.That(hajo.Indithato, Is.True);
+        Assert.That(hajo.Indithato, Is.True, "Elegendő szakértelemnél a hajónak indíthatónak kell lennie!");
     }
 
     [Test]
@@ -138,7 +138,7 @@ public class UrhajoTesztek
 
         hajo.Legenyseg.Add(tag);
 
-        Assert.That(hajo.Indithato, Is.False);
+        Assert.That(hajo.Indithato, Is.False, "Hiányzó szakértelemnél a hajó nem indítható!");
     }
 
     [Test]
@@ -153,13 +153,13 @@ public class UrhajoTesztek
         parancsnoksag.HajoRegisztracio(hajo);
         parancsnoksag.LegenysegiTagRegisztracio(tag);
 
-        Assert.That(parancsnoksag.SzabadLegenyseg, Contains.Item(tag));
+        Assert.That(parancsnoksag.SzabadLegenyseg, Contains.Item(tag), "A regisztrált tag nem került a szabadok közé!");
 
         parancsnoksag.Hozzarendel(hajo, tag);
 
-        Assert.That(hajo.Legenyseg, Contains.Item(tag));
-        Assert.That(parancsnoksag.SzabadLegenyseg, Does.Not.Contain(tag));
-        Assert.That(tag.HozzaRendeltHajo, Is.EqualTo(hajo));
+        Assert.That(hajo.Legenyseg, Contains.Item(tag), "A tag nem került a hajó legénységébe!");
+        Assert.That(parancsnoksag.SzabadLegenyseg, Does.Not.Contain(tag), "A tag nem került ki a szabadok közül!");
+        Assert.That(tag.HozzaRendeltHajo, Is.EqualTo(hajo), "A hozzárendelt hajó értéke nem egyezik!");
     }
 
     [Test]
@@ -179,7 +179,7 @@ public class UrhajoTesztek
 
         parancsnoksag.Hozzarendel(hajo, tag1);
 
-        Assert.That(() => parancsnoksag.Hozzarendel(hajo, tag2), Throws.TypeOf<InvalidOperationException>());
+        Assert.That(() => parancsnoksag.Hozzarendel(hajo, tag2), Throws.TypeOf<InvalidOperationException>(), "Megtelt hajónál nem dobott kivételt!");
     }
 
     [Test]
@@ -198,7 +198,7 @@ public class UrhajoTesztek
 
         parancsnoksag.Hozzarendel(hajo1, tag);
 
-        Assert.That(() => parancsnoksag.Hozzarendel(hajo2, tag), Throws.TypeOf<InvalidOperationException>());
+        Assert.That(() => parancsnoksag.Hozzarendel(hajo2, tag), Throws.TypeOf<InvalidOperationException>(), "Már hozzárendelt tagnál nem dobott kivételt!");
     }
 
     [Test]
@@ -216,9 +216,9 @@ public class UrhajoTesztek
 
         parancsnoksag.Visszavon(hajo, tag);
 
-        Assert.That(hajo.Legenyseg, Does.Not.Contain(tag));
-        Assert.That(parancsnoksag.SzabadLegenyseg, Contains.Item(tag));
-        Assert.That(tag.HozzaRendeltHajo, Is.Null);
+        Assert.That(hajo.Legenyseg, Does.Not.Contain(tag), "A tag nem került ki a hajó legénységéből!");
+        Assert.That(parancsnoksag.SzabadLegenyseg, Contains.Item(tag), "A tag nem került vissza a szabadok közé!");
+        Assert.That(tag.HozzaRendeltHajo, Is.Null, "A hozzárendelt hajó értéke nem null!");
     }
 
     [Test]
@@ -238,8 +238,8 @@ public class UrhajoTesztek
         parancsnoksag.Hozzarendel(hajo1, tag);
         parancsnoksag.Athelyez(hajo1, hajo2, tag);
 
-        Assert.That(hajo1.Legenyseg, Does.Not.Contain(tag));
-        Assert.That(hajo2.Legenyseg, Contains.Item(tag));
-        Assert.That(tag.HozzaRendeltHajo, Is.EqualTo(hajo2));
+        Assert.That(hajo1.Legenyseg, Does.Not.Contain(tag), "A tag nem került le az első hajóról!");
+        Assert.That(hajo2.Legenyseg, Contains.Item(tag), "A tag nem került át a második hajóra!");
+        Assert.That(tag.HozzaRendeltHajo, Is.EqualTo(hajo2), "A hozzárendelt hajó nem a második hajó!");
     }
 }
