@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="45cm" height="35cm" viewBox="18 -1515 883 692" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #1e90ff" x="228" y="-1364" width="74.2" height="36.002"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #000000" x="228" y="-1364" width="74.2" height="36.002"/>
+    <text font-size="12.8016" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="265.1" y="-1342.8">Ugyfel</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="81.35" cy="-1331" rx="62.35" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="81.35" cy="-1331" rx="62.35" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="81.35" y="-1327.8">telefonszam</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="205.2" cy="-1206.7" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="205.2" cy="-1206.7" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="205.2" y="-1203.5">ugyfel_nev</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="122.45" cy="-1271.4" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="122.45" cy="-1271.4" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="122.45" y="-1268.2">szuletesi_ido</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="337.6" cy="-1240.1" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="337.6" cy="-1240.1" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="337.6" y="-1236.9">anyja_neve</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="109.45" cy="-1137.8" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="109.45" cy="-1137.8" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="109.45" y="-1134.6">email_cim</text>
+  </g>
+  <g>
+    <rect style="fill: #1e90ff" x="678" y="-1335" width="105" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="678" y="-1335" width="105" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="730.5" y="-1313.8">Biztositas</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="263.7,-1206.7 412.85,-1206.7 412.85,-1328 265.1,-1328 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="192.5,-1271.4 265.1,-1271.4 265.1,-1328 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="337.6,-1259.11 337.6,-1293.55 265.1,-1293.55 265.1,-1328 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="109.45,-1156.81 109.45,-1242.4 265.1,-1242.4 265.1,-1328 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="81.35,-1349 81.35,-1370 173.225,-1370 173.225,-1307 265.1,-1307 265.1,-1328 "/>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="600.35" cy="-1229.7" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="600.35" cy="-1229.7" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="600.35" y="-1226.5">azonosito</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="565.7" y1="-1221.7" x2="635" y2="-1221.7"/>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="701.05" cy="-1184" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="701.05" cy="-1184" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="701.05" y="-1180.8">kezdeti_datum</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="845.35" cy="-1212.7" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="845.35" cy="-1212.7" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="845.35" y="-1209.5">veg_datum</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.35,-1247.7 600.35,-1273.35 730.5,-1273.35 730.5,-1299 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="701.05,-1202 701.05,-1250.5 730.5,-1250.5 730.5,-1299 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="845.35,-1230.7 845.35,-1264.85 730.5,-1264.85 730.5,-1299 "/>
+  <g>
+    <rect style="fill: #1e90ff" x="233" y="-1103" width="143.5" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="233" y="-1103" width="143.5" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="304.75" y="-1081.8">Lakasbiztositas</text>
+  </g>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="181.9" cy="-975" rx="73.9" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="181.9" cy="-975" rx="73.9" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="181.9" y="-971.8">helyrajzi_szam</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="128" y1="-967" x2="235.8" y2="-967"/>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="414.5" cy="-939.699" rx="127.8" ry="18.001"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="414.5" cy="-939.699" rx="127.8" ry="18.001"/>
+    <text font-size="12.8016" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="414.5" y="-936.499">ingosagok_biztositasi_erteke</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="270.3" cy="-876.4" rx="73.9" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="270.3" cy="-876.4" rx="73.9" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="270.3" y="-873.2">ingatlan_meret</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="181.9,-993 181.9,-1030 304.75,-1030 304.75,-1067 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="270.3,-894.4 270.3,-980.7 304.75,-980.7 304.75,-1067 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="304.75,-1067 304.75,-1012.35 414.5,-1012.35 414.5,-957.7 "/>
+  <g>
+    <rect style="fill: #1e90ff" x="672" y="-1070" width="166.6" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="672" y="-1070" width="166.6" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="755.3" y="-1048.8">Gepjarmubiztositas</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="833.4" cy="-979" rx="35.4" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="833.4" cy="-979" rx="35.4" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="833.4" y="-975.8">szin</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="798.9" cy="-842.7" rx="66.2" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="798.9" cy="-842.7" rx="66.2" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="798.9" y="-839.5">teljesitmeny</text>
+  </g>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="635.2" cy="-955.7" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="635.2" cy="-955.7" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="635.2" y="-952.5">alvaz_szam</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="596.7" y1="-947.7" x2="673.7" y2="-947.7"/>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="700.2" cy="-890.4" rx="50.8" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="700.2" cy="-890.4" rx="50.8" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="700.2" y="-887.2">rendszam</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="635.2,-973.7 635.2,-1003.85 755.3,-1003.85 755.3,-1034 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="833.4,-997 833.4,-1015.5 755.3,-1015.5 755.3,-1034 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="700.2,-908.4 700.2,-971.2 755.3,-971.2 755.3,-1034 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="798.9,-860.7 798.9,-947.35 755.3,-947.35 755.3,-1034 "/>
+  <g>
+    <g>
+      <polygon style="fill: #ffff00" points="482,-1259.75 526,-1183.75 438,-1183.75 "/>
+      <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482,-1259.75 526,-1183.75 438,-1183.75 "/>
+    </g>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="472" y="-1208.75">
+      <tspan x="472" y="-1208.75">ISA</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #00ff00" points="453,-1480.96 507.65,-1513.75 562.3,-1480.96 507.65,-1448.17 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="453,-1480.96 507.65,-1513.75 562.3,-1480.96 507.65,-1448.17 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="447" y="-1486.96"></text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="568.3" y="-1486.96"></text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="507.65" y="-1477.76">Szerzodes</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="265.1,-1364 265.1,-1406.09 507.65,-1406.09 507.65,-1448.17 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="730.5,-1335 730.5,-1391.59 507.65,-1391.59 507.65,-1448.17 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="730.5,-1335 730.5,-1362.75 482,-1362.75 482,-1259.75 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482,-1183.75 482,-1169.75 304.75,-1169.75 304.75,-1103 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482,-1183.75 482,-1126.87 755.3,-1126.87 755.3,-1070 "/>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="188.65" cy="-1420.75" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="188.65" cy="-1420.75" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="188.65" y="-1417.55">azonosito</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="154" y1="-1412.75" x2="223.3" y2="-1412.75"/>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="188.65,-1402.75 188.65,-1307 265.1,-1307 265.1,-1328 "/>
+</svg>
