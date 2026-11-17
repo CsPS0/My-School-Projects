@@ -12,6 +12,8 @@ vendor/
 *.swp
 *~
 *.dia~
+.~lock.*#
+~$*
 generate_file_list.py
 generate_robocopy_commands.py
 get_file_dates.py
