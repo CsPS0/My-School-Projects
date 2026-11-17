@@ -12,6 +12,7 @@ const SVG_ICONS = {
   folder: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
   folder_open: `<svg class="w-4 h-4 text-amber-500 fill-amber-500/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></svg>`,
   
+  subject_fullstack: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>`,
   subject_desktop: `<svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>`,
   subject_database: `<svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>`,
   subject_backend: `<svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
@@ -74,6 +75,7 @@ function getFileSvg(ext) {
 
 function getSubjectSvg(subject) {
   const s = (subject || '').toUpperCase();
+  if (s === 'FULLSTACK') return SVG_ICONS.subject_fullstack;
   if (s === 'DESKTOP') return SVG_ICONS.subject_desktop;
   if (s === 'DATABASE') return SVG_ICONS.subject_database;
   if (s === 'BACKEND') return SVG_ICONS.subject_backend;
@@ -96,7 +98,19 @@ let currentProject = null;
 let currentFilePath = null;
 let currentCodeText = '';
 const fileCache = new Map();
-const collapsedFolders = new Set();
+const expandedFolders = new Set();
+
+function expandAncestors(filePath, rootPath) {
+  if (!filePath || !rootPath || !filePath.startsWith(rootPath)) return;
+  const pfxLen = rootPath.endsWith('/') ? rootPath.length : rootPath.length + 1;
+  const rel = filePath.substring(pfxLen);
+  const segments = rel.split('/');
+  let curr = rootPath.replace(/\/+$/, '');
+  for (let i = 0; i < segments.length - 1; i++) {
+    curr += '/' + segments[i];
+    expandedFolders.add(curr);
+  }
+}
 
 try { favs = new Set(JSON.parse(localStorage.favs || '[]')); } catch {}
 
@@ -159,7 +173,7 @@ function parseItem(item) {
       grade = '13. osztály';
       if (parts[2] === 'AKK') {
         const sub = parts[3] || 'OTHER';
-        subject = sub === 'BACKEND&FRONTEND' ? 'BACKEND' : sub.toUpperCase();
+        subject = (sub === 'BACKEND&FRONTEND' || sub === 'FULLSTACK') ? 'FULLSTACK' : sub.toUpperCase();
         if (isDir && parts.length === 5) isProject = true;
       } else {
         const sub = parts[2] || 'OTHER';
@@ -619,14 +633,15 @@ function renderTreeHtml(node, depth = 0) {
     const child = node.children[key];
 
     if (child.isDir) {
-      const isCollapsed = collapsedFolders.has(child.fullPath);
-      const folderIcon = isCollapsed ? SVG_ICONS.folder : SVG_ICONS.folder_open;
+      const isExpanded = expandedFolders.has(child.fullPath);
+      const isCollapsed = !isExpanded;
+      const folderIcon = isExpanded ? SVG_ICONS.folder_open : SVG_ICONS.folder;
 
       return `
         <div class="tree-folder ${isCollapsed ? 'collapsed' : ''}" data-folder-path="${esc(child.fullPath)}">
           <div class="tree-row tree-folder-row hover:text-zinc-900 dark:hover:text-zinc-100" data-toggle-folder="${esc(child.fullPath)}">
             <span class="tree-chevron">${SVG_ICONS.chevron_down}</span>
-            <span class="shrink-0 flex items-center">${folderIcon}</span>
+            <span class="folder-icon shrink-0 flex items-center">${folderIcon}</span>
             <span class="font-medium truncate font-mono text-[12px]">${esc(child.name)}</span>
           </div>
           <div class="tree-folder-children">
@@ -658,13 +673,19 @@ function renderSidebarTree(files, rootPath) {
     return;
   }
 
+  if (filterVal) {
+    for (const f of filtered) {
+      expandAncestors(f.path, rootPath);
+    }
+  }
+
   const hierarchy = buildHierarchy(filtered, rootPath);
   $('sidebar-tree').innerHTML = renderTreeHtml(hierarchy);
 }
 
 function openProject(projectPath, targetFilePath = null) {
   currentProject = projectPath;
-  collapsedFolders.clear();
+  expandedFolders.clear();
   const dialog = $('code-dialog');
   if (!dialog) return;
 
@@ -676,15 +697,22 @@ function openProject(projectPath, targetFilePath = null) {
   $('sidebar-count').textContent = projectFiles.length;
   $('sidebar-filter').value = '';
 
+  let fileToView = targetFilePath;
+  if (!fileToView && projectFiles.length > 0) {
+    const priority = pickInitialFile(projectFiles);
+    if (priority) fileToView = priority.path;
+  }
+
+  if (targetFilePath) {
+    expandAncestors(targetFilePath, projectPath);
+  }
+
   renderSidebarTree(projectFiles, projectPath);
 
   dialog.showModal();
 
-  if (targetFilePath) {
-    viewFile(targetFilePath);
-  } else if (projectFiles.length > 0) {
-    const priority = pickInitialFile(projectFiles);
-    if (priority) viewFile(priority.path);
+  if (fileToView) {
+    viewFile(fileToView);
   } else {
     $('active-filename').textContent = 'Empty Project';
     $('code-status').classList.remove('hidden');
@@ -696,14 +724,19 @@ $('sidebar-tree').addEventListener('click', e => {
   const folderRow = e.target.closest('[data-toggle-folder]');
   if (folderRow) {
     const folderPath = folderRow.dataset.toggleFolder;
-    if (collapsedFolders.has(folderPath)) {
-      collapsedFolders.delete(folderPath);
+    const isNowExpanded = !expandedFolders.has(folderPath);
+    if (isNowExpanded) {
+      expandedFolders.add(folderPath);
     } else {
-      collapsedFolders.add(folderPath);
+      expandedFolders.delete(folderPath);
     }
     const folderEl = folderRow.closest('.tree-folder');
     if (folderEl) {
-      folderEl.classList.toggle('collapsed', collapsedFolders.has(folderPath));
+      folderEl.classList.toggle('collapsed', !isNowExpanded);
+      const iconSpan = folderRow.querySelector('.folder-icon');
+      if (iconSpan) {
+        iconSpan.innerHTML = isNowExpanded ? SVG_ICONS.folder_open : SVG_ICONS.folder;
+      }
     }
     return;
   }
@@ -936,9 +969,15 @@ loadTree().then(tree => {
     $('grade').add(new Option(g, g));
   }
   
-  const distinctSubjects = ['DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'CISCO', 'PYTHON', 'OFFICE', 'DK', 'IKT', 'OTHER'];
+  const distinctSubjects = ['FULLSTACK', 'DESKTOP', 'DATABASE', 'BACKEND', 'TESTING', 'WEB', 'DOCKER', 'CISCO', 'PYTHON', 'OFFICE', 'DK', 'IKT', 'OTHER'];
+  const presentSubjects = new Set(allItems.map(i => i.subject).filter(Boolean));
   $('subject').innerHTML = '<option value="">All subjects</option>';
   for (const s of distinctSubjects) {
+    if (presentSubjects.has(s)) {
+      $('subject').add(new Option(s, s));
+    }
+  }
+  for (const s of [...presentSubjects].filter(s => !distinctSubjects.includes(s)).sort()) {
     $('subject').add(new Option(s, s));
   }
 

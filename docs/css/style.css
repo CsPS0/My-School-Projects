@@ -90,6 +90,8 @@ input[type=search].ctl, input[type=text].ctl {
   background: #27272a;
   color: #d4d4d8;
 }
+.tag-fullstack { background: #d1fae5; color: #065f46; }
+.dark .tag-fullstack { background: #064e3b; color: #6ee7b7; }
 .tag-desktop { background: #dbeafe; color: #1e40af; }
 .dark .tag-desktop { background: #1e293b; color: #93c5fd; }
 .tag-database { background: #fef3c7; color: #92400e; }
@@ -150,6 +152,10 @@ mark {
 }
 .star.on .ic {
   fill: currentColor;
+}
+
+dialog:not([open]) {
+  display: none !important;
 }
 
 dialog:modal {
