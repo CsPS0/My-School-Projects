@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My School Projects | CsPS0</title>
 <meta name="description" content="Searchable index and fast in-page code browser for CsPS0's school projects and assignments.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -21,7 +23,7 @@
 <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
-<script src="js/tree-data.js?v=20261117_1211"></script>
+<script src="js/tree-data.js?v=20261117_1214"></script>
 <link rel="stylesheet" href="css/style.css?v=20261101_4">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
@@ -36,16 +38,19 @@
 <div class="max-w-6xl mx-auto px-4 pt-6 pb-20">
   
   <header class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
-    <div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">My School Projects</h1>
-      <p class="text-zinc-500 dark:text-zinc-400 mt-1 text-sm">
-        Search and browse code in
-        <a class="text-blue-600 dark:text-blue-400 hover:underline font-medium inline-flex items-center gap-1" href="https://github.com/CsPS0/My-School-Projects" target="_blank" rel="noopener">
-          CsPS0/My-School-Projects
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-        </a>
-        · Press <kbd class="px-1.5 py-0.5 text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded shadow-sm">Ctrl + K</kbd> to search
-      </p>
+    <div class="flex items-start sm:items-center gap-3.5">
+      <img src="logo.svg" alt="My School Projects Logo" class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-xl shadow-sm" />
+      <div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">My School Projects</h1>
+        <p class="text-zinc-500 dark:text-zinc-400 mt-0.5 text-sm">
+          Search and browse code in
+          <a class="text-blue-600 dark:text-blue-400 hover:underline font-medium inline-flex items-center gap-1" href="https://github.com/CsPS0/My-School-Projects" target="_blank" rel="noopener">
+            CsPS0/My-School-Projects
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+          · Press <kbd class="px-1.5 py-0.5 text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded shadow-sm">Ctrl + K</kbd> to search
+        </p>
+      </div>
     </div>
     <div class="flex items-center gap-2 shrink-0">
       <button id="random" class="ctl flex items-center gap-1.5 text-sm" title="Open a random project">
