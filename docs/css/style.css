@@ -275,3 +275,46 @@ pre code.hljs {
 .dark #md-preview th, .dark #md-preview td { border-color: #27272a; }
 #md-preview th { background: rgba(0,0,0,0.04); }
 .dark #md-preview th { background: rgba(255,255,255,0.04); }
+
+/* Document, Spreadsheet & Presentation Viewers */
+.docx-wrapper {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.docx-render {
+  background: #ffffff !important;
+  color: #18181b !important;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1) !important;
+  border-radius: 0.5rem !important;
+  margin: 1.5rem auto !important;
+}
+.spreadsheet-table {
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  width: 100%;
+}
+.spreadsheet-table th, .spreadsheet-table td {
+  border: 1px solid #e4e4e7;
+  padding: 0.4rem 0.65rem;
+  white-space: nowrap;
+}
+.dark .spreadsheet-table th, .dark .spreadsheet-table td {
+  border-color: #27272a;
+}
+.spreadsheet-table th {
+  background: #f4f4f5;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.dark .spreadsheet-table th {
+  background: #18181b;
+  color: #f4f4f5;
+}
+.spreadsheet-table tr:nth-child(even) {
+  background: #fafafa;
+}
+.dark .spreadsheet-table tr:nth-child(even) {
+  background: #141416;
+}

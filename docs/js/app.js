@@ -105,6 +105,7 @@ let favs = new Set();
 let currentProject = null;
 let currentFilePath = null;
 let currentCodeText = '';
+let currentBlobUrl = null;
 const fileCache = new Map();
 const expandedFolders = new Set();
 
@@ -488,6 +489,11 @@ async function viewFile(filePath) {
   $('code-media').innerHTML = '';
   currentCodeText = '';
 
+  if (currentBlobUrl) {
+    URL.revokeObjectURL(currentBlobUrl);
+    currentBlobUrl = null;
+  }
+
   if (IMAGE_EXTS.has(ext)) {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
@@ -513,30 +519,429 @@ async function viewFile(filePath) {
     return;
   }
 
-  if (OFFICE_DOC_EXTS.has(ext) || OFFICE_SHEET_EXTS.has(ext) || OFFICE_SLIDE_EXTS.has(ext)) {
-    $('code-status').classList.add('hidden');
-    $('code-media').classList.remove('hidden');
-    const docType = OFFICE_DOC_EXTS.has(ext) ? 'Word Document' : (OFFICE_SHEET_EXTS.has(ext) ? 'Excel Spreadsheet' : 'PowerPoint Presentation');
-    const icon = OFFICE_DOC_EXTS.has(ext) ? SVG_ICONS.docx : (OFFICE_SHEET_EXTS.has(ext) ? SVG_ICONS.xlsx : SVG_ICONS.pptx);
-    $('code-media').innerHTML = `
-      <div class="text-center p-8 space-y-4 max-w-md mx-auto">
-        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
-          ${icon}
+  if (ext === 'pdf') {
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      if (currentBlobUrl) {
+        URL.revokeObjectURL(currentBlobUrl);
+        currentBlobUrl = null;
+      }
+      const blob = new Blob([buf], { type: 'application/pdf' });
+      currentBlobUrl = URL.createObjectURL(blob);
+
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-hidden flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
+      $('code-media').innerHTML = `
+        <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
+          <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+            <svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="truncate">${esc(item.name)}</span>
+            <span class="text-zinc-400 font-normal">(${formatBytes(item.size)})</span>
+          </span>
+          <div class="flex items-center gap-2">
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${currentBlobUrl}" target="_blank" rel="noopener">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              Open in new tab
+            </a>
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${currentBlobUrl}" download="${esc(item.name)}">
+              ${SVG_ICONS.download} Download PDF
+            </a>
+          </div>
         </div>
-        <div>
-          <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
-          <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · ${docType}</p>
+        <object data="${currentBlobUrl}#view=FitH" type="application/pdf" class="w-full flex-1 h-full min-h-[70vh] border-0">
+          <iframe src="${currentBlobUrl}#view=FitH" class="w-full flex-1 h-full min-h-[70vh] border-0" title="${esc(item.name)}">
+            <p class="p-6 text-sm text-center">Your browser does not support inline PDF viewing. <a class="text-blue-500 underline" href="${currentBlobUrl}" target="_blank">Open PDF in new tab</a>.</p>
+          </iframe>
+        </object>`;
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to load PDF</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download PDF</a>`;
+    }
+    return;
+  }
+
+  if (['docx', 'doc'].includes(ext)) {
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading document ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-auto flex flex-col w-full h-full bg-zinc-200 dark:bg-zinc-950';
+
+      $('code-media').innerHTML = `
+        <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0 sticky top-0 z-10">
+          <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+            ${SVG_ICONS.docx}
+            <span class="truncate">${esc(item.name)}</span>
+            <span class="text-zinc-400 font-normal">(${formatBytes(item.size)})</span>
+          </span>
+          <div class="flex items-center gap-2">
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+              ${SVG_ICONS.download} Download DOCX
+            </a>
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+              ${SVG_ICONS.github} GitHub
+            </a>
+          </div>
         </div>
-        <p class="text-sm text-zinc-500">Office documents cannot be previewed directly as plain text. Download or open to inspect.</p>
-        <div class="flex items-center justify-center gap-3 pt-2">
-          <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
-            ${SVG_ICONS.download} Download ${ext.toUpperCase()}
-          </a>
-          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
-            ${SVG_ICONS.github} View on GitHub
-          </a>
+        <div id="docx-container" class="p-4 sm:p-6 max-w-4xl mx-auto w-full"></div>
+      `;
+
+      const docxContainer = $('docx-container');
+      if (window.docx && ext === 'docx') {
+        await docx.renderAsync(buf, docxContainer, null, {
+          className: 'docx-render',
+          inWrapper: true,
+          ignoreWidth: false,
+          ignoreHeight: false
+        });
+      } else {
+        docxContainer.innerHTML = `
+          <div class="text-center p-8 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 max-w-md mx-auto my-8">
+            <div class="w-12 h-12 mx-auto flex items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 mb-3">
+              ${SVG_ICONS.docx}
+            </div>
+            <h4 class="font-bold text-sm mb-1">Legacy .doc Document</h4>
+            <p class="text-xs text-zinc-500 mb-4">Binary .doc files cannot be parsed directly in-browser. Please download to view.</p>
+            <a class="ctl text-xs py-1.5 px-3 bg-blue-600 text-white border-blue-600 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+              ${SVG_ICONS.download} Download .doc
+            </a>
+          </div>
+        `;
+      }
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to render document</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download file</a>`;
+    }
+    return;
+  }
+
+  if (['xlsx', 'xls', 'ods', 'csv'].includes(ext)) {
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading spreadsheet ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-auto flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
+
+      if (window.XLSX) {
+        const wb = XLSX.read(buf, { type: 'array' });
+        const sheetNames = wb.SheetNames;
+        let activeSheet = sheetNames[0];
+
+        function renderSheetHtml(name) {
+          const ws = wb.Sheets[name];
+          if (!ws) return '<p class="p-4 text-xs text-zinc-400">Empty sheet</p>';
+          const rawTableHtml = XLSX.utils.sheet_to_html(ws, { editable: false });
+          return rawTableHtml.replace('<table', '<table class="spreadsheet-table"');
+        }
+
+        const tabsHtml = sheetNames.length > 1 ? `
+          <div class="flex items-center gap-1 px-4 py-1.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-200/50 dark:bg-zinc-900/40 text-xs overflow-x-auto shrink-0">
+            ${sheetNames.map((s) => `
+              <button class="sheet-tab-btn px-3 py-1 rounded text-xs font-medium transition ${s === activeSheet ? 'bg-white dark:bg-zinc-800 text-blue-600 dark:text-blue-400 shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:bg-white/50'}" data-sheet="${esc(s)}">
+                ${esc(s)}
+              </button>
+            `).join('')}
+          </div>
+        ` : '';
+
+        $('code-media').innerHTML = `
+          <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
+            <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+              ${SVG_ICONS.xlsx}
+              <span class="truncate">${esc(item.name)}</span>
+              <span class="text-zinc-400 font-normal">(${formatBytes(item.size)})</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+                ${SVG_ICONS.download} Download ${ext.toUpperCase()}
+              </a>
+              <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+                ${SVG_ICONS.github} GitHub
+              </a>
+            </div>
+          </div>
+          ${tabsHtml}
+          <div id="sheet-table-scroll" class="flex-1 overflow-auto p-4">
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-auto shadow-sm">
+              <div id="sheet-table-target">${renderSheetHtml(activeSheet)}</div>
+            </div>
+          </div>
+        `;
+
+        document.querySelectorAll('.sheet-tab-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const sheet = btn.dataset.sheet;
+            document.querySelectorAll('.sheet-tab-btn').forEach(b => {
+              b.className = b.dataset.sheet === sheet
+                ? 'sheet-tab-btn px-3 py-1 rounded text-xs font-medium bg-white dark:bg-zinc-800 text-blue-600 dark:text-blue-400 shadow-sm'
+                : 'sheet-tab-btn px-3 py-1 rounded text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:bg-white/50';
+            });
+            const target = $('sheet-table-target');
+            if (target) target.innerHTML = renderSheetHtml(sheet);
+          });
+        });
+      }
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to render spreadsheet</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download file</a>`;
+    }
+    return;
+  }
+
+  if (['pptx', 'ppt', 'odp'].includes(ext)) {
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading presentation ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-auto flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
+
+      const slides = [];
+      let thumbUrl = null;
+
+      if (window.JSZip && ext === 'pptx') {
+        const zip = await JSZip.loadAsync(buf);
+        const thumbFile = zip.file('docProps/thumbnail.jpeg');
+        if (thumbFile) {
+          const thumbBlob = await thumbFile.async('blob');
+          thumbUrl = URL.createObjectURL(thumbBlob);
+        }
+
+        const slideFiles = Object.keys(zip.files)
+          .filter(name => /^ppt\/slides\/slide\d+\.xml$/.test(name))
+          .sort((a, b) => {
+            const na = parseInt(a.match(/slide(\d+)\.xml/)[1], 10);
+            const nb = parseInt(b.match(/slide(\d+)\.xml/)[1], 10);
+            return na - nb;
+          });
+
+        const parser = new DOMParser();
+        for (let i = 0; i < slideFiles.length; i++) {
+          const xml = await zip.file(slideFiles[i]).async('text');
+          const doc = parser.parseFromString(xml, 'text/xml');
+          const paras = [...doc.querySelectorAll('p\\:sp, sp')].map(shape => {
+            const lines = [...shape.querySelectorAll('a\\:t, t')].map(t => t.textContent.trim()).filter(Boolean);
+            return lines.join(' ');
+          }).filter(Boolean);
+
+          const title = paras.length ? paras[0] : `Slide ${i + 1}`;
+          const body = paras.slice(1);
+          slides.push({ num: i + 1, title, body });
+        }
+      }
+
+      if (slides.length > 0) {
+        let currentSlideIdx = 0;
+
+        function renderSlideView(idx) {
+          const slide = slides[idx];
+          return `
+            <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-8 shadow-md max-w-3xl mx-auto w-full min-h-[320px] flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3 mb-4">
+                  <span class="text-xs font-mono font-semibold text-rose-500">SLIDE ${slide.num} / ${slides.length}</span>
+                  <span class="text-xs text-zinc-400 font-mono">${esc(item.name)}</span>
+                </div>
+                <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">${esc(slide.title)}</h3>
+                <div class="space-y-2.5">
+                  ${slide.body.length ? slide.body.map(line => `
+                    <div class="flex items-start gap-2 text-sm text-zinc-700 dark:text-zinc-300">
+                      <span class="text-rose-500 font-bold mt-0.5">•</span>
+                      <span>${esc(line)}</span>
+                    </div>
+                  `).join('') : '<p class="text-xs text-zinc-400 italic">No text content on this slide.</p>'}
+                </div>
+              </div>
+              <div class="flex items-center justify-between pt-6 border-t border-zinc-100 dark:border-zinc-800 text-xs">
+                <button id="ppt-prev-btn" class="ctl py-1 px-3 flex items-center gap-1.5" ${idx === 0 ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>
+                  ← Previous
+                </button>
+                <span class="font-mono text-zinc-400">${idx + 1} of ${slides.length}</span>
+                <button id="ppt-next-btn" class="ctl py-1 px-3 flex items-center gap-1.5" ${idx === slides.length - 1 ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>
+                  Next →
+                </button>
+              </div>
+            </div>
+          `;
+        }
+
+        $('code-media').innerHTML = `
+          <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
+            <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+              ${SVG_ICONS.pptx}
+              <span class="truncate">${esc(item.name)}</span>
+              <span class="text-zinc-400 font-normal">(${slides.length} slides · ${formatBytes(item.size)})</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+                ${SVG_ICONS.download} Download PPTX
+              </a>
+              <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+                ${SVG_ICONS.github} GitHub
+              </a>
+            </div>
+          </div>
+          <div class="flex-1 overflow-auto p-4 sm:p-6 flex flex-col items-center justify-center">
+            ${thumbUrl ? `
+              <div class="mb-4 max-w-sm rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm">
+                <img src="${thumbUrl}" alt="Presentation Thumbnail" class="w-full h-auto object-cover" />
+              </div>
+            ` : ''}
+            <div id="ppt-slide-target" class="w-full">${renderSlideView(currentSlideIdx)}</div>
+          </div>
+        `;
+
+        const bindSlideEvents = () => {
+          $('ppt-prev-btn')?.addEventListener('click', () => {
+            if (currentSlideIdx > 0) {
+              currentSlideIdx--;
+              $('ppt-slide-target').innerHTML = renderSlideView(currentSlideIdx);
+              bindSlideEvents();
+            }
+          });
+          $('ppt-next-btn')?.addEventListener('click', () => {
+            if (currentSlideIdx < slides.length - 1) {
+              currentSlideIdx++;
+              $('ppt-slide-target').innerHTML = renderSlideView(currentSlideIdx);
+              bindSlideEvents();
+            }
+          });
+        };
+        bindSlideEvents();
+
+      } else {
+        $('code-media').innerHTML = `
+          <div class="text-center p-8 space-y-4 max-w-md mx-auto my-auto">
+            <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800">
+              ${SVG_ICONS.pptx}
+            </div>
+            <div>
+              <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+              <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · PowerPoint Presentation</p>
+            </div>
+            <p class="text-sm text-zinc-500">Presentation preview is available via direct download or local office suite.</p>
+            <div class="flex items-center justify-center gap-3 pt-2">
+              <a class="ctl inline-flex items-center gap-2 text-sm bg-rose-600 text-white border-rose-600 hover:bg-rose-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+                ${SVG_ICONS.download} Download ${ext.toUpperCase()}
+              </a>
+              <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+                ${SVG_ICONS.github} View on GitHub
+              </a>
+            </div>
+          </div>`;
+      }
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to render presentation</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download file</a>`;
+    }
+    return;
+  }
+
+  if (ext === 'odt') {
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading document ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-auto flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
+
+      let thumbUrl = null;
+      let textContent = '';
+
+      if (window.JSZip) {
+        const zip = await JSZip.loadAsync(buf);
+        const thumbFile = zip.file('Thumbnails/thumbnail.png');
+        if (thumbFile) {
+          const thumbBlob = await thumbFile.async('blob');
+          thumbUrl = URL.createObjectURL(thumbBlob);
+        }
+        const xmlFile = zip.file('content.xml');
+        if (xmlFile) {
+          const xmlStr = await xmlFile.async('text');
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(xmlStr, 'text/xml');
+          const paras = doc.querySelectorAll('p, h');
+          textContent = Array.from(paras).map(p => {
+            const isH = p.tagName.toLowerCase().endsWith('h');
+            const txt = esc(p.textContent.trim());
+            if (!txt) return '';
+            return isH ? `<h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mt-4 mb-2">${txt}</h3>` : `<p class="text-sm text-zinc-800 dark:text-zinc-200 leading-relaxed mb-3">${txt}</p>`;
+          }).filter(Boolean).join('');
+        }
+      }
+
+      $('code-media').innerHTML = `
+        <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
+          <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+            ${SVG_ICONS.docx}
+            <span class="truncate">${esc(item.name)}</span>
+            <span class="text-zinc-400 font-normal">(${formatBytes(item.size)})</span>
+          </span>
+          <div class="flex items-center gap-2">
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+              ${SVG_ICONS.download} Download ODT
+            </a>
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+              ${SVG_ICONS.github} GitHub
+            </a>
+          </div>
         </div>
-      </div>`;
+        <div class="p-4 sm:p-6 max-w-3xl mx-auto w-full space-y-4">
+          ${thumbUrl ? `
+            <div class="text-center bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+              <img src="${thumbUrl}" class="max-h-[50vh] mx-auto rounded shadow-sm" alt="Document Preview" />
+            </div>
+          ` : ''}
+          ${textContent ? `
+            <div class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-2">
+              ${textContent}
+            </div>
+          ` : '<p class="text-center text-xs text-zinc-400 p-8">No text extracted from document.</p>'}
+        </div>
+      `;
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to load ODT</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download file</a>`;
+    }
     return;
   }
 
@@ -612,33 +1017,6 @@ async function viewFile(filePath) {
           </a>
         </div>
       </div>`;
-    return;
-  }
-
-  if (ext === 'pdf') {
-    $('code-status').classList.add('hidden');
-    $('code-media').classList.remove('hidden');
-    $('code-media').className = 'flex-1 overflow-hidden flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
-    const pdfUrl = rawUrlOf(filePath);
-    $('code-media').innerHTML = `
-      <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
-        <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
-          <svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-          <span class="truncate">${esc(item.name)}</span>
-        </span>
-        <div class="flex items-center gap-2">
-          <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${pdfUrl}" target="_blank" rel="noopener">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            Open in new tab
-          </a>
-          <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${pdfUrl}" download="${esc(item.name)}">
-            ${SVG_ICONS.download} Download PDF
-          </a>
-        </div>
-      </div>
-      <iframe src="${pdfUrl}#view=FitH" class="w-full flex-1 border-0" title="${esc(item.name)}">
-        <p class="p-4 text-sm text-center">Your browser does not support embedded PDFs. <a class="text-blue-500 underline" href="${pdfUrl}" target="_blank">Download or open in new tab</a>.</p>
-      </iframe>`;
     return;
   }
 
@@ -1070,7 +1448,19 @@ $('code-download-btn').onclick = () => {
   document.body.removeChild(a);
 };
 
-$('code-close-btn').onclick = () => $('code-dialog').close();
+$('code-close-btn').onclick = () => {
+  if (currentBlobUrl) {
+    URL.revokeObjectURL(currentBlobUrl);
+    currentBlobUrl = null;
+  }
+  $('code-dialog').close();
+};
+$('code-dialog')?.addEventListener('close', () => {
+  if (currentBlobUrl) {
+    URL.revokeObjectURL(currentBlobUrl);
+    currentBlobUrl = null;
+  }
+});
 
 $('results').addEventListener('click', e => {
   const favBtn = e.target.closest('button[data-fav]');
