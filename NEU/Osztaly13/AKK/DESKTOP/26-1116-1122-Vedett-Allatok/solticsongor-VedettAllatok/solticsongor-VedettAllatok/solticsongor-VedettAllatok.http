@@ -1,0 +1,6 @@
+@solticsongor_VedettAllatok_HostAddress = http://localhost:5052
+
+GET {{solticsongor_VedettAllatok_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
