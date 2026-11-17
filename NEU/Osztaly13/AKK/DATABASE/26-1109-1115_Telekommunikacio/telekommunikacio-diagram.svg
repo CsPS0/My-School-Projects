@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="45cm" height="51cm" viewBox="-165 -821 896 1011" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #1e90ff" x="13.6265" y="-669.104" width="74.2" height="36.002"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="13.6265" y="-669.104" width="74.2" height="36.002"/>
+    <text font-size="12.8016" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="50.7265" y="-647.102">Ugyfel</text>
+  </g>
+  <g>
+    <rect style="fill: #1e90ff" x="488.266" y="-671.26" width="97.3" height="36.002"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="488.266" y="-671.26" width="97.3" height="36.002"/>
+    <text font-size="12.8016" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="536.916" y="-649.258">Szerzodes</text>
+  </g>
+  <g>
+    <rect style="fill: #1e90ff" x="-63.0578" y="-24.6864" width="120.4" height="36.002"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-63.0578" y="-24.6864" width="120.4" height="36.002"/>
+    <text font-size="12.8016" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-2.8578" y="-2.6849">Mobiltelefon</text>
+  </g>
+  <g>
+    <rect style="fill: #1e90ff" x="169.169" y="152.035" width="97.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="169.169" y="152.035" width="97.3" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="217.819" y="174.035">Kabelteve</text>
+  </g>
+  <g>
+    <rect style="fill: #1e90ff" x="438.996" y="-12.0593" width="89.6" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="438.996" y="-12.0593" width="89.6" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="483.796" y="9.94072">Internet</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="-30.9232" cy="-526.994" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="-30.9232" cy="-526.994" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-30.9232" y="-522.994">ugyfel_nev</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="137.75" cy="-520.062" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="137.75" cy="-520.062" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="137.75" y="-516.062">szuletesi_ido</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="46.1757" cy="-471.842" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="46.1757" cy="-471.842" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="46.1757" y="-467.842">anyja_neve</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="214.626" cy="-564.536" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="214.626" cy="-564.536" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="214.626" y="-560.536">email_cim</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="265.946" cy="-631.056" rx="62.35" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="265.946" cy="-631.056" rx="62.35" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="265.946" y="-627.056">telefonszam</text>
+  </g>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="-109.255" cy="-579.804" rx="54.65" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="-109.255" cy="-579.804" rx="54.65" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-109.255" y="-575.804">azonosito</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-143.905" y1="-571.804" x2="-74.6048" y2="-571.804"/>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-109.255,-597.804 -109.255,-615.453 50.7265,-615.453 50.7265,-633.102 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-30.9232,-544.994 -30.9232,-589.048 50.7265,-589.048 50.7265,-633.102 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="46.1757,-489.842 46.1757,-561.472 50.7265,-561.472 50.7265,-633.102 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="137.75,-538.062 137.75,-585.582 50.7265,-585.582 50.7265,-633.102 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="214.626,-582.536 214.626,-601.312 50.7264,-601.312 50.7264,-633.102 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="265.946,-649.056 265.946,-670.056 158.336,-670.056 158.336,-612.102 50.7265,-612.102 50.7265,-633.102 "/>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="426.222" cy="-582.22" rx="73.9" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="426.222" cy="-582.22" rx="73.9" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="426.222" y="-578.22">szerzodes_szam</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="372.322" y1="-574.22" x2="480.122" y2="-574.22"/>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="510.286" cy="-527.458" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="510.286" cy="-527.458" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="510.286" y="-523.458">kezdesi_datum</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="648.334" cy="-559.084" rx="81.6" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="648.334" cy="-559.084" rx="81.6" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="648.334" y="-555.084">fizetendo_osszeg</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="426.222,-600.22 426.222,-617.739 536.916,-617.739 536.916,-635.258 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="510.286,-545.458 510.286,-590.358 536.916,-590.358 536.916,-635.258 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="648.334,-577.084 648.334,-606.171 536.916,-606.171 536.916,-635.258 "/>
+  <g>
+    <ellipse style="fill: #bfbfbf" cx="-92.7402" cy="-81.678" rx="62.35" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="-92.7402" cy="-81.678" rx="62.35" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-92.7402" y="-77.678">telefonszam</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-135.09" y1="-73.678" x2="-50.3902" y2="-73.678"/>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="-12.242" cy="-135.113" rx="39.25" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="-12.242" cy="-135.113" rx="39.25" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="-12.242" y="-131.113">tipus</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="124.337" cy="-102.398" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="124.337" cy="-102.398" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="124.337" y="-98.3978">huseg_lejarat</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-92.7402,-63.678 -92.7402,-44.1822 -2.8578,-44.1822 -2.8578,-24.6864 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-12.242,-117.113 -12.242,-70.8997 -2.8578,-70.8997 -2.8578,-24.6864 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="124.337,-84.3978 124.337,-54.5421 -2.8578,-54.5421 -2.8578,-24.6864 "/>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="121.511" cy="81.898" rx="58.5" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="121.511" cy="81.898" rx="58.5" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="121.511" y="85.898">csomag_nev</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="244.966" cy="6.88964" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="244.966" cy="6.88964" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="244.966" y="10.8896">extra_koltseg</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="121.511,99.898 121.511,125.967 217.819,125.967 217.819,152.035 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="244.966,24.8896 244.966,88.4625 217.819,88.4625 217.819,152.035 "/>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="430.2" cy="102" rx="66.2" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="430.2" cy="102" rx="66.2" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="430.2" y="106">max_letoltes</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="484.05" cy="168" rx="70.05" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="484.05" cy="168" rx="70.05" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="484.05" y="172">max_feltoltes</text>
+  </g>
+  <g>
+    <ellipse style="fill: #e6e6fa" cx="617.75" cy="102" rx="77.75" ry="18"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="617.75" cy="102" rx="77.75" ry="18"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="617.75" y="106">router_tulajdon</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="430.2,84 430.2,53.9704 483.796,53.9704 483.796,23.9407 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="484.05,150 484.05,86.9704 483.796,86.9704 483.796,23.9407 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="617.75,84 617.75,53.9704 483.796,53.9704 483.796,23.9407 "/>
+  <g>
+    <polygon style="fill: #00ff00" points="240,-801.07 271.55,-820 303.1,-801.07 271.55,-782.14 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="240,-801.07 271.55,-820 303.1,-801.07 271.55,-782.14 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="234" y="-807.07"></text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="309.1" y="-807.07"></text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="271.55" y="-797.07">Kot</text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="50.7265,-669.104 50.7265,-725.622 271.55,-725.622 271.55,-782.14 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="536.916,-671.26 536.916,-726.7 271.55,-726.7 271.55,-782.14 "/>
+  <g>
+    <polygon style="fill: #ffff00" points="264,-380 308,-304 220,-304 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="264,-380 308,-304 220,-304 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="254" y="-329">
+    <tspan x="254" y="-329">ISA</tspan>
+  </text>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="536.916,-671.26 536.916,-694 340,-694 340,-471 264,-471 264,-380 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="264,-304 264,-230 206,-230 206,-44 -2.8577,-44 -2.8577,-24.6864 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="264,-304 264,-230 330,-230 330,128 217.82,128 217.82,152.035 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="264,-304 264,-230 483.8,-230 483.8,-12.0593 "/>
+</svg>

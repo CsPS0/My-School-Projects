@@ -1,0 +1,7 @@
+.DS_Store
+# https://dart.dev/tools/private-files
+# Created by `dart pub`
+.dart_tool/
+
+# Override global gitignore which excludes **/bin
+!bin/

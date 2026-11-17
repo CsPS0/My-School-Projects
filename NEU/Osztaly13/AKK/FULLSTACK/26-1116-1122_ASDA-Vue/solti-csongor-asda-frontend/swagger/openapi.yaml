@@ -1,0 +1,319 @@
+openapi: 3.0.3
+info:
+  title: ASDA - Query Builder
+  description: |
+    ASDA item catalog query API for the backend project.
+
+    Author: Rostagni Csaba
+    Version: 1.0.0
+servers:
+  - url: http://backend.vm1.test/api
+    description: Backend API server
+paths:
+  /items:
+    get:
+      operationId: items.index
+      summary: List all items
+      description: Returns all items from the catalog.
+      tags:
+        - Items Controller
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Item"
+              example:
+                data:
+                  - id: 1
+                    event: Tickled Pink
+                    name: Diet Coke Cola 30 x 330ml Cans
+                    qty: 330
+                    unit: ml
+                    price: "14.24"
+                    discount_price: "10.00"
+                    image: 5000112572933_T1.webp
+                  - id: 2
+                    event: Tickled Pink
+                    name: Nescafe Nescafe Original Instant Coffee 300g
+                    qty: 300
+                    unit: g
+                    price: "7.25"
+                    discount_price: "6.00"
+                    image: 5011546415499_T1.webp
+                  - id: 6
+                    event: Halloween
+                    name: Halloween Family Pumpkin Carving Kit
+                    qty: 9
+                    unit: pcs
+                    price: "3.00"
+                    discount_price: null
+                    image: T_5063717307522_T1.webp
+                  - id: 9
+                    event: Christmas
+                    name: Exceptional by ASDA 4 Toffee Apple Spiced Crumble Tarts
+                    qty: 4
+                    unit: pk
+                    price: "2.95"
+                    discount_price: null
+                    image: 5063089609859_T1.webp
+
+  /items/{id}:
+    get:
+      operationId: items.show
+      summary: Get item by ID
+      description: Returns a single item by its ID. The id parameter accepts only digits.
+      tags:
+        - Items Controller
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            pattern: "^[0-9]+$"
+            example: 1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Item"
+              example:
+                data:
+                  id: 1
+                  event: Tickled Pink
+                  name: Diet Coke Cola 30 x 330ml Cans
+                  qty: 330
+                  unit: ml
+                  price: "14.24"
+                  discount_price: "10.00"
+                  image: 5000112572933_T1.webp
+
+  /items/expensive:
+    get:
+      operationId: items.expensive
+      summary: Get the most expensive item
+      description: Returns the single most expensive item in the catalog.
+      tags:
+        - Items Controller
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Item"
+              example:
+                data:
+                  id: 1
+                  event: Tickled Pink
+                  name: Diet Coke Cola 30 x 330ml Cans
+                  qty: 330
+                  unit: ml
+                  price: "14.24"
+                  discount_price: "10.00"
+                  image: 5000112572933_T1.webp
+
+  /items/sum:
+    get:
+      operationId: items.sum
+      summary: Get total price of all items
+      description: Returns the sum of all item prices.
+      tags:
+        - Items Controller
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: string
+              example:
+                data: "77.46"
+
+  /items/recommended:
+    get:
+      operationId: items.recommended
+      summary: Get recommended (discounted) items
+      description: Returns items that are on discount with an original price greater than 6. Returns an associative array mapping item ID to item name.
+      tags:
+        - Items Controller
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    additionalProperties:
+                      type: string
+              example:
+                data:
+                  "1": Diet Coke Cola 30 x 330ml Cans
+                  "2": Nescafe Nescafe Original Instant Coffee 300g
+                  "3": Taylors of Harrogate 160 Tea Bags 500g
+
+  /items/event/{event}:
+    get:
+      operationId: items.event
+      summary: Get items by event
+      description: |
+        Returns items belonging to the specified event (category).
+        If `discounted=yes` query parameter is provided, only discounted items are returned.
+      tags:
+        - Items Controller
+      parameters:
+        - name: event
+          in: path
+          required: true
+          schema:
+            type: string
+            example: Halloween
+        - name: discounted
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - "yes"
+            example: "yes"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Item"
+              examples:
+                all_items:
+                  summary: All items in the Halloween category (no discounted parameter)
+                  value:
+                    data:
+                      - id: 6
+                        event: Halloween
+                        name: Halloween Family Pumpkin Carving Kit
+                        qty: 9
+                        unit: pcs
+                        price: "3.00"
+                        discount_price: null
+                        image: T_5063717307522_T1.webp
+                      - id: 7
+                        event: Halloween
+                        name: Halloween Blood Spray
+                        qty: 56
+                        unit: ml
+                        price: "2.00"
+                        discount_price: null
+                        image: T_5063717289606_T1.webp
+                      - id: 8
+                        event: Halloween
+                        name: Pacific Wax Co Pumpkin Picking Candle
+                        qty: 510
+                        unit: g
+                        price: "3.50"
+                        discount_price: null
+                        image: T_8904338641060_T1.webp
+                      - id: 16
+                        event: Halloween
+                        name: ASDA Horror Emporium Scarily Spicy Devil Horns 150g
+                        qty: 150
+                        unit: g
+                        price: "1.00"
+                        discount_price: "0.90"
+                        image: 5063717271038_T1.webp
+                      - id: 19
+                        event: Halloween
+                        name: Haribo Starmix Minis Fruit & Cola Flavour Jelly & Foam Sweets 22 x 16g Fun Size Bags Multipack 352g
+                        qty: 352
+                        unit: g
+                        price: "2.98"
+                        discount_price: "2.00"
+                        image: 5012035951214_T1.webp
+                discounted_only:
+                  summary: Only discounted items in the Halloween category (discounted=yes)
+                  value:
+                    data:
+                      - id: 16
+                        event: Halloween
+                        name: ASDA Horror Emporium Scarily Spicy Devil Horns 150g
+                        qty: 150
+                        unit: g
+                        price: "1.00"
+                        discount_price: "0.90"
+                        image: 5063717271038_T1.webp
+                      - id: 19
+                        event: Halloween
+                        name: Haribo Starmix Minis Fruit & Cola Flavour Jelly & Foam Sweets 22 x 16g Fun Size Bags Multipack 352g
+                        qty: 352
+                        unit: g
+                        price: "2.98"
+                        discount_price: "2.00"
+                        image: 5012035951214_T1.webp
+
+components:
+  schemas:
+    Item:
+      type: object
+      description: An ASDA catalog item.
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Primary key identifier
+          example: 1
+        event:
+          type: string
+          description: Category/event of the item
+          example: Tickled Pink
+        name:
+          type: string
+          description: Name of the item
+          example: Diet Coke Cola 30 x 330ml Cans
+        qty:
+          type: integer
+          format: int64
+          description: Packaging unit quantity (default 1)
+          example: 330
+        unit:
+          type: string
+          description: Unit of measurement
+          example: ml
+        price:
+          type: string
+          description: Full price of the item
+          example: "14.24"
+        discount_price:
+          type: string
+          nullable: true
+          description: Discounted price, null if no discount
+          example: "10.00"
+        image:
+          type: string
+          description: Image filename of the item
+          example: 5000112572933_T1.webp
