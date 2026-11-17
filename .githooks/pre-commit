@@ -1,0 +1,3 @@
+#!/bin/sh
+node docs/generate_tree.js
+git add docs/tree.json docs/js/tree-data.js docs/index.html

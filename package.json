@@ -1,0 +1,17 @@
+{
+  "name": "my-school-projects",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Comprehensive collection of school projects and searchable web index",
+  "scripts": {
+    "tree": "node docs/generate_tree.js",
+    "update-tree": "node docs/generate_tree.js",
+    "sync-tree": "node docs/generate_tree.js --sync",
+    "setup-hook": "node docs/generate_tree.js --install-hook",
+    "watch": "node docs/generate_tree.js --watch",
+    "dev": "npx serve docs"
+  },
+  "keywords": [],
+  "author": "Solti Csongor Péter",
+  "license": "MIT"
+}

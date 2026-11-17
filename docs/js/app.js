@@ -110,6 +110,14 @@ function updateHljsTheme(isDark) {
 }
 
 async function loadTree() {
+  const isLocalDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (isLocalDev) {
+    try {
+      const res = await fetch('tree.json?t=' + Date.now());
+      if (res.ok) return await res.json();
+    } catch {}
+  }
+
   if (window.REPO_TREE && Array.isArray(window.REPO_TREE)) {
     return window.REPO_TREE;
   }
@@ -133,7 +141,12 @@ async function loadTree() {
   return tree;
 }
 
-function parseItem([path, isDir, size]) {
+function parseItem(item) {
+  const isArr = Array.isArray(item);
+  const path = isArr ? item[0] : (item && item.path ? item.path : '');
+  const isDir = isArr ? Boolean(item[1]) : Boolean(item && item.isDir);
+  const size = isArr ? (item[2] || 0) : (item && item.size ? item.size : 0);
+
   const parts = path.split('/');
   const name = parts[parts.length - 1];
 
@@ -906,7 +919,10 @@ for (const id of ['q', 'grade', 'files', 'fav-only', 'sort']) {
 
 loadTree().then(tree => {
   rawTree = tree;
-  allItems = tree.filter(([p]) => /^(NEU|Verebay)\//.test(p)).map(parseItem);
+  allItems = tree.filter(item => {
+    const p = Array.isArray(item) ? item[0] : (item && item.path);
+    return typeof p === 'string' && /^(NEU|Verebay)\//.test(p);
+  }).map(parseItem);
 
   const gradeOrder = ['13. osztály', '12. osztály', '11. osztály', '10. osztály', '9. osztály'];
   const availableGrades = new Set(allItems.map(i => i.grade).filter(Boolean));

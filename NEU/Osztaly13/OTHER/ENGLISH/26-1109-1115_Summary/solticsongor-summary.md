@@ -1,4 +1,4 @@
-# Professional summary: Csongor Péter Solti
+# Summary: Csongor Péter Solti
 
 - **Location**: Budapest, Hungary
 - **GitHub**: [github.com/CsPS0](https://github.com/CsPS0)
