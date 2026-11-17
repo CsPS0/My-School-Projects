@@ -4,7 +4,15 @@ const fold = s => s ? s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLower
 const esc = s => s ? String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) : '';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const BINARY_EXTS = new Set(['zip', '7z', 'rar', 'tar', 'gz', 'bz2', 'iso', 'exe', 'dll', 'bin', 'pdb', 'obj']);
+const BINARY_ARCHIVE_EXTS = new Set(['zip', '7z', 'rar', 'tar', 'gz', 'bz2', 'iso', 'exe', 'dll', 'bin', 'pdb', 'obj', 'nupkg', 'woff', 'woff2', 'ttf', 'eot', 'otf', 'pyc', 'p7s', 'trx']);
+const OFFICE_DOC_EXTS = new Set(['docx', 'doc', 'odt']);
+const OFFICE_SHEET_EXTS = new Set(['xlsx', 'xls']);
+const OFFICE_SLIDE_EXTS = new Set(['pptx', 'ppt', 'odp']);
+const CISCO_EXTS = new Set(['pkt', 'pka']);
+const DB_EXTS = new Set(['accdb', 'mdb']);
+const VIDEO_EXTS = new Set(['mp4', 'webm', 'ogg', 'mov']);
+const IMAGE_EXTS = new Set(['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico', 'avif']);
+const isNonTextExt = ext => BINARY_ARCHIVE_EXTS.has(ext) || OFFICE_DOC_EXTS.has(ext) || OFFICE_SHEET_EXTS.has(ext) || OFFICE_SLIDE_EXTS.has(ext) || CISCO_EXTS.has(ext) || DB_EXTS.has(ext) || VIDEO_EXTS.has(ext);
 
 const SVG_ICONS = {
   chevron_down: `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
@@ -440,7 +448,7 @@ function pickInitialFile(files) {
 
   const nonBinary = files.find(f => {
     const ext = f.name.split('.').pop().toLowerCase();
-    return !BINARY_EXTS.has(ext);
+    return !isNonTextExt(ext) && ext !== 'pdf' && ext !== 'dia';
   });
   if (nonBinary) return nonBinary;
 
@@ -480,7 +488,109 @@ async function viewFile(filePath) {
   $('code-media').innerHTML = '';
   currentCodeText = '';
 
-  if (BINARY_EXTS.has(ext)) {
+  if (IMAGE_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `
+      <div class="max-w-full max-h-full flex flex-col items-center justify-center p-4">
+        <img src="${rawUrlOf(filePath)}" alt="${esc(item.name)}" class="max-h-[60vh] max-w-full rounded-lg shadow-md border border-zinc-200 dark:border-zinc-800 object-contain bg-white dark:bg-zinc-950">
+        <p class="text-xs text-zinc-400 mt-3 font-mono">${esc(item.name)} (${formatBytes(item.size)})</p>
+      </div>`;
+    return;
+  }
+
+  if (VIDEO_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `
+      <div class="max-w-full max-h-full flex flex-col items-center justify-center p-4">
+        <video controls class="max-h-[60vh] max-w-full rounded-lg shadow-md border border-zinc-200 dark:border-zinc-800 bg-black">
+          <source src="${rawUrlOf(filePath)}">
+          Your browser does not support the video tag.
+        </video>
+        <p class="text-xs text-zinc-400 mt-3 font-mono">${esc(item.name)} (${formatBytes(item.size)})</p>
+      </div>`;
+    return;
+  }
+
+  if (OFFICE_DOC_EXTS.has(ext) || OFFICE_SHEET_EXTS.has(ext) || OFFICE_SLIDE_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    const docType = OFFICE_DOC_EXTS.has(ext) ? 'Word Document' : (OFFICE_SHEET_EXTS.has(ext) ? 'Excel Spreadsheet' : 'PowerPoint Presentation');
+    const icon = OFFICE_DOC_EXTS.has(ext) ? SVG_ICONS.docx : (OFFICE_SHEET_EXTS.has(ext) ? SVG_ICONS.xlsx : SVG_ICONS.pptx);
+    $('code-media').innerHTML = `
+      <div class="text-center p-8 space-y-4 max-w-md mx-auto">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800">
+          ${icon}
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+          <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · ${docType}</p>
+        </div>
+        <p class="text-sm text-zinc-500">Office documents cannot be previewed directly as plain text. Download or open to inspect.</p>
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+            ${SVG_ICONS.download} Download ${ext.toUpperCase()}
+          </a>
+          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+            ${SVG_ICONS.github} View on GitHub
+          </a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  if (CISCO_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `
+      <div class="text-center p-8 space-y-4 max-w-md mx-auto">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800">
+          ${SVG_ICONS.pkt}
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+          <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · Cisco Packet Tracer Lab</p>
+        </div>
+        <p class="text-sm text-zinc-500">Open with Cisco Packet Tracer to simulate network topology and configuration.</p>
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <a class="ctl inline-flex items-center gap-2 text-sm bg-teal-600 text-white border-teal-600 hover:bg-teal-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+            ${SVG_ICONS.download} Download Lab (${ext.toUpperCase()})
+          </a>
+          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+            ${SVG_ICONS.github} View on GitHub
+          </a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  if (DB_EXTS.has(ext)) {
+    $('code-status').classList.add('hidden');
+    $('code-media').classList.remove('hidden');
+    $('code-media').innerHTML = `
+      <div class="text-center p-8 space-y-4 max-w-md mx-auto">
+        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800">
+          ${SVG_ICONS.sql}
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+          <p class="text-xs text-zinc-400 font-mono mt-1">${formatBytes(item.size)} · Microsoft Access Database</p>
+        </div>
+        <p class="text-sm text-zinc-500">Access database files can be opened with Microsoft Access or imported into SQL tools.</p>
+        <div class="flex items-center justify-center gap-3 pt-2">
+          <a class="ctl inline-flex items-center gap-2 text-sm bg-red-600 text-white border-red-600 hover:bg-red-700 shadow-sm" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+            ${SVG_ICONS.download} Download ${ext.toUpperCase()}
+          </a>
+          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
+            ${SVG_ICONS.github} View on GitHub
+          </a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  if (BINARY_ARCHIVE_EXTS.has(ext)) {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
     $('code-media').innerHTML = `
@@ -501,17 +611,6 @@ async function viewFile(filePath) {
             ${SVG_ICONS.github} View on GitHub
           </a>
         </div>
-      </div>`;
-    return;
-  }
-
-  if (['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico'].includes(ext)) {
-    $('code-status').classList.add('hidden');
-    $('code-media').classList.remove('hidden');
-    $('code-media').innerHTML = `
-      <div class="max-w-full max-h-full flex flex-col items-center justify-center p-4">
-        <img src="${rawUrlOf(filePath)}" alt="${esc(item.name)}" class="max-h-[60vh] max-w-full rounded-lg shadow-md border border-zinc-200 dark:border-zinc-800 object-contain bg-white dark:bg-zinc-950">
-        <p class="text-xs text-zinc-400 mt-3 font-mono">${esc(item.name)} (${formatBytes(item.size)})</p>
       </div>`;
     return;
   }
@@ -682,20 +781,24 @@ async function viewFile(filePath) {
 
 const EXT_TO_LANG = {
   // C# & .NET
-  cs: 'csharp', csproj: 'xml', slnx: 'xml', xaml: 'xml', axaml: 'xml', sln: 'ini',
+  cs: 'csharp', csproj: 'xml', slnx: 'xml', xaml: 'xml', axaml: 'xml', props: 'xml', targets: 'xml', manifest: 'xml', sln: 'ini', user: 'xml',
   // PHP
   php: 'php',
-  // SQL
-  sql: 'sql',
+  // SQL & Databases
+  sql: 'sql', prisma: 'graphql',
   // JavaScript & TypeScript
-  js: 'javascript', mjs: 'javascript', ts: 'typescript', tsx: 'typescript',
-  // Web & Data
-  html: 'xml', vue: 'xml', xml: 'xml', svg: 'xml',
-  css: 'css', json: 'json', yaml: 'yaml', yml: 'yaml',
-  // Python & Flutter/Dart
-  py: 'python', dart: 'dart',
-  // Scripts & Config
-  sh: 'bash', bash: 'bash', dockerfile: 'dockerfile'
+  js: 'javascript', mjs: 'javascript', cjs: 'javascript', ts: 'typescript', tsx: 'typescript', jsx: 'javascript',
+  // Web & UI
+  html: 'xml', htm: 'xml', vue: 'xml', xml: 'xml', svg: 'xml', css: 'css',
+  // Data & Configuration
+  json: 'json', yaml: 'yaml', yml: 'yaml', conf: 'ini', ini: 'ini', config: 'xml',
+  editorconfig: 'ini', gitattributes: 'ini', gitignore: 'ini', gitkeep: 'ini', npmrc: 'ini', htaccess: 'ini', lock: 'json',
+  // Environment & Scripts
+  env: 'bash', example: 'bash', sh: 'bash', bash: 'bash',
+  // Python, Mobile & Others
+  py: 'python', dart: 'dart', r: 'r',
+  // Protocols & Containers
+  http: 'http', dockerfile: 'dockerfile'
 };
 
 async function loadCodeText(filePath, ext) {
@@ -720,10 +823,18 @@ async function loadCodeText(filePath, ext) {
     const fileName = filePath.split('/').pop().toLowerCase();
     const lang = EXT_TO_LANG[ext] || EXT_TO_LANG[fileName] || (fileName === 'dockerfile' ? 'dockerfile' : null);
 
+    delete codeEl.dataset.highlighted;
+
     if (lang && window.hljs && hljs.getLanguage(lang)) {
-      codeEl.className = `hljs language-${lang} block`;
-      codeEl.textContent = text;
-      hljs.highlightElement(codeEl);
+      try {
+        const res = hljs.highlight(text, { language: lang, ignoreIllegals: true });
+        codeEl.className = `hljs language-${lang} block`;
+        codeEl.innerHTML = res.value;
+      } catch (e) {
+        codeEl.className = `hljs language-${lang} block`;
+        codeEl.textContent = text;
+        hljs.highlightElement(codeEl);
+      }
     } else {
       codeEl.className = 'hljs block';
       codeEl.textContent = text;
