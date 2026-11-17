@@ -372,6 +372,54 @@ async function fetchFileContent(filePath) {
   return text;
 }
 
+async function fetchFileBuffer(filePath) {
+  try {
+    const localRes = await fetch('../' + filePath);
+    if (localRes.ok) return await localRes.arrayBuffer();
+  } catch {}
+
+  const rawUrl = rawUrlOf(filePath);
+  const ghRes = await fetch(rawUrl);
+  if (!ghRes.ok) throw new Error(`HTTP ${ghRes.status} (${ghRes.statusText})`);
+  return await ghRes.arrayBuffer();
+}
+
+function parseDiaXml(xml) {
+  const entityMap = new Map();
+  const attrMap = new Map();
+  const objRegex = /<dia:object\s+type="([^"]+)"[^>]*id="([^"]+)">([\s\S]*?)<\/dia:object>/g;
+  let m;
+  const conns = [];
+  while ((m = objRegex.exec(xml)) !== null) {
+    const type = m[1], id = m[2], body = m[3];
+    const nameM = body.match(/<dia:attribute\s+name="name">\s*<dia:string>#(.*?)#<\/dia:string>/);
+    const name = nameM ? nameM[1] : '';
+    const isKey = /<dia:attribute\s+name="key">\s*<dia:boolean\s+val="true"\/>/.test(body);
+    if (type.includes('Entity')) entityMap.set(id, { name: name || id, attrs: [] });
+    else if (type.includes('Attribute')) attrMap.set(id, { name: name || id, isKey });
+    else if (type.includes('Participation') || type.includes('Line')) {
+      const targets = [...body.matchAll(/<dia:connection\s+handle="[^"]+"\s+to="([^"]+)"/g)].map(x => x[1]);
+      if (targets.length === 2) conns.push(targets);
+    }
+  }
+  for (const [t1, t2] of conns) {
+    if (entityMap.has(t1) && attrMap.has(t2)) entityMap.get(t1).attrs.push(attrMap.get(t2));
+    else if (entityMap.has(t2) && attrMap.has(t1)) entityMap.get(t2).attrs.push(attrMap.get(t1));
+  }
+  return [...entityMap.values()].map(e => {
+    const seen = new Set();
+    const uniqueAttrs = [];
+    for (const a of e.attrs) {
+      if (!seen.has(a.name)) {
+        seen.add(a.name);
+        uniqueAttrs.push(a);
+      }
+    }
+    uniqueAttrs.sort((a, b) => (b.isKey ? 1 : 0) - (a.isKey ? 1 : 0));
+    return { name: e.name, attrs: uniqueAttrs };
+  });
+}
+
 function pickInitialFile(files) {
   if (!files || !files.length) return null;
 
@@ -471,50 +519,181 @@ async function viewFile(filePath) {
   if (ext === 'pdf') {
     $('code-status').classList.add('hidden');
     $('code-media').classList.remove('hidden');
+    $('code-media').className = 'flex-1 overflow-hidden flex flex-col w-full h-full bg-zinc-100 dark:bg-zinc-950';
+    const pdfUrl = rawUrlOf(filePath);
     $('code-media').innerHTML = `
-      <div class="text-center p-8 space-y-4">
-        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <h3 class="font-bold text-lg">${esc(item.name)}</h3>
-        <p class="text-sm text-zinc-500 max-w-md mx-auto">PDF document preview available via direct link or download.</p>
-        <div class="flex items-center justify-center gap-3">
-          <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700" href="${rawUrlOf(filePath)}" target="_blank" rel="noopener">
-            Open PDF in new tab
+      <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-stone-100/70 dark:bg-zinc-900/60 text-xs shrink-0">
+        <span class="text-zinc-600 dark:text-zinc-300 font-medium flex items-center gap-2">
+          <svg class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span class="truncate">${esc(item.name)}</span>
+        </span>
+        <div class="flex items-center gap-2">
+          <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${pdfUrl}" target="_blank" rel="noopener">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Open in new tab
           </a>
-          <a class="ctl inline-flex items-center gap-2 text-sm" href="${urlOf(filePath)}" target="_blank" rel="noopener">
-            ${SVG_ICONS.github} View on GitHub
+          <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${pdfUrl}" download="${esc(item.name)}">
+            ${SVG_ICONS.download} Download PDF
           </a>
         </div>
-      </div>`;
+      </div>
+      <iframe src="${pdfUrl}#view=FitH" class="w-full flex-1 border-0" title="${esc(item.name)}">
+        <p class="p-4 text-sm text-center">Your browser does not support embedded PDFs. <a class="text-blue-500 underline" href="${pdfUrl}" target="_blank">Download or open in new tab</a>.</p>
+      </iframe>`;
     return;
   }
 
   if (ext === 'dia') {
-    $('code-status').classList.add('hidden');
-    $('code-media').classList.remove('hidden');
-    $('code-media').innerHTML = `
-      <div class="text-center p-8 space-y-4">
-        <div class="w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg>
+    $('code-status').classList.remove('hidden');
+    $('code-status-text').textContent = `Loading diagram ${item.name}…`;
+    $('code-wrapper').classList.add('hidden');
+    $('md-preview').classList.add('hidden');
+    $('code-media').classList.add('hidden');
+
+    try {
+      const buf = await fetchFileBuffer(filePath);
+      let xml = '';
+      try {
+        const ds = new DecompressionStream('gzip');
+        const writer = ds.writable.getWriter();
+        writer.write(buf);
+        writer.close();
+        xml = await new Response(ds.readable).text();
+      } catch (e) {
+        xml = new TextDecoder().decode(buf);
+      }
+
+      currentCodeText = xml;
+      const entities = parseDiaXml(xml);
+
+      const parentDir = filePath.substring(0, filePath.lastIndexOf('/'));
+      const companionImg = allItems.find(i => 
+        !i.isDir && 
+        i.path.startsWith(parentDir + '/') && 
+        /\.(svg|png|jpg|jpeg)$/i.test(i.name) && 
+        (i.name.toLowerCase().includes('diagram') || i.name.toLowerCase().includes(item.name.replace('.dia', '').toLowerCase()))
+      );
+
+      $('code-status').classList.add('hidden');
+      $('code-media').classList.remove('hidden');
+      $('code-media').className = 'flex-1 overflow-auto p-4 sm:p-6 flex flex-col items-center bg-stone-50/50 dark:bg-zinc-950/40';
+
+      let companionHtml = '';
+      if (companionImg) {
+        companionHtml = `
+          <div class="w-full max-w-4xl mb-6 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
+            <div class="flex items-center justify-between mb-3 pb-2 border-b border-zinc-100 dark:border-zinc-800 text-xs">
+              <span class="font-semibold text-zinc-500 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                Exported Diagram Preview (${esc(companionImg.name)})
+              </span>
+              <a class="ctl text-xs py-1 px-2 text-blue-600 dark:text-blue-400" href="${rawUrlOf(companionImg.path)}" target="_blank" rel="noopener">Open Full Image</a>
+            </div>
+            <img src="${rawUrlOf(companionImg.path)}" alt="${esc(companionImg.name)}" class="max-h-[50vh] mx-auto rounded object-contain bg-white dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800" />
+          </div>`;
+      }
+
+      let schemaHtml = '';
+      if (entities.length > 0) {
+        schemaHtml = `
+          <div class="w-full max-w-4xl">
+            <div class="flex items-center justify-between mb-3 text-xs">
+              <span class="font-bold uppercase tracking-wider text-zinc-400 text-[11px] flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+                ER Schema Tables (${entities.length} tables found)
+              </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-6">
+              ${entities.map(e => `
+                <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm overflow-hidden flex flex-col">
+                  <div class="px-3.5 py-2.5 bg-stone-100/70 dark:bg-zinc-800/60 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+                    <span class="font-mono font-bold text-xs text-zinc-800 dark:text-zinc-200 flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                      ${esc(e.name)}
+                    </span>
+                    <span class="tag text-[10px] uppercase font-mono">${e.attrs.length} cols</span>
+                  </div>
+                  <ul class="p-2 space-y-1 text-xs divide-y divide-zinc-100 dark:divide-zinc-800/40">
+                    ${e.attrs.map(a => `
+                      <li class="pt-1 first:pt-0 flex items-center justify-between gap-2 font-mono text-[12px]">
+                        <span class="flex items-center gap-1.5 truncate ${a.isKey ? 'font-bold text-zinc-900 dark:text-zinc-100' : 'text-zinc-600 dark:text-zinc-400'}">
+                          ${a.isKey ? '<span class="text-amber-500 text-[11px]" title="Primary Key">🔑</span>' : '<span class="text-zinc-300 dark:text-zinc-700">·</span>'}
+                          <span class="truncate">${esc(a.name)}</span>
+                        </span>
+                        ${a.isKey ? '<span class="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">PK</span>' : ''}
+                      </li>
+                    `).join('')}
+                  </ul>
+                </div>
+              `).join('')}
+            </div>
+          </div>`;
+      }
+
+      $('code-media').innerHTML = `
+        <div class="w-full max-w-4xl flex items-center justify-between mb-4 pb-3 border-b border-zinc-200 dark:border-zinc-800 shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="p-1.5 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg>
+            </span>
+            <div>
+              <h3 class="font-bold text-sm text-zinc-900 dark:text-zinc-100">${esc(item.name)}</h3>
+              <p class="text-[11px] text-zinc-400 font-mono">Dia Database Diagram · ${formatBytes(item.size)}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="dia-xml-toggle-btn" class="ctl text-xs py-1 px-2.5 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              View XML
+            </button>
+            <a class="ctl text-xs py-1 px-2.5 inline-flex items-center gap-1.5" href="${rawUrlOf(filePath)}" download="${esc(item.name)}">
+              ${SVG_ICONS.download} Download .dia
+            </a>
+          </div>
         </div>
-        <h3 class="font-bold text-lg">${esc(item.name)}</h3>
-        <p class="text-sm text-zinc-500 max-w-md mx-auto">Dia Database ER Diagram.</p>
-        <div class="flex items-center justify-center gap-3">
-          <a class="ctl inline-flex items-center gap-2 text-sm bg-blue-600 text-white border-blue-600 hover:bg-blue-700" href="${rawUrlOf(filePath)}" download>
-            ${SVG_ICONS.download} Download .dia
-          </a>
-          <button id="dia-raw-btn" class="ctl text-sm">View XML</button>
-        </div>
-      </div>`;
-    $('dia-raw-btn')?.addEventListener('click', async () => {
-      loadCodeText(filePath, 'xml');
-    });
+        ${companionHtml}
+        ${schemaHtml}
+      `;
+
+      $('dia-xml-toggle-btn')?.addEventListener('click', () => {
+        $('code-media').classList.add('hidden');
+        $('code-wrapper').classList.remove('hidden');
+        const codeEl = $('code-content');
+        codeEl.className = 'hljs language-xml block';
+        codeEl.textContent = currentCodeText;
+        if (window.hljs) hljs.highlightElement(codeEl);
+        const lineCount = currentCodeText.split('\n').length;
+        $('code-gutter').innerHTML = Array.from({ length: lineCount }, (_, i) => `<div>${i + 1}</div>`).join('');
+      });
+
+    } catch (err) {
+      $('code-status').classList.remove('hidden');
+      $('code-status-text').innerHTML = `
+        <span class="text-red-500 font-semibold">Failed to parse Dia diagram</span><br>
+        <span class="text-xs text-zinc-400">${esc(err.message)}</span><br>
+        <a class="ctl inline-block mt-3 text-xs" href="${rawUrlOf(filePath)}" download>Download .dia</a>
+      `;
+    }
     return;
   }
 
   await loadCodeText(filePath, ext);
 }
+
+const EXT_TO_LANG = {
+  cs: 'csharp', csproj: 'xml', slnx: 'xml', xaml: 'xml', sln: 'ini',
+  sql: 'sql', php: 'php', phtml: 'php', stub: 'php', blade: 'php',
+  html: 'xml', xhtml: 'xml', vue: 'xml', xml: 'xml', xsd: 'xml', svg: 'xml',
+  css: 'css', scss: 'scss', less: 'less',
+  js: 'javascript', mjs: 'javascript', cjs: 'javascript', ts: 'typescript',
+  mts: 'typescript', cts: 'typescript', jsx: 'javascript', tsx: 'typescript',
+  json: 'json', yaml: 'yaml', yml: 'yaml', toml: 'ini', ini: 'ini',
+  conf: 'nginx', config: 'xml', env: 'bash', example: 'bash',
+  editorconfig: 'ini', gitattributes: 'ini', gitignore: 'ini',
+  py: 'python', sh: 'bash', bash: 'bash', ps1: 'powershell',
+  dockerfile: 'dockerfile', dart: 'dart', md: 'markdown', http: 'http',
+  diff: 'diff', patch: 'diff'
+};
 
 async function loadCodeText(filePath, ext) {
   try {
@@ -534,38 +713,26 @@ async function loadCodeText(filePath, ext) {
 
     $('code-wrapper').classList.remove('hidden');
     const codeEl = $('code-content');
-    codeEl.className = 'hljs block';
 
-    const langMap = {
-      cs: 'csharp',
-      sql: 'sql',
-      php: 'php',
-      vue: 'xml',
-      html: 'xml',
-      xml: 'xml',
-      xaml: 'xml',
-      js: 'javascript',
-      mjs: 'javascript',
-      ts: 'typescript',
-      json: 'json',
-      css: 'css',
-      py: 'python',
-      md: 'markdown',
-      yaml: 'yaml',
-      yml: 'yaml',
-      sh: 'bash',
-      bash: 'bash',
-      ps1: 'powershell',
-      dockerfile: 'dockerfile'
-    };
+    const fileName = filePath.split('/').pop().toLowerCase();
+    const lang = EXT_TO_LANG[ext] || EXT_TO_LANG[fileName] || (fileName === 'dockerfile' ? 'dockerfile' : null);
 
-    if (langMap[ext]) {
-      codeEl.classList.add(`language-${langMap[ext]}`);
-    }
-
-    codeEl.textContent = text;
-    if (window.hljs) {
+    if (lang && window.hljs && hljs.getLanguage(lang)) {
+      codeEl.className = `hljs language-${lang} block`;
+      codeEl.textContent = text;
       hljs.highlightElement(codeEl);
+    } else if (window.hljs) {
+      codeEl.className = 'hljs block';
+      try {
+        const auto = hljs.highlightAuto(text);
+        codeEl.innerHTML = auto.value;
+        codeEl.classList.add(`language-${auto.language || 'text'}`);
+      } catch (e) {
+        codeEl.textContent = text;
+      }
+    } else {
+      codeEl.className = 'hljs block';
+      codeEl.textContent = text;
     }
 
     const lineCount = text.split('\n').length;
