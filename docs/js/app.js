@@ -681,18 +681,21 @@ async function viewFile(filePath) {
 }
 
 const EXT_TO_LANG = {
-  cs: 'csharp', csproj: 'xml', slnx: 'xml', xaml: 'xml', sln: 'ini',
-  sql: 'sql', php: 'php', phtml: 'php', stub: 'php', blade: 'php',
-  html: 'xml', xhtml: 'xml', vue: 'xml', xml: 'xml', xsd: 'xml', svg: 'xml',
-  css: 'css', scss: 'scss', less: 'less',
-  js: 'javascript', mjs: 'javascript', cjs: 'javascript', ts: 'typescript',
-  mts: 'typescript', cts: 'typescript', jsx: 'javascript', tsx: 'typescript',
-  json: 'json', yaml: 'yaml', yml: 'yaml', toml: 'ini', ini: 'ini',
-  conf: 'nginx', config: 'xml', env: 'bash', example: 'bash',
-  editorconfig: 'ini', gitattributes: 'ini', gitignore: 'ini',
-  py: 'python', sh: 'bash', bash: 'bash', ps1: 'powershell',
-  dockerfile: 'dockerfile', dart: 'dart', md: 'markdown', http: 'http',
-  diff: 'diff', patch: 'diff'
+  // C# & .NET
+  cs: 'csharp', csproj: 'xml', slnx: 'xml', xaml: 'xml', axaml: 'xml', sln: 'ini',
+  // PHP
+  php: 'php',
+  // SQL
+  sql: 'sql',
+  // JavaScript & TypeScript
+  js: 'javascript', mjs: 'javascript', ts: 'typescript', tsx: 'typescript',
+  // Web & Data
+  html: 'xml', vue: 'xml', xml: 'xml', svg: 'xml',
+  css: 'css', json: 'json', yaml: 'yaml', yml: 'yaml',
+  // Python & Flutter/Dart
+  py: 'python', dart: 'dart',
+  // Scripts & Config
+  sh: 'bash', bash: 'bash', dockerfile: 'dockerfile'
 };
 
 async function loadCodeText(filePath, ext) {
@@ -721,15 +724,6 @@ async function loadCodeText(filePath, ext) {
       codeEl.className = `hljs language-${lang} block`;
       codeEl.textContent = text;
       hljs.highlightElement(codeEl);
-    } else if (window.hljs) {
-      codeEl.className = 'hljs block';
-      try {
-        const auto = hljs.highlightAuto(text);
-        codeEl.innerHTML = auto.value;
-        codeEl.classList.add(`language-${auto.language || 'text'}`);
-      } catch (e) {
-        codeEl.textContent = text;
-      }
     } else {
       codeEl.className = 'hljs block';
       codeEl.textContent = text;
