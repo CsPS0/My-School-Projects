@@ -1,22 +1,6 @@
 <script setup>
 import BaseLayout from '@layouts/BaseLayout.vue'
-import CharacterCard from '@components/CharacterCard.vue'
-import CharacterCardSkeleton from '@components/CharacterCardSkeleton.vue'
 import Cover from '@assets/cover.webp'
-import { onMounted, ref } from 'vue'
-import { api } from '@utils/http.mjs'
-
-const characters = ref([])
-const loading = ref(true)
-
-async function getCharacters() {
-  const response = await api.get('/api/charachters')
-  characters.value = response.data.data  
-}
-onMounted(async () => {
-  await getCharacters()
-  loading.value = false
-})
 </script>
 
 <template>

@@ -4,9 +4,17 @@ import CharacterCard from '@components/CharacterCard.vue';
 import CharacterCardSkeleton from '@components/CharacterCardSkeleton.vue';
 import { ref } from 'vue';
 
-const characters = ref([]);
+const characters = ref([])
+const loading = ref(true)
 
-const loading = ref(true);
+async function getCharacters() {
+    const response = await api.get('/api/charachters')
+    characters.value = response.data.data  
+}
+onMounted(async () => {
+    await getCharacters()
+    loading.value = false
+})
 </script>
 
 <template>
