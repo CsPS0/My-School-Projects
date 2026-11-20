@@ -1403,19 +1403,6 @@ $('sidebar-filter').addEventListener('input', () => {
   }
 });
 
-// TEMP: frontend test 2026-11-20. Opens the study guides from the banner. Remove after the test.
-const TEST_DOCS_DIR = 'NEU/Osztaly13/AKK/FULLSTACK';
-function openTestDoc(docPath) {
-  openProject(TEST_DOCS_DIR, docPath);
-  const docs = allItems.filter(i => !i.isDir && i.path.startsWith(TEST_DOCS_DIR + '/') && i.path.split('/').length === 5 && i.name.endsWith('.md'));
-  $('code-dialog-title').textContent = 'Frontend dolgozat – felkészülés';
-  $('sidebar-count').textContent = docs.length;
-  renderSidebarTree(docs, TEST_DOCS_DIR);
-}
-document.querySelectorAll('[data-test-doc]').forEach(btn => {
-  btn.addEventListener('click', () => openTestDoc(btn.dataset.testDoc));
-});
-
 // Relative .md links inside a rendered markdown file open in the viewer instead of the site.
 $('md-preview').addEventListener('click', e => {
   const a = e.target.closest('a[href]');
