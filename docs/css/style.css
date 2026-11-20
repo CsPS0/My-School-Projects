@@ -324,3 +324,19 @@ pre code.hljs {
 .dark .spreadsheet-table tr:nth-child(even) {
   background: #141416;
 }
+
+/* Skeleton loader: fades in only if loading takes longer than ~250ms, so fast loads don't flash. */
+.skel-card { pointer-events: none; opacity: 0; animation: skel-in 0.3s ease 0.25s forwards; }
+.skel-card:hover { border-color: #e4e4e7; box-shadow: none; transform: none; }
+.dark .skel-card:hover { border-color: #27272a; }
+.skel {
+  display: inline-block;
+  border-radius: 0.375rem;
+  background: linear-gradient(90deg, #f4f4f5 25%, #e4e4e7 50%, #f4f4f5 75%);
+  background-size: 200% 100%;
+  animation: skel-shimmer 1.4s ease-in-out infinite;
+}
+.dark .skel { background-image: linear-gradient(90deg, #1c1c1f 25%, #27272a 50%, #1c1c1f 75%); }
+@keyframes skel-in { to { opacity: 1; } }
+@keyframes skel-shimmer { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } .skel-card { animation-duration: 0s; } }

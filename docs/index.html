@@ -21,16 +21,16 @@
   };
 </script>
 <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/http.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.20/dist/docx-preview.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script src="js/tree-data.js?v=20261120_1258"></script>
-<link rel="stylesheet" href="css/style.css?v=20261119">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dart.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/dockerfile.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/http.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.20/dist/docx-preview.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script defer src="js/tree-data.js?v=20261120_1413"></script>
+<link rel="stylesheet" href="css/style.css?v=20261120">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.classList.toggle('dark', isDark);
@@ -138,9 +138,6 @@
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 pt-1">
       <div class="flex flex-wrap items-center gap-4">
         <label class="flex items-center gap-1.5 cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-200">
-          <input id="files" type="checkbox" class="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-0"> include files
-        </label>
-        <label class="flex items-center gap-1.5 cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-200">
           <input id="fav-only" type="checkbox" class="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-0">
           <svg class="w-3.5 h-3.5 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg>
           favorites only
@@ -151,6 +148,7 @@
       <div class="flex items-center gap-2">
         <span class="text-zinc-400 text-xs">Sort:</span>
         <select id="sort" class="ctl text-xs py-1 px-2" aria-label="Sort">
+          <option value="updated" selected>Last updated</option>
           <option value="new">Newest first</option>
           <option value="old">Oldest first</option>
           <option value="name">Name A–Z</option>
@@ -164,7 +162,15 @@
     <div id="quick-stats" class="text-xs text-zinc-400 hidden sm:block"></div>
   </div>
 
-  <ul id="results" class="grid gap-2 sm:grid-cols-1"></ul>
+  <ul id="results" class="grid gap-2 sm:grid-cols-1" aria-busy="true">
+    <!-- Skeleton shown while the catalog loads; replaced by render(). -->
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+    <li class="card skel-card"><div class="flex items-center gap-2"><span class="skel h-4 w-4 rounded"></span><span class="skel h-4 w-2/5"></span><span class="skel h-4 w-16 rounded-full"></span></div><div class="flex gap-1.5 mt-2.5"><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-20 rounded-full"></span><span class="skel h-5 w-24 rounded-full"></span><span class="skel h-5 w-28 rounded-full"></span></div></li>
+  </ul>
 
   <div class="text-center mt-6">
     <button id="more" class="ctl px-6 py-2.5 text-sm font-medium hidden hover:border-blue-500">Show more</button>
@@ -261,6 +267,6 @@
   </div>
 </dialog>
 
-<script src="js/app.js?v=20261120"></script>
+<script defer src="js/app.js?v=20261120_4"></script>
 </body>
 </html>

@@ -169,6 +169,7 @@ function parseItem(item) {
   const path = isArr ? item[0] : (item && item.path ? item.path : '');
   const isDir = isArr ? Boolean(item[1]) : Boolean(item && item.isDir);
   const size = isArr ? (item[2] || 0) : (item && item.size ? item.size : 0);
+  const mtime = isArr ? (item[3] || 0) : (item && item.mtime ? item.mtime : 0);
 
   const parts = path.split('/');
   const name = parts[parts.length - 1];
@@ -225,14 +226,28 @@ function parseItem(item) {
     name,
     isDir,
     size: size || 0,
+    mtime,
     grade,
     subject,
     date,
     sort: m ? m[1] + m[2] + m[3] : '',
     project: isProject,
-    hay: fold(path.replace(/[_\-\/.]/g, ' '))
+    dated: Boolean(isDir && m),
+    hay: fold(path.replace(/[_\-\/.]/g, ' ')),
+    nameHay: fold(name.replace(/[_\-\/.]/g, ' '))
   };
 }
+
+const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+function timeAgo(sec) {
+  const diff = sec - Date.now() / 1000;
+  const units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
+  for (const [unit, len] of units) {
+    if (Math.abs(diff) >= len) return RTF.format(Math.round(diff / len), unit);
+  }
+  return 'just now';
+}
+const fullDate = sec => new Date(sec * 1000).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' });
 
 const urlOf = path => `https://github.com/${REPO}/${path.includes('.') ? 'blob' : 'tree'}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
 const rawUrlOf = path => `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
@@ -255,9 +270,10 @@ function highlight(text, words) {
 }
 
 const SORTS = {
+  updated: (a, b) => (b.project - a.project) || (b.mtime - a.mtime) || a.path.localeCompare(b.path),
   new: (a, b) => (b.project - a.project) || b.sort.localeCompare(a.sort) || a.path.localeCompare(b.path),
   old: (a, b) => (b.project - a.project) || (!a.sort - !b.sort) || a.sort.localeCompare(b.sort) || a.path.localeCompare(b.path),
-  name: (a, b) => a.name.localeCompare(b.name, 'hu'),
+  name: (a, b) => (b.project - a.project) || a.name.localeCompare(b.name, 'hu'),
 };
 
 function filtered() {
@@ -265,15 +281,19 @@ function filtered() {
   const grade = $('grade').value;
   const subject = $('subject').value;
   const words = fold(q.replace(/[_\-\/.]/g, ' ')).split(/\s+/).filter(Boolean);
-  const withFiles = $('files').checked;
+  // While searching, matching files are listed too (after the projects). A file must match
+  // every word somewhere in its path and at least one word in its own name, so a search like
+  // "fullstack" doesn't list every file inside the FULLSTACK folder.
+  const withFiles = words.length > 0;
   const favOnly = $('fav-only').checked;
 
   const hits = allItems.filter(it => {
     if (favOnly && !favs.has(it.path)) return false;
-    if (!withFiles && !it.project) return false;
+    if (!it.project && !(withFiles && !it.isDir)) return false;
     if (grade && it.grade !== grade) return false;
     if (subject && it.subject !== subject) return false;
     if (words.length && !words.every(w => it.hay.includes(w))) return false;
+    if (!it.project && !words.some(w => it.nameHay.includes(w))) return false;
     return true;
   });
 
@@ -289,9 +309,14 @@ function render(reset = true) {
   if (reset) shownCount = PAGE;
   const { hits, words, q } = filtered();
   
-  $('status').textContent = `${hits.length} result${hits.length === 1 ? '' : 's'}` + (hits.length > shownCount ? ` (showing ${shownCount})` : '');
+  const projectHits = hits.filter(h => h.project).length;
+  const fileHits = hits.length - projectHits;
+  const plural = (n, w) => `${n.toLocaleString()} ${w}${n === 1 ? '' : 's'}`;
+  $('status').textContent = (fileHits ? `${plural(projectHits, 'project')} · ${plural(fileHits, 'file')}` : plural(projectHits, 'result'))
+    + (hits.length > shownCount ? ` (showing ${shownCount})` : '');
   $('more').classList.toggle('hidden', hits.length <= shownCount);
 
+  $('results').removeAttribute('aria-busy');
   $('results').innerHTML = hits.slice(0, shownCount).map(it => {
     const isFile = !it.isDir;
     const isFav = favs.has(it.path);
@@ -331,6 +356,7 @@ function render(reset = true) {
             ${it.subject ? `<span class="tag ${subjectTagClass} font-semibold">${esc(it.subject)}</span>` : ''}
             ${it.date ? `<span class="tag bg-stone-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${esc(it.date)}</span>` : ''}
             ${projectStatsBadge}
+            ${it.mtime ? `<span class="tag bg-stone-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400" title="Last updated: ${esc(fullDate(it.mtime))}">updated ${esc(timeAgo(it.mtime))}</span>` : ''}
           </div>
         </div>
 
@@ -1539,9 +1565,8 @@ $('clear').onclick = () => {
   $('q').value = '';
   $('grade').value = '';
   $('subject').value = '';
-  $('files').checked = false;
   $('fav-only').checked = false;
-  $('sort').value = 'new';
+  $('sort').value = 'updated';
   document.querySelectorAll('.pill[data-pill-type="subject"]').forEach(p => {
     p.classList.toggle('active', p.dataset.pillValue === '');
   });
@@ -1620,7 +1645,7 @@ window.addEventListener('keydown', e => {
   }
 }, true);
 
-for (const id of ['q', 'grade', 'files', 'fav-only', 'sort']) {
+for (const id of ['q', 'grade', 'fav-only', 'sort']) {
   $(id).addEventListener('input', () => render());
 }
 
@@ -1630,6 +1655,22 @@ loadTree().then(tree => {
     const p = Array.isArray(item) ? item[0] : (item && item.path);
     return typeof p === 'string' && /^(NEU|Verebay)\//.test(p);
   }).map(parseItem);
+
+  // A folder whose subfolders are mostly dated assignments (e.g. OTHER/ENGLISH, OTHER/Tesi)
+  // is a category, not a project: list its dated subfolders instead.
+  const childDirs = new Map();
+  for (const it of allItems) {
+    if (!it.isDir) continue;
+    const parent = it.path.slice(0, it.path.lastIndexOf('/'));
+    const c = childDirs.get(parent) || { all: 0, dated: 0 };
+    c.all++;
+    if (it.dated) c.dated++;
+    childDirs.set(parent, c);
+  }
+  for (const it of allItems) {
+    const c = it.project && childDirs.get(it.path);
+    if (c && c.dated * 2 >= c.all) it.project = false;
+  }
 
   const gradeOrder = ['13. osztály', '12. osztály', '11. osztály', '10. osztály', '9. osztály'];
   const availableGrades = new Set(allItems.map(i => i.grade).filter(Boolean));
@@ -1672,4 +1713,6 @@ loadTree().then(tree => {
   render();
 }).catch(err => {
   $('status').textContent = 'Error loading project list: ' + err.message;
+  $('results').innerHTML = '';
+  $('results').removeAttribute('aria-busy');
 });
