@@ -29,8 +29,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.20/dist/docx-preview.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script defer src="js/tree-data.js?v=20261120_1413"></script>
-<link rel="stylesheet" href="css/style.css?v=20261120">
+<script defer src="js/tree-data.js?v=20261120_1420"></script>
+<link rel="stylesheet" href="css/style.css?v=20261120_2">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.classList.toggle('dark', isDark);
@@ -137,11 +137,6 @@
 
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 pt-1">
       <div class="flex flex-wrap items-center gap-4">
-        <label class="flex items-center gap-1.5 cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-200">
-          <input id="fav-only" type="checkbox" class="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-0">
-          <svg class="w-3.5 h-3.5 text-amber-500 fill-amber-500" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg>
-          favorites only
-        </label>
         <button id="clear" class="hover:text-blue-600 underline cursor-pointer">reset filters</button>
       </div>
 
@@ -267,6 +262,6 @@
   </div>
 </dialog>
 
-<script defer src="js/app.js?v=20261120_4"></script>
+<script defer src="js/app.js?v=20261120_6"></script>
 </body>
 </html>

@@ -101,7 +101,6 @@ function getSubjectSvg(subject) {
 let rawTree = [];
 let allItems = [];
 let shownCount = PAGE;
-let favs = new Set();
 let currentProject = null;
 let currentFilePath = null;
 let currentCodeText = '';
@@ -121,7 +120,8 @@ function expandAncestors(filePath, rootPath) {
   }
 }
 
-try { favs = new Set(JSON.parse(localStorage.favs || '[]')); } catch {}
+// Favorites were removed; clear the old per-browser list.
+try { localStorage.removeItem('favs'); } catch {}
 
 function updateHljsTheme(isDark) {
   const themeLink = $('hljs-theme');
@@ -269,6 +269,23 @@ function highlight(text, words) {
   return out;
 }
 
+// Folder of a file, starting at its project folder (e.g. "26-1116-1122_JavitoDoga/base/backend/app").
+let projectPaths = new Set();
+function projectOf(path) {
+  const parts = path.split('/');
+  for (let i = 1; i < parts.length; i++) {
+    const p = parts.slice(0, i).join('/');
+    if (projectPaths.has(p)) return p;
+  }
+  return null;
+}
+function fileFolderLabel(path) {
+  const dir = path.slice(0, path.lastIndexOf('/'));
+  const project = projectOf(path);
+  const start = project ? project.lastIndexOf('/') + 1 : dir.split('/').slice(0, 3).join('/').length + 1;
+  return dir.slice(start);
+}
+
 const SORTS = {
   updated: (a, b) => (b.project - a.project) || (b.mtime - a.mtime) || a.path.localeCompare(b.path),
   new: (a, b) => (b.project - a.project) || b.sort.localeCompare(a.sort) || a.path.localeCompare(b.path),
@@ -285,10 +302,8 @@ function filtered() {
   // every word somewhere in its path and at least one word in its own name, so a search like
   // "fullstack" doesn't list every file inside the FULLSTACK folder.
   const withFiles = words.length > 0;
-  const favOnly = $('fav-only').checked;
 
   const hits = allItems.filter(it => {
-    if (favOnly && !favs.has(it.path)) return false;
     if (!it.project && !(withFiles && !it.isDir)) return false;
     if (grade && it.grade !== grade) return false;
     if (subject && it.subject !== subject) return false;
@@ -319,7 +334,6 @@ function render(reset = true) {
   $('results').removeAttribute('aria-busy');
   $('results').innerHTML = hits.slice(0, shownCount).map(it => {
     const isFile = !it.isDir;
-    const isFav = favs.has(it.path);
     const ext = it.name.includes('.') ? it.name.split('.').pop().toLowerCase() : '';
     const cardIcon = isFile ? getFileSvg(ext) : getSubjectSvg(it.subject);
     const subjectTagClass = `tag-${(it.subject || '').toLowerCase()}`;
@@ -333,13 +347,14 @@ function render(reset = true) {
     }
 
     let matchSubline = '';
-    if (isFile && words.length) {
-      matchSubline = `<div class="text-xs text-zinc-400 font-mono mt-0.5 break-all">${highlight(it.name, words)}</div>`;
+    if (isFile) {
+      const folder = fileFolderLabel(it.path);
+      if (folder) matchSubline = `<div class="text-xs text-zinc-400 font-mono mt-0.5 break-all" title="${esc(it.path)}">${highlight(folder, words)}</div>`;
     }
 
     return `
     <li class="relative card group">
-      <div class="flex items-center justify-between gap-3 pr-24">
+      <div class="flex items-center justify-between gap-3 pr-16">
         <div class="min-w-0 flex-1 cursor-pointer" data-action="${isFile ? 'open-file' : 'open-project'}" data-path="${esc(it.path)}">
           <div class="flex items-center gap-2 flex-wrap">
             <span class="shrink-0 flex items-center">${cardIcon}</span>
@@ -361,9 +376,6 @@ function render(reset = true) {
         </div>
 
         <div class="absolute top-2.5 right-2.5 flex items-center gap-1 shrink-0">
-          <button class="star ${isFav ? 'on' : ''}" data-fav="${esc(it.path)}" title="Add to favorites" aria-label="Favorite">
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1z"/></svg>
-          </button>
           <button class="star" data-copy="${esc(it.path)}" title="Copy link" aria-label="Copy link">
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
           </button>
@@ -1501,16 +1513,6 @@ $('code-dialog')?.addEventListener('close', () => {
 });
 
 $('results').addEventListener('click', e => {
-  const favBtn = e.target.closest('button[data-fav]');
-  if (favBtn) {
-    const path = favBtn.dataset.fav;
-    if (favs.has(path)) favs.delete(path);
-    else favs.add(path);
-    try { localStorage.favs = JSON.stringify([...favs]); } catch {}
-    render(false);
-    return;
-  }
-
   const copyBtn = e.target.closest('button[data-copy]');
   if (copyBtn) {
     const path = copyBtn.dataset.copy;
@@ -1529,8 +1531,7 @@ $('results').addEventListener('click', e => {
       openProject(path);
     } else if (action === 'open-file') {
       const parentDir = path.substring(0, path.lastIndexOf('/'));
-      const project = allItems.find(i => i.isDir && i.project && path.startsWith(i.path + '/')) || { path: parentDir };
-      openProject(project.path, path);
+      openProject(projectOf(path) || parentDir, path);
     }
   }
 });
@@ -1565,7 +1566,6 @@ $('clear').onclick = () => {
   $('q').value = '';
   $('grade').value = '';
   $('subject').value = '';
-  $('fav-only').checked = false;
   $('sort').value = 'updated';
   document.querySelectorAll('.pill[data-pill-type="subject"]').forEach(p => {
     p.classList.toggle('active', p.dataset.pillValue === '');
@@ -1645,7 +1645,7 @@ window.addEventListener('keydown', e => {
   }
 }, true);
 
-for (const id of ['q', 'grade', 'fav-only', 'sort']) {
+for (const id of ['q', 'grade', 'sort']) {
   $(id).addEventListener('input', () => render());
 }
 
@@ -1671,6 +1671,7 @@ loadTree().then(tree => {
     const c = it.project && childDirs.get(it.path);
     if (c && c.dated * 2 >= c.all) it.project = false;
   }
+  projectPaths = new Set(allItems.filter(i => i.project).map(i => i.path));
 
   const gradeOrder = ['13. osztály', '12. osztály', '11. osztály', '10. osztály', '9. osztály'];
   const availableGrades = new Set(allItems.map(i => i.grade).filter(Boolean));
