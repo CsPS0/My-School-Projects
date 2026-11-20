@@ -1288,6 +1288,7 @@ function buildHierarchy(files, rootPath) {
           name: seg,
           isDir: false,
           file: f,
+          mtime: f.mtime || 0,
           fullPath: f.path,
           relPath: rel
         };
@@ -1298,11 +1299,14 @@ function buildHierarchy(files, rootPath) {
             name: seg,
             isDir: true,
             children: {},
+            mtime: 0,
             relPath: folderRel,
             fullPath: rootPath + '/' + folderRel
           };
         }
         curr = curr.children[seg];
+        // A folder's last update is the newest file inside it.
+        if ((f.mtime || 0) > curr.mtime) curr.mtime = f.mtime;
       }
     }
   }
@@ -1314,7 +1318,7 @@ function renderTreeHtml(node, depth = 0) {
     const aNode = node.children[a];
     const bNode = node.children[b];
     if (aNode.isDir !== bNode.isDir) return bNode.isDir - aNode.isDir;
-    return a.localeCompare(b, 'hu');
+    return (bNode.mtime - aNode.mtime) || a.localeCompare(b, 'hu');
   });
 
   return childKeys.map(key => {
@@ -1346,7 +1350,7 @@ function renderTreeHtml(node, depth = 0) {
           <span class="w-3.5 shrink-0"></span>
           <span class="shrink-0 flex items-center">${icon}</span>
           <span class="truncate flex-1 font-mono text-[12px]">${esc(child.name)}</span>
-          <span class="text-[10px] text-zinc-400 font-mono shrink-0 pl-1">${formatBytes(child.file.size)}</span>
+          <span class="text-[10px] text-zinc-400 font-mono shrink-0 pl-1"${child.mtime ? ` title="Updated ${esc(fullDate(child.mtime))}"` : ''}>${formatBytes(child.file.size)}</span>
         </div>`;
     }
   }).join('');
