@@ -1,6 +1,88 @@
-@solticsongor_VedettAllatok_HostAddress = http://localhost:5052
+@host = http://localhost:5052
 
-GET {{solticsongor_VedettAllatok_HostAddress}}/weatherforecast/
+GET {{host}}/api/animals
 Accept: application/json
 
 ###
+
+GET {{host}}/api/animalsById/427
+Accept: application/json
+
+###
+
+GET {{host}}/api/animalsByYear/1974
+Accept: application/json
+
+###
+
+GET {{host}}/api/categories
+Accept: application/json
+
+###
+
+GET {{host}}/api/animalsByCategory/madarak
+Accept: application/json
+
+###
+
+PUT {{host}}/api/animals/427
+Content-Type: application/json
+
+{
+  "name": "dunai ingola",
+  "value": "100000",
+  "year": 1974,
+  "category": "körszájúak"
+}
+
+###
+
+PUT {{host}}/api/animals/428
+Content-Type: application/json
+
+{
+  "name": "tiszai ingola",
+  "value": "250000",
+  "year": 1974,
+  "category": "körszájúak"
+}
+
+###
+
+POST {{host}}/api/animals
+Content-Type: application/json
+
+{
+  "name": "Baradla-barlangi giliszta",
+  "value": "100000",
+  "year": 2022,
+  "category": "gyűrűsférgek"
+}
+
+###
+
+POST {{host}}/api/animals
+Content-Type: application/json
+
+{
+  "name": "magyar nadály",
+  "value": "25000",
+  "year": 2008,
+  "category": "gyűrűsférgek"
+}
+
+###
+
+POST {{host}}/api/animals
+Content-Type: application/json
+
+{
+  "name": "orvosi pióca",
+  "value": "25000",
+  "year": 2008,
+  "category": "gyűrűsférgek"
+}
+
+###
+
+DELETE {{host}}/api/animals/1245

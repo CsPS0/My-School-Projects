@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="solticsongor-VedettAllatok/solticsongor-VedettAllatok.csproj" />
+  <Project Path="VedettConsole/VedettConsole.csproj" />
+  <Project Path="VedettGUI/VedettGUI.csproj" />
+  <Project Path="VedettLibrary/VedettLibrary.csproj" />
 </Solution>

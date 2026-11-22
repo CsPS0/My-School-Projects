@@ -15,13 +15,9 @@ const search = reactive({
 })
 
 async function loadCourses() {
-  loading.value = true
-  try {
-    const response = await api.get('/api/courses')
-    courses.value = response.data.data
-  } finally {
-    loading.value = false
-  }
+  const response = await api.get('/api/courses')
+  courses.value = response.data.data
+  loading.value = false
 }
 
 onMounted(() => {

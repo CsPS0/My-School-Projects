@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `autok`;
+DROP TABLE IF EXISTS `kolcsonzesek`;
 
 CREATE TABLE `kolcsonzesek` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,

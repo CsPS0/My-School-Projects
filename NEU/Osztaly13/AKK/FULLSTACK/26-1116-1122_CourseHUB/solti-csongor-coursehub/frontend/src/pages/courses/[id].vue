@@ -11,24 +11,18 @@ const route = useRoute()
 const course = ref(null)
 const loading = ref(true)
 
-async function loadCourse(id) {
-  loading.value = true
-  try {
-    const response = await api.get(`/api/courses/${id}`)
-    course.value = response.data.data
-  } finally {
-    loading.value = false
-  }
+async function loadCourse() {
+  const response = await api.get(`/api/courses/${route.params.id}`)
+  course.value = response.data.data
+  loading.value = false
 }
 
 onMounted(() => {
-  loadCourse(route.params.id)
+  loadCourse()
 })
 
-watch(() => route.params.id, (newId) => {
-  if (newId) {
-    loadCourse(newId)
-  }
+watch(() => route.params.id, () => {
+  loadCourse()
 })
 </script>
 
