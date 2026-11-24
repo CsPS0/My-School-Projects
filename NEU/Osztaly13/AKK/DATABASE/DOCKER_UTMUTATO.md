@@ -1,127 +1,111 @@
-# Iskolai Docker MySQL / MariaDB Útmutató (Adatbázis feladatok)
+# Docker MySQL – gyors útmutató (dolgozatra)
 
-Ez az összefoglaló leírja a Docker használatát az iskolai adatbázis feladatokhoz, a belépést, a feladatok futtatását és a Windowsos alternatívákat (ha nincs WSL vagy Docker telepítve).
+## 1. Indítás (3 parancs)
 
----
-
-## 1. Gyors összefoglaló táblázat
-
-| Feladat | Helyi mappa | Konténer mount | Teljes megoldás fájl | Tasks mappa |
-| :--- | :--- | :--- | :--- | :--- |
-| **Űrhajózás** | `.../26-0921-0927_Urhajozas` | `/urhajozas` | `solti-csongor-urhajozas.sql` | `/urhajozas/tasks/*.sql` |
-| **Kondibelépők** | `.../26-0928-1004_Kondibelepok` | `/kondibelepok` | `solti-csongor-kondibelepok.sql` | `/kondibelepok/tasks/*.sql` |
-| **HR-View** | `.../26-0914-0920_HR-View` | `/hr` | `solti-csongor-hr-view.sql` | `/hr/tasks/*.sql` |
-
----
-
-## 2. A Docker munkafolyamat lépései (Iskolában / Linux / WSL / Git Bash)
-
-### 1. lépés: Lépj be a projekt mappájába
 ```bash
-# Például az űrhajózáshoz:
-cd "NEU/Osztaly13/AKK/DATABASE/26-0921-0927_Urhajozas"
-
-# Vagy a kondibelépőkhöz:
-cd "NEU/Osztaly13/AKK/DATABASE/26-0928-1004_Kondibelepok"
+cd "NEU/Osztaly13/AKK/DATABASE/<feladat-mappa>"
+docker run --name db -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd):/feladat" -d mysql:latest
+docker exec -it db mysql -u root -p
 ```
 
-### 2. lépés: Indítsd el a MySQL konténert felcsatolt kötettel
-A `-v "$(pwd):/<mount_nev>"` parancs bemásolás nélkül közvetlenül a géped mappáját teszi elérhetővé a konténeren belül.
+- Jelszó: `jelszo`.
+- Ha a `docker exec` hibát ad, várj 10–20 másodpercet, a MySQL még indul.
+- PowerShellben `$(pwd)` helyett `${PWD}` kell.
+- Ha a feladat egy `sql` mappát kér `/sql` néven: `-v "$(pwd)/sql:/sql"`.
+- MariaDB-hez: `mariadb:latest` és `MARIADB_ROOT_PASSWORD`.
 
-**Űrhajózás:**
-```bash
-docker run --name db-urhajozas -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd):/urhajozas" -d mysql:latest
-```
+## 2. Parancsok a `mysql>` promptban
 
-**Kondibelépők:**
-```bash
-docker run --name db-kondi -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd):/kondibelepok" -d mysql:latest
-```
+| Mit | Parancs |
+| :--- | :--- |
+| Adatbázisok listája | `SHOW DATABASES;` |
+| Új adatbázis | `CREATE DATABASE autokolcsonzo;` |
+| Magyar ékezetekkel | `CREATE DATABASE biztositasok DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;` |
+| Alapértelmezett adatbázis | `USE autokolcsonzo;` |
+| Táblák listája (nézettel együtt) | `SHOW TABLES;` |
+| Tábla szerkezete | `DESCRIBE autok;` |
+| SQL fájl futtatása | `SOURCE /sql/autok-table.sql;` |
+| Nézet létrehozása | `CREATE VIEW nezet AS SELECT ...;` |
+| Felhasználók listája | `SELECT user, host FROM mysql.user;` |
+| Jogok megnézése | `SHOW GRANTS FOR 'anna'@'%';` |
+| Ki vagyok? | `SELECT CURRENT_USER();` |
+| Törlés | `DROP TABLE x;` / `DROP DATABASE x;` |
+| Kilépés | `exit` |
 
-*(Ha MariaDB-t kér a tanár: cseréld a `mysql:latest`-et `mariadb:latest`-re, és `MYSQL_ROOT_PASSWORD` helyett `MARIADB_ROOT_PASSWORD` használható).*
+**Felhasználók és jogok** (a jelszó = a név):
 
-### 3. lépés: Belépés a MySQL CLI-be
-```bash
-docker exec -it db-urhajozas mysql -u root -p
-# vagy Kondibelépőknél:
-docker exec -it db-kondi mysql -u root -p
-```
-A jelszó bekérésekor írd be: `jelszo` és nyomj Entert.
-
-### 4. lépés: SQL szkript futtatása a `SOURCE` paranccsal
-
-A `mysql>` promptban:
-
-#### A) Teljes fájl futtatása egyben:
 ```sql
--- Űrhajózás:
-SOURCE /urhajozas/solti-csongor-urhajozas.sql;
-
--- Kondibelépők:
-SOURCE /kondibelepok/solti-csongor-kondibelepok.sql;
+CREATE USER 'anna'@'%' IDENTIFIED BY 'anna';
+GRANT SELECT, INSERT ON autokolcsonzo.kolcsonzesek TO 'anna'@'%';
+GRANT SELECT, INSERT, UPDATE ON autokolcsonzo.* TO 'tulajdonos'@'%';
+GRANT SELECT ON autokolcsonzo.kolcsonzesek_nezet TO 'penzugyes'@'%';
+GRANT ALL PRIVILEGES ON iskola.* TO 'Admin'@'%';
 ```
 
-#### B) Egyedi feladatok futtatása a `tasks` mappából:
-```sql
--- Űrhajózás:
-SOURCE /urhajozas/tasks/2.sql;
-SOURCE /urhajozas/tasks/3.sql;
-SOURCE /urhajozas/tasks/4.sql;
-SOURCE /urhajozas/tasks/5.sql;
--- ...
-SOURCE /urhajozas/tasks/21.sql;
+**Belépés más felhasználóként** (új terminálban, vagy `exit` után):
 
--- Kondibelépők:
-SOURCE /kondibelepok/tasks/2.sql;
-SOURCE /kondibelepok/tasks/3.sql;
-SOURCE /kondibelepok/tasks/4.sql;
--- ...
-SOURCE /kondibelepok/tasks/29.sql;
-```
-
-### 5. lépés: Kilépés
-```sql
-exit;
-```
-
-### 6. lépés: Konténer leállítása vagy takarítása
 ```bash
-# Leállítás:
-docker stop db-urhajozas
-
-# Törlés (felszabadítja a nevet és erőforrást):
-docker rm -f db-urhajozas
+docker exec -it db mysql -u anna -p autokolcsonzo
 ```
 
----
+**Aktuális időpont:** `NOW()`, például `VALUES (11, 'Kiss Peter', '2024-12-11 12:35:00', NOW());`.
 
-## 3. Windows PowerShell szintaxis (Docker Desktop használatakor)
+## 3. A három legutóbbi feladat
 
-PowerShellben a `$(pwd)` helyett `${PWD}` vagy a pontos abszolút útvonal használandó:
-```powershell
-docker run --name db-kondi -e MYSQL_ROOT_PASSWORD=jelszo -v "${PWD}:/kondibelepok" -d mysql:latest
-docker exec -it db-kondi mysql -u root -p
+### Car-Rental (autókölcsönző)
+
+```bash
+cd "NEU/Osztaly13/AKK/DATABASE/26-1116-1122_Car-Rental/solti-csongor-autokolcsonzo"
+docker run --name autokolcsonzo -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd)/sql:/sql" -d mysql:latest
+docker exec -it autokolcsonzo mysql -u root -p
 ```
 
----
+```sql
+CREATE DATABASE autokolcsonzo;  SHOW DATABASES;  USE autokolcsonzo;
+SOURCE /sql/autok-table.sql;  SOURCE /sql/kolcsonzesek-table.sql;  SOURCE /sql/kolcsonzesek_nezet.sql;
+SHOW TABLES;
+SOURCE /sql/felhasznalok.sql;  SELECT user, host FROM mysql.user;
+INSERT INTO autok (rendszam, marka, modell, ar_naponta) VALUES ('AA-BB-111','Toyota','Corolla',9500), ('GLX-132','Ford','Focus',4500);
+SELECT * FROM autok;
+```
 
-## 4. Mi a teendő Windows alatt, ha NINCS WSL és NINCS Docker?
+- **16. feladat (anna):** belépés `docker exec -it autokolcsonzo mysql -u anna -p autokolcsonzo`, majd `INSERT INTO kolcsonzesek (auto_id, ugyfel, kolcsonzes_kezdete, kolcsonzes_vege) VALUES (11, 'Kiss Peter', '2024-12-11 12:35:00', NOW());`. Anna nem látja az `autok` táblát, ezért az id-t (11) a root `SELECT`-jéből írd be.
+- **17. feladat (root):** `UPDATE kolcsonzesek SET kolcsonzes_kezdete = '2024-12-31 16:55:00' WHERE ugyfel = 'Kiss Peter';`, majd `SELECT * FROM kolcsonzesek;`.
 
-Ha otthon gyakorolsz és a gépeden nincs WSL / Docker:
+### Telekommunikáció és Biztosítások
 
-1. **XAMPP / WampServer használata:**
-   - Indítsd el a MySQL modult a XAMPP Control Panelben.
-   - Nyiss PowerShellt vagy parancssort:
-     ```cmd
-     mysql -u root -p
-     ```
-     *(XAMPP esetén alapértelmezetten nincs jelszó, csak üss Entert)*.
-   - Futtasd a fájlt közvetlen Windows elérési úttal (használj sima `/` perjeleket):
-     ```sql
-     SOURCE F:/REPOS/SCHOOL/My-School-Projects/NEU/Osztaly13/AKK/DATABASE/26-0928-1004_Kondibelepok/solti-csongor-kondibelepok.sql;
-     ```
+Mindkettőnél az egész mappát csatold fel `/feladat` néven, és futtasd a fájlokat:
 
-2. **Grafikus kliens használata (HeidiSQL, DBeaver, phpMyAdmin):**
-   - Csatlakozz a helyi szerverhez (`localhost:3306`, user: `root`).
-   - Nyisd meg a `.sql` fájlt az editorban.
-   - Nyomj F9-et (vagy Execute All) a futtatáshoz.
+```bash
+cd "NEU/Osztaly13/AKK/DATABASE/26-1109-1115_Telekommunikacio"
+docker run --name db -e MYSQL_ROOT_PASSWORD=jelszo -v "$(pwd):/feladat" -d mysql:latest
+```
+
+```sql
+SOURCE /feladat/solticsongor-Telekommunikacio.sql;
+SHOW TABLES;  DESCRIBE Mobiltelefon;
+SOURCE /feladat/solticsongor-TelekommunikacioOneTable.sql;
+```
+
+- **Biztosítások:** mappa `26-1109-1115_Biztositasok`, fájlok `solticsongor-Biztositasok.sql` és `solticsongor-BiztositasokOneTable.sql`.
+- Mindkét feladatban az első fájl a külön táblás megoldás, a `...OneTable.sql` az egytáblás.
+- Minden fájl `DROP DATABASE IF EXISTS`-szel kezd, ezért bármikor újrafuttatható.
+
+## 4. Gyakori hibák
+
+| Hiba | Megoldás |
+| :--- | :--- |
+| `Conflict. The container name "/db" is already in use` | `docker rm -f db`, majd indítsd újra |
+| `ERROR 2002 ... Can't connect` közvetlenül indítás után | Várj pár másodpercet, a MySQL még indul |
+| `ERROR 1045 Access denied` | Rossz jelszó, vagy a felhasználó még nincs létrehozva |
+| `ERROR 1142 ... command denied` | A felhasználónak nincs joga ehhez a táblához. Ez a jogok tesztelésénél jó jel. |
+| `ERROR 1046 No database selected` | `USE adatbazis;` |
+| `SOURCE` nem fut, `ERROR 1064 near 'SOURCE'` | Csak interaktív módban (`docker exec -it`) működik. Csővel (`\|`) futtatva add hozzá: `--commands=ON`. |
+| `Failed to open file` a `SOURCE`-nál | Rossz útvonal: a konténeren belüli mount nevet használd (`/sql/...`, `/feladat/...`) |
+| Eltűnnek vagy elcsúsznak az ékezetek beírásnál | Írj ékezet nélkül, vagy lépj be így: `docker exec -it -e LANG=C.UTF-8 db mysql -u root -p` |
+
+## 5. Takarítás
+
+```bash
+docker rm -f db
+```
