@@ -1,4 +1,4 @@
-@host = http://localhost:5052
+@host = http://localhost:5243
 
 GET {{host}}/api/animals
 Accept: application/json
@@ -29,10 +29,10 @@ PUT {{host}}/api/animals/427
 Content-Type: application/json
 
 {
-  "name": "dunai ingola",
-  "value": "100000",
-  "year": 1974,
-  "category": "körszájúak"
+  "nev": "dunai ingola",
+  "ertek": "100000",
+  "ev": 1974,
+  "kategoria": "körszájúak"
 }
 
 ###
@@ -41,10 +41,10 @@ PUT {{host}}/api/animals/428
 Content-Type: application/json
 
 {
-  "name": "tiszai ingola",
-  "value": "250000",
-  "year": 1974,
-  "category": "körszájúak"
+  "nev": "tiszai ingola",
+  "ertek": "250000",
+  "ev": 1974,
+  "kategoria": "körszájúak"
 }
 
 ###
@@ -53,10 +53,10 @@ POST {{host}}/api/animals
 Content-Type: application/json
 
 {
-  "name": "Baradla-barlangi giliszta",
-  "value": "100000",
-  "year": 2022,
-  "category": "gyűrűsférgek"
+  "nev": "Baradla-barlangi giliszta",
+  "ertek": "100000",
+  "ev": 2022,
+  "kategoria": "gyűrűsférgek"
 }
 
 ###
@@ -65,10 +65,10 @@ POST {{host}}/api/animals
 Content-Type: application/json
 
 {
-  "name": "magyar nadály",
-  "value": "25000",
-  "year": 2008,
-  "category": "gyűrűsférgek"
+  "nev": "magyar nadály",
+  "ertek": "25000",
+  "ev": 2008,
+  "kategoria": "gyűrűsférgek"
 }
 
 ###
@@ -77,10 +77,10 @@ POST {{host}}/api/animals
 Content-Type: application/json
 
 {
-  "name": "orvosi pióca",
-  "value": "25000",
-  "year": 2008,
-  "category": "gyűrűsférgek"
+  "nev": "orvosi pióca",
+  "ertek": "25000",
+  "ev": 2008,
+  "kategoria": "gyűrűsférgek"
 }
 
 ###

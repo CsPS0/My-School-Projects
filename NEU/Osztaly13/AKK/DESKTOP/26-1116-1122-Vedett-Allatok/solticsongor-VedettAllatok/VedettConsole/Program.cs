@@ -1,83 +1,54 @@
 using System.Text;
-using VedettLibrary;
+using VedettConsole;
+using VedettLib;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
 
-AnimalApiHandler api = new AnimalApiHandler("http://localhost:5052/");
+RestApiHandler restApiHandler = new();
 
-List<Animal> animals = await api.GetAnimals();
+var maxS = restApiHandler
+    .GetAll()
+    .Where(x => int.TryParse(x.Ertek, out _))
+    .GroupBy(x => int.Parse(x.Ertek))
+    .OrderByDescending(x => x.Key)
+    .First();
+Console.WriteLine("Legnagyobb ertek: " + maxS.Key + " Ft");
+Console.WriteLine("A hozza tartozo allatok: " + string.Join(", ", maxS.Select(x => x.Nev)));
 
-Console.WriteLine("a) feladat");
-int max = 0;
-foreach (Animal a in animals)
+Console.Write("Melyik allat adataira kivancsi? ");
+if (int.TryParse(Console.ReadLine(), out int id))
 {
-    int value = int.Parse(a.Value);
-    if (value > max)
+    VedettAllat? allat = restApiHandler.GetById(id);
+    if (allat != null)
     {
-        max = value;
+        Console.WriteLine(allat);
     }
-}
-Console.WriteLine("A legnagyobb eszmei érték: " + max + " Ft");
-foreach (Animal a in animals)
-{
-    if (int.Parse(a.Value) == max)
+    else
     {
-        Console.WriteLine("\t" + a.Name + " (" + a.Category + ")");
-    }
-}
-
-Console.WriteLine();
-Console.WriteLine("b) feladat");
-Console.Write("Adj meg egy ID-t: ");
-int id = int.Parse(Console.ReadLine()!);
-Animal? animal = await api.GetAnimalById(id);
-if (animal == null)
-{
-    Console.WriteLine("Nincs ilyen ID-jű állat.");
-}
-else
-{
-    Console.WriteLine("ID: " + animal.Id);
-    Console.WriteLine("Név: " + animal.Name);
-    Console.WriteLine("Érték: " + animal.Value + " Ft");
-    Console.WriteLine("Év: " + animal.Year);
-    Console.WriteLine("Kategória: " + animal.Category);
-}
-
-Console.WriteLine();
-Console.WriteLine("c) feladat");
-Console.Write("Adj meg egy évet: ");
-int year = int.Parse(Console.ReadLine()!);
-List<Animal> byYear = await api.GetAnimalsByYear(year);
-if (byYear.Count == 0)
-{
-    Console.WriteLine("Abban az évben nem nyilvánítottak védetté állatot.");
-}
-else
-{
-    foreach (Animal a in byYear)
-    {
-        Console.WriteLine("\t" + a.Name);
+        Console.WriteLine("Nem talaltam ezzel az ID-vel allatot.");
     }
 }
 
-Console.WriteLine();
-Console.WriteLine("d) feladat");
-List<string> categories = await api.GetCategories();
-Console.WriteLine(string.Join(", ", categories));
-
-Console.WriteLine();
-Console.WriteLine("e) feladat");
-foreach (string category in categories)
+Console.Write("Melyik ev allataira kivancsi? ");
+if (int.TryParse(Console.ReadLine(), out int year))
 {
-    int count = 0;
-    foreach (Animal a in animals)
+    var allatok = restApiHandler.GetByYear(year).ToList();
+    if (allatok.Count > 0)
     {
-        if (a.Category == category)
-        {
-            count++;
-        }
+        Console.WriteLine("Az allatok: " + string.Join(", ", allatok.Select(x => x.Nev)));
     }
-    Console.WriteLine("\t" + category + ": " + count + " db");
+    else
+    {
+        Console.WriteLine("Nem talaltam allatot ebben az evben.");
+    }
 }
+
+var categories = restApiHandler.GetCategories().ToArray();
+Console.WriteLine("A kategoriak: " + string.Join(", ", categories));
+foreach (var category in categories)
+{
+    Console.WriteLine($"Allatok szama a {category} kategoriaban: {restApiHandler.GetByCategory(category).Count()}");
+}
+
+Console.ReadLine();

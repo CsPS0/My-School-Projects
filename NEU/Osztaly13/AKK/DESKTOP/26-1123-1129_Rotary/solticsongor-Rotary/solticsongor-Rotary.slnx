@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="solticsongor-Rotary/solticsongor-Rotary.csproj" />
+  <Project Path="Rotary_Minimal/Rotary_Minimal.csproj" />
+  <Project Path="RotaryConsole/RotaryConsole.csproj" />
+  <Project Path="RotaryGUI/RotaryGUI.csproj" />
+  <Project Path="RotaryLib/RotaryLib.csproj" />
+</Solution>

@@ -1,87 +1,59 @@
 using Microsoft.AspNetCore.Mvc;
-using solticsongor_VedettAllatok.Models;
+using VedettLib;
 
 namespace solticsongor_VedettAllatok.Controllers;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("api")]
 public class AnimalsController : ControllerBase
 {
-    [HttpGet("animals")]
-    public IActionResult GetAll()
+    readonly IVedettAllatStore _store;
+
+    public AnimalsController(IVedettAllatStore store)
     {
-        return Ok(AnimalData.Animals);
+        _store = store;
     }
 
-    [HttpGet("animalsById/{id}")]
-    public IActionResult GetById(int id)
+    [HttpGet]
+    public IEnumerable<VedettAllat> Get()
     {
-        Animal? animal = AnimalData.Animals.FirstOrDefault(a => a.Id == id);
-        if (animal == null)
+        return _store.GetAll();
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<VedettAllat> Get(int id)
+    {
+        VedettAllat? allat = _store.GetById(id);
+        if (allat == null)
         {
             return NotFound();
         }
-        return Ok(animal);
+        return allat;
     }
 
-    [HttpGet("animalsByYear/{year}")]
-    public IActionResult GetByYear(int year)
+    [HttpPost]
+    public int Post([FromBody] VedettAllat value)
     {
-        List<Animal> result = AnimalData.Animals.Where(a => a.Year == year).ToList();
-        return Ok(result);
+        return _store.AddNew(value);
     }
 
-    [HttpGet("categories")]
-    public IActionResult GetCategories()
+    [HttpPut("{id}")]
+    public IActionResult Put(int id, [FromBody] VedettAllat value)
     {
-        List<string> result = AnimalData.Animals.Select(a => a.Category).Distinct().OrderBy(c => c).ToList();
-        return Ok(result);
-    }
-
-    [HttpGet("animalsByCategory/{category}")]
-    public IActionResult GetByCategory(string category)
-    {
-        List<Animal> result = AnimalData.Animals.Where(a => a.Category == category).ToList();
-        return Ok(result);
-    }
-
-    [HttpPost("animals")]
-    public IActionResult Create(Animal animal)
-    {
-        int newId = 1;
-        if (AnimalData.Animals.Count > 0)
-        {
-            newId = AnimalData.Animals.Max(a => a.Id) + 1;
-        }
-        animal.Id = newId;
-        AnimalData.Animals.Add(animal);
-        return Ok(animal);
-    }
-
-    [HttpPut("animals/{id}")]
-    public IActionResult Update(int id, Animal newData)
-    {
-        Animal? animal = AnimalData.Animals.FirstOrDefault(a => a.Id == id);
-        if (animal == null)
+        if (!_store.Update(id, value))
         {
             return NotFound();
         }
-        animal.Name = newData.Name;
-        animal.Value = newData.Value;
-        animal.Year = newData.Year;
-        animal.Category = newData.Category;
-        return Ok(animal);
+        return Ok();
     }
 
-    [HttpDelete("animals/{id}")]
+    [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        Animal? animal = AnimalData.Animals.FirstOrDefault(a => a.Id == id);
-        if (animal == null)
+        if (!_store.Delete(id))
         {
             return NotFound();
         }
-        AnimalData.Animals.Remove(animal);
         return Ok();
     }
 }

@@ -1,0 +1,27 @@
+@host = http://localhost:5250
+
+GET {{host}}/api/results
+Accept: application/json
+
+###
+
+GET {{host}}/api/results/1025
+Accept: application/json
+
+###
+
+POST {{host}}/api/results
+Content-Type: application/json
+
+{
+  "poz": 91,
+  "rajtsz": "1061",
+  "szul": 1970,
+  "telepules": "Debrecen-Józsa",
+  "orszagkod": "HU",
+  "kategoria": 4,
+  "kpoz": 22,
+  "nem": "Férfi",
+  "npoz": 79,
+  "ido": "5:00:58"
+}

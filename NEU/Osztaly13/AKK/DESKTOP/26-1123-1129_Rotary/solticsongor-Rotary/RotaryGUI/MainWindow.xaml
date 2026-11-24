@@ -1,0 +1,54 @@
+<Window x:Class="RotaryGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RotaryGUI"
+        Title="Rotary - új versenyző - Solti Csongor Péter" Height="430" Width="420"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Pozíció:" />
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,3" Text="{Binding Poz}" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Rajtszám:" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,3" Text="{Binding Rajtsz}" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Születési év:" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="0,3" Text="{Binding Szul}" />
+        <Label Grid.Row="3" Grid.Column="0" Content="Település:" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="0,3" Text="{Binding Telepules}" />
+        <Label Grid.Row="4" Grid.Column="0" Content="Országkód:" />
+        <ComboBox Grid.Row="4" Grid.Column="1" Margin="0,3" ItemsSource="{Binding Orszagkodok}" SelectedItem="{Binding ValasztottOrszagkod}" />
+        <Label Grid.Row="5" Grid.Column="0" Content="Kategória:" />
+        <ComboBox Grid.Row="5" Grid.Column="1" Margin="0,3" ItemsSource="{Binding Kategoriak}" SelectedItem="{Binding ValasztottKategoria}" />
+        <Label Grid.Row="6" Grid.Column="0" Content="Kategória helyezés:" />
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="0,3" Text="{Binding Kpoz}" />
+        <Label Grid.Row="7" Grid.Column="0" Content="Nem:" />
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="0,6">
+            <RadioButton GroupName="Nem" Content="Férfi" IsChecked="{Binding Ferfi}" Margin="0,0,15,0" />
+            <RadioButton GroupName="Nem" Content="Nő" IsChecked="{Binding No}" />
+        </StackPanel>
+        <Label Grid.Row="8" Grid.Column="0" Content="Nemenkénti helyezés:" />
+        <TextBox Grid.Row="8" Grid.Column="1" Margin="0,3" Text="{Binding Npoz}" />
+        <Label Grid.Row="9" Grid.Column="0" Content="Idő (ó:pp:mm):" />
+        <TextBox Grid.Row="9" Grid.Column="1" Margin="0,3" Text="{Binding Ido}" />
+        <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Padding="8,4" Content="Felvitel" Command="{Binding Felvesz}" />
+    </Grid>
+</Window>
