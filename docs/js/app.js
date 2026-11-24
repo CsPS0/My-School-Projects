@@ -169,7 +169,6 @@ function parseItem(item) {
   const path = isArr ? item[0] : (item && item.path ? item.path : '');
   const isDir = isArr ? Boolean(item[1]) : Boolean(item && item.isDir);
   const size = isArr ? (item[2] || 0) : (item && item.size ? item.size : 0);
-  const mtime = isArr ? (item[3] || 0) : (item && item.mtime ? item.mtime : 0);
 
   const parts = path.split('/');
   const name = parts[parts.length - 1];
@@ -226,7 +225,6 @@ function parseItem(item) {
     name,
     isDir,
     size: size || 0,
-    mtime,
     grade,
     subject,
     date,
@@ -237,17 +235,6 @@ function parseItem(item) {
     nameHay: fold(name.replace(/[_\-\/.]/g, ' '))
   };
 }
-
-const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
-function timeAgo(sec) {
-  const diff = sec - Date.now() / 1000;
-  const units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
-  for (const [unit, len] of units) {
-    if (Math.abs(diff) >= len) return RTF.format(Math.round(diff / len), unit);
-  }
-  return 'just now';
-}
-const fullDate = sec => new Date(sec * 1000).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' });
 
 const urlOf = path => `https://github.com/${REPO}/${path.includes('.') ? 'blob' : 'tree'}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
 const rawUrlOf = path => `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path.split('/').map(encodeURIComponent).join('/')}`;
@@ -287,7 +274,6 @@ function fileFolderLabel(path) {
 }
 
 const SORTS = {
-  updated: (a, b) => (b.project - a.project) || (b.mtime - a.mtime) || a.path.localeCompare(b.path),
   new: (a, b) => (b.project - a.project) || b.sort.localeCompare(a.sort) || a.path.localeCompare(b.path),
   old: (a, b) => (b.project - a.project) || (!a.sort - !b.sort) || a.sort.localeCompare(b.sort) || a.path.localeCompare(b.path),
   name: (a, b) => (b.project - a.project) || a.name.localeCompare(b.name, 'hu'),
@@ -371,7 +357,6 @@ function render(reset = true) {
             ${it.subject ? `<span class="tag ${subjectTagClass} font-semibold">${esc(it.subject)}</span>` : ''}
             ${it.date ? `<span class="tag bg-stone-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">${esc(it.date)}</span>` : ''}
             ${projectStatsBadge}
-            ${it.mtime ? `<span class="tag bg-stone-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400" title="Last updated: ${esc(fullDate(it.mtime))}">updated ${esc(timeAgo(it.mtime))}</span>` : ''}
           </div>
         </div>
 
@@ -1288,7 +1273,6 @@ function buildHierarchy(files, rootPath) {
           name: seg,
           isDir: false,
           file: f,
-          mtime: f.mtime || 0,
           fullPath: f.path,
           relPath: rel
         };
@@ -1299,14 +1283,11 @@ function buildHierarchy(files, rootPath) {
             name: seg,
             isDir: true,
             children: {},
-            mtime: 0,
             relPath: folderRel,
             fullPath: rootPath + '/' + folderRel
           };
         }
         curr = curr.children[seg];
-        // A folder's last update is the newest file inside it.
-        if ((f.mtime || 0) > curr.mtime) curr.mtime = f.mtime;
       }
     }
   }
@@ -1318,7 +1299,7 @@ function renderTreeHtml(node, depth = 0) {
     const aNode = node.children[a];
     const bNode = node.children[b];
     if (aNode.isDir !== bNode.isDir) return bNode.isDir - aNode.isDir;
-    return (bNode.mtime - aNode.mtime) || a.localeCompare(b, 'hu');
+    return a.localeCompare(b, 'hu');
   });
 
   return childKeys.map(key => {
@@ -1350,7 +1331,7 @@ function renderTreeHtml(node, depth = 0) {
           <span class="w-3.5 shrink-0"></span>
           <span class="shrink-0 flex items-center">${icon}</span>
           <span class="truncate flex-1 font-mono text-[12px]">${esc(child.name)}</span>
-          <span class="text-[10px] text-zinc-400 font-mono shrink-0 pl-1"${child.mtime ? ` title="Updated ${esc(fullDate(child.mtime))}"` : ''}>${formatBytes(child.file.size)}</span>
+          <span class="text-[10px] text-zinc-400 font-mono shrink-0 pl-1">${formatBytes(child.file.size)}</span>
         </div>`;
     }
   }).join('');
@@ -1570,7 +1551,7 @@ $('clear').onclick = () => {
   $('q').value = '';
   $('grade').value = '';
   $('subject').value = '';
-  $('sort').value = 'updated';
+  $('sort').value = 'new';
   document.querySelectorAll('.pill[data-pill-type="subject"]').forEach(p => {
     p.classList.toggle('active', p.dataset.pillValue === '');
   });

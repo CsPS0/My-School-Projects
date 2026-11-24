@@ -47,58 +47,6 @@ function updateIndexCacheVersion(targetVersion) {
   return null;
 }
 
-// Last change time (unix seconds) per file: the newest commit that changed its content.
-// Pure renames/moves (100% similarity) are not counted as a change: the date is taken
-// from the last real edit under the old path. Files with uncommitted changes (or
-// untracked ones) use their filesystem mtime instead.
-function getLastChangedMap() {
-  const map = new Map();
-  try {
-    const log = execSync('git -c core.quotepath=false log -M --format=@@%ct --name-status', {
-      cwd: repoRoot,
-      encoding: 'utf8',
-      maxBuffer: 256 * 1024 * 1024
-    });
-    const alias = new Map(); // older path -> current path, from pure renames
-    const resolve = p => alias.get(p) || p;
-    const mark = (p, ts) => { const cur = resolve(p); if (!map.has(cur)) map.set(cur, ts); };
-    let ts = 0;
-    for (const line of log.split('\n')) {
-      if (line.startsWith('@@')) { ts = Number(line.slice(2)) || 0; continue; }
-      if (!line) continue;
-      const [status, a, b] = line.split('\t');
-      if (status === 'R100') {
-        // History is walked newest first, so older commits on `a` belong to the renamed file.
-        if (!alias.has(a)) alias.set(a, resolve(b));
-      } else if (status[0] === 'R' || status[0] === 'C') {
-        mark(b, ts);
-      } else if (status !== 'D') {
-        mark(a, ts);
-      }
-    }
-  } catch (e) {}
-
-  try {
-    const status = execSync('git -c core.quotepath=false status --porcelain -z --untracked-files=all', {
-      cwd: repoRoot,
-      encoding: 'utf8',
-      maxBuffer: 64 * 1024 * 1024
-    });
-    const parts = status.split('\0');
-    for (let i = 0; i < parts.length; i++) {
-      const rec = parts[i];
-      if (rec.length < 4) continue;
-      const code = rec.slice(0, 2);
-      const file = rec.slice(3);
-      if (code[0] === 'R' || code[0] === 'C') i++; // skip the original path of a rename/copy
-      if (code.includes('D')) continue;
-      map.set(file, null);
-    }
-  } catch (e) {}
-
-  return map;
-}
-
 function scanRepoEntries() {
   console.log(`[tree-gen] Scanning: ${repoRoot}`);
   const startTime = Date.now();
@@ -110,9 +58,8 @@ function scanRepoEntries() {
   });
 
   const files = raw.split('\0').filter(Boolean);
-  const lastChanged = getLastChangedMap();
   const entries = [];
-  const dirMtime = new Map();
+  const dirs = new Set();
   let fileCount = 0;
 
   for (const filePath of files) {
@@ -126,38 +73,34 @@ function scanRepoEntries() {
 
     const fullPath = path.join(repoRoot, filePath);
     let size = 0;
-    let mtime = 0;
     try {
       const stat = fs.statSync(fullPath);
       if (stat.isDirectory()) {
-        if (!dirMtime.has(filePath)) dirMtime.set(filePath, 0);
+        dirs.add(filePath);
         continue;
       }
       size = stat.size;
-      const committed = lastChanged.get(filePath);
-      mtime = typeof committed === 'number' ? committed : Math.floor(stat.mtimeMs / 1000);
     } catch (e) {
       continue;
     }
 
-    entries.push([filePath, false, size, mtime]);
+    entries.push([filePath, false, size]);
     fileCount++;
 
-    // A directory's last change is the newest change of any file inside it.
+    // Every parent folder of a file is a directory entry.
     const segments = filePath.split('/');
     for (let i = 1; i < segments.length; i++) {
-      const dir = segments.slice(0, i).join('/');
-      if (!(dirMtime.get(dir) >= mtime)) dirMtime.set(dir, mtime);
+      dirs.add(segments.slice(0, i).join('/'));
     }
   }
 
-  for (const [dir, mtime] of dirMtime) {
-    entries.push([dir, true, 0, mtime]);
+  for (const dir of dirs) {
+    entries.push([dir, true, 0]);
   }
 
   entries.sort((a, b) => a[0].localeCompare(b[0]));
   const elapsed = Date.now() - startTime;
-  console.log(`[tree-gen] ${fileCount} files, ${dirMtime.size} dirs (${entries.length} items, ${elapsed}ms)`);
+  console.log(`[tree-gen] ${fileCount} files, ${dirs.size} dirs (${entries.length} items, ${elapsed}ms)`);
   return entries;
 }
 
@@ -197,9 +140,9 @@ function syncFromJson() {
   for (const item of parsed) {
     if (!item) continue;
     if (Array.isArray(item)) {
-      normalized.push([String(item[0] || ''), Boolean(item[1]), Number(item[2] || 0), Number(item[3] || 0)]);
+      normalized.push([String(item[0] || ''), Boolean(item[1]), Number(item[2] || 0)]);
     } else if (typeof item === 'object') {
-      normalized.push([String(item.path || ''), Boolean(item.isDir), Number(item.size || 0), Number(item.mtime || 0)]);
+      normalized.push([String(item.path || ''), Boolean(item.isDir), Number(item.size || 0)]);
     }
   }
 

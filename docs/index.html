@@ -29,7 +29,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/docx-preview@0.1.20/dist/docx-preview.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<script defer src="js/tree-data.js?v=20261124_1431"></script>
+<script defer src="js/tree-data.js?v=20261124_1437"></script>
 <link rel="stylesheet" href="css/style.css?v=20261120_2">
 <script>
   const isDark = localStorage.theme ? localStorage.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
@@ -143,8 +143,7 @@
       <div class="flex items-center gap-2">
         <span class="text-zinc-400 text-xs">Sort:</span>
         <select id="sort" class="ctl text-xs py-1 px-2" aria-label="Sort">
-          <option value="updated" selected>Last updated</option>
-          <option value="new">Newest first</option>
+          <option value="new" selected>Newest first</option>
           <option value="old">Oldest first</option>
           <option value="name">Name A–Z</option>
         </select>
