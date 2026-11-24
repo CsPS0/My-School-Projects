@@ -3,8 +3,18 @@ node_modules/
 dist/
 out/
 [Bb]in/
+!**/jsonserver/bin/
 [Oo]bj/
 vendor/
+[Pp]ackages/
+.next/
+
+*.zip
+*.rar
+*.7z
+
+**/bootstrap/cache/*.php
+**/storage/framework/views/*.php
 
 *.log
 *.tmp

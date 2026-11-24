@@ -1,0 +1,2 @@
+NEU/Osztaly13/AKK/DESKTOP/26-1005-1011_UtazasiCsomagok/solticsongor-UtazasiCsomagok/solticsongor-UtazasiCsomagok.slnx
+NEU/Osztaly13/AKK/TESTING/26-0914-0920_TicTacToe/solticsongor-TicTacToe/solticsongor-TicTacToe.slnx

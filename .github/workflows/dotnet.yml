@@ -1,0 +1,36 @@
+name: dotnet
+
+on:
+  push:
+    paths:
+      - "**/*.cs"
+      - "**/*.csproj"
+      - "**/*.sln"
+      - "**/*.slnx"
+      - "**/*.xaml"
+      - "**/global.json"
+      - ".github/workflows/dotnet.yml"
+      - ".github/scripts/build-dotnet.ps1"
+      - ".github/ci-skip.txt"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Build and test the C# solutions
+        shell: pwsh
+        run: ./.github/scripts/build-dotnet.ps1

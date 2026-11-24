@@ -1,0 +1,36 @@
+name: repo-checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  no-junk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: No zips, dependencies or build output
+        run: |
+          bad=$(git ls-files \
+            | grep -iE '\.(zip|rar|7z)$|(^|/)(obj|packages|\.vs|\.idea|node_modules|vendor|\.next)/|(^|/)bin/|(^|/)bootstrap/cache/[^/]+\.php$|(^|/)storage/framework/views/[^/]+\.php$' \
+            | grep -v '/jsonserver/bin/' || true)
+          if [ -n "$bad" ]; then
+            echo "These files should not be committed:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "OK"
+
+      - name: No .env files
+        run: |
+          bad=$(git ls-files | grep -E '(^|/)\.env$' || true)
+          if [ -n "$bad" ]; then
+            echo "These .env files should not be committed:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "OK"
