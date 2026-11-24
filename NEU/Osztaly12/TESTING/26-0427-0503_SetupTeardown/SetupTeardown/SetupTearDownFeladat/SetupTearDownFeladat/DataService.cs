@@ -3,7 +3,7 @@ namespace SetupTearDownFeladat
     public class DatabaseService
     {
         private string _dbPath;
-        private FileStream _fileLock; // Szimulálja a nyitott adatbázis-kapcsolatot
+        private FileStream _fileLock = null!; // Szimulálja a nyitott adatbázis-kapcsolatot
         public bool IsConnected { get; private set; }
 
         public DatabaseService(string dbPath)
@@ -26,7 +26,7 @@ namespace SetupTearDownFeladat
             if (!IsConnected) return;
 
             _fileLock?.Dispose();
-            _fileLock = null;
+            _fileLock = null!;
             IsConnected = false;
             Console.WriteLine("--- Adatbázis kapcsolat lezárva. ---");
         }

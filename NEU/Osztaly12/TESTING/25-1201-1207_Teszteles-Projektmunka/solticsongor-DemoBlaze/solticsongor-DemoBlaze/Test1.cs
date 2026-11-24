@@ -10,8 +10,8 @@ namespace solticsongor_DemoBlaze;
 [TestClass]
 public sealed class Test1
 {
-    private IWebDriver _driver;
-    private WebDriverWait _wait;
+    private IWebDriver _driver = null!;
+    private WebDriverWait _wait = null!;
     private const string BaseUrl = "https://www.demoblaze.com/";
     private const string BravePath = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe";
 
@@ -87,7 +87,7 @@ public sealed class Test1
         var alert = _wait.Until(ExpectedConditions.AlertIsPresent());
 
         // 5. Az értesítés szövegének ellenőrzése
-        string alertText = alert.Text;
+        string alertText = alert.Text ?? "";
         Assert.IsTrue(alertText.Contains("Product added"), $"Alert text was '{alertText}' but expected it to contain 'Product added'.");
 
         // 6. Az értesítés elfogadása

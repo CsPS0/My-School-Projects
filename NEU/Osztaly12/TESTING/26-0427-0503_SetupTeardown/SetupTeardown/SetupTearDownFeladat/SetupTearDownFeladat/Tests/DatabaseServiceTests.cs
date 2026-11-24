@@ -5,7 +5,7 @@ namespace SetupTearDownFeladat.Tests
     [TestFixture]
     public class DatabaseServiceTests
     {
-        protected DatabaseService _service;
+        protected DatabaseService _service = null!;
         protected const string TestDbPath = "test_library.db";
 
         // TODO: Írd meg a SetUp-ot, amely példányosítja a DatabaseService-t a TestDbPath paraméterrel!

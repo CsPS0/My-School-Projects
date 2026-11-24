@@ -66,7 +66,7 @@ public class Tests
             var expectedDomains = new List<string> { "bsky.app", "tiktok.com", /* "discord.com" */ "instagram.com", "yoursit.ee" };
             
             var socialLinkUrls = links
-                .Select(l => l.GetAttribute("href"))
+                .Select(l => l.GetAttribute("href") ?? "")
                 .Where(href => !string.IsNullOrEmpty(href) && expectedDomains.Any(domain => href.Contains(domain)))
                 .ToList();
 

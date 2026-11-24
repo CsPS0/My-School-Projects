@@ -11,9 +11,9 @@ namespace solticsongor_SajatSite;
 [TestClass]
 public sealed class Test1
 {
-    private IWebDriver _driver;
-    private WebDriverWait _wait;
-    private string _baseUrl;
+    private IWebDriver _driver = null!;
+    private WebDriverWait _wait = null!;
+    private string _baseUrl = "";
     private const string BravePath = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe";
     
     [TestInitialize]
@@ -50,7 +50,7 @@ public sealed class Test1
     public void TestLanguage()
     {
         var htmlElement = _driver.FindElement(By.TagName("html"));
-        string lang = htmlElement.GetAttribute("lang");
+        string lang = htmlElement.GetAttribute("lang") ?? "";
         Assert.AreEqual("hu", lang, "The HTML language attribute is not 'hu'.");
     }
 

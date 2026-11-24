@@ -33,7 +33,7 @@ namespace teremLib
         {
             foreach (var foglalasKerem in foglalasiKerelmek)
             {
-                if (termek.TryGetValue(foglalasKerem.HelyszinAzonosito, out Terem terem))
+                if (termek.TryGetValue(foglalasKerem.HelyszinAzonosito, out Terem? terem))
                 {
                     try
                     {

@@ -45,7 +45,7 @@ namespace sudokuCLI
             do
             {
                 Console.Write("4. feladat: Kérem a feladvány méretét [4..9]: ");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine() ?? "";
                 if (int.TryParse(input, out int m) && m >= 4 && m <= 9)
                 {
                     meret = m;

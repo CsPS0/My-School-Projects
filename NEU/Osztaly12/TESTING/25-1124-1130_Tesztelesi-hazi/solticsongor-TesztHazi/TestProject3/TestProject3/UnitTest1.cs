@@ -6,7 +6,7 @@ namespace TestProject3;
 [TestClass]
 public class UnitTest1
 {
-    WebDriver _driver;
+    WebDriver _driver = null!;
     [TestInitialize]
     public void Setup()
     {

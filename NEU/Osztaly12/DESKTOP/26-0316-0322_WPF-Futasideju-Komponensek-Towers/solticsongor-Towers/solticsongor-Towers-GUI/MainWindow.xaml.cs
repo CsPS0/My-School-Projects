@@ -7,11 +7,11 @@ namespace solticsongor_Towers_GUI;
 public partial class MainWindow : Window
 {
     private int N;
-    private TextBox[,] boardCells;
-    private TextBox[] topVisible;
-    private TextBox[] bottomVisible;
-    private TextBox[] leftVisible;
-    private TextBox[] rightVisible;
+    private TextBox[,] boardCells = new TextBox[0, 0];
+    private TextBox[] topVisible = new TextBox[0];
+    private TextBox[] bottomVisible = new TextBox[0];
+    private TextBox[] leftVisible = new TextBox[0];
+    private TextBox[] rightVisible = new TextBox[0];
 
     public MainWindow()
     {

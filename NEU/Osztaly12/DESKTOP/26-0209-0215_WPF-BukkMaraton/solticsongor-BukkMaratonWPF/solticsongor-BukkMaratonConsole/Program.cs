@@ -13,7 +13,7 @@ while (!string.IsNullOrEmpty(currentPath))
         filePath = checkPath;
         break;
     }
-    currentPath = Path.GetDirectoryName(currentPath);
+    currentPath = Path.GetDirectoryName(currentPath) ?? "";
 }
 
 if (string.IsNullOrEmpty(filePath))
@@ -27,7 +27,7 @@ if (string.IsNullOrEmpty(filePath))
             filePath = checkPath;
             break;
         }
-        currentPath = Path.GetDirectoryName(currentPath);
+        currentPath = Path.GetDirectoryName(currentPath) ?? "";
     }
 }
 
