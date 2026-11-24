@@ -20,11 +20,21 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - name: Allow long paths
+        run: git config --global core.longpaths true
+
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          sparse-checkout: |
+            .github
+            NEU/Osztaly12/DESKTOP
+            NEU/Osztaly12/IKT
+            NEU/Osztaly12/TESTING
+            NEU/Osztaly13/AKK/DESKTOP
+            NEU/Osztaly13/AKK/TESTING
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             8.0.x

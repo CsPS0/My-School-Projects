@@ -10,6 +10,10 @@ $failed = @()
 $ok = 0
 
 foreach ($sol in $solutions) {
+    if (-not (Test-Path $sol)) {
+        continue
+    }
+
     if ($skip -contains $sol) {
         Write-Host "SKIP  $sol"
         continue
