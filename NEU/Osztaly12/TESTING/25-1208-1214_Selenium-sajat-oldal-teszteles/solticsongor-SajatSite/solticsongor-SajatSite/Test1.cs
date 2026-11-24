@@ -59,7 +59,7 @@ public sealed class Test1
     {
         
         var metaCharset = _driver.FindElements(By.XPath("//meta[@charset='UTF-8']"));
-        Assert.IsTrue(metaCharset.Count > 0, "Meta charset UTF-8 not found.");
+        Assert.IsNotEmpty(metaCharset, "Meta charset UTF-8 not found.");
     }
 
     [TestMethod]
@@ -74,13 +74,13 @@ public sealed class Test1
     public void TestH1()
     {
         var h1Elements = _driver.FindElements(By.TagName("h1"));
-        Assert.IsTrue(h1Elements.Count > 0, "No H1 tag found on the page.");
+        Assert.IsNotEmpty(h1Elements, "No H1 tag found on the page.");
     }
 
     [TestMethod]
     public void TestH2()
     {
         var h2Elements = _driver.FindElements(By.TagName("h2"));
-        Assert.IsTrue(h2Elements.Count > 0, "No H2 tag found on the page.");
+        Assert.IsNotEmpty(h2Elements, "No H2 tag found on the page.");
     }
 }

@@ -88,7 +88,7 @@ public sealed class Test1
 
         // 5. Az értesítés szövegének ellenőrzése
         string alertText = alert.Text ?? "";
-        Assert.IsTrue(alertText.Contains("Product added"), $"Alert text was '{alertText}' but expected it to contain 'Product added'.");
+        Assert.Contains("Product added", alertText, $"Alert text was '{alertText}' but expected it to contain 'Product added'.");
 
         // 6. Az értesítés elfogadása
         alert.Accept();
