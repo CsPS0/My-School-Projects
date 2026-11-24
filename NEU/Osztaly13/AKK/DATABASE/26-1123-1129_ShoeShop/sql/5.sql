@@ -1,5 +1,5 @@
-CREATE VIEW AS
-SELECT `model`, `style`, `price` AS 'ar'
-FROM `shoe_store`
-WHERE `ar`
-ORDER BY `ar`
+SELECT `model`, `style`, MAX(`price`) AS `ar`
+FROM `shoes`
+GROUP BY `model`, `style`
+ORDER BY `ar` DESC, `model` ASC
+LIMIT 3;

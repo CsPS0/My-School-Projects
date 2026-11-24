@@ -1,5 +1,4 @@
-CREATE VIEW AS
 SELECT `model`, `color`, `size`, `price`
-FROM `shoe_shop`
+FROM `shoes`
 WHERE `price` < 100
-ORDER GROUP BY `price` ASC;
+ORDER BY `price` ASC;

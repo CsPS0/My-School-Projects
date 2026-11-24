@@ -1,0 +1,2 @@
+ALTER TABLE `clients`
+ADD `torzsvasarlo` BOOLEAN NOT NULL DEFAULT FALSE;

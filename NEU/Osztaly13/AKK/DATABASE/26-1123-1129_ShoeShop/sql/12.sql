@@ -1,5 +1,6 @@
-CREATE VIEW ASC
 SELECT `brand_name`, `model`, `color`, `size`
-FROM `shoes`
-WHERE `sale_date` NULL
-ORDER BY `brand_name`, `model` DESC;
+FROM `brands`
+INNER JOIN `shoes` ON `shoes`.`brand_id` = `brands`.`id`
+LEFT JOIN `sales` ON `sales`.`shoe_id` = `shoes`.`id`
+WHERE `sales`.`id` IS NULL
+ORDER BY `brand_name` ASC, `model` ASC;
